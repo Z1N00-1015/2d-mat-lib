@@ -105,7 +105,7 @@ function buildLayout() {
   bar.className = 'progress-bar';
   body.prepend(bar);
 
-  // sidebar: the current field's chapters, or every field on the hub
+  // Keep every field visible; expand only the current chapter's section links.
   const side = document.createElement('nav');
   side.className = 'sidebar';
   side.setAttribute('aria-label', '목차');
@@ -118,7 +118,7 @@ function buildLayout() {
   }
   if (progressMoved) store.set('done', done);
   let html = `<a class="nav-item ${current === 'home' ? 'active' : ''}" href="${root}index.html"><span class="num">⌂</span>표지 · 전체 분야</a>`;
-  const fields = field ? [field] : FIELDS;
+  const fields = FIELDS;
   for (const f of fields) {
     html += `<div class="nav-group">${f.n}. ${f.title}</div>`;
     if (f.external) {
@@ -127,10 +127,11 @@ function buildLayout() {
     }
     let lastGroup = '';
     for (const c of f.chapters) {
-      if (field && c.group !== lastGroup) { html += `<div class="nav-group" style="padding-top:8px;font-size:11px">${c.group}</div>`; lastGroup = c.group; }
+      if (c.group && c.group !== lastGroup) { html += `<div class="nav-group" style="padding-top:8px;font-size:11px">${c.group}</div>`; lastGroup = c.group; }
       const key = `${f.id}/${c.id}`;
-      html += `<a class="nav-item ${field && c.id === current ? 'active' : ''}" href="${chapterUrl(root, f, c)}"><span class="num">${c.n}</span><span>${c.title}</span>${done[key] ? '<span class="check" title="퀴즈 완료">✓</span>' : ''}</a>`;
-      if (field && c.id === current) html += '<div class="sub" id="subtoc"></div>';
+      const isCurrent = f.id === fieldId && c.id === current;
+      html += `<a class="nav-item ${isCurrent ? 'active' : ''}" href="${chapterUrl(root, f, c)}"><span class="num">${c.n}</span><span>${c.title}</span>${done[key] ? '<span class="check" title="퀴즈 완료">✓</span>' : ''}</a>`;
+      if (isCurrent) html += '<div class="sub" id="subtoc"></div>';
     }
     for (const link of f.links || []) {
       html += `<a class="nav-item" href="${link.url}" target="_blank" rel="noopener"><span class="num">↗</span><span>${link.title}</span></a>`;
