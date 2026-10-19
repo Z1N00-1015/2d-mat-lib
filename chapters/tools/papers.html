@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book.js?v=20261020a"></script>
+<script type="module" src="../../assets/js/book.js?v=20261020b"></script>
 </head>
 <body data-root="../../" data-field="tools" data-chapter="papers">
 <main class="main">
@@ -23,7 +23,7 @@
 
   <h2><span class="sec">1.1</span>데이터의 출처와 범위</h2>
   <p>연구실 논문 데이터베이스는 논문 PDF에서 실험 조건과 측정값을 추출하고, 각 값마다 원문의 쪽·그림 번호를 근거로 연결해 둔 자료입니다. 추출된 값은 모두 검토 대기 상태로 시작하며, 연구자가 원문과 대조해 승인한 값만 이 페이지에 공개됩니다.</p>
-  <div class="callout note"><span class="t">공개 범위</span><p>이 페이지에는 <b>서지정보</b>(제목·저자·저널·연도·DOI), <b>검토 완료 수치</b>(값·단위·측정 조건·근거 위치), <b>검토 완료 소자 구성요소</b>(역할·재료·두께·근거 위치)만 포함됩니다. 원문 인용, AI 요약, 검토 전 값은 포함하지 않습니다.</p></div>
+  <div class="callout note"><span class="t">공개 범위</span><p>이 페이지에는 <b>서지정보</b>(제목·저자·저널·연도·DOI), <b>검토 완료 수치</b>(값·단위·측정 조건·근거 위치), <b>검토 완료 소자 구성요소</b>(역할·재료·막 두께·채널 길이와 폭/너비·근거 위치)만 포함됩니다. 원문 인용, AI 요약, 검토 전 값은 포함하지 않습니다.</p></div>
 
   <div id="lab-papers" data-module="paperdata">
     <div class="kpis" data-o="stats"></div>
@@ -46,8 +46,9 @@
     </section>
 
     <h2><span class="sec">1.3</span>소자 구성요소로 논문 찾기</h2>
-    <p>시료별 소자 구조에서 채널·기판·전극·게이트 절연막 등의 역할과 재료를 검색합니다. 연구자가 원문과 대조해 검토 완료한 항목만 표시합니다.</p>
+    <p>시료별 소자 구조에서 채널·기판·전극·게이트 절연막 등의 역할과 재료를 검색합니다. 검색어로 논문명과 재료, 채널 길이·폭/너비, 각 층의 두께를 찾을 수 있습니다. 연구자가 원문과 대조해 검토 완료한 항목만 표시합니다.</p>
     <div class="device-search-controls">
+      <label>재료·치수 검색<input type="search" data-o="device-query" placeholder="예: HfO₂, 20 nm, 5 μm" autocomplete="off"></label>
       <label>구성요소 역할<select data-o="device-role"><option value="">모든 역할</option></select></label>
       <label>재료<select data-o="device-material"><option value="">모든 재료</option></select></label>
     </div>

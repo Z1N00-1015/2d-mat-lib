@@ -86,6 +86,7 @@ async function initData(root) {
   const papers = data.papers;
   const deviceRole = root.querySelector('[data-o="device-role"]');
   const deviceMaterial = root.querySelector('[data-o="device-material"]');
+  const deviceQuery = root.querySelector('[data-o="device-query"]');
   const deviceList = root.querySelector('[data-o="device-list"]');
   const deviceStatus = root.querySelector('[data-o="device-status"]');
   const components = papers.flatMap(p => (p.device_components || []).map(component => ({ p, component })));
@@ -106,9 +107,16 @@ async function initData(root) {
   }
   function renderDeviceComponents() {
     const selectedRole = deviceRole.value, selectedMaterial = deviceMaterial.value;
-    const shown = components.filter(({ component }) =>
+    const query = deviceQuery.value.trim().toLocaleLowerCase();
+    const shown = components.filter(({ p, component }) =>
       (!selectedRole || component.role === selectedRole)
-      && (!selectedMaterial || component.material === selectedMaterial));
+      && (!selectedMaterial || component.material === selectedMaterial)
+      && (!query || [component.role_label, component.role, component.role_name, component.material,
+        component.sample, component.notes, pTitle(component), component.thickness_value,
+        component.thickness_text, component.thickness_unit, component.length_value,
+        component.length_text, component.length_unit, component.width_value,
+        component.width_text, component.width_unit, component.evidence?.label, component.evidence?.page, p.title]
+        .some(value => String(value ?? '').toLocaleLowerCase().includes(query))));
     deviceStatus.textContent = components.length
       ? `${shown.length}개 구성요소 · 검토 완료 항목만 표시`
       : '아직 공개된 검토 완료 소자 구성요소가 없습니다. 분석실에서 논문을 다시 분석하고 구성요소를 검토·승인하면 이곳에 표시됩니다.';
@@ -118,10 +126,18 @@ async function initData(root) {
       const thickness = component.thickness_value != null
         ? `${fmtNum(component.thickness_value)}${component.thickness_unit ? ' ' + esc(component.thickness_unit) : ''}`
         : component.thickness_text ? `${esc(component.thickness_text)}${component.thickness_unit ? ' ' + esc(component.thickness_unit) : ''}` : '';
+      const length = component.length_value != null
+        ? `${fmtNum(component.length_value)}${component.length_unit ? ' ' + esc(component.length_unit) : ''}`
+        : component.length_text ? `${esc(component.length_text)}${component.length_unit ? ' ' + esc(component.length_unit) : ''}` : '';
+      const width = component.width_value != null
+        ? `${fmtNum(component.width_value)}${component.width_unit ? ' ' + esc(component.width_unit) : ''}`
+        : component.width_text ? `${esc(component.width_text)}${component.width_unit ? ' ' + esc(component.width_unit) : ''}` : '';
+      const dimensions = [length && `길이 ${length}`, width && `폭/너비 ${width}`, thickness && `두께 ${thickness}`].filter(Boolean).join(' · ');
       return `<article class="pcard device-card">
-        <div class="pmeta">${esc(component.role_label || component.role || '구성요소')}${thickness ? ` · ${thickness}` : ''}</div>
+        <div class="pmeta">${esc(component.role_label || component.role || '구성요소')}</div>
         <h4>${component.material ? formula(esc(component.material)) : '재료 미기록'}</h4>
         <div class="pauth">${esc(p.journal || '저널 정보 없음')} · ${p.year || '연도 미상'}${component.sample ? ` · 시료 ${esc(component.sample)}` : ''}</div>
+        ${dimensions ? `<div class="pnone">치수: ${dimensions}</div>` : ''}
         ${component.role_name ? `<div class="pnone">원문 역할: ${esc(component.role_name)}</div>` : ''}
         <div class="pnone">근거: ${esc(location)}</div>
         ${p.url ? `<a class="plink" href="${esc(p.url)}" target="_blank" rel="noopener">논문 보기 ↗</a>` : ''}
@@ -130,6 +146,7 @@ async function initData(root) {
   }
   deviceRole.addEventListener('change', () => { updateDeviceMaterials(); renderDeviceComponents(); });
   deviceMaterial.addEventListener('change', renderDeviceComponents);
+  deviceQuery.addEventListener('input', renderDeviceComponents);
   updateDeviceMaterials();
   renderDeviceComponents();
   const primary = p => focus[p.id] || [];
