@@ -1,5 +1,5 @@
 // Hub page: render every field (분야) and its chapter cards from the manifest in book.js
-import { FIELDS, chapterUrl } from './book.js';
+import { FIELDS, chapterUrl } from './book.js?v=20261019b';
 
 const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const levelDots = (n) => n ? '●'.repeat(n) + '○'.repeat(3 - n) : '';
