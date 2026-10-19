@@ -19,6 +19,8 @@ const MODULES = {
   exfo: './exfo.js',
   cvd: './cvd.js',
   glossary: './glossary.js',
+  refs: './papers.js',
+  paperdata: './papers.js',
 };
 
 // ---- Lazy-init interactive modules when they approach the viewport

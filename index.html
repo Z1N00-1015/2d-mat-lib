@@ -31,6 +31,7 @@
       <li><a href="#materials">물질 라인업</a></li>
       <li><a href="#devices">소자</a></li>
       <li><a href="#fab">공정</a></li>
+      <li><a href="#paperdata">논문 DB</a></li>
       <li><a href="#roadmap">로드맵</a></li>
       <li><a href="#glossary">용어</a></li>
     </ul>
@@ -143,6 +144,7 @@
         </div>
       </div>
     </div>
+    <div class="refs reveal" data-module="refs" data-topic="fet"></div>
   </div>
 </section>
 
@@ -191,6 +193,7 @@
         </div>
       </div>
     </div>
+    <div class="refs reveal" data-module="refs" data-topic="crystal"></div>
   </div>
 </section>
 
@@ -381,6 +384,7 @@
         </div>
       </div>
     </div>
+    <div class="refs reveal" data-module="refs" data-topic="mos2"></div>
   </div>
 </section>
 
@@ -490,6 +494,36 @@
           <p class="note">결정립계(grain boundary)는 캐리어를 산란시켜 이동도를 저하시킵니다. 웨이퍼 전체가 하나의 방향을 갖는 <b>단결정 2D 박막</b> 성장이 상용화의 핵심 과제입니다.</p>
         </div>
       </div>
+    </div>
+    <div class="refs reveal" data-module="refs" data-topic="cvd"></div>
+  </div>
+</section>
+
+<!-- ===================== PAPER DATABASE ===================== -->
+<section class="section alt" id="paperdata">
+  <div class="wrap wide">
+    <div class="center">
+      <p class="eyebrow reveal">연구실 논문 데이터베이스</p>
+      <h2 class="headline md reveal d1">논문 속 숫자를<br><span class="grad-text">한눈에 비교하다.</span></h2>
+      <p class="lead reveal d2">연구실 논문 DB에서 사람이 원문과 대조해 <strong>검토 완료한 수치</strong>와 서지정보만 공개합니다. 원문 인용과 AI 요약은 포함하지 않습니다.</p>
+    </div>
+    <div id="lab-papers" data-module="paperdata">
+      <div class="stats" data-o="stats"></div>
+      <div class="lab reveal">
+        <div class="lab-head">
+          <div><div class="tag">Lab Database · Verified Values</div><h3>논문별 수치 비교</h3><p>점에 마우스를 올리면 측정 조건과 근거 위치(그림·표 번호)가, 누르면 논문 페이지가 열립니다. 속이 빈 점은 “&gt; 10⁸”처럼 하한·상한으로 보고된 값입니다.</p></div>
+          <div class="seg" data-k="metric"></div>
+        </div>
+        <div class="lab-body stack">
+          <div class="stage light" style="height:240px"><canvas></canvas><div class="tip"></div></div>
+          <details class="vtable"><summary>표로 보기</summary>
+            <div class="table-wrap" style="margin-top:12px"><table class="gloss-table"><thead><tr><th>논문</th><th>값</th><th>조건·구분</th><th>시료</th><th>근거</th></tr></thead><tbody data-o="table"></tbody></table></div>
+          </details>
+          <p class="note" data-o="updated"></p><p class="note" data-o="status"></p>
+        </div>
+      </div>
+      <div class="plist-head reveal"><h3 class="headline sm">등록 논문</h3><div class="seg" data-k="mat"></div></div>
+      <div class="plist" data-o="list"></div>
     </div>
   </div>
 </section>

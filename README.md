@@ -21,6 +21,17 @@
 | — | 스카치테이프 박리 | 흑연 박리 게임, 285 nm SiO₂ 위 광학 대비 |
 | — | CVD 성장 | 핵생성·성장·결정립계, 에피택셜 정렬 |
 
+## 연구실 논문 데이터
+
+`data/papers.json`은 비공개 저장소 `lab-paper-library`의 `public_export.py`로 만든 파일입니다.
+서지정보와 연구실에서 검토 완료한 수치만 들어 있고, 원문 인용과 AI 요약은 포함하지 않습니다.
+각 실험 아래 ‘관련 논문’ 카드와 ‘논문 DB’ 섹션이 이 파일을 읽습니다.
+
+```bash
+# lab-paper-library 폴더에서
+python public_export.py --out ../2d-mat-lib/data/papers.json
+```
+
 ## 실행
 
 빌드 과정이 없는 정적 사이트입니다.
