@@ -12,6 +12,7 @@
 - `assets/css/book.css` — 디자인 시스템 (SemiBook과 같은 계열, 라이트/다크 테마)
 - `assets/js/*.js` — 실험 모듈 (three.js, Canvas)
 - `data/papers.json` — 연구실 논문 DB 공개용 데이터
+- `data/paper-focus.json` — 논문별 핵심 소재. 등록 논문이 추가되면 이 파일에 논문 ID와 핵심 소재를 함께 추가합니다. 보조 재료와 기판은 자동으로 핵심 소재에 포함하지 않습니다.
 
 ### 분야 I. 2차원 물질의 이해
 

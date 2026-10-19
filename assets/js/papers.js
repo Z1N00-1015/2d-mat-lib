@@ -7,6 +7,11 @@ const load = () => (cache ||= fetch(new URL('../../data/papers.json', import.met
   if (!r.ok) throw new Error(`papers.json ${r.status}`);
   return r.json();
 }));
+let focusCache = null;
+const loadFocus = () => (focusCache ||= fetch(new URL('../../data/paper-focus.json', import.meta.url)).then(r => {
+  if (!r.ok) throw new Error(`paper-focus.json ${r.status}`);
+  return r.json();
+}).catch(() => ({})));
 
 const DEVICE = ['contact_resistance', 'mobility', 'on_off_ratio', 'subthreshold_swing', 'on_current', 'schottky_barrier', 'transconductance'];
 const SYNTH = ['growth_temperature', 'growth_time', 'gas_flow', 'precursor', 'synthesis_method', 'pressure', 'ramp_rate', 'substrate'];
@@ -41,13 +46,14 @@ function fmtValue(v) {
 }
 const firstAuthor = (p) => p.authors.length ? `${esc(p.authors[0].split(',')[0])}${p.authors.length > 1 ? ' 외' : ''}` : '저자 정보 없음';
 
-function card(p, keys) {
+function card(p, keys, focus) {
   const vals = p.values.filter(v => keys.includes(v.metric_key) && fmtValue(v)).slice(0, 4);
+  const core = focus[p.id] || [];
   return `<article class="pcard">
     <div class="pmeta">${esc(p.journal || '저널 정보 없음')} · ${p.year || '연도 미상'}${p.research_type.length ? ` · ${esc(p.research_type.join(', '))}` : ''}</div>
     <h4>${esc(p.title)}</h4>
     <div class="pauth">${firstAuthor(p)}</div>
-    ${p.materials.length ? `<div class="pchips">${p.materials.map(m => `<span>${formula(esc(m))}</span>`).join('')}</div>` : ''}
+    ${core.length ? `<div class="pchips" aria-label="핵심 소재">${core.map(m => `<span>${formula(esc(m))}</span>`).join('')}</div>` : '<div class="pnone">핵심 소재 미분류</div>'}
     ${vals.length ? `<dl class="pvals">${vals.map(v => `<div><dt>${esc(v.metric_label)}${v.qualifier ? ` <small>${esc(v.qualifier)}</small>` : ''}</dt><dd>${fmtValue(v)}</dd></div>`).join('')}</dl>`
       : `<div class="pnone">${p.has_verified_data ? '이 주제의 검토 완료 수치 없음' : '서지정보만 공개 (수치 검토 전)'}</div>`}
     ${p.url ? `<a class="plink" href="${esc(p.url)}" target="_blank" rel="noopener">${p.doi ? 'DOI ' + esc(p.doi) : '논문 페이지'} ↗</a>` : ''}
@@ -57,11 +63,11 @@ function card(p, keys) {
 async function initRefs(root) {
   const topic = TOPICS[root.dataset.topic];
   try {
-    const data = await load();
+    const [data, focus] = await Promise.all([load(), loadFocus()]);
     const list = data.papers.filter(topic.match);
     if (!list.length) { root.remove(); return; }
     root.innerHTML = `<div class="refs-head"><span class="refs-tag">연구실 논문 DB</span><h4>관련 논문 ${list.length}편</h4><a href="papers.html">전체 데이터 보기 ›</a></div>
-      <div class="refs-row">${list.map(p => card(p, topic.keys)).join('')}</div>`;
+      <div class="refs-row">${list.map(p => card(p, topic.keys, focus)).join('')}</div>`;
   } catch (e) {
     root.remove();
     console.warn('[refs]', e);
@@ -72,17 +78,19 @@ async function initRefs(root) {
 const CHART_METRICS = ['contact_resistance', 'mobility', 'on_off_ratio', 'subthreshold_swing', 'growth_temperature'];
 
 async function initData(root) {
-  let data;
-  try { data = await load(); } catch (e) {
+  let data, focus;
+  try { [data, focus] = await Promise.all([load(), loadFocus()]); } catch (e) {
     root.querySelector('[data-o="status"]').textContent = '논문 데이터를 불러오지 못했습니다.';
     return;
   }
   const papers = data.papers;
+  const primary = p => focus[p.id] || [];
   const nVals = papers.reduce((s, p) => s + p.values.length, 0);
-  const mats = [...new Set(papers.flatMap(p => p.materials))].filter(m => !/^(Au|SiO2|NaCl)$/.test(m));
+  const mats = [...new Set(papers.flatMap(primary))].sort((a, b) => a.localeCompare(b));
+  const hasUnclassified = papers.some(p => !primary(p).length);
   const years = papers.map(p => p.year).filter(Boolean);
   root.querySelector('[data-o="stats"]').innerHTML = [
-    [papers.length, '등록 논문'], [nVals, '검토 완료 수치'], [mats.length, '2D 소재·접촉 물질'],
+    [papers.length, '등록 논문'], [nVals, '검토 완료 수치'], [mats.length, '핵심 소재'],
     [years.length ? `${Math.min(...years)}–${String(Math.max(...years)).slice(2)}` : '—', '출판 연도'],
   ].map(([v, k]) => `<div class="kpi"><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
   root.querySelector('[data-o="updated"]').textContent = `데이터 기준: ${data.generated_at.slice(0, 10)}`;
@@ -92,6 +100,7 @@ async function initData(root) {
   const segEl = root.querySelector('.seg[data-k="metric"]');
   segEl.innerHTML = avail.map((k, i) => `<button data-v="${k}"${i ? '' : ' class="on"'}>${esc(data.metrics[k].label)}</button>`).join('');
   let metric = avail[0];
+  let material = '전체';
 
   const canvas = root.querySelector('canvas');
   const tip = root.querySelector('.tip');
@@ -101,7 +110,10 @@ async function initData(root) {
   function rows() {
     const out = [];
     for (const p of papers) {
-      const vals = p.values.filter(v => v.metric_key === metric && v.norm_value != null && v.norm_value > 0);
+      const core = primary(p);
+      if (material !== '전체' && (material === '미분류' ? core.length > 0 : !core.includes(material))) continue;
+      const vals = p.values.filter(v => v.metric_key === metric && v.norm_value != null && v.norm_value > 0
+        && (material === '전체' || material === '미분류' || (v.materials || []).includes(material)));
       if (vals.length) out.push({ p, vals });
     }
     return out;
@@ -111,6 +123,12 @@ async function initData(root) {
     const { w, h } = state; if (!w || !metric) return;
     ctx.clearRect(0, 0, w, h);
     const R = rows();
+    if (!R.length) {
+      ctx.fillStyle = '#6e6e73'; ctx.font = `14px ${FONT}`; ctx.textAlign = 'center';
+      ctx.fillText('이 핵심 소재의 검토 완료 수치가 없습니다.', w / 2, h / 2);
+      points = [];
+      return;
+    }
     const all = R.flatMap(r => r.vals.map(v => v.norm_value));
     const lo = Math.min(...all), hi = Math.max(...all);
     const log = hi / lo > 30;
@@ -143,7 +161,7 @@ async function initData(root) {
       const label = shorten(ctx, `${p.journal || '—'} ${p.year || ''}`, pad.l - 18);
       ctx.fillText(label, pad.l - 16, yc - 2);
       ctx.fillStyle = '#86868b'; ctx.font = `12px ${FONT}`;
-      ctx.fillText(shorten(ctx, p.materials.filter(m => !/^(Au|SiO2|NaCl)$/.test(m)).map(formula).join(' · ') || '', pad.l - 18), pad.l - 16, yc + 14);
+      ctx.fillText(shorten(ctx, primary(p).map(formula).join(' · ') || '핵심 소재 미분류', pad.l - 18), pad.l - 16, yc + 14);
       ctx.strokeStyle = '#f2f2f5'; ctx.beginPath(); ctx.moveTo(pad.l, yc); ctx.lineTo(w - pad.r, yc); ctx.stroke();
       vals.forEach((v, j) => {
         const x = X(v.norm_value), y = yc + (vals.length > 1 ? (j - (vals.length - 1) / 2) * 6 : 0);
@@ -186,19 +204,28 @@ async function initData(root) {
   function renderTable() {
     const tb = root.querySelector('[data-o="table"]');
     const R = rows().flatMap(({ p, vals }) => vals.map(v => ({ p, v })));
-    tb.innerHTML = R.map(({ p, v }) => `<tr><td>${esc(p.journal || '—')} ${p.year || ''}</td><td>${fmtValue(v)}</td><td>${esc(v.conditions || v.qualifier || '—')}</td><td>${esc(v.sample || '—')}</td><td>${v.evidence?.label ? esc(v.evidence.label) : v.evidence?.page ? 'p.' + v.evidence.page : '—'}</td></tr>`).join('');
+    tb.innerHTML = R.map(({ p, v }) => `<tr><td>${esc(p.journal || '—')} ${p.year || ''}</td><td>${primary(p).map(m => formula(esc(m))).join(', ') || '미분류'}</td><td>${fmtValue(v)}</td><td>${esc(v.conditions || v.qualifier || '—')}</td><td>${esc(v.sample || '—')}</td><td>${v.evidence?.label ? esc(v.evidence.label) : v.evidence?.page ? 'p.' + v.evidence.page : '—'}</td></tr>`).join('');
   }
 
   // paper list with material filter
   const listEl = root.querySelector('[data-o="list"]');
   const filt = root.querySelector('.seg[data-k="mat"]');
-  filt.innerHTML = ['전체', ...mats].map((m, i) => `<button data-v="${esc(m)}"${i ? '' : ' class="on"'}>${m === '전체' ? m : formula(esc(m))}</button>`).join('');
-  const renderList = (m) => {
-    const L = m === '전체' ? papers : papers.filter(p => p.materials.includes(m));
-    listEl.innerHTML = L.map(p => card(p, [...DEVICE, ...SYNTH, 'raman_shift'])).join('');
+  const choices = ['전체', ...mats, ...(hasUnclassified ? ['미분류'] : [])];
+  filt.innerHTML = choices.map((m, i) => `<button data-v="${esc(m)}"${i ? '' : ' class="on"'}>${m === '전체' || m === '미분류' ? m : formula(esc(m))}</button>`).join('');
+  const renderList = () => {
+    const shown = papers.filter(p => material === '전체' || (material === '미분류' ? !primary(p).length : primary(p).includes(material)));
+    listEl.innerHTML = shown.map(p => card(p, [...DEVICE, ...SYNTH, 'raman_shift'], focus)).join('');
   };
-  seg(root, 'mat', renderList);
-  renderList('전체');
+  seg(root, 'mat', value => {
+    material = value;
+    hover = null;
+    tip.classList.remove('on');
+    renderList();
+    fitHeight();
+    draw();
+    renderTable();
+  });
+  renderList();
   renderTable();
   fitHeight();
   draw();

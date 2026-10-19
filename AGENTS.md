@@ -11,7 +11,7 @@
 - `chapters/<분야 id>/<장 id>.html`: 장 페이지. `<body data-root="../../" data-field="…" data-chapter="…">`.
 - `assets/css/book.css`: 디자인 시스템(SemiBook 계열). 색은 CSS 변수만 쓰고 라이트/다크를 모두 확인한다.
 - `assets/js/<실험>.js`: 실험 모듈. `export function init(root)` 하나를 내보내고, 페이지의 `data-module="이름"` 요소가 화면 근처에 오면 실행된다.
-- `data/papers.json`: 연구실 논문 DB(비공개 저장소 `lab-paper-library`의 `public_export.py`)가 만든 공개용 데이터. 직접 고치지 말고 다시 내보낸다.
+- `data/papers.json`: 연구실 논문 DB(비공개 저장소 `lab-paper-library`의 `public_export.py`)가 만든 공개용 데이터. 직접 고치지 말고 다시 내보낸다. `data/paper-focus.json`은 논문별 핵심 소재를 정리하는 사이트 전용 수동 관리 파일이다.
 
 ## 작성 규칙
 - 용어는 고체물리·반도체공학 분야의 표준 표기를 쓰고, 처음 나올 때 영문을 괄호로 병기한다. 새 용어는 `assets/js/glossary.js`에도 추가한다.
