@@ -3,34 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>연구실 논문 데이터 · 차세대 반도체 물질 · Beyond Silicon</title>
+<title>연구실 논문 데이터 · 반도체 물리와 소자 응용 · Beyond Silicon</title>
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
 <script type="module" src="../../assets/js/book.js"></script>
 </head>
-<body data-root="../../" data-field="nextgen" data-chapter="papers">
+<body data-root="../../" data-field="semiconductor" data-chapter="papers">
 <main class="main">
 <article class="article">
   <header class="chapter-head">
-    <div class="eyebrow">CHAPTER 08</div>
+    <div class="eyebrow">CHAPTER III · RESEARCH DATA</div>
     <h1>연구실 논문 데이터</h1>
     <p class="lede">교과서의 대표값과 최신 연구의 수치는 얼마나 다를까요? 이 장은 연구실 논문 데이터베이스에서 사람이 원문과 대조해 검토를 마친 수치만 모아 논문별로 비교합니다. 데이터는 새 논문이 검토될 때마다 갱신됩니다.</p>
     <div class="meta"></div>
   </header>
 
-  <h2><span class="sec">8.1</span>데이터의 출처와 범위</h2>
+  <h2><span class="sec">4.1</span>데이터의 출처와 범위</h2>
   <p>연구실 논문 데이터베이스는 논문 PDF에서 실험 조건과 측정값을 추출하고, 각 값마다 원문의 쪽·그림 번호를 근거로 연결해 둔 자료입니다. 추출된 값은 모두 검토 대기 상태로 시작하며, 연구자가 원문과 대조해 승인한 값만 이 페이지에 공개됩니다.</p>
   <div class="callout note"><span class="t">공개 범위</span><p>이 페이지에는 <b>서지정보</b>(제목·저자·저널·연도·DOI)와 <b>검토 완료 수치</b>(값·단위·측정 조건·근거 위치)만 포함됩니다. 원문 인용, AI가 작성한 요약, 검토 전 값은 포함하지 않습니다.</p></div>
 
   <div id="lab-papers" data-module="paperdata">
     <div class="kpis" data-o="stats"></div>
 
-    <h2><span class="sec">8.2</span>논문별 수치 비교</h2>
+    <h2><span class="sec">4.2</span>논문별 수치 비교</h2>
     <p>같은 지표라도 측정 조건(채널 길이, 캐리어 농도, 측정 온도 등)에 따라 값이 크게 달라집니다. 점에 마우스를 올려 측정 조건과 근거 위치를 함께 확인하세요.</p>
     <section class="lab">
-      <div class="lab-head"><span class="badge">LAB 8-1</span><h4>논문별 수치 비교</h4><span class="sub">점을 누르면 논문 페이지가 열립니다</span></div>
+      <div class="lab-head"><span class="badge">LAB 4-1</span><h4>논문별 수치 비교</h4><span class="sub">점을 누르면 논문 페이지가 열립니다</span></div>
       <div class="lab-body">
         <div class="lab-tools"><div class="seg" data-k="metric"></div></div>
         <div class="stage light" style="height:240px"><canvas></canvas><div class="tip"></div></div>
@@ -42,13 +42,13 @@
       </div>
     </section>
 
-    <h2><span class="sec">8.3</span>등록 논문</h2>
+    <h2><span class="sec">4.3</span>등록 논문</h2>
     <p>소재를 골라 논문을 거를 수 있습니다. 각 카드에는 그 논문의 대표적인 검토 완료 수치가 표시됩니다.</p>
     <div class="lab-tools"><div class="seg" data-k="mat"></div></div>
     <div class="plist" data-o="list"></div>
   </div>
 
-  <h2><span class="sec">8.4</span>데이터를 읽을 때 주의할 점</h2>
+  <h2><span class="sec">4.4</span>데이터를 읽을 때 주의할 점</h2>
   <ul>
     <li><b>측정 조건을 함께 보세요.</b> 이동도는 전계 효과 이동도인지 홀 이동도인지, 접촉 저항은 어떤 캐리어 농도에서 측정했는지에 따라 직접 비교할 수 없습니다.</li>
     <li><b>최고값과 평균값을 구분하세요.</b> 논문은 흔히 최고 성능 소자의 값을 강조합니다. 웨이퍼 전체의 평균·분포가 함께 보고되었는지 확인하세요.</li>

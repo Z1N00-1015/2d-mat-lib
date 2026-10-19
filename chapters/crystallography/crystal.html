@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>결정 구조와 격자 · 차세대 반도체 물질 · Beyond Silicon</title>
+<title>결정 구조와 격자 · 결정학과 분석 방법 · Beyond Silicon</title>
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
 <script type="module" src="../../assets/js/book.js"></script>
 </head>
-<body data-root="../../" data-field="nextgen" data-chapter="crystal">
+<body data-root="../../" data-field="crystallography" data-chapter="crystal">
 <main class="main">
 <article class="article">
   <header class="chapter-head">
-    <div class="eyebrow">CHAPTER 01</div>
+    <div class="eyebrow">CHAPTER II · CRYSTALLOGRAPHY</div>
     <h1>결정 구조와 격자</h1>
     <p class="lede">반도체의 전기적·광학적 성질은 원자의 주기적 배열, 즉 결정 구조에서 출발합니다. 이 장에서는 결정을 기술하는 기본 언어인 브라베 격자, 기저, 단위 세포를 정의하고, 회절과 전자 상태를 다루는 데 필요한 역격자와 브릴루앙 영역까지 나아갑니다.</p>
     <div class="meta"></div>
@@ -98,7 +98,7 @@
   <h2><span class="sec">1.4</span>역격자와 브릴루앙 영역</h2>
   <p>결정 속 파동(X선, 전자, 포논)을 다룰 때는 실공간의 격자 대신 파수 공간의 격자를 쓰는 것이 편리합니다. 실공간 기본 병진 벡터 aᵢ에 대해 다음을 만족하는 벡터 bⱼ로 생성되는 격자를 <strong>역격자(reciprocal lattice)</strong>라 합니다.</p>
   <div class="eq"><i>a</i><sub>i</sub> · <i>b</i><sub>j</sub> = 2π δ<sub>ij</sub> &nbsp;&nbsp;⟹&nbsp;&nbsp; <i>b</i>₁ = 2π (<i>a</i>₂ × ẑ) / [<i>a</i>₁ · (<i>a</i>₂ × ẑ)]<span class="where">2차원의 경우. 실공간에서 길이가 길어지면 역공간에서는 짧아집니다.</span></div>
-  <p>역격자의 위그너–자이츠 세포를 <strong>제1 브릴루앙 영역(first Brillouin zone)</strong>이라 합니다. 결정 내 전자의 상태는 이 영역 안의 파수 k만으로 모두 기술할 수 있기 때문에, 밴드 구조는 브릴루앙 영역의 고대칭점(Γ, M, K 등)을 잇는 경로를 따라 그립니다. 육방 격자의 브릴루앙 영역은 육각형이고, 그 꼭짓점 K와 K′가 그래핀의 디랙 원뿔이 위치하는 곳입니다(4장).</p>
+  <p>역격자의 위그너–자이츠 세포를 <strong>제1 브릴루앙 영역(first Brillouin zone)</strong>이라 합니다. 결정 내 전자의 상태는 이 영역 안의 파수 k만으로 모두 기술할 수 있기 때문에, 밴드 구조는 브릴루앙 영역의 고대칭점(Γ, M, K 등)을 잇는 경로를 따라 그립니다. 육방 격자의 브릴루앙 영역은 육각형이고, 그 꼭짓점 K와 K′가 그래핀의 디랙 원뿔이 위치하는 곳입니다(제3장).</p>
 
   <section class="lab" id="lab-bravais" data-module="lattice2d">
     <div class="lab-head"><span class="badge">LAB 1-2</span><h4>2D 브라베 격자와 역격자</h4><span class="sub">길이 비와 사잇각을 바꿔 보세요</span></div>

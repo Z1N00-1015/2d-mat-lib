@@ -3,30 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>에너지 밴드와 광학 특성 · 차세대 반도체 물질 · Beyond Silicon</title>
+<title>반도체 물리와 밴드갭 · 반도체 물리와 소자 응용 · Beyond Silicon</title>
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
 <script type="module" src="../../assets/js/book.js"></script>
 </head>
-<body data-root="../../" data-field="nextgen" data-chapter="bands">
+<body data-root="../../" data-field="semiconductor" data-chapter="bands">
 <main class="main">
 <article class="article">
   <header class="chapter-head">
-    <div class="eyebrow">CHAPTER 04</div>
-    <h1>에너지 밴드와 광학 특성</h1>
+    <div class="eyebrow">CHAPTER III · SEMICONDUCTOR PHYSICS</div>
+    <h1>반도체 물리와 밴드갭</h1>
     <p class="lede">결정의 주기성은 전자가 가질 수 있는 에너지를 띠(밴드) 모양으로 만듭니다. 이 장에서는 밴드갭과 빛의 관계, 층 수에 따라 바뀌는 MoS₂의 밴드갭, 그리고 그래핀의 디랙 원뿔을 차례로 살펴봅니다.</p>
     <div class="meta"></div>
   </header>
 
-  <h2><span class="sec">4.1</span>에너지 밴드와 밴드갭</h2>
+  <h2><span class="sec">1.1</span>에너지 밴드와 밴드갭</h2>
   <p>고립된 원자의 전자는 불연속적인 에너지 준위를 가집니다. 원자들이 결정을 이루면 이웃 원자의 오비탈이 겹치면서 준위가 넓어져 연속적인 <strong>에너지 밴드(energy band)</strong>가 됩니다. 전자로 채워진 가장 높은 밴드를 <strong>가전자대(valence band)</strong>, 그 위의 빈 밴드를 <strong>전도대(conduction band)</strong>라 하고, 그 사이의 금지된 에너지 폭이 <strong>밴드갭(band gap, E<sub>g</sub>)</strong>입니다.</p>
   <p>반도체는 밴드갭보다 큰 에너지의 광자만 흡수하는데, 이를 기초 흡수(fundamental absorption)라 합니다. 반대로 전도대의 전자가 가전자대의 정공과 재결합하면 밴드갭에 해당하는 에너지의 빛을 방출합니다. 광자 에너지와 파장의 관계는 다음과 같습니다.</p>
   <div class="eq"><i>E</i> = <i>hc</i> / λ &nbsp;&nbsp;⟹&nbsp;&nbsp; λ (nm) ≈ 1240 / <i>E</i> (eV)</div>
 
   <section class="lab" id="lab-spectrum" data-module="spectrum">
-    <div class="lab-head"><span class="badge">LAB 4-1</span><h4>밴드갭과 빛</h4><span class="sub">물질 이름표를 누르면 그 밴드갭으로 이동합니다</span></div>
+    <div class="lab-head"><span class="badge">LAB 1-1</span><h4>밴드갭과 빛</h4><span class="sub">물질 이름표를 누르면 그 밴드갭으로 이동합니다</span></div>
     <div class="lab-body">
       <div class="stage light h-280"><canvas></canvas><div class="tip" data-o="tip"></div></div>
       <div class="controls-row">
@@ -42,7 +42,7 @@
   </section>
   <div class="callout fact"><span class="t">청색 LED는 왜 늦게 나왔을까?</span><p>청색광(약 450 nm)을 내려면 밴드갭이 약 2.8 eV 이상인 직접 밴드갭 반도체가 필요합니다. GaN(3.4 eV)이 후보였지만 고품질 결정 성장과 p형 도핑이 어려워 1990년대에야 실용화되었습니다.</p></div>
 
-  <h2><span class="sec">4.2</span>직접 밴드갭과 간접 밴드갭</h2>
+  <h2><span class="sec">1.2</span>직접 밴드갭과 간접 밴드갭</h2>
   <p>밴드 구조는 에너지 E를 결정 운동량(파수) k에 대해 그린 E–k 그래프로 나타냅니다. 전도대의 최소점과 가전자대의 최대점이 같은 k에 있으면 <strong>직접 밴드갭(direct band gap)</strong>, 다른 k에 있으면 <strong>간접 밴드갭(indirect band gap)</strong>이라 합니다.</p>
   <p>광자는 운동량이 매우 작기 때문에, 간접 밴드갭 반도체에서 전자가 빛을 내며 전이하려면 운동량을 보충해 줄 포논(phonon)이 함께 관여해야 합니다. 이 2차 과정은 확률이 낮아 발광 효율이 떨어집니다. 실리콘이 LED에 쓰이지 않는 이유입니다.</p>
 
@@ -50,7 +50,7 @@
   <p>벌크 MoS₂는 약 1.2 eV의 간접 밴드갭을 가집니다(Γ점 가전자대 → Λ점 부근 전도대). 층 수가 줄면 층간 상호작용에 민감한 Γ점 가전자대가 크게 낮아지는 반면, Mo의 d 오비탈이 주성분인 K점의 상태는 거의 변하지 않습니다. 그 결과 단층에서는 K점의 직접 전이(약 1.9 eV)가 가장 작은 밴드갭이 되어, 광발광(photoluminescence, PL) 세기가 수천 배 증가합니다(Mak et al., PRL 2010; Splendiani et al., Nano Lett. 2010).</p>
 
   <section class="lab" id="lab-mos2" data-module="mos2">
-    <div class="lab-head"><span class="badge">LAB 4-2</span><h4>MoS₂ 층 수와 밴드갭</h4><span class="sub">층 수를 바꾸며 가장 작은 전이를 찾아보세요</span></div>
+    <div class="lab-head"><span class="badge">LAB 1-2</span><h4>MoS₂ 층 수와 밴드갭</h4><span class="sub">층 수를 바꾸며 가장 작은 전이를 찾아보세요</span></div>
     <div class="lab-body">
       <div class="lab-row2">
         <div class="stage light h-360"><canvas data-c="band"></canvas><div class="hud">밴드 구조 (개략도) · Γ – Λ – K</div></div>
@@ -69,14 +69,14 @@
   </section>
   <div class="refs" data-module="refs" data-topic="mos2"></div>
 
-  <h2><span class="sec">4.3</span>강한 결합 근사와 디랙 원뿔</h2>
+  <h2><span class="sec">1.3</span>강한 결합 근사와 디랙 원뿔</h2>
   <p>그래핀의 밴드는 <strong>강한 결합 근사(tight-binding approximation)</strong>로 간단히 구할 수 있습니다. 각 탄소의 p<sub>z</sub> 오비탈이 최근접 이웃 세 개와만 겹친다고 하고, 그 겹침의 크기를 호핑 적분(hopping integral) t ≈ 2.7 eV로 두면 다음 식을 얻습니다.</p>
   <div class="eq"><i>E</i>±(<i>k</i>) = ±√(Δ² + <i>t</i>² |1 + e<sup><i>ik</i>·<i>a</i>₁</sup> + e<sup><i>ik</i>·<i>a</i>₂</sup>|²)<span class="where">Δ: 두 부격자(A, B)의 온사이트 에너지 차의 절반 · 그래핀은 Δ = 0</span></div>
   <p>그래핀(Δ = 0)에서는 브릴루앙 영역의 꼭짓점 K, K′에서 괄호 안이 0이 되어 전도대와 가전자대가 한 점에서 만납니다. 이 점 근처에서 에너지는 파수에 선형으로 비례하는데(E = ±ħv<sub>F</sub>|k|), 이 원뿔 모양의 밴드를 <strong>디랙 원뿔(Dirac cone)</strong>이라 합니다. 곡률이 없으므로 유효 질량이 0이고, 전자는 페르미 속도 v<sub>F</sub> ≈ 10⁶ m/s(광속의 약 1/300)로 움직입니다.</p>
   <p>h-BN처럼 두 부격자에 서로 다른 원자가 놓여 반전 대칭이 깨지면(Δ &gt; 0), K점에 2Δ의 밴드갭이 열리고 유효 질량 m* = Δ/v<sub>F</sub>²가 생깁니다. 같은 모형은 MoS₂ 같은 TMD의 K 골짜기(valley) 근처를 기술하는 데에도 쓰입니다.</p>
 
   <section class="lab" id="lab-dirac" data-module="bands">
-    <div class="lab-head"><span class="badge">LAB 4-3</span><h4>벌집 격자의 밴드 구조</h4><span class="sub">Δ를 키워 디랙점에 밴드갭을 열어 보세요</span></div>
+    <div class="lab-head"><span class="badge">LAB 1-3</span><h4>벌집 격자의 밴드 구조</h4><span class="sub">Δ를 키워 디랙점에 밴드갭을 열어 보세요</span></div>
     <div class="lab-body">
       <div class="lab-tools">
         <div class="seg" data-k="preset"><button class="on" data-v="gr">그래핀 (Δ=0)</button><button data-v="tmd">TMD형 (Δ=0.9 eV)</button><button data-v="hbn">h-BN형 (Δ=2.9 eV)</button></div>
