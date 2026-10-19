@@ -45,14 +45,14 @@ export function init(root) {
     out('vg', `${vg.toFixed(2)} V`);
     out('lam', `${m.lam.toFixed(2)}<small>nm</small>`);
     out('ratio', (lg / m.lam).toFixed(1));
-    out('ss', m.ss >= 750 ? '제어 상실' : `${m.ss.toFixed(0)}<small>mV/dec</small>`);
+    out('ss', m.ss >= 750 ? 'SS 발산' : `${m.ss.toFixed(0)}<small>mV/dec</small>`);
     out('dibl', `${m.dibl.toFixed(0)}<small>mV/V</small>`);
     const r = lg / m.lam;
     out('verdict', r > 6
-      ? `✅ <b>L<sub>g</sub>/λ = ${r.toFixed(1)}</b> — 게이트가 채널을 완벽히 장악합니다. SS가 이론 한계 60 mV/dec에 가깝습니다.`
+      ? `✅ <b>L<sub>g</sub>/λ = ${r.toFixed(1)}</b> — 게이트가 채널 전위를 충분히 제어합니다. SS가 상온 열이온 방출 한계(ln10·kT/q ≈ 60 mV/dec)에 근접합니다.`
       : r > 3
-        ? `⚠️ <b>L<sub>g</sub>/λ = ${r.toFixed(1)}</b> — 단채널 효과가 나타나기 시작합니다. 드레인 전압이 장벽을 끌어내립니다.`
-        : `❌ <b>L<sub>g</sub>/λ = ${r.toFixed(1)}</b> — 트랜지스터가 제대로 꺼지지 않습니다. 채널을 더 얇게 만들거나 2D 물질을 써보세요.`);
+        ? `⚠️ <b>L<sub>g</sub>/λ = ${r.toFixed(1)}</b> — 단채널 효과가 나타나기 시작합니다. DIBL로 문턱전압이 감소하고 SS가 증가합니다.`
+        : `❌ <b>L<sub>g</sub>/λ = ${r.toFixed(1)}</b> — 차단(off) 상태 누설 전류가 커져 스위칭 동작이 어렵습니다. 채널을 더 얇게 하거나 2D 채널 물질을 선택해 보세요.`);
     drawIV();
   }
 
@@ -82,7 +82,7 @@ export function init(root) {
     ctx.fillRect(X(0), 30, X(lg) - X(0), h - 60);
     ctx.fillStyle = '#0071e3'; ctx.fillRect(X(0), 30, X(lg) - X(0), 5);
     ctx.font = `600 12px ${FONT}`; ctx.textAlign = 'center'; ctx.fillStyle = '#6e6e73';
-    ctx.fillText('소스', X(-S / 2), h - 12); ctx.fillText('게이트 아래 채널', X(lg / 2), h - 12); ctx.fillText('드레인', X(lg + S / 2), h - 12);
+    ctx.fillText('소스', X(-S / 2), h - 12); ctx.fillText('채널 (게이트 영역)', X(lg / 2), h - 12); ctx.fillText('드레인', X(lg + S / 2), h - 12);
     // long-channel reference
     const phic = 0.62 - 0.85 * vg;
     ctx.setLineDash([4, 5]); ctx.strokeStyle = '#86868b'; ctx.lineWidth = 1.2;
@@ -110,7 +110,7 @@ export function init(root) {
     ctx.beginPath(); ctx.moveTo(X(lg), Y(-VD + 0.05)); ctx.lineTo(X(lg + S), Y(-VD + 0.05)); ctx.stroke(); ctx.setLineDash([]);
     // barrier annotation
     ctx.fillStyle = '#1d1d1f'; ctx.font = `12px ${MONO}`; ctx.textAlign = 'center';
-    ctx.fillText(`장벽 ${(Math.max(0, maxE) * 1000).toFixed(0)} meV`, X(maxX), Y(maxE) - 12);
+    ctx.fillText(`장벽 높이 ${(Math.max(0, maxE) * 1000).toFixed(0)} meV`, X(maxX), Y(maxE) - 12);
     ctx.fillStyle = '#86868b'; ctx.textAlign = 'left';
     ctx.fillText(`V_d = ${VD} V`, X(lg + S * 0.15), Y(-VD) + 20);
     // electrons hopping over barrier: probability ~ exp(-Eb/kT)

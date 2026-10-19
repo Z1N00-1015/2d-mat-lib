@@ -43,7 +43,7 @@ export function init(root) {
     out('sw').style.background = (lam >= 380 && lam <= 780) ? `rgb(${r},${g},${b})` : (lam > 780 ? 'linear-gradient(90deg,#3a0000,#100)' : 'linear-gradient(90deg,#1a0030,#000)');
     const abs = MATS.filter(m => m.e < E && m.e > 0).map(m => m.n);
     const tr = MATS.filter(m => m.e >= E).map(m => m.n);
-    out('abs', `<b>흡수</b>(E > E<sub>g</sub>): ${abs.join(', ') || '없음'} &nbsp;·&nbsp; <b>투과</b>: ${tr.join(', ') || '없음'}<br>그래핀은 밴드갭이 0이라 모든 파장을 흡수하지만, 한 층은 약 2.3%만 흡수해 투명 전극으로 쓰입니다.`);
+    out('abs', `<b>흡수</b>(E > E<sub>g</sub>): ${abs.join(', ') || '없음'} &nbsp;·&nbsp; <b>투과</b>: ${tr.join(', ') || '없음'}<br>그래핀은 밴드갭이 0이라 전 파장을 흡수하지만, 단층의 흡수율은 πα ≈ 2.3%(α: 미세구조 상수)에 불과해 투명 전극으로 쓰입니다.`);
     draw();
   }
 

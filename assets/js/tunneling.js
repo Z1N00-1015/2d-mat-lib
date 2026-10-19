@@ -2,9 +2,9 @@
 import { fitCanvas, animate, seg, range, outs, clamp, sci, FONT, MONO } from './util.js';
 
 const DIEL = {
-  sio2: { name: 'SiO₂', k: 3.9, phi: 3.1, m: 0.5, color: '#ff9f0a', note: '실리콘의 짝꿍, SiO₂. 약 1.2 nm(원자 5층)가 실용적 한계로, 그 이하에서는 누설 전류가 폭증합니다.' },
-  hfo2: { name: 'HfO₂', k: 25, phi: 1.5, m: 0.2, color: '#bf5af2', note: '장벽은 낮지만 κ≈25로, 같은 EOT에서 SiO₂보다 6배 이상 두꺼운 막을 쓸 수 있어 터널링이 압도적으로 줄어듭니다.' },
-  hbn:  { name: 'h-BN', k: 3.8, phi: 2.5, m: 0.5, color: '#64d2ff', note: 'hBN은 high-k가 아니지만 댕글링 본드 없는 원자적으로 평탄한 표면 덕분에 2D 채널의 최고의 파트너입니다. 단, 얇게 쓰면 터널링이 큽니다.' },
+  sio2: { name: 'SiO₂', k: 3.9, phi: 3.1, m: 0.5, color: '#ff9f0a', note: 'Si의 열산화막 SiO₂(κ = 3.9). 물리적 두께 약 1.2 nm(원자 약 5층)가 실용적 한계로, 그 이하에서는 직접 터널링(direct tunneling)에 의한 게이트 누설 전류가 급증합니다.' },
+  hfo2: { name: 'HfO₂', k: 25, phi: 1.5, m: 0.2, color: '#bf5af2', note: '전도대 오프셋(장벽 높이)은 낮지만 비유전율 κ ≈ 25로, 같은 EOT에서 SiO₂보다 약 6배 두꺼운 막을 쓸 수 있어 터널링 전류가 크게 감소합니다.' },
+  hbn:  { name: 'h-BN', k: 3.8, phi: 2.5, m: 0.5, color: '#64d2ff', note: 'h-BN은 고유전율 물질은 아니지만(κ ≈ 3–4), 댕글링 본드(dangling bond)가 없고 원자적으로 평탄해 2D 채널과의 계면 특성이 우수합니다. 다만 얇게 쓰면 터널링 전류가 큽니다.' },
 };
 
 export function init(root) {
@@ -29,7 +29,7 @@ export function init(root) {
     out('T', sci(T, 2));
     const pct = clamp((Math.log10(T) + 40) / 40, 0.01, 1) * 100;
     out('bar').style.width = pct + '%';
-    out('hud', `장벽 높이 φ<sub>B</sub> = ${D.phi} eV · m* = ${D.m} m₀<br>원자층 ≈ ${(d / 0.25).toFixed(0)} 층`);
+    out('hud', `장벽 높이(전도대 오프셋) φ<sub>B</sub> = ${D.phi} eV · 터널링 유효 질량 m* = ${D.m} m₀<br>원자층 ≈ ${(d / 0.25).toFixed(0)} 층`);
     root.querySelector('.panel .note:last-child').innerHTML = D.note;
   }
 

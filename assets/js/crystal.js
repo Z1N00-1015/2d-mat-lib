@@ -128,7 +128,7 @@ export function init(root) {
     const els = [...new Set(S.basis.map(b => b[0]))];
     out('legend', els.map(e => `<span><i style="background:#${ELEMENTS[e].color.toString(16).padStart(6, '0')}"></i>${e === 'Ci' ? 'C' : e} · ${ELEMENTS[e].name}</span>`).join(''));
     out('hud', `원자 ${atoms.length} · 결합 ${bonds.length}`);
-    out('nlabel', S.layered ? '면내 슈퍼셀 (n × n)' : '슈퍼셀 (n × n × n)');
+    out('nlabel', S.layered ? '면내 초세포 (n × n)' : '초세포 (n × n × n)');
     out('nval', S.layered ? `${state.n} × ${state.n}` : `${state.n} × ${state.n} × ${state.n}`);
     out('lval', `${state.layers} 층`);
     root.querySelector('[data-o="layerwrap"]').style.display = S.layered ? '' : 'none';

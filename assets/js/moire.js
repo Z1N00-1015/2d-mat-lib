@@ -44,12 +44,12 @@ export function init(root) {
     out('La', isFinite(La) ? La.toFixed(1) : '∞');
     out('N', isFinite(La) ? `≈ ${Math.round(4 * La * La).toLocaleString()} 개` : '—');
     const msg = out('msg');
-    let html = 'θ가 작을수록 모아레 주기는 커집니다. 화면을 좌우로 드래그해 비틀어 보세요.', hot = false;
-    if (Math.abs(theta - 1.08) < 0.1 && delta < 0.3) { html = '✨ <b>매직 앵글!</b> 층간 결합으로 디랙 콘이 납작해져 전자의 운동에너지가 거의 0이 됩니다(평탄 밴드). 전자 간 상호작용이 지배하며 상관 절연체와 초전도가 나타납니다.'; hot = true; }
-    else if (Math.abs(theta - 21.79) < 0.05) html = '<b>정합(commensurate) 구조</b>: θ = 21.79°에서 두 격자가 √7 × √7 초격자로 정확히 겹칩니다 (Σ7 결정립계와 같은 기하).';
+    let html = '비틀림 각 θ가 작을수록 모아레 주기 L은 커집니다. 화면을 좌우로 드래그해 비틀어 보세요.', hot = false;
+    if (Math.abs(theta - 1.08) < 0.1 && delta < 0.3) { html = '✨ <b>매직 앵글</b>: 층간 혼성(interlayer hybridization)으로 디랙 원뿔의 페르미 속도가 0에 가까워져 평탄 밴드(flat band)가 형성됩니다. 운동 에너지보다 전자 간 쿨롱 상호작용이 우세해져 상관 절연체(correlated insulator)와 비통상 초전도가 나타납니다.'; hot = true; }
+    else if (Math.abs(theta - 21.79) < 0.05) html = '<b>정합(commensurate) 구조</b>: θ = 21.79°에서 두 격자가 √7 × √7 초격자로 정확히 일치합니다(Σ7 대응 격자, coincidence site lattice).';
     else if (Math.abs(theta - 13.17) < 0.05) html = '<b>정합 구조</b>: θ = 13.17°는 √19 × √19 초격자를 만듭니다. 정합 각도는 cos θ = (m²+4mn+n²) / 2(m²+mn+n²) 로 주어집니다.';
-    else if (theta > 29.5) html = '<b>30° 비틀림</b>: 주기성이 없는 12회 대칭 <b>준결정</b> 그래핀이 됩니다 (Science 2018).';
-    else if (theta < 0.3 && delta > 1.4 && delta < 2.2) html = '<b>그래핀/hBN</b>: 비틀지 않아도 1.8%의 격자 불일치만으로 약 14 nm 주기의 모아레가 생겨, 그래핀에 작은 밴드갭과 2차 디랙점이 나타납니다.';
+    else if (theta > 29.5) html = '<b>30° 비틀림</b>: 병진 주기성이 없는 12회 회전 대칭의 <b>준결정(quasicrystal)</b>이 됩니다 (Science 2018).';
+    else if (theta < 0.3 && delta > 1.4 && delta < 2.2) html = '<b>그래핀/h-BN</b>: 비틀림 없이도 1.8%의 격자 불일치(lattice mismatch)만으로 약 14 nm 주기의 모아레가 형성되어, 그래핀에 작은 밴드갭과 2차 디랙점(secondary Dirac point)이 나타납니다.';
     msg.innerHTML = html; msg.classList.toggle('hot', hot);
     out('hud', `θ = ${theta.toFixed(2)}° · δ = ${delta.toFixed(1)}%<br>L = ${isFinite(La) ? (La * A_NM).toFixed(2) + ' nm' : '∞'}`);
     dirty = true;

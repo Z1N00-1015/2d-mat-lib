@@ -134,7 +134,7 @@ export function init(root) {
     const s2 = h * h + k * k + l * l;
     out('d', `${(1 / Math.sqrt(s2)).toFixed(3)}<small>a</small>`);
     out('atoms', `${on}<small>개 / ${atoms.length}</small>`);
-    out('dsi', `d<sub>${fmt()}</sub> = ${(5.431 / Math.sqrt(s2)).toFixed(3)} Å · 면 ${polys.length}장`);
+    out('dsi', `d<sub>${fmt()}</sub> = ${(5.431 / Math.sqrt(s2)).toFixed(3)} Å · 단위 세포 내 면 ${polys.length}장`);
     root.querySelectorAll('.stepper').forEach(st => {
       const v = { h, k, l }[st.dataset.k];
       const o = st.querySelector('output');

@@ -114,7 +114,7 @@ export function init(root) {
       ctx.font = `10px ${MONO}`; ctx.fillStyle = '#86868b'; ctx.textAlign = 'center';
       for (const E of [1.4, 1.6, 1.8, 2.0]) ctx.fillText(`${E} eV`, X(E), h - 8);
       ctx.textAlign = 'right'; ctx.fillStyle = '#1d1d1f'; ctx.font = `600 12px ${MONO}`;
-      ctx.fillText(`상대 PL 강도 ×${cur.pl.toFixed(3)}`, w - pad.r, pad.t - 12);
+      ctx.fillText(`상대 PL 세기 ×${cur.pl.toFixed(3)}`, w - pad.r, pad.t - 12);
       if (N > 1) { ctx.fillStyle = '#ff9f0a'; ctx.textAlign = 'center'; ctx.font = `11px ${FONT}`; ctx.fillText('간접 피크 (I)', X(g.ind), Y(0.08) - 4); }
     }
     // ---- side view stack

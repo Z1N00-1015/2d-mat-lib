@@ -246,7 +246,7 @@ input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 
 .readout { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .readout > div { background: var(--bg-alt); border-radius: 14px; padding: 12px 14px; }
 .dark .readout > div { background: rgba(255,255,255,.06); }
-.readout .k { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: .05em; font-weight: 600; }
+.readout .k { font-size: 11px; color: var(--text-3); letter-spacing: .02em; font-weight: 600; }
 .readout .v { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; font-family: var(--font); margin-top: 2px; font-variant-numeric: tabular-nums; }
 .readout .v small { font-size: 12px; color: var(--text-2); font-weight: 500; margin-left: 2px; }
 .readout .wide { grid-column: span 2; }
@@ -388,3 +388,17 @@ footer hr { border: 0; border-top: 1px solid var(--line); margin: 20px 0; }
 }
 
 section[id], .lab { scroll-margin-top: 100px; }
+
+/* Glossary */
+.gloss { margin-top: 56px; }
+.gloss-bar { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.gloss-bar input { flex: 1 1 260px; font: inherit; font-size: 16px; padding: 12px 18px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--text); outline: none; }
+.gloss-bar input:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(0,113,227,.15); }
+table.gloss-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+table.gloss-table th { text-align: left; font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: .05em; padding: 18px 22px 10px; }
+table.gloss-table td { padding: 16px 22px; border-top: 1px solid #e8e8ed; vertical-align: top; line-height: 1.55; }
+table.gloss-table td:first-child { width: 30%; }
+table.gloss-table .en { font-size: 13px; color: var(--text-2); font-style: italic; margin-top: 2px; }
+table.gloss-table .cat { width: 90px; font-size: 12px; color: var(--text-3); white-space: nowrap; }
+table.gloss-table .empty { text-align: center; color: var(--text-3); padding: 40px; }
+@media (max-width: 734px) { table.gloss-table .cat { display: none; } table.gloss-table td { padding: 14px; } }

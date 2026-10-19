@@ -145,7 +145,7 @@ export function init(root) {
     out('gap', `${(2 * D).toFixed(2)}<small>eV</small>`);
     const vf = 3 * t * 1.42e-10 / (2 * 6.582e-16);
     const mstar = D > 0.01 ? D * 1.602e-19 / (vf * vf * 9.109e-31) : 0;
-    out('vf', `${(vf / 1e6).toFixed(2)}<small>×10⁶ m/s</small>${D > 0.01 ? `<div style="font-size:12px;color:#86868b;font-weight:500">유효질량 m* ≈ ${mstar.toFixed(2)} m₀</div>` : '<div style="font-size:12px;color:#86868b;font-weight:500">질량 0 · 빛의 약 1/300</div>'}`);
+    out('vf', `${(vf / 1e6).toFixed(2)}<small>×10⁶ m/s</small>${D > 0.01 ? `<div style="font-size:12px;color:#86868b;font-weight:500">유효 질량 m* ≈ ${mstar.toFixed(2)} m₀</div>` : '<div style="font-size:12px;color:#86868b;font-weight:500">유효 질량 0 · 광속의 약 1/300</div>'}`);
     surf(); drawPath();
   }
   update();

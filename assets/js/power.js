@@ -13,9 +13,9 @@ const M = [
 const bfom = (m) => m.eps * m.mu * m.ec ** 3;
 const SI = bfom(M[0]);
 const METRIC = {
-  bfom: { t: 'BFOM (Si = 1, log)', f: m => bfom(m) / SI, log: true, unit: '×' },
+  bfom: { t: '발리가 성능지수 BFOM (Si = 1, log)', f: m => bfom(m) / SI, log: true, unit: '×' },
   ec: { t: '절연파괴 전계 (MV/cm)', f: m => m.ec, log: false, unit: 'MV/cm' },
-  k: { t: '열전도도 (W/m·K, log)', f: m => m.k, log: true, unit: 'W/m·K' },
+  k: { t: '열전도율 (W/m·K, log)', f: m => m.k, log: true, unit: 'W/m·K' },
   mu: { t: '전자 이동도 (cm²/V·s, log)', f: m => m.mu, log: true, unit: 'cm²/V·s' },
 };
 
@@ -45,7 +45,7 @@ export function init(root) {
     for (let e = 0.8; e <= 6.6; e += 0.05) { const c = 0.3 * Math.pow(e / 1.12, 1.9); const y = sy(Math.min(13.5, c)); e === 0.8 ? ctx.moveTo(sx(e), y) : ctx.lineTo(sx(e), y); }
     ctx.stroke(); ctx.setLineDash([]);
     ctx.fillStyle = 'rgba(191,90,242,.8)'; ctx.font = `11px ${FONT}`; ctx.textAlign = 'left';
-    ctx.fillText('경향: E꜀ ∝ E_g^~2', sx(1.3), sy(3.6));
+    ctx.fillText('경향: E_c ∝ E_g^~2', sx(1.3), sy(3.6));
     // regions
     ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.font = `600 11px ${FONT}`;
     ctx.fillText('WBG', sx(3.0), pad.t + 12); ctx.fillText('UWBG', sx(4.5), pad.t + 12);
