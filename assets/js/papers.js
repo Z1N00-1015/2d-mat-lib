@@ -84,6 +84,54 @@ async function initData(root) {
     return;
   }
   const papers = data.papers;
+  const deviceRole = root.querySelector('[data-o="device-role"]');
+  const deviceMaterial = root.querySelector('[data-o="device-material"]');
+  const deviceList = root.querySelector('[data-o="device-list"]');
+  const deviceStatus = root.querySelector('[data-o="device-status"]');
+  const components = papers.flatMap(p => (p.device_components || []).map(component => ({ p, component })));
+  const roles = [...new Map(components.map(({ component }) => [component.role, component.role_label || component.role])).entries()]
+    .sort((a, b) => a[1].localeCompare(b[1], 'ko'));
+  deviceRole.innerHTML = '<option value="">모든 역할</option>' + roles
+    .map(([key, label]) => `<option value="${esc(key)}">${esc(label)}</option>`).join('');
+  function updateDeviceMaterials() {
+    const selectedRole = deviceRole.value;
+    const materials = [...new Set(components
+      .filter(({ component }) => !selectedRole || component.role === selectedRole)
+      .map(({ component }) => component.material).filter(Boolean))]
+      .sort((a, b) => a.localeCompare(b));
+    const selectedMaterial = deviceMaterial.value;
+    deviceMaterial.innerHTML = '<option value="">모든 재료</option>' + materials
+      .map(material => `<option value="${esc(material)}">${formula(esc(material))}</option>`).join('');
+    if (materials.includes(selectedMaterial)) deviceMaterial.value = selectedMaterial;
+  }
+  function renderDeviceComponents() {
+    const selectedRole = deviceRole.value, selectedMaterial = deviceMaterial.value;
+    const shown = components.filter(({ component }) =>
+      (!selectedRole || component.role === selectedRole)
+      && (!selectedMaterial || component.material === selectedMaterial));
+    deviceStatus.textContent = components.length
+      ? `${shown.length}개 구성요소 · 검토 완료 항목만 표시`
+      : '아직 공개된 검토 완료 소자 구성요소가 없습니다. 분석실에서 논문을 다시 분석하고 구성요소를 검토·승인하면 이곳에 표시됩니다.';
+    deviceList.innerHTML = shown.map(({ p, component }) => {
+      const evidence = component.evidence;
+      const location = evidence?.label || (evidence?.page ? `PDF p.${evidence.page}` : '근거 위치 미기록');
+      const thickness = component.thickness_value != null
+        ? `${fmtNum(component.thickness_value)}${component.thickness_unit ? ' ' + esc(component.thickness_unit) : ''}`
+        : component.thickness_text ? `${esc(component.thickness_text)}${component.thickness_unit ? ' ' + esc(component.thickness_unit) : ''}` : '';
+      return `<article class="pcard device-card">
+        <div class="pmeta">${esc(component.role_label || component.role || '구성요소')}${thickness ? ` · ${thickness}` : ''}</div>
+        <h4>${component.material ? formula(esc(component.material)) : '재료 미기록'}</h4>
+        <div class="pauth">${esc(p.journal || '저널 정보 없음')} · ${p.year || '연도 미상'}${component.sample ? ` · 시료 ${esc(component.sample)}` : ''}</div>
+        ${component.role_name ? `<div class="pnone">원문 역할: ${esc(component.role_name)}</div>` : ''}
+        <div class="pnone">근거: ${esc(location)}</div>
+        ${p.url ? `<a class="plink" href="${esc(p.url)}" target="_blank" rel="noopener">논문 보기 ↗</a>` : ''}
+      </article>`;
+    }).join('');
+  }
+  deviceRole.addEventListener('change', () => { updateDeviceMaterials(); renderDeviceComponents(); });
+  deviceMaterial.addEventListener('change', renderDeviceComponents);
+  updateDeviceMaterials();
+  renderDeviceComponents();
   const primary = p => focus[p.id] || [];
   const nVals = papers.reduce((s, p) => s + p.values.length, 0);
   const mats = [...new Set(papers.flatMap(primary))].sort((a, b) => a.localeCompare(b));

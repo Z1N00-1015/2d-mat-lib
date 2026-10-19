@@ -495,6 +495,10 @@ sub, sup { font-size: .72em; line-height: 0; }
 .pnone { font-size: 12.5px; color: var(--muted); }
 .plink { font-size: 12.5px; margin-top: auto; word-break: break-all; }
 .plist { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.device-search-controls { display: grid; grid-template-columns: repeat(2, minmax(180px, 1fr)); gap: 12px; margin: 14px 0 8px; }
+.device-search-controls label { display: grid; gap: 6px; font-size: 13px; font-weight: 700; color: var(--text-2); }
+.device-search-controls select { width: 100%; font: inherit; font-weight: 400; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border-2); background: var(--surface); color: var(--text); }
+.device-card h4 { font-size: 20px; }
 .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 1.4rem 0; }
 .kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
 .kpi .v { font-family: var(--mono); font-size: 26px; font-weight: 800; letter-spacing: -.02em; }
@@ -540,5 +544,6 @@ table.gloss-table .empty { text-align: center; color: var(--muted); padding: 30p
   .lineup { grid-template-columns: repeat(2, 1fr); }
   .h-480 { height: 360px; } .h-420 { height: 330px; }
   .refs-row { grid-auto-columns: 85%; }
+  .device-search-controls { grid-template-columns: 1fr; }
   table.gloss-table .cat { display: none; }
 }
