@@ -1,14 +1,14 @@
-# Beyond Silicon — 반도체 인터랙티브 교과서
+# Beyond Silicon — 2D 물질 연구 분야 안내
 
-반도체를 분야별로 나누어 **교과서 설명과 브라우저 속 실험(LAB)** 으로 배우는 웹 교과서 시리즈입니다.
+2차원 물질, 결정학·분석법, 반도체 물리와 소자 응용의 주요 개념과 연구 분야를 소개하는 웹사이트입니다. 시각 자료와 브라우저 실험(LAB)을 함께 제공합니다.
 
 🌐 https://z1n00-1015.github.io/2d-mat-lib/
 
 ## 구성
 
 - `index.html` — 표지: 전체 분야와 각 분야의 목차
-- `chapters/<분야>/<장>.html` — 장 페이지 (사이드바 목차, 절 번호, LAB, 정리, 확인 문제, 이전/다음 장)
-- `assets/js/book.js` — 분야·장 목록(`FIELDS`)과 공통 레이아웃, 퀴즈, 실험 모듈 지연 로딩
+- `chapters/<분야>/<장>.html` — 분야 소개 페이지 (사이드바 목차, LAB, 정리, 이전/다음 페이지)
+- `assets/js/book.js` — 분야·페이지 목록(`FIELDS`)과 공통 레이아웃, 실험 모듈 지연 로딩
 - `assets/css/book.css` — 디자인 시스템 (SemiBook과 같은 계열, 라이트/다크 테마)
 - `assets/js/*.js` — 실험 모듈 (three.js, Canvas)
 - `data/papers.json` — 연구실 논문 DB 공개용 데이터

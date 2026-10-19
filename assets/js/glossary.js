@@ -1,4 +1,4 @@
-// Glossary: Korean textbook term · English · definition
+// Glossary: Korean term · English · definition
 const TERMS = [
   ['결정학', '결정 구조', 'crystal structure', '브라베 격자의 각 격자점에 원자 또는 원자 무리(기저)를 배치한 원자의 주기적 배열.'],
   ['결정학', '브라베 격자', 'Bravais lattice', '병진 대칭만으로 정의되는 무한한 점의 배열. 2차원 5종, 3차원 14종이 있다.'],

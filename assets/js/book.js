@@ -1,7 +1,7 @@
-// Beyond Silicon book runtime: field/chapter manifest, layout, theme, quiz, lazy lab loading.
+// Beyond Silicon site runtime: field/page manifest, layout, theme, and lazy lab loading.
 // To add a new field (분야): append an entry to FIELDS and put its pages in chapters/<field id>/.
 
-export const BRAND = { name: 'Beyond Silicon', sub: '반도체 인터랙티브 교과서' };
+export const BRAND = { name: 'Beyond Silicon', sub: '2D 물질 연구 분야 안내' };
 export const PAPER_LIBRARY_URL = 'https://lab-paper-library-z1n00-1015.onrender.com';
 
 export const FIELDS = [
@@ -43,12 +43,12 @@ export const FIELDS = [
   },
   {
     id: 'tools', n: 'IV', title: '도구', en: 'TOOLS',
-    desc: '논문 데이터와 교과서 용어를 살펴보고 연구실 논문 분석실로 이동합니다.',
+    desc: '논문 데이터와 주요 용어를 살펴보고 연구실 논문 분석실로 이동합니다.',
     chapters: [
       { id: 'papers', n: '01', title: '논문 데이터', group: '연구 자료', time: 10, level: 1,
         desc: '논문 데이터베이스에서 검토 완료한 수치를 논문별로 비교합니다.', labs: ['논문별 수치 비교'] },
       { id: 'glossary', n: '02', title: '용어 사전', group: '참고 도구', time: 0, level: 0,
-        desc: '이 교과서의 핵심 용어를 교과서 표기와 영문으로 찾아봅니다.', labs: [] },
+        desc: '2D 물질과 반도체 분야의 핵심 용어를 표준 표기와 영문으로 찾아봅니다.', labs: [] },
     ],
     links: [{ title: '논문 분석실 · 로그인', url: PAPER_LIBRARY_URL }],
   },
@@ -109,14 +109,6 @@ function buildLayout() {
   const side = document.createElement('nav');
   side.className = 'sidebar';
   side.setAttribute('aria-label', '목차');
-  const done = store.get('done', {});
-  let progressMoved = false;
-  for (const chapter of ['papers', 'glossary']) {
-    const oldKey = `semiconductor/${chapter}`;
-    const newKey = `tools/${chapter}`;
-    if (done[oldKey] && !done[newKey]) { done[newKey] = done[oldKey]; progressMoved = true; }
-  }
-  if (progressMoved) store.set('done', done);
   let html = `<a class="nav-item ${current === 'home' ? 'active' : ''}" href="${root}index.html"><span class="num">⌂</span>표지 · 전체 분야</a>`;
   const fields = FIELDS;
   for (const f of fields) {
@@ -128,9 +120,8 @@ function buildLayout() {
     let lastGroup = '';
     for (const c of f.chapters) {
       if (c.group && c.group !== lastGroup) { html += `<div class="nav-group" style="padding-top:8px;font-size:11px">${c.group}</div>`; lastGroup = c.group; }
-      const key = `${f.id}/${c.id}`;
       const isCurrent = f.id === fieldId && c.id === current;
-      html += `<a class="nav-item ${isCurrent ? 'active' : ''}" href="${chapterUrl(root, f, c)}"><span class="num">${c.n}</span><span>${c.title}</span>${done[key] ? '<span class="check" title="퀴즈 완료">✓</span>' : ''}</a>`;
+      html += `<a class="nav-item ${isCurrent ? 'active' : ''}" href="${chapterUrl(root, f, c)}"><span class="num">${c.n}</span><span>${c.title}</span></a>`;
       if (isCurrent) html += '<div class="sub" id="subtoc"></div>';
     }
     for (const link of f.links || []) {
@@ -214,50 +205,6 @@ function buildLayout() {
   }
 }
 
-// ---------- quiz (questions from <script type="application/json" id="quiz-data">) ----------
-function buildQuiz() {
-  const el = document.getElementById('quiz');
-  const src = document.getElementById('quiz-data');
-  if (!el || !src) return;
-  const questions = JSON.parse(src.textContent);
-  const key = `${document.body.dataset.field}/${document.body.dataset.chapter}`;
-  let answered = 0, right = 0;
-  el.classList.add('quiz');
-  el.innerHTML = `<div class="quiz-head"><span style="font-size:22px">🧠</span><h4>확인 문제</h4><span class="score">0 / ${questions.length}</span></div>`;
-  const score = el.querySelector('.score');
-  questions.forEach((q, qi) => {
-    const d = document.createElement('div');
-    d.className = 'q';
-    d.innerHTML = `<div class="qt"><span class="qn">Q${qi + 1}.</span>${q.q}</div><div class="opts"></div><div class="why"></div>`;
-    const opts = d.querySelector('.opts');
-    q.o.forEach((o, oi) => {
-      const b = document.createElement('button');
-      b.className = 'opt';
-      b.innerHTML = o;
-      b.addEventListener('click', () => {
-        if (d.classList.contains('done')) return;
-        d.classList.add('done');
-        answered++;
-        const ok = oi === q.a;
-        if (ok) right++;
-        [...opts.children].forEach((x, xi) => {
-          x.disabled = true;
-          if (xi === q.a) x.classList.add('right'); else if (xi === oi) x.classList.add('wrong');
-        });
-        d.querySelector('.why').innerHTML = (ok ? '✅ 정답입니다. ' : '❌ 다시 생각해 봅시다. ') + (q.why || '');
-        score.textContent = `${right} / ${questions.length}` + (answered === questions.length ? (right === questions.length ? ' · 만점 🎉' : ' · 완료') : '');
-        if (answered === questions.length) {
-          const done = store.get('done', {}); done[key] = true; store.set('done', done);
-          const link = document.querySelector('.sidebar a.nav-item.active');
-          if (link && !link.querySelector('.check')) link.insertAdjacentHTML('beforeend', '<span class="check">✓</span>');
-        }
-      });
-      opts.appendChild(b);
-    });
-    el.appendChild(d);
-  });
-}
-
 // ---------- lazy-load interactive labs as they approach the viewport ----------
 function loadModules() {
   const io = new IntersectionObserver((entries) => {
@@ -272,5 +219,4 @@ function loadModules() {
 }
 
 buildLayout();
-buildQuiz();
 loadModules();

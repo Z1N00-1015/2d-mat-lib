@@ -1,5 +1,5 @@
 /* ==========================================================
-   Beyond Silicon — 반도체 인터랙티브 교과서 (base: SemiBook design system)
+   Beyond Silicon — 2D 물질 연구 분야 안내 (base: SemiBook design system)
    ========================================================== */
 :root {
   --bg: #f7f6f2;
@@ -170,7 +170,6 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 .sidebar a.nav-item.active { background: var(--accent-soft); color: var(--accent); font-weight: 650; }
 .sidebar .num { font-family: var(--mono); font-size: 12px; color: var(--muted); min-width: 20px; }
 .sidebar a.active .num { color: var(--accent); }
-.sidebar .check { margin-left: auto; color: var(--green); font-size: 13px; }
 .sidebar .sub { margin: 2px 0 8px 30px; border-left: 1px solid var(--border-2); padding-left: 8px; }
 .sidebar .sub a { display: block; font-size: 13px; color: var(--muted); padding: 3px 8px; border-radius: 6px; line-height: 1.4; }
 .sidebar .sub a:hover { color: var(--text); background: var(--surface-2); text-decoration: none; }
@@ -297,24 +296,6 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
 .card h5 { margin: 0 0 4px; font-size: 16px; }
 .card p { margin: 0; font-size: 14.5px; color: var(--text-2); line-height: 1.6; }
 .card .ico { font-size: 24px; margin-bottom: 6px; }
-
-/* quiz */
-.quiz { margin: 2.6rem 0; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 20px 22px; }
-.quiz-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-.quiz-head h4 { margin: 0; font-size: 17px; }
-.quiz-head .score { margin-left: auto; font-family: var(--mono); font-size: 13px; color: var(--muted); }
-.q { padding: 14px 0; border-top: 1px dashed var(--border); }
-.q:first-of-type { border-top: 0; }
-.q .qt { font-weight: 650; margin-bottom: 8px; }
-.q .qt .qn { font-family: var(--mono); color: var(--accent); margin-right: 6px; }
-.q .opts { display: grid; gap: 6px; }
-.q .opt { text-align: left; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); padding: 9px 13px; border-radius: 10px; cursor: pointer; font: inherit; font-size: 15px; line-height: 1.5; }
-.q .opt:hover:not(:disabled) { border-color: var(--accent); }
-.q .opt.right { border-color: var(--green); background: color-mix(in srgb, var(--green) 14%, var(--surface)); }
-.q .opt.wrong { border-color: var(--rose); background: color-mix(in srgb, var(--rose) 12%, var(--surface)); }
-.q .opt:disabled { cursor: default; }
-.q .why { display: none; margin-top: 8px; font-size: 14.5px; color: var(--text-2); background: var(--accent-soft); padding: 9px 13px; border-radius: 10px; }
-.q.done .why { display: block; }
 
 /* summary */
 .summary { background: var(--accent-soft); border-radius: 16px; padding: 18px 22px; margin: 2.4rem 0; }
