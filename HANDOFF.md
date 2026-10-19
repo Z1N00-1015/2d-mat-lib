@@ -9,6 +9,10 @@ Codex와 Claude가 작업을 마칠 때 맨 위에 새 항목을 추가한다. �
 -->
 
 ## 2026-10-19 · codex
+- 변경: `lab-paper-library`의 `public_export.py`를 매시간 실행하는 `sync-paper-data.yml` 자동화를 추가. 검증된 JSON에 변경이 있을 때만 `main`에 커밋하고 GitHub Pages에 배포. README에 수동 실행과 설정 안내 추가.
+- 남은 일/주의: `2d-mat-lib` 저장소 Actions Secret `LAB_PAPER_LIBRARY_READ_TOKEN` 등록 필요. 이 토큰은 `lab-paper-library`의 Contents 읽기 권한만 가져야 함. 원본 비공개 저장소 경로는 `Z1N00-1015/lab-paper-library`로 설정했으며 실제 저장소 이름·소유자가 다르면 워크플로를 수정해야 함.
+
+## 2026-10-19 · codex
 - 변경: 사이트 목차를 세 큰 장(2차원 물질의 이해, 결정학과 분석 방법, 반도체 물리와 소자 응용)으로 재구성하고 기존 장 페이지를 주제별 폴더로 이동. XRD·Raman·TEM·XPS·AFM 개요 페이지를 추가하고 FeS-FET와 NCFET 설명 및 용어 사전을 보강. 표지와 각 장의 안내 문구·번호도 새 구조에 맞춤.
 - 남은 일/주의: 분석법 페이지는 원리와 활용 범위의 입문 개요이며, 고급 측정·정량 해석은 후속 보강 가능.
 

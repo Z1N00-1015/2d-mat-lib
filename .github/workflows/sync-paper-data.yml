@@ -1,0 +1,94 @@
+name: Sync research paper database
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  sync-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Check private repository token
+        env:
+          SOURCE_TOKEN: ${{ secrets.LAB_PAPER_LIBRARY_READ_TOKEN }}
+        run: |
+          if [ -z "$SOURCE_TOKEN" ]; then
+            echo "::error::Add the LAB_PAPER_LIBRARY_READ_TOKEN Actions secret with read access to Z1N00-1015/lab-paper-library."
+            exit 1
+          fi
+
+      - name: Check out private paper library
+        uses: actions/checkout@v4
+        with:
+          repository: Z1N00-1015/lab-paper-library
+          token: ${{ secrets.LAB_PAPER_LIBRARY_READ_TOKEN }}
+          path: lab-paper-library
+          persist-credentials: false
+
+      - name: Export reviewed public data
+        working-directory: lab-paper-library
+        run: python3 public_export.py --out "$GITHUB_WORKSPACE/data/papers.json"
+
+      - name: Validate exported JSON
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path("data/papers.json").read_text(encoding="utf-8"))
+          if not isinstance(data.get("papers"), list):
+              raise SystemExit("data/papers.json must contain a papers array")
+          if not isinstance(data.get("metrics"), dict):
+              raise SystemExit("data/papers.json must contain a metrics object")
+          if not isinstance(data.get("generated_at"), str):
+              raise SystemExit("data/papers.json must contain generated_at")
+          print(f"Validated {len(data['papers'])} exported papers")
+          PY
+
+      - name: Detect data changes
+        id: changes
+        run: |
+          git add data/papers.json
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit updated database export
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(data): sync reviewed research papers"
+          git push origin HEAD:main
+
+      # GITHUB_TOKEN pushes do not start another workflow run, so publish Pages here.
+      - name: Publish updated site to gh-pages
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/site"
+          rsync -a --exclude='.git' --exclude='.github' --exclude='lab-paper-library/' ./ "$RUNNER_TEMP/site/"
+          touch "$RUNNER_TEMP/site/.nojekyll"
+          cd "$RUNNER_TEMP/site"
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Deploy ${GITHUB_SHA::7} with updated paper data"
+          git push -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
