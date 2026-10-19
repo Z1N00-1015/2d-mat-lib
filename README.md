@@ -43,6 +43,8 @@
 
 GitHub Actions가 매시간 원본 저장소를 확인해 공개용 JSON을 다시 내보냅니다. 데이터가 바뀌면 `main`에 자동 커밋하고 GitHub Pages에도 배포합니다. 이를 위해 `2d-mat-lib` 저장소의 **Settings → Secrets and variables → Actions**에 `LAB_PAPER_LIBRARY_READ_TOKEN` Secret을 등록해야 합니다. 토큰은 비공개 저장소 `lab-paper-library`에만 접근하도록 만들고 `Contents: Read-only` 권한만 부여하세요. 수동으로 즉시 동기화하려면 Actions 탭에서 **Sync research paper database → Run workflow**를 실행하면 됩니다.
 
+논문 등록·PDF 보관·AI 분석·사람 검토는 [로그인형 웹 논문 분석실](https://lab-paper-library-z1n00-1015.onrender.com)에서 진행하도록 구성 중입니다. 이 앱은 비공개 저장소의 별도 Render 서비스로 운영하며, Pages에는 서지정보와 검토 완료 수치만 게시합니다. Render 서비스와 Google 로그인을 설정하기 전까지 논문 분석실 주소는 사용할 수 없습니다.
+
 ```bash
 # lab-paper-library 폴더에서
 python public_export.py --out ../2d-mat-lib/data/papers.json

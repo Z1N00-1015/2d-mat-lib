@@ -2,6 +2,7 @@
 // To add a new field (분야): append an entry to FIELDS and put its pages in chapters/<field id>/.
 
 export const BRAND = { name: 'Beyond Silicon', sub: '반도체 인터랙티브 교과서' };
+export const PAPER_LIBRARY_URL = 'https://lab-paper-library-z1n00-1015.onrender.com';
 
 export const FIELDS = [
   {
@@ -118,6 +119,7 @@ function buildLayout() {
       if (field && c.id === current) html += '<div class="sub" id="subtoc"></div>';
     }
   }
+  html += `<div class="nav-group">연구실 도구</div><a class="nav-item" href="${PAPER_LIBRARY_URL}" target="_blank" rel="noopener"><span class="num">↗</span><span>논문 분석실 · 로그인</span></a>`;
   side.innerHTML = html;
   body.insertBefore(side, top.nextSibling);
   const scrim = document.createElement('div');

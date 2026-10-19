@@ -9,6 +9,10 @@ Codex와 Claude가 작업을 마칠 때 맨 위에 새 항목을 추가한다. �
 -->
 
 ## 2026-10-19 · codex
+- 변경: 논문 등록·PDF·AI 판독·사람 검토를 브라우저에서 할 수 있도록, Pages와 분리된 로그인형 웹 앱 진입점을 추가. 표지·목차·연구 데이터 장에서 비공개 논문 분석실로 이동한다.
+- 남은 일/주의: 링크는 `lab-paper-library-z1n00-1015.onrender.com`을 가리킨다. 비공개 저장소에서 Render Blueprint와 Google OIDC 설정을 완료해야 실제 접속할 수 있다.
+
+## 2026-10-19 · codex
 - 변경: `lab-paper-library`의 `public_export.py`를 매시간 실행하는 `sync-paper-data.yml` 자동화를 추가. 검증된 JSON에 변경이 있을 때만 `main`에 커밋하고 GitHub Pages에 배포. README에 수동 실행과 설정 안내 추가.
 - 남은 일/주의: `2d-mat-lib` 저장소 Actions Secret `LAB_PAPER_LIBRARY_READ_TOKEN` 등록 필요. 이 토큰은 `lab-paper-library`의 Contents 읽기 권한만 가져야 함. 원본 비공개 저장소 경로는 `Z1N00-1015/lab-paper-library`로 설정했으며 실제 저장소 이름·소유자가 다르면 워크플로를 수정해야 함.
 
