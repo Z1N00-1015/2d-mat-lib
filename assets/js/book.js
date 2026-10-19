@@ -39,11 +39,18 @@ export const FIELDS = [
         desc: '2D 반도체와 SiC·GaN·Ga₂O₃ 등 광대역 반도체의 특성 및 전력 소자 응용을 비교합니다.', labs: ['물질 라인업', '전력 반도체 비교'] },
       { id: 'devices', n: '03', title: 'FET와 차세대 트랜지스터', group: '소자 응용', time: 30, level: 3,
         desc: 'MOSFET의 게이트 제어와 2D 채널을 익히고 FeS-FET·NCFET의 기본 아이디어를 소개합니다.', labs: ['양자 터널링', '단채널 MOSFET'] },
-      { id: 'papers', n: '04', title: '연구실 논문 데이터', group: '연구 데이터', time: 10, level: 1,
-        desc: '연구실 논문 DB에서 검토 완료한 수치를 논문별로 비교합니다.', labs: ['논문별 수치 비교'] },
-      { id: 'glossary', n: '··', title: '용어 사전', group: '부록', time: 0, level: 0,
+    ],
+  },
+  {
+    id: 'tools', n: 'IV', title: '도구', en: 'TOOLS',
+    desc: '논문 데이터와 교과서 용어를 살펴보고 연구실 논문 분석실로 이동합니다.',
+    chapters: [
+      { id: 'papers', n: '01', title: '논문 데이터', group: '연구 자료', time: 10, level: 1,
+        desc: '논문 데이터베이스에서 검토 완료한 수치를 논문별로 비교합니다.', labs: ['논문별 수치 비교'] },
+      { id: 'glossary', n: '02', title: '용어 사전', group: '참고 도구', time: 0, level: 0,
         desc: '이 교과서의 핵심 용어를 교과서 표기와 영문으로 찾아봅니다.', labs: [] },
     ],
+    links: [{ title: '논문 분석실 · 로그인', url: PAPER_LIBRARY_URL }],
   },
 ];
 
@@ -103,6 +110,13 @@ function buildLayout() {
   side.className = 'sidebar';
   side.setAttribute('aria-label', '목차');
   const done = store.get('done', {});
+  let progressMoved = false;
+  for (const chapter of ['papers', 'glossary']) {
+    const oldKey = `semiconductor/${chapter}`;
+    const newKey = `tools/${chapter}`;
+    if (done[oldKey] && !done[newKey]) { done[newKey] = done[oldKey]; progressMoved = true; }
+  }
+  if (progressMoved) store.set('done', done);
   let html = `<a class="nav-item ${current === 'home' ? 'active' : ''}" href="${root}index.html"><span class="num">⌂</span>표지 · 전체 분야</a>`;
   const fields = field ? [field] : FIELDS;
   for (const f of fields) {
@@ -118,8 +132,10 @@ function buildLayout() {
       html += `<a class="nav-item ${field && c.id === current ? 'active' : ''}" href="${chapterUrl(root, f, c)}"><span class="num">${c.n}</span><span>${c.title}</span>${done[key] ? '<span class="check" title="퀴즈 완료">✓</span>' : ''}</a>`;
       if (field && c.id === current) html += '<div class="sub" id="subtoc"></div>';
     }
+    for (const link of f.links || []) {
+      html += `<a class="nav-item" href="${link.url}" target="_blank" rel="noopener"><span class="num">↗</span><span>${link.title}</span></a>`;
+    }
   }
-  html += `<div class="nav-group">연구실 도구</div><a class="nav-item" href="${PAPER_LIBRARY_URL}" target="_blank" rel="noopener"><span class="num">↗</span><span>논문 분석실 · 로그인</span></a>`;
   side.innerHTML = html;
   body.insertBefore(side, top.nextSibling);
   const scrim = document.createElement('div');

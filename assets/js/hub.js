@@ -37,6 +37,6 @@ document.getElementById('fields').innerHTML = FIELDS.map(f => {
   return `<section class="field" id="field-${f.id}">
     <div class="field-head"><div><div class="en">CHAPTER ${f.n} · ${esc(f.en)}</div><h3>${esc(f.title)}</h3><p>${esc(f.desc)}</p></div>
       <div class="field-meta"><span class="chip">📖 ${f.chapters.length}개 소단원</span><span class="chip">🧪 실험 ${labs}개</span><span class="chip">⏱ 약 ${Math.round(mins / 10) * 10}분</span></div></div>
-    <div class="field-body"><div class="toc-grid">${cards}</div></div>
+    <div class="field-body"><div class="toc-grid">${cards}</div>${(f.links || []).map(link => `<a class="btn" href="${esc(link.url)}" target="_blank" rel="noopener">${esc(link.title)} ↗</a>`).join('')}</div>
   </section>`;
 }).join('');
