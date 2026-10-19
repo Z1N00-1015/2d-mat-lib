@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beyond Silicon — 차세대 반도체 물질</title>
+<meta name="description" content="원자 한 층 두께의 2D 물질부터 넓은 밴드갭 반도체까지, 결정학 인터랙티브 실험으로 배우는 차세대 반도체 물질.">
+<meta property="og:title" content="Beyond Silicon — 차세대 반도체 물질">
+<meta property="og:description" content="그래핀, MoS₂, hBN, SiC, GaN, Ga₂O₃. 결정 구조와 물성을 직접 만지며 배우는 인터랙티브 웹 콘텐츠.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='black'/><g fill='none' stroke='%2364d2ff' stroke-width='2'><path d='M16 6l8.7 5v10L16 26l-8.7-5V11z'/><circle cx='16' cy='16' r='3' fill='%23bf5af2' stroke='none'/></g></svg>">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="importmap">
+{ "imports": { "three": "./assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "./assets/vendor/OrbitControls.js" } }
+</script>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#64d2ff" stroke-width="1.6"><path d="M12 2.5l8.2 4.75v9.5L12 21.5l-8.2-4.75v-9.5z"/><circle cx="12" cy="12" r="2.4" fill="#bf5af2" stroke="none"/></svg>
+      Beyond Silicon
+    </a>
+    <ul id="navlinks">
+      <li><a href="#why">왜 새로운 물질인가</a></li>
+      <li><a href="#crystal">결정학</a></li>
+      <li><a href="#materials">물질 라인업</a></li>
+      <li><a href="#devices">소자</a></li>
+      <li><a href="#fab">공정</a></li>
+      <li><a href="#roadmap">로드맵</a></li>
+    </ul>
+    <button class="nav-toggle" id="navtoggle" aria-label="메뉴"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.6" fill="none"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="top" data-module="hero">
+  <div class="hero-content">
+    <p class="eyebrow">차세대 반도체 물질</p>
+    <h1>실리콘,<br><span class="grad-text">그 다음.</span></h1>
+    <p class="sub">원자 한 층 두께의 물질이 여는 새로운 반도체의 시대.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#crystal">결정 구조 탐험하기</a>
+      <a class="btn btn-ghost" href="#why">더 알아보기 ›</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><span></span>스크롤</div>
+</header>
+
+<!-- ===================== WHY ===================== -->
+<section class="section alt" id="why">
+  <div class="wrap center">
+    <p class="eyebrow reveal">무어의 법칙, 그 끝에서</p>
+    <h2 class="headline reveal d1">더 작게 만들 수 없다면,<br><span class="grad-text">물질을 바꾼다.</span></h2>
+    <p class="lead reveal d2">60년 동안 반도체는 실리콘을 더 작게 깎는 방식으로 발전해 왔습니다. 하지만 트랜지스터가 원자 수십 개 크기에 다가서면서 <strong>전자가 벽을 뚫고 새어 나가고</strong>, 열을 감당할 수 없게 되었습니다. 이제 해답은 물질 그 자체에 있습니다.</p>
+  </div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat reveal"><div class="v"><span data-count="0.34" data-dec="2">0</span><small>nm</small></div><div class="k">그래핀 한 층의 두께.<br>머리카락의 약 20만 분의 1.</div></div>
+      <div class="stat reveal d1"><div class="v grad-text cool"><span data-count="200000">0</span></div><div class="k">부유 그래핀의 전자 이동도(cm²/V·s).<br>실리콘의 100배 이상.</div></div>
+      <div class="stat reveal d2"><div class="v grad-text warm"><span data-count="8">0</span><small>MV/cm</small></div><div class="k">산화갈륨의 절연파괴 전계.<br>실리콘의 약 27배.</div></div>
+      <div class="stat reveal d3"><div class="v grad-text"><span data-count="1.1" data-dec="1">0</span><small>°</small></div><div class="k">‘매직 앵글’. 두 장의 그래핀을<br>이만큼 비틀면 초전도체가 됩니다.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SCROLLY: from bulk to monolayer ===================== -->
+<section class="scrolly" id="stack" data-module="stack">
+  <div class="sticky">
+    <div class="steps">
+      <div class="step" data-step="0"><div class="tag">STEP 01 · BULK</div><h3>흑연 덩어리.</h3><p>연필심 속 흑연은 탄소 원자가 육각형으로 엮인 판이 수백만 장 쌓여 있는 구조입니다. 판과 판 사이는 약한 반데르발스 힘으로만 붙어 있죠.</p></div>
+      <div class="step" data-step="1"><div class="tag">STEP 02 · VAN DER WAALS</div><h3>층과 층 사이,<br>0.335 nm.</h3><p>층 내부는 강력한 sp² 공유결합, 층 사이는 약한 결합. 이 비대칭 덕분에 테이프 하나로 층을 떼어낼 수 있습니다.</p></div>
+      <div class="step" data-step="2"><div class="tag">STEP 03 · EXFOLIATION</div><h3>한 장씩,<br>벗겨내다.</h3><p>2004년, 가임과 노보셀로프는 스카치테이프로 흑연을 반복해서 떼어내 원자 한 층, 그래핀을 분리했습니다. 2010년 노벨 물리학상.</p></div>
+      <div class="step" data-step="3"><div class="tag">STEP 04 · MONOLAYER</div><h3>원자 한 층.<br><span class="grad-text">완전히 새로운 물리.</span></h3><p>두께가 사라지면 전자는 2차원 평면에 갇힙니다. 질량 없는 디랙 전자, 층 수에 따라 바뀌는 밴드갭, 비틀면 나타나는 초전도까지.</p></div>
+    </div>
+    <div class="meter"><div class="lbl">LAYERS</div><div class="big" id="stack-layers">∞</div><div class="lbl" id="stack-thick">두께 ~ mm</div></div>
+  </div>
+</section>
+
+<!-- ===================== LIMITS ===================== -->
+<section class="section" id="limits">
+  <div class="wrap">
+    <p class="eyebrow reveal">실험 01 · 양자 터널링</p>
+    <h2 class="headline md reveal d1">얇아질수록,<br>전자는 <span class="grad-text warm">벽을 통과한다.</span></h2>
+    <p class="lead reveal d2">게이트 절연막이 몇 나노미터 이하로 얇아지면, 고전적으로는 넘을 수 없는 에너지 장벽을 전자가 확률적으로 뚫고 지나갑니다. 절연막 두께를 직접 줄여보세요. 누설 전류는 두께에 <strong>지수적으로</strong> 반응합니다.</p>
+
+    <div class="lab reveal" id="lab-tunnel" data-module="tunneling">
+      <div class="lab-head">
+        <div><div class="tag">Interactive · Quantum Mechanics</div><h3>파동함수, 장벽을 만나다</h3></div>
+        <div class="seg" data-k="diel"><button class="on" data-v="sio2">SiO₂</button><button data-v="hfo2">HfO₂ (high-k)</button><button data-v="hbn">hBN</button></div>
+      </div>
+      <div class="lab-body">
+        <div class="stage h-420"><canvas></canvas><div class="hud" data-k="hud"></div></div>
+        <div class="panel">
+          <label class="slider"><div class="row"><span>등가 산화막 두께 (EOT)</span><b data-o="eot">1.2 nm</b></div><input type="range" data-k="eot" min="0.5" max="4" step="0.05" value="1.2"></label>
+          <div class="readout">
+            <div><div class="k">물리적 두께</div><div class="v" data-o="phys">1.2<small>nm</small></div></div>
+            <div><div class="k">유전율 κ</div><div class="v" data-o="kappa">3.9</div></div>
+            <div class="wide"><div class="k">터널링 투과 확률 T</div><div class="v" data-o="T">—</div></div>
+          </div>
+          <div><div class="note" style="margin-bottom:6px">누설 전류 (log 스케일)</div><div style="height:10px;border-radius:5px;background:rgba(0,0,0,.08);overflow:hidden"><div data-o="bar" style="height:100%;width:50%;background:linear-gradient(90deg,#30d158,#ffd60a,#ff375f);border-radius:5px;transition:width .2s"></div></div></div>
+          <p class="note">같은 EOT라도 유전율 κ가 큰 <b>HfO₂</b>는 물리적으로 훨씬 두꺼운 막을 쓸 수 있어 터널링이 급감합니다. 이것이 2007년 인텔 45 nm부터 도입된 <b>high-k 금속 게이트</b>의 원리입니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="fet-sec">
+  <div class="wrap">
+    <p class="eyebrow reveal">실험 02 · 단채널 효과</p>
+    <h2 class="headline md reveal d1">채널이 얇을수록<br><span class="grad-text cool">게이트가 장악한다.</span></h2>
+    <p class="lead reveal d2">게이트 길이가 짧아지면 드레인 전압이 채널 장벽을 끌어내려 트랜지스터가 꺼지지 않습니다. 채널 두께 t<sub>s</sub>가 얇을수록 전위가 퍼지는 거리, <strong>자연 길이 λ</strong>가 줄어듭니다. 두께 0.65 nm의 MoS₂ 단층이 실리콘 이후의 채널로 주목받는 이유입니다.</p>
+
+    <div class="lab reveal" id="lab-fet" data-module="fet">
+      <div class="lab-head">
+        <div><div class="tag">Interactive · Device Physics</div><h3>트랜지스터 시뮬레이터</h3><p>λ = √(ε<sub>s</sub>/ε<sub>ox</sub> · t<sub>s</sub> · t<sub>ox</sub>) 를 이용한 단순화 모델입니다.</p></div>
+        <div class="seg" data-k="mat"><button class="on" data-v="si">Si 박막</button><button data-v="mos2">MoS₂ 단층</button><button data-v="wse2">WSe₂ 단층</button></div>
+      </div>
+      <div class="lab-body split">
+        <div>
+          <div class="stage light h-320"><canvas data-c="band"></canvas><div class="hud">전도대 에너지 프로파일 · 소스 → 드레인</div></div>
+          <div class="controls-row">
+            <label class="slider"><div class="row"><span>게이트 길이 L<sub>g</sub></span><b data-o="lg">12 nm</b></div><input type="range" data-k="lg" min="3" max="30" step="0.5" value="12"></label>
+            <label class="slider"><div class="row"><span>채널 두께 t<sub>s</sub></span><b data-o="ts">5 nm</b></div><input type="range" data-k="ts" min="1" max="15" step="0.5" value="5"></label>
+            <label class="slider"><div class="row"><span>게이트 전압 V<sub>g</sub></span><b data-o="vg">0.0 V</b></div><input type="range" data-k="vg" min="0" max="0.8" step="0.01" value="0"></label>
+          </div>
+        </div>
+        <div>
+          <div class="stage light h-320"><canvas data-c="iv"></canvas><div class="hud">I<sub>d</sub>–V<sub>g</sub> (log)</div></div>
+          <div class="readout" style="margin-top:22px">
+            <div><div class="k">자연 길이 λ</div><div class="v" data-o="lam">—</div></div>
+            <div><div class="k">L<sub>g</sub> / λ</div><div class="v" data-o="ratio">—</div></div>
+            <div><div class="k">부문턱 기울기 SS</div><div class="v" data-o="ss">—</div></div>
+            <div><div class="k">DIBL</div><div class="v" data-o="dibl">—</div></div>
+          </div>
+          <p class="note" style="margin-top:14px" data-o="verdict"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CRYSTALLOGRAPHY ===================== -->
+<section class="dark" id="crystal">
+  <div class="chapter-head">
+    <div class="num reveal">CHAPTER 01</div>
+    <h2 class="headline reveal d1">결정학.<br><span class="grad-text">원자의 질서를 읽다.</span></h2>
+    <p class="lead reveal d2">반도체의 모든 성질은 원자가 어떻게 배열되어 있는가에서 시작합니다. 격자, 대칭, 회절, 역격자. 다섯 개의 실험으로 결정의 언어를 익혀보세요.</p>
+  </div>
+</section>
+<div class="chapter-wrap">
+<nav class="subnav">
+  <div class="subnav-inner">
+    <h2>결정학 실험실</h2>
+    <div class="chips"><a href="#c-viewer">3D 구조</a><a href="#c-bravais">브라베 격자 · 역격자</a><a href="#c-miller">밀러 지수</a><a href="#c-xrd">X선 회절</a><a href="#c-moire">모아레</a></div>
+  </div>
+</nav>
+
+<section class="section dark" id="c-viewer">
+  <div class="wrap wide">
+    <p class="eyebrow reveal">실험 03 · 결정 구조 뷰어</p>
+    <h2 class="headline md reveal d1">일곱 가지 결정,<br>손끝으로 돌려보다.</h2>
+    <p class="lead reveal d2">드래그해서 회전하고, 스크롤로 확대하세요. 단위 셀(unit cell)을 반복하면 결정이 됩니다. 2차원 물질은 층 수를, 3차원 결정은 슈퍼셀 크기를 바꿔보세요.</p>
+    <div class="lab reveal" id="lab-crystal" data-module="crystal">
+      <div class="lab-head">
+        <div class="seg" data-k="struct">
+          <button class="on" data-v="graphene">그래핀</button><button data-v="hbn">h-BN</button><button data-v="mos2">2H-MoS₂</button><button data-v="si">Si (다이아몬드)</button><button data-v="gan">GaN (우르차이트)</button><button data-v="sic">4H-SiC</button><button data-v="perov">CsPbI₃ (페로브스카이트)</button>
+        </div>
+      </div>
+      <div class="lab-body">
+        <div class="stage h-480"><canvas></canvas><div class="hud" data-o="hud"></div><div class="badge">드래그 · 회전 / 휠 · 확대</div></div>
+        <div class="panel">
+          <div>
+            <div class="note" data-o="kind" style="color:#64d2ff;font-weight:600"></div>
+            <h4 data-o="name" style="font-size:28px;letter-spacing:-.02em;margin-top:4px"></h4>
+            <div class="legend" data-o="legend" style="margin-top:10px"></div>
+          </div>
+          <div class="readout" data-o="props"></div>
+          <label class="slider"><div class="row"><span data-o="nlabel">슈퍼셀</span><b data-o="nval">3</b></div><input type="range" data-k="n" min="1" max="6" step="1" value="3"></label>
+          <label class="slider" data-o="layerwrap"><div class="row"><span>층 수</span><b data-o="lval">1</b></div><input type="range" data-k="layers" min="1" max="4" step="1" value="1"></label>
+          <label class="toggle">단위 셀 표시<input type="checkbox" data-k="cell" checked><i></i></label>
+          <label class="toggle">결합 표시<input type="checkbox" data-k="bonds" checked><i></i></label>
+          <label class="toggle">자동 회전<input type="checkbox" data-k="spin" checked><i></i></label>
+          <p class="note" data-o="desc"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark alt2" id="c-bravais">
+  <div class="wrap wide">
+    <p class="eyebrow reveal">실험 04 · 2차원 브라베 격자와 역격자</p>
+    <h2 class="headline md reveal d1">실공간의 격자,<br><span class="grad-text cool">운동량 공간의 거울.</span></h2>
+    <p class="lead reveal d2">2차원에는 단 다섯 종류의 브라베 격자만 존재합니다. 두 기저 벡터의 길이 비와 사잇각을 바꾸면, 오른쪽의 역격자와 <strong>제1 브릴루앙 영역</strong>이 실시간으로 바뀝니다. 그래핀의 육각형 브릴루앙 영역 꼭짓점 K가 바로 디랙 콘이 있는 곳입니다.</p>
+    <div class="lab reveal" id="lab-bravais" data-module="lattice2d">
+      <div class="lab-head">
+        <div class="seg" data-k="preset"><button data-v="square">정사각</button><button class="on" data-v="hex">육방</button><button data-v="rect">직사각</button><button data-v="crect">중심 직사각</button><button data-v="obl">사각(斜角)</button></div>
+        <div class="badge-type" style="font-size:22px;font-weight:700;letter-spacing:-.02em" data-o="type">육방 격자</div>
+      </div>
+      <div class="lab-body stack">
+        <div class="grid c2">
+          <div class="stage h-420"><canvas data-c="real"></canvas><div class="hud">실공간 (Real space)<br><span style="color:#64d2ff">a₁</span> · <span style="color:#ff9f0a">a₂</span> · <span style="color:#30d158">위그너–자이츠 셀</span></div></div>
+          <div class="stage h-420"><canvas data-c="recip"></canvas><div class="hud">역공간 (Reciprocal space)<br><span style="color:#64d2ff">b₁</span> · <span style="color:#ff9f0a">b₂</span> · <span style="color:#bf5af2">제1 브릴루앙 영역</span></div></div>
+        </div>
+        <div class="controls-row">
+          <label class="slider"><div class="row"><span>|a₂| / |a₁|</span><b data-o="ratio">1.00</b></div><input type="range" data-k="ratio" min="0.5" max="2" step="0.01" value="1"></label>
+          <label class="slider"><div class="row"><span>사잇각 γ</span><b data-o="gamma">120°</b></div><input type="range" data-k="gamma" min="45" max="135" step="0.5" value="120"></label>
+          <label class="toggle" style="flex:0 1 200px">그래핀 원자 기저<input type="checkbox" data-k="basis"><i></i></label>
+        </div>
+        <div class="formula" style="margin-top:22px">a<sub>i</sub> · b<sub>j</sub> = 2π δ<sub>ij</sub> &nbsp;&nbsp;⟹&nbsp;&nbsp; b₁ = 2π (a₂ × ẑ) / (a₁ · (a₂ × ẑ))</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark" id="c-miller">
+  <div class="wrap wide">
+    <p class="eyebrow reveal">실험 05 · 밀러 지수</p>
+    <h2 class="headline md reveal d1">결정면에<br>이름을 붙이는 법.</h2>
+    <p class="lead reveal d2">밀러 지수 (hkl)은 결정면이 축과 만나는 절편의 역수입니다. 웨이퍼의 방향 (100), (111)이 바로 이것이죠. 지수를 바꾸면 평행한 결정면 가족과 면간 거리 d<sub>hkl</sub>, 그리고 면 위에 놓인 원자가 표시됩니다.</p>
+    <div class="lab reveal" id="lab-miller" data-module="miller">
+      <div class="lab-body">
+        <div class="stage h-480"><canvas></canvas><div class="hud"><span style="color:#ff6b6b">x</span> · <span style="color:#30d158">y</span> · <span style="color:#2997ff">z</span></div><div class="badge">드래그 · 회전</div></div>
+        <div class="panel">
+          <div class="group"><div class="label">밀러 지수 (h k l)</div>
+            <div class="miller-input">(
+              <div class="stepper" data-k="h"><button data-d="1">▲</button><output>1</output><button data-d="-1">▼</button></div>
+              <div class="stepper" data-k="k"><button data-d="1">▲</button><output>1</output><button data-d="-1">▼</button></div>
+              <div class="stepper" data-k="l"><button data-d="1">▲</button><output>1</output><button data-d="-1">▼</button></div>
+            )</div>
+          </div>
+          <div class="group"><div class="label">프리셋</div>
+            <div class="seg" data-k="preset"><button data-v="1,0,0">(100)</button><button data-v="1,1,0">(110)</button><button class="on" data-v="1,1,1">(111)</button><button data-v="2,0,0">(200)</button><button data-v="2,1,0">(210)</button><button data-v="-1,1,1">(<span style="text-decoration:overline">1</span>11)</button></div>
+          </div>
+          <div class="group"><div class="label">격자</div>
+            <div class="seg full" data-k="lat"><button data-v="sc">단순입방</button><button data-v="bcc">체심입방</button><button class="on" data-v="fcc">면심입방</button></div>
+          </div>
+          <div class="readout">
+            <div><div class="k">면간 거리 d/a</div><div class="v" data-o="d">—</div></div>
+            <div><div class="k">면 위 원자</div><div class="v" data-o="atoms">—</div></div>
+            <div class="wide"><div class="k">Si 결정에서 d<sub>hkl</sub> (a = 5.431 Å)</div><div class="v" data-o="dsi">—</div></div>
+          </div>
+          <p class="note">면간 거리: <b>d<sub>hkl</sub> = a / √(h² + k² + l²)</b>. 실리콘 웨이퍼는 계면 결함이 적은 (100) 면을, GaN 성장용 기판은 육방 대칭이 맞는 Si(111)이나 사파이어 c-면을 주로 씁니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark alt2" id="c-xrd">
+  <div class="wrap wide">
+    <p class="eyebrow reveal">실험 06 · 브래그 법칙과 X선 회절</p>
+    <h2 class="headline md reveal d1">빛의 간섭으로<br><span class="grad-text warm">원자 간격을 잰다.</span></h2>
+    <p class="lead reveal d2">결정면에서 반사된 X선은 경로차가 파장의 정수배일 때만 보강 간섭합니다. <strong>2d sinθ = nλ</strong>. 각도를 돌려 반사 신호가 켜지는 순간을 찾아보세요.</p>
+    <div class="lab reveal" id="lab-bragg" data-module="bragg">
+      <div class="lab-head"><div><div class="tag">Interactive · Diffraction</div><h3>브래그 반사</h3></div></div>
+      <div class="lab-body">
+        <div class="stage h-420"><canvas data-c="main"></canvas><div class="hud" data-o="hud"></div></div>
+        <div class="panel">
+          <label class="slider"><div class="row"><span>입사각 θ</span><b data-o="theta">30.0°</b></div><input type="range" data-k="theta" min="5" max="85" step="0.1" value="30"></label>
+          <label class="slider"><div class="row"><span>파장 λ</span><b data-o="lam">1.54 Å</b></div><input type="range" data-k="lam" min="0.6" max="3" step="0.01" value="1.54"></label>
+          <label class="slider"><div class="row"><span>면간 거리 d</span><b data-o="d">2.00 Å</b></div><input type="range" data-k="d" min="1" max="4" step="0.01" value="2"></label>
+          <div class="readout">
+            <div><div class="k">경로차 2d sinθ</div><div class="v" data-o="path">—</div></div>
+            <div><div class="k">경로차 / λ</div><div class="v" data-o="n">—</div></div>
+          </div>
+          <div class="stage light" style="height:150px"><canvas data-c="curve"></canvas><div class="hud">반사 강도 vs θ (결정면 8장)</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lab reveal" id="lab-xrd" data-module="xrd">
+      <div class="lab-head">
+        <div><div class="tag">Interactive · Powder XRD</div><h3>분말 X선 회절 패턴 시뮬레이터</h3><p>구조 인자 F<sub>hkl</sub> = Σ f<sub>j</sub> e<sup>2πi(hx<sub>j</sub>+ky<sub>j</sub>+lz<sub>j</sub>)</sup> 로 계산한 패턴입니다. 소멸 규칙(extinction)에 의해 어떤 피크가 사라지는지 살펴보세요.</p></div>
+        <div class="seg" data-k="struct"><button data-v="sc">단순입방</button><button data-v="bcc">BCC (Fe)</button><button data-v="fcc">FCC (Cu)</button><button class="on" data-v="dia">다이아몬드 (Si)</button><button data-v="zb">섬아연광 (GaAs)</button><button data-v="nacl">암염 (NaCl)</button></div>
+      </div>
+      <div class="lab-body stack">
+        <div class="stage light h-360"><canvas></canvas><div class="tip" data-o="tip"></div></div>
+        <div class="controls-row">
+          <label class="slider"><div class="row"><span>격자 상수 a</span><b data-o="a">5.431 Å</b></div><input type="range" data-k="a" min="2.5" max="6.5" step="0.001" value="5.431"></label>
+          <div class="group" style="display:flex;flex-direction:column;gap:8px"><div class="note">X선 광원</div><div class="seg" data-k="src"><button class="on" data-v="1.5406">Cu Kα</button><button data-v="1.7890">Co Kα</button><button data-v="0.7107">Mo Kα</button></div></div>
+          <div class="note" data-o="info" style="flex:2 1 300px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark" id="c-moire">
+  <div class="wrap wide">
+    <p class="eyebrow reveal">실험 07 · 트위스트로닉스</p>
+    <h2 class="headline md reveal d1">두 장을 비틀면,<br><span class="grad-text">새로운 결정이 태어난다.</span></h2>
+    <p class="lead reveal d2">두 육방 격자를 작은 각도 θ로 겹치면 원래 격자보다 수십 배 큰 <strong>모아레 초격자</strong>가 나타납니다. 주기는 L = a / (2 sin(θ/2)). θ ≈ 1.1°, 매직 앵글에서 전자 밴드가 평탄해지고 초전도가 나타납니다 (Cao et al., Nature 2018).</p>
+    <div class="lab reveal" id="lab-moire" data-module="moire">
+      <div class="lab-head">
+        <div class="seg" data-k="preset"><button class="on" data-v="magic">매직 앵글 1.1°</button><button data-v="t5">5°</button><button data-v="t13">13.2°</button><button data-v="t21">21.8° (정합)</button><button data-v="ghbn">그래핀/hBN 0°</button></div>
+        <div class="seg" data-k="mode"><button class="on" data-v="dots">원자</button><button data-v="bonds">결합</button></div>
+      </div>
+      <div class="lab-body">
+        <div class="stage h-480"><canvas></canvas><div class="hud" data-o="hud"></div><div class="badge" data-o="badge">드래그 · 비틀기</div></div>
+        <div class="panel">
+          <label class="slider"><div class="row"><span>트위스트 각 θ</span><b data-o="theta">1.10°</b></div><input type="range" data-k="theta" min="0" max="30" step="0.01" value="1.1"></label>
+          <label class="slider"><div class="row"><span>격자 불일치 δ</span><b data-o="delta">0.0%</b></div><input type="range" data-k="delta" min="0" max="10" step="0.1" value="0"></label>
+          <label class="slider"><div class="row"><span>확대</span><b data-o="zoom">×1.0</b></div><input type="range" data-k="zoom" min="5" max="28" step="0.1" value="12"></label>
+          <label class="toggle">천천히 회전<input type="checkbox" data-k="anim"><i></i></label>
+          <div class="readout">
+            <div><div class="k">모아레 주기 L</div><div class="v" data-o="L">—</div></div>
+            <div><div class="k">L / a</div><div class="v" data-o="La">—</div></div>
+            <div class="wide"><div class="k">초격자 당 원자 수(근사)</div><div class="v" data-o="N">—</div></div>
+          </div>
+          <div class="callout" data-o="msg">θ가 작을수록 모아레 주기는 커집니다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ===================== MATERIALS ===================== -->
+<section class="dark" id="materials">
+  <div class="chapter-head">
+    <div class="num reveal">CHAPTER 02</div>
+    <h2 class="headline reveal d1">물질 라인업.<br><span class="grad-text warm">각자의 무기를 가진.</span></h2>
+    <p class="lead reveal d2">원자 한 층의 2D 물질, 그리고 넓은 밴드갭(WBG/UWBG) 반도체. 실리콘이 닿지 못하는 영역을 채우는 열 가지 물질을 만나보세요.</p>
+  </div>
+</section>
+<section class="section dark" style="padding-top:0" id="lineup-sec">
+  <div class="wrap wide">
+    <div class="seg reveal" data-k="family" id="lineup-filter" style="margin:0 auto;display:flex;width:max-content;max-width:100%"><button class="on" data-v="all">전체</button><button data-v="2d">2D 물질</button><button data-v="wbg">넓은 밴드갭</button></div>
+    <div class="lineup" id="lineup" data-module="lineup"></div>
+    <div class="mat-detail reveal" id="mat-detail"></div>
+  </div>
+</section>
+
+<section class="section" id="spectrum-sec">
+  <div class="wrap wide">
+    <p class="eyebrow reveal">실험 08 · 밴드갭과 빛</p>
+    <h2 class="headline md reveal d1">밴드갭이 곧<br><span class="grad-text">색이다.</span></h2>
+    <p class="lead reveal d2">밴드갭보다 큰 에너지의 광자만 흡수됩니다. 반대로 전자가 밴드갭을 건너 떨어지면 그만큼의 빛을 냅니다. <strong>λ(nm) ≈ 1240 / E(eV)</strong>. 청색 LED가 GaN에서만 가능했던 이유죠.</p>
+    <div class="lab reveal" id="lab-spectrum" data-module="spectrum">
+      <div class="lab-body stack">
+        <div class="stage light h-320"><canvas></canvas><div class="tip" data-o="tip"></div></div>
+        <div class="controls-row">
+          <label class="slider" style="flex:3 1 400px"><div class="row"><span>광자 에너지</span><b data-o="E">2.50 eV</b></div><input type="range" data-k="E" min="0.1" max="7" step="0.01" value="2.5"></label>
+          <div style="flex:1 1 160px"><div class="swatch" data-o="sw"></div></div>
+          <div class="readout" style="flex:2 1 280px">
+            <div><div class="k">파장</div><div class="v" data-o="lam">—</div></div>
+            <div><div class="k">영역</div><div class="v" data-o="region">—</div></div>
+          </div>
+        </div>
+        <p class="note" data-o="abs" style="margin-top:16px"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="mos2-sec">
+  <div class="wrap wide">
+    <p class="eyebrow reveal">실험 09 · 층 수와 밴드갭</p>
+    <h2 class="headline md reveal d1">한 층이 되는 순간,<br><span class="grad-text">빛나기 시작한다.</span></h2>
+    <p class="lead reveal d2">벌크 MoS₂는 1.2 eV의 <strong>간접</strong> 밴드갭을 가져 빛을 거의 내지 않습니다. 그러나 단층이 되면 1.9 eV의 <strong>직접</strong> 밴드갭으로 바뀌어 광발광(PL)이 수천 배 밝아집니다 (Mak et al., PRL 2010; Splendiani et al., Nano Lett. 2010).</p>
+    <div class="lab reveal" id="lab-mos2" data-module="mos2">
+      <div class="lab-body split">
+        <div class="stage light h-420"><canvas data-c="band"></canvas><div class="hud">밴드 구조 (개략도) · Γ – Λ – K</div></div>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div class="stage light h-240" style="height:200px"><canvas data-c="pl"></canvas><div class="hud">광발광(PL) 스펙트럼</div></div>
+          <div class="stage light" style="height:120px"><canvas data-c="stack"></canvas></div>
+          <label class="slider"><div class="row"><span>층 수</span><b data-o="N">1 층</b></div><input type="range" data-k="N" min="1" max="6" step="1" value="1"></label>
+          <div class="readout">
+            <div><div class="k">최소 밴드갭</div><div class="v" data-o="eg">—</div></div>
+            <div><div class="k">전이 유형</div><div class="v" data-o="type">—</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark" id="dirac-sec">
+  <div class="wrap wide">
+    <p class="eyebrow reveal">실험 10 · 밴드 구조</p>
+    <h2 class="headline md reveal d1">디랙 콘.<br><span class="grad-text cool">질량 없는 전자의 고속도로.</span></h2>
+    <p class="lead reveal d2">벌집 격자의 강결합(tight-binding) 모델: E(k) = ±√(Δ² + t²|1 + e<sup>ik·a₁</sup> + e<sup>ik·a₂</sup>|²). 그래핀(Δ=0)은 K점에서 원뿔이 맞닿아 밴드갭이 없습니다. 두 부격자의 대칭을 깨면(Δ&gt;0, hBN처럼) 갭이 열립니다.</p>
+    <div class="lab reveal" id="lab-dirac" data-module="bands">
+      <div class="lab-head">
+        <div class="seg" data-k="preset"><button class="on" data-v="gr">그래핀</button><button data-v="tmd">TMD형 (Δ=0.9 eV)</button><button data-v="hbn">hBN형 (Δ=2.9 eV)</button></div>
+      </div>
+      <div class="lab-body split">
+        <div class="stage h-420"><canvas data-c="three"></canvas><div class="badge">드래그 · 회전</div><div class="hud">3D 밴드 E(k<sub>x</sub>, k<sub>y</sub>)</div></div>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div class="stage h-280" style="height:260px"><canvas data-c="path"></canvas><div class="hud">고대칭 경로 Γ → M → K → Γ</div></div>
+          <div class="controls-row" style="margin-top:0">
+            <label class="slider"><div class="row"><span>호핑 에너지 t</span><b data-o="t">2.70 eV</b></div><input type="range" data-k="t" min="1.5" max="3.5" step="0.01" value="2.7"></label>
+            <label class="slider"><div class="row"><span>부격자 비대칭 Δ</span><b data-o="D">0.00 eV</b></div><input type="range" data-k="D" min="0" max="3.2" step="0.01" value="0"></label>
+          </div>
+          <div class="readout">
+            <div><div class="k">밴드갭 (K점)</div><div class="v" data-o="gap">—</div></div>
+            <div><div class="k">페르미 속도 v<sub>F</sub></div><div class="v" data-o="vf">—</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DEVICES ===================== -->
+<section class="dark" id="devices">
+  <div class="chapter-head">
+    <div class="num reveal">CHAPTER 03</div>
+    <h2 class="headline reveal d1">전력의 미래는<br><span class="grad-text warm">넓은 밴드갭에.</span></h2>
+    <p class="lead reveal d2">전기차 인버터, 충전기, 데이터센터 전원, 5G 기지국. 높은 전압과 열을 견뎌야 하는 곳에서 SiC와 GaN은 이미 실리콘을 대체하고 있습니다. 그 다음 주자는 산화갈륨과 다이아몬드입니다.</p>
+  </div>
+</section>
+<section class="section dark" style="padding-top:0">
+  <div class="wrap wide">
+    <div class="lab reveal" id="lab-power" data-module="power">
+      <div class="lab-head">
+        <div><div class="tag">Interactive · Power Semiconductors</div><h3>밴드갭 vs 절연파괴 전계</h3><p>원의 크기는 열전도도. 전력 반도체의 성능지수 BFOM = ε·μ·E<sub>c</sub>³ 는 절연파괴 전계의 세제곱에 비례합니다.</p></div>
+        <div class="seg" data-k="metric"><button class="on" data-v="bfom">BFOM</button><button data-v="ec">절연파괴 전계</button><button data-v="k">열전도도</button><button data-v="mu">전자 이동도</button></div>
+      </div>
+      <div class="lab-body split">
+        <div class="stage h-420"><canvas data-c="scatter"></canvas><div class="tip" data-o="tip"></div></div>
+        <div class="stage h-420"><canvas data-c="bars"></canvas></div>
+      </div>
+    </div>
+    <div class="grid c3" style="margin-top:20px">
+      <div class="card reveal"><div class="icon">🚗</div><h4>SiC · 전기차</h4><p>800 V급 EV 인버터의 주력. 실리콘 IGBT 대비 스위칭 손실을 크게 줄여 주행거리를 늘립니다. 2018년 양산 전기차에 처음 대규모 채택.</p></div>
+      <div class="card reveal d1"><div class="icon">🔌</div><h4>GaN · 고속 충전기</h4><p>AlGaN/GaN 계면의 2차원 전자가스(2DEG)는 도핑 없이도 높은 이동도를 냅니다. 손바닥만 한 100 W 충전기와 5G RF 증폭기의 핵심.</p></div>
+      <div class="card reveal d2"><div class="icon">⚡</div><h4>Ga₂O₃ · 초고전압</h4><p>4.8 eV의 초광대역 밴드갭. 용융 성장으로 대형 단결정 기판을 싸게 만들 수 있다는 장점. 다만 낮은 열전도도는 숙제입니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAB ===================== -->
+<section class="alt" id="fab">
+  <div class="chapter-head">
+    <div class="num reveal">CHAPTER 04</div>
+    <h2 class="headline reveal d1">원자 한 층을<br><span class="grad-text green">만드는 기술.</span></h2>
+    <p class="lead reveal d2">실험실의 스카치테이프부터 웨이퍼 규모의 화학기상증착(CVD)까지. 2D 물질 상용화의 가장 큰 관문은 결국 ‘얼마나 크고 완벽하게 키우는가’입니다.</p>
+  </div>
+</section>
+<section class="section alt" style="padding-top:0">
+  <div class="wrap wide">
+    <div class="lab reveal" id="lab-exfo" data-module="exfo">
+      <div class="lab-head">
+        <div><div class="tag">Interactive · Mechanical Exfoliation</div><h3>스카치테이프 박리 실험</h3><p>테이프를 접었다 펴서 흑연을 얇게 만든 뒤, SiO₂/Si 웨이퍼에 붙여보세요. 285 nm 산화막 위에서는 빛의 간섭 때문에 단층 그래핀도 눈에 보입니다. 웨이퍼 위 조각에 마우스를 올려 층 수를 확인하세요.</p></div>
+      </div>
+      <div class="lab-body">
+        <div class="stage light h-420"><canvas></canvas><div class="tip" data-o="tip"></div></div>
+        <div class="panel">
+          <button class="btn btn-primary" data-a="load" style="justify-content:center">① 흑연 올리기</button>
+          <button class="btn btn-ghost" data-a="fold" style="justify-content:center;color:var(--blue);border-color:var(--blue)">② 테이프 접었다 펴기</button>
+          <button class="btn btn-ghost" data-a="press" style="justify-content:center;color:var(--blue);border-color:var(--blue)">③ 웨이퍼에 전사</button>
+          <div class="readout">
+            <div><div class="k">접은 횟수</div><div class="v" data-o="folds">0</div></div>
+            <div><div class="k">테이프 위 조각</div><div class="v" data-o="flakes">0</div></div>
+            <div><div class="k">가장 얇은 조각</div><div class="v" data-o="thin">—</div></div>
+            <div><div class="k">단층 발견</div><div class="v" data-o="mono">0</div></div>
+          </div>
+          <p class="note" data-o="msg">먼저 흑연 결정을 테이프에 올리세요.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lab reveal" id="lab-cvd" data-module="cvd">
+      <div class="lab-head">
+        <div><div class="tag">Interactive · Chemical Vapor Deposition</div><h3>CVD 성장 시뮬레이터: MoS₂ 도메인</h3><p>기판 위에 핵이 생기고, 삼각형 단결정 도메인이 자라 합쳐집니다. 온도가 높을수록 핵 밀도가 낮아 큰 결정립이 생기고, 사파이어 기판의 원자 계단을 이용하면 도메인 방향이 정렬됩니다(에피택시).</p></div>
+        <div style="display:flex;gap:10px"><button class="btn btn-primary" data-a="run">성장 시작</button><button class="btn btn-ghost" data-a="reset" style="color:var(--blue);border-color:var(--blue)">초기화</button></div>
+      </div>
+      <div class="lab-body">
+        <div class="stage h-420"><canvas></canvas><div class="hud" data-o="hud"></div></div>
+        <div class="panel">
+          <label class="slider"><div class="row"><span>성장 온도</span><b data-o="T">750 °C</b></div><input type="range" data-k="T" min="600" max="900" step="5" value="750"></label>
+          <label class="slider"><div class="row"><span>전구체 공급량</span><b data-o="F">보통</b></div><input type="range" data-k="F" min="0.2" max="3" step="0.05" value="1"></label>
+          <label class="toggle">에피택셜 정렬 (사파이어 c-면)<input type="checkbox" data-k="epi"><i></i></label>
+          <label class="toggle">결정립계 강조<input type="checkbox" data-k="gb" checked><i></i></label>
+          <div class="readout">
+            <div><div class="k">피복률</div><div class="v" data-o="cov">0%</div></div>
+            <div><div class="k">도메인 수</div><div class="v" data-o="n">0</div></div>
+            <div class="wide"><div class="k">평균 도메인 크기</div><div class="v" data-o="size">—</div></div>
+          </div>
+          <p class="note">결정립계(grain boundary)는 전자를 산란시켜 이동도를 떨어뜨립니다. 웨이퍼 전체가 하나의 방향을 갖는 <b>단결정 2D 박막</b> 성장이 상용화의 핵심 과제입니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ROADMAP ===================== -->
+<section class="section dark" id="roadmap">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow reveal">로드맵</p>
+      <h2 class="headline md reveal d1">발견에서 양산까지.</h2>
+      <p class="lead reveal d2">과학적 발견이 공장의 생산 라인에 오르기까지는 수십 년이 걸립니다. 차세대 반도체 물질의 여정을 따라가 보세요.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl reveal"><div class="box"><div class="yr grad-text cool">1993</div><h4>고휘도 청색 LED</h4><p>나카무라 슈지 등이 GaN 기반 고휘도 청색 LED를 구현. 2014년 아카사키·아마노와 함께 노벨 물리학상.</p></div></div>
+      <div class="tl reveal"><div class="box"><div class="yr grad-text cool">2004</div><h4>그래핀의 분리</h4><p>맨체스터 대학의 가임과 노보셀로프가 스카치테이프로 단층 그래핀을 분리하고 전기적 특성을 측정. 2010년 노벨 물리학상.</p></div></div>
+      <div class="tl reveal"><div class="box"><div class="yr grad-text">2010</div><h4>MoS₂ 단층의 직접 밴드갭</h4><p>단층이 되면 간접 → 직접 밴드갭으로 전이되며 강한 발광이 나타남을 발견. 반도체 2D 물질 연구의 폭발적 시작.</p></div></div>
+      <div class="tl reveal"><div class="box"><div class="yr grad-text">2011</div><h4>첫 단층 MoS₂ 트랜지스터</h4><p>EPFL 연구진이 단층 MoS₂ 트랜지스터를 시연. 상온에서 높은 on/off 비(~10⁸)를 보임.</p></div></div>
+      <div class="tl reveal"><div class="box"><div class="yr grad-text warm">2018</div><h4>매직 앵글 초전도 · SiC 전기차</h4><p>MIT 연구진이 1.1° 비틀린 이중층 그래핀에서 초전도를 발견. 같은 해 SiC MOSFET이 양산 전기차 인버터에 본격 채택.</p></div></div>
+      <div class="tl reveal"><div class="box"><div class="yr grad-text warm">2022–25</div><h4>GAA 나노시트 양산</h4><p>3 nm(2022)와 2 nm(2025)급 공정에서 게이트가 채널을 사방으로 감싸는 GAA 구조 도입. 실리콘 채널 두께는 이미 수 nm 수준.</p></div></div>
+      <div class="tl reveal future"><div class="box"><div class="yr grad-text">2030s</div><h4>2D 채널 + CFET</h4><p>업계 로드맵은 수직 적층형 CFET과 함께 MoS₂·WSe₂ 같은 2D 채널 도입을 2030년대 옹스트롬 노드의 후보로 제시합니다. 웨이퍼 규모 단결정 성장, 저저항 금속 접촉이 남은 숙제.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COMPARE ===================== -->
+<section class="section alt" id="compare">
+  <div class="wrap wide">
+    <div class="center">
+      <p class="eyebrow reveal">한눈에 비교</p>
+      <h2 class="headline md reveal d1">어떤 물질이, 어디에.</h2>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="compare">
+        <thead><tr><th></th><th>Si<small>기준</small></th><th>그래핀<small>2D 준금속</small></th><th>MoS₂<small>2D 반도체</small></th><th>h-BN<small>2D 절연체</small></th><th>4H-SiC<small>WBG</small></th><th>GaN<small>WBG</small></th><th>β-Ga₂O₃<small>UWBG</small></th></tr></thead>
+        <tbody>
+          <tr><td>밴드갭 (eV)</td><td>1.12</td><td>0</td><td>1.9 (단층)</td><td>~6.0</td><td>3.26</td><td>3.4</td><td>4.85</td></tr>
+          <tr><td>결정 구조</td><td>다이아몬드</td><td>벌집 격자</td><td>삼각 프리즘</td><td>벌집 격자</td><td>육방 (ABCB)</td><td>우르차이트</td><td>단사정</td></tr>
+          <tr><td>전자 이동도 (cm²/V·s)</td><td>~1,400</td><td>&gt;100,000</td><td>~10–200</td><td>—</td><td>~1,000</td><td>~1,200 (2DEG ~2,000)</td><td>~200</td></tr>
+          <tr><td>절연파괴 전계 (MV/cm)</td><td>0.3</td><td>—</td><td>—</td><td>~8–12</td><td>2.5</td><td>3.3</td><td>8</td></tr>
+          <tr><td>대표 응용</td><td>로직·메모리</td><td>투명전극·센서·RF</td><td>초미세 트랜지스터 채널</td><td>2D 소자 절연·캡슐화</td><td>EV 인버터</td><td>충전기·RF·LED</td><td>초고전압 전력</td></tr>
+          <tr><td>산업 성숙도</td>
+            <td><span class="dots"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></span></td>
+            <td><span class="dots"><i class="f"></i><i class="f"></i><i></i><i></i><i></i></span></td>
+            <td><span class="dots"><i class="f"></i><i class="f"></i><i></i><i></i><i></i></span></td>
+            <td><span class="dots"><i class="f"></i><i class="f"></i><i></i><i></i><i></i></span></td>
+            <td><span class="dots"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span></td>
+            <td><span class="dots"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span></td>
+            <td><span class="dots"><i class="f"></i><i class="f"></i><i></i><i></i><i></i></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== QUIZ ===================== -->
+<section class="section dark" id="quiz">
+  <div class="wrap center">
+    <p class="eyebrow reveal">확인 문제</p>
+    <h2 class="headline md reveal d1">얼마나 이해했나요?</h2>
+  </div>
+  <div class="quiz" id="quizbox"></div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>Beyond Silicon — 차세대 반도체 물질</b>은 결정학과 반도체 물리를 인터랙티브 실험으로 소개하는 교육용 웹 콘텐츠입니다. 시뮬레이션은 개념 이해를 위한 단순화 모델이며, 수치는 문헌의 대표값입니다.</p>
+    <h5>참고 문헌</h5>
+    <ol>
+      <li>K. S. Novoselov et al., “Electric Field Effect in Atomically Thin Carbon Films,” Science 306, 666 (2004).</li>
+      <li>K. F. Mak et al., “Atomically Thin MoS₂: A New Direct-Gap Semiconductor,” Phys. Rev. Lett. 105, 136805 (2010).</li>
+      <li>B. Radisavljevic et al., “Single-layer MoS₂ transistors,” Nature Nanotech. 6, 147 (2011).</li>
+      <li>Y. Cao et al., “Unconventional superconductivity in magic-angle graphene superlattices,” Nature 556, 43 (2018).</li>
+      <li>A. H. Castro Neto et al., “The electronic properties of graphene,” Rev. Mod. Phys. 81, 109 (2009).</li>
+      <li>B. J. Baliga, “Power semiconductor device figure of merit for high-frequency applications,” IEEE EDL 10, 455 (1989).</li>
+      <li>M. Higashiwaki et al., “Gallium oxide (Ga₂O₃) metal-semiconductor field-effect transistors on single-crystal β-Ga₂O₃ substrates,” Appl. Phys. Lett. 100, 013504 (2012).</li>
+    </ol>
+    <hr>
+    <p>Made with three.js · Canvas · Vanilla JS. © 2026 Beyond Silicon.</p>
+  </div>
+</footer>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
