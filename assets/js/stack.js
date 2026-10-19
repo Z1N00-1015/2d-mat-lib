@@ -1,8 +1,15 @@
-// Scroll-driven story: graphite → exfoliation → monolayer graphene
+// Lab: graphite → van der Waals gaps → exfoliation → monolayer graphene (slider-driven)
 import * as THREE from 'three';
-import { animate, clamp } from './util.js';
+import { animate, clamp, outs } from './util.js';
 
 const ease = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+const STEPS = [
+  ['① 흑연(graphite)', '벌집 격자의 탄소 원자층(그래핀)이 AB 순서로 적층된 층상 결정입니다. 층 내부는 sp² 공유결합, 층 사이는 반데르발스 힘으로 결합합니다.'],
+  ['② 층간 거리 0.335 nm', '층 사이 결합 에너지는 층 내부 공유결합보다 두 자릿수가량 작습니다. 이 결합의 이방성 덕분에 층을 분리할 수 있습니다.'],
+  ['③ 기계적 박리', '접착 테이프로 위에서부터 한 층씩 떼어냅니다(Novoselov·Geim, 2004). 남은 층 수가 줄어드는 것을 확인하세요.'],
+  ['④ 단층 그래핀', '두께 방향으로 양자 구속된 2차원 전자계가 됩니다. 유효 질량이 0인 디랙 페르미온이 나타납니다.'],
+];
 
 function hexLayer(R, shift, color) {
   const a = 2.46, cc = a / Math.sqrt(3);
@@ -16,9 +23,8 @@ function hexLayer(R, shift, color) {
     if (x * x + y * y < R * R) pts.push([x, y]);
   }
   const g = new THREE.Group();
-  const geo = new THREE.SphereGeometry(0.32, 12, 8);
   const mat = new THREE.MeshStandardMaterial({ color, roughness: 0.4, metalness: 0.1, transparent: true });
-  const mesh = new THREE.InstancedMesh(geo, mat, pts.length);
+  const mesh = new THREE.InstancedMesh(new THREE.SphereGeometry(0.32, 12, 8), mat, pts.length);
   const m = new THREE.Matrix4();
   pts.forEach((p, i) => { m.makeTranslation(p[0], p[1], 0); mesh.setMatrixAt(i, m); });
   g.add(mesh);
@@ -36,10 +42,14 @@ function hexLayer(R, shift, color) {
 }
 
 export function init(root) {
-  const sticky = root.querySelector('.sticky');
+  const stage = root.querySelector('.stage');
+  const out = outs(root);
+  const slider = root.querySelector('input[data-k="p"]');
+  const playBtn = root.querySelector('[data-a="play"]');
   const renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-  sticky.prepend(renderer.domElement);
+  renderer.setClearColor(0x07080b, 1);
+  stage.prepend(renderer.domElement);
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 500);
   scene.add(new THREE.AmbientLight(0xffffff, 0.5));
@@ -50,48 +60,44 @@ export function init(root) {
   const L = 8;
   const world = new THREE.Group();
   scene.add(world);
-  const layers = [];
   const cols = [0x9aa4b2, 0x8e98a8];
   const shiftB = [2.46 / 2, 2.46 * Math.sqrt(3) / 6];
-  for (let i = 0; i < L; i++) {
-    const g = hexLayer(17, i % 2 ? shiftB : [0, 0], cols[i % 2]);
-    world.add(g); layers.push(g);
-  }
+  const layers = [];
+  for (let i = 0; i < L; i++) { const g = hexLayer(15, i % 2 ? shiftB : [0, 0], cols[i % 2]); world.add(g); layers.push(g); }
   const topColor = new THREE.Color(0x64d2ff);
 
-  const steps = [...root.querySelectorAll('.step')];
-  const outL = root.querySelector('#stack-layers');
-  const outT = root.querySelector('#stack-thick');
-
   function resize() {
-    const w = sticky.clientWidth, h = sticky.clientHeight;
+    const w = stage.clientWidth, h = stage.clientHeight;
     renderer.setSize(w, h, false);
     camera.aspect = w / h; camera.updateProjectionMatrix();
   }
-  new ResizeObserver(resize).observe(sticky);
+  new ResizeObserver(resize).observe(stage);
   resize();
 
-  let pSmooth = 0;
-  animate(sticky, (t) => {
-    const r = root.getBoundingClientRect();
-    const p = clamp(-r.top / (root.offsetHeight - innerHeight), 0, 1);
-    pSmooth += (p - pSmooth) * 0.12;
-    const P = pSmooth;
-    const stepIdx = Math.min(3, Math.floor(P * 4 + 0.0001));
-    steps.forEach((s, i) => s.classList.toggle('on', i === stepIdx));
+  let target = +slider.value, P = target, playing = false, lastStep = -1;
+  slider.addEventListener('input', () => { target = +slider.value; playing = false; playBtn.textContent = '▶ 자동 재생'; });
+  playBtn.addEventListener('click', () => {
+    playing = !playing;
+    if (playing && target >= 0.999) { target = 0; P = 0; }
+    playBtn.textContent = playing ? '❚❚ 정지' : '▶ 자동 재생';
+  });
 
-    const explode = ease(clamp((P - 0.18) / 0.22, 0, 1));         // 0.18 → 0.40
-    const spacing = 1.1 + explode * 4.2;                              // world units
-    const peel = clamp((P - 0.5) / 0.28, 0, 1) * (L - 1);             // 0.50 → 0.78
+  animate(stage, (t, dt) => {
+    if (playing) { target = Math.min(1, target + dt * 0.12); slider.value = target; if (target >= 1) { playing = false; playBtn.textContent = '▶ 자동 재생'; } }
+    P += (target - P) * 0.12;
+    const step = Math.min(3, Math.floor(P * 4 + 1e-4));
+    if (step !== lastStep) { out('step', `<b class="t">${STEPS[step][0]}</b>${STEPS[step][1]}`); lastStep = step; }
+
+    const explode = ease(clamp((P - 0.18) / 0.22, 0, 1));
+    const spacing = 1.1 + explode * 4.2;
+    const peel = clamp((P - 0.5) / 0.28, 0, 1) * (L - 1);
     const mono = ease(clamp((P - 0.76) / 0.2, 0, 1));
     let remaining = L;
     layers.forEach((g, i) => {
-      const k = L - 1 - i;              // k=0 bottom ... top layer removed first
-      const order = L - 1 - k;          // top layer order 0
-      const pe = clamp(peel - order, 0, 1);
-      const base = (k - (L - 1) / 2) * spacing;
+      const k = L - 1 - i;            // k = 0 is the bottom layer; the top layer peels first
+      const pe = clamp(peel - i, 0, 1);
       const lift = ease(pe) * 70;
-      g.position.set(ease(pe) * 25, 0, base + lift);
+      g.position.set(ease(pe) * 25, 0, (k - (L - 1) / 2) * spacing + lift);
       g.rotation.set(-ease(pe) * 0.6, ease(pe) * 0.4, 0);
       const op = 1 - pe;
       g.userData.mat.opacity = op; g.userData.lmat.opacity = 0.5 * op;
@@ -103,20 +109,17 @@ export function init(root) {
         g.userData.lmat.opacity = 0.5 + 0.5 * mono;
       }
     });
-    // keep the remaining stack centered
-    world.position.z = -((L - 1) / 2) * spacing * (peel / (L - 1)) * 0.0 + mono * ((L - 1) / 2) * spacing;
+    world.position.z = mono * ((L - 1) / 2) * spacing;
     world.rotation.z = t * 0.08;
-
-    if (P < 0.18) { outL.textContent = '∞'; outT.textContent = '두께 ~ mm (수백만 층)'; }
-    else if (P < 0.5) { outL.textContent = '0.335'; outT.textContent = 'nm · 층간 거리'; }
-    else { outL.textContent = String(Math.max(1, remaining)); outT.textContent = `두께 ≈ ${(Math.max(1, remaining) * 0.335).toFixed(2)} nm`; }
+    const n = Math.max(1, remaining);
+    out('layers', P < 0.18 ? '∞ (수백만 층)' : `${n} 층`);
+    out('thick', P < 0.18 ? '~ mm' : `${(n * 0.335).toFixed(2)} nm`);
 
     const camAng = 1.05 - mono * 0.55;
-    const dist = 95 - mono * 30 - explode * 0;
+    const dist = 80 - mono * 26;
     camera.position.set(0, -Math.sin(camAng) * dist, Math.cos(camAng) * dist * 0.75 + 4);
     camera.up.set(0, 0, 1);
-    const xOff = innerWidth > 734 ? -14 : 0;
-    camera.lookAt(xOff * (1 - mono * 0.3), 0, 0);
+    camera.lookAt(0, 0, 0);
     renderer.render(scene, camera);
   });
 }

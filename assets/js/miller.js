@@ -135,7 +135,7 @@ export function init(root) {
     out('d', `${(1 / Math.sqrt(s2)).toFixed(3)}<small>a</small>`);
     out('atoms', `${on}<small>개 / ${atoms.length}</small>`);
     out('dsi', `d<sub>${fmt()}</sub> = ${(5.431 / Math.sqrt(s2)).toFixed(3)} Å · 단위 세포 내 면 ${polys.length}장`);
-    root.querySelectorAll('.stepper').forEach(st => {
+    root.querySelectorAll('.mstep').forEach(st => {
       const v = { h, k, l }[st.dataset.k];
       const o = st.querySelector('output');
       o.textContent = Math.abs(v); o.classList.toggle('neg', v < 0);
@@ -143,7 +143,7 @@ export function init(root) {
   }
   const fmt = () => [h, k, l].map(v => v < 0 ? `<span style="text-decoration:overline">${-v}</span>` : v).join('');
 
-  root.querySelectorAll('.stepper').forEach(st => st.addEventListener('click', (e) => {
+  root.querySelectorAll('.mstep').forEach(st => st.addEventListener('click', (e) => {
     const b = e.target.closest('button'); if (!b) return;
     const key = st.dataset.k, d = +b.dataset.d;
     const cur = { h, k, l };

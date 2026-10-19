@@ -3,7 +3,7 @@
 import { fitCanvas, seg, FONT, MONO } from './util.js';
 
 let cache = null;
-const load = () => (cache ||= fetch('data/papers.json').then(r => {
+const load = () => (cache ||= fetch(new URL('../../data/papers.json', import.meta.url)).then(r => {
   if (!r.ok) throw new Error(`papers.json ${r.status}`);
   return r.json();
 }));
@@ -60,7 +60,7 @@ async function initRefs(root) {
     const data = await load();
     const list = data.papers.filter(topic.match);
     if (!list.length) { root.remove(); return; }
-    root.innerHTML = `<div class="refs-head"><span class="refs-tag">연구실 논문 DB</span><h4>관련 논문 ${list.length}편</h4><a href="#paperdata">전체 데이터 보기 ›</a></div>
+    root.innerHTML = `<div class="refs-head"><span class="refs-tag">연구실 논문 DB</span><h4>관련 논문 ${list.length}편</h4><a href="papers.html">전체 데이터 보기 ›</a></div>
       <div class="refs-row">${list.map(p => card(p, topic.keys)).join('')}</div>`;
   } catch (e) {
     root.remove();
@@ -84,7 +84,7 @@ async function initData(root) {
   root.querySelector('[data-o="stats"]').innerHTML = [
     [papers.length, '등록 논문'], [nVals, '검토 완료 수치'], [mats.length, '2D 소재·접촉 물질'],
     [years.length ? `${Math.min(...years)}–${String(Math.max(...years)).slice(2)}` : '—', '출판 연도'],
-  ].map(([v, k]) => `<div class="stat"><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
+  ].map(([v, k]) => `<div class="kpi"><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
   root.querySelector('[data-o="updated"]').textContent = `데이터 기준: ${data.generated_at.slice(0, 10)}`;
 
   // metric segmented control (only metrics that have numeric values)
