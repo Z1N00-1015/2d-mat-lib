@@ -65,6 +65,24 @@ jobs:
       - name: Detect data changes
         id: changes
         run: |
+          python3 - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+
+          path = Path("data/papers.json")
+          current = json.loads(path.read_text(encoding="utf-8"))
+          previous_bytes = subprocess.run(
+              ["git", "show", "HEAD:data/papers.json"],
+              check=True,
+              capture_output=True,
+          ).stdout
+          previous = json.loads(previous_bytes)
+          stable = lambda data: {key: value for key, value in data.items() if key != "generated_at"}
+          if stable(current) == stable(previous):
+              path.write_bytes(previous_bytes)
+              print("No paper data changes; ignoring the export timestamp.")
+          PY
           git add data/papers.json
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"

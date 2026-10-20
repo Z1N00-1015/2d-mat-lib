@@ -3,9 +3,9 @@
 Codex와 Claude가 작업을 마칠 때 맨 위에 새 항목을 추가한다. 최신 항목이 위에 온다.
 
 ## 2026-10-21 · codex
-- 변경: 데이터 동기화 Action의 `GITHUB_TOKEN` 브랜치 푸시가 GitHub Pages 자동 재빌드를 일으키지 않는 문제를 확인. Pages는 6편짜리 이전 배포본을 제공했으나 최신 `gh-pages`에는 76편·239개 값이 있었음. 두 워크플로를 공식 Pages artifact 배포로 전환하고 Pages Source를 GitHub Actions로 변경. 배포 후 브라우저가 기존 JSON을 10분 캐시로 계속 표시하는 문제를 확인해 논문 JSON 요청에 `cache: no-store`를 적용하고 모듈/페이지 버전을 갱신.
-- 확인: Pages 배포 Action 성공. 공개 `data/papers.json` 직접 조회에서 논문 76편·검토 완료 값 239개 확인.
-- 남은 일/주의: 캐시 우회 변경을 푸시한 뒤 공개 페이지의 표시 수치가 갱신됐는지 확인.
+- 변경: 데이터 동기화 Action의 `GITHUB_TOKEN` 브랜치 푸시가 GitHub Pages 자동 재빌드를 일으키지 않는 문제를 확인. Pages는 6편짜리 이전 배포본을 제공했으나 최신 `gh-pages`에는 76편·239개 값이 있었음. 두 워크플로를 공식 Pages artifact 배포로 전환하고 Pages Source를 GitHub Actions로 변경. 브라우저에 남은 JSON 캐시를 우회하도록 `cache: no-store` 및 모듈/페이지 버전을 갱신. 주기적 내보내기가 생성 시각만 바뀐 경우에는 커밋하지 않도록 동기화 비교를 보강.
+- 확인: Pages 배포 Action 성공. 공개 논문 페이지에 논문 76편·검토 완료 값 239개가 표시되는 것을 확인.
+- 남은 일/주의: 실제 새 논문 추가 후 다음 주기 동기화에서 데이터와 사이트가 자동 갱신되는지 확인.
 
 ## 2026-10-21 · codex
 - 변경: 논문 데이터 원본을 Render DB가 아닌 Mac 로컬 SQLite로 정정. 비공개 라이브러리 저장소의 DB를 내보내는 Actions 워크플로를 복구하고 5분 주기 동기화와 수동 실행을 설정. README와 논문 앱 안내를 로컬 DB 흐름에 맞춤.
