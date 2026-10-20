@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book.js?v=20261020h"></script>
+<script type="module" src="../../assets/js/book.js?v=20261020i"></script>
 </head>
 <body data-root="../../" data-field="semiconductor" data-chapter="materials">
 <main class="main">
@@ -16,11 +16,11 @@
   <header class="chapter-head">
     <div class="eyebrow">CHAPTER III · MATERIALS & APPLICATIONS</div>
     <h1>2D 물질과 광대역 반도체</h1>
-    <p class="lede">제1·2장에서 익힌 물질과 결정 구조, 밴드의 언어로 실제 반도체를 살펴봅니다. 앞부분은 2D 물질 가족, 뒷부분은 전력 반도체로 쓰이는 광대역 반도체이며, 전력 소자의 성능을 비교하는 발리가 성능지수를 함께 다룹니다.</p>
+    <p class="lede">제1·2장에서 익힌 물질과 결정 구조, 밴드의 언어로 실제 반도체를 살펴봅니다. 앞부분은 2D 물질 계열, 뒷부분은 전력 반도체로 쓰이는 광대역 반도체이며, 전력 소자의 성능 비교에 쓰이는 Baliga's figure of merit(BFOM)도 다룹니다.</p>
     <div class="meta"></div>
   </header>
 
-  <h2><span class="sec">2.1</span>2D 물질 가족</h2>
+  <h2><span class="sec">2.1</span>2D 물질 계열</h2>
   <p>2D 물질은 전기적 성질에 따라 반금속, 반도체, 절연체, 금속으로 나눌 수 있으며, 이들을 조합하면 원자층만으로 트랜지스터 하나를 구성할 수 있습니다.</p>
   <ul>
     <li><strong>그래핀(반금속)</strong>: 밴드갭이 0인 디랙 물질. 이동도가 매우 높아 고주파 소자, 투명 전극, 방열 소재로 쓰이지만 스위치로 쓰기는 어렵습니다.</li>
@@ -48,10 +48,10 @@
     </div>
   </section>
 
-  <h2><span class="sec">2.3</span>전력 반도체와 발리가 성능지수</h2>
+  <h2><span class="sec">2.3</span>전력 반도체와 Baliga's figure of merit (BFOM)</h2>
   <p>전력 소자는 꺼져 있을 때 높은 전압을 견디고(항복 전압 V<sub>B</sub>), 켜져 있을 때 저항(온저항 R<sub>on</sub>)이 작아야 합니다. 높은 전압을 견디려면 드리프트층을 두껍게, 도핑을 낮게 해야 하지만 그러면 온저항이 커지는 상충 관계가 있습니다. 단극성 소자에서 이 상충 관계의 한계는 다음과 같이 물질 상수로 정해집니다.</p>
   <div class="eq"><i>R</i><sub>on,sp</sub> = 4<i>V</i><sub>B</sub>² / (ε μ <i>E</i><sub>c</sub>³) &nbsp;&nbsp;⟹&nbsp;&nbsp; BFOM = ε μ <i>E</i><sub>c</sub>³<span class="where">ε: 유전율 · μ: 전자 이동도 · E<sub>c</sub>: 절연파괴 전계 (Baliga, 1982)</span></div>
-  <p>이 <strong>발리가 성능지수(Baliga's figure of merit, BFOM)</strong>는 절연파괴 전계의 세제곱에 비례하므로, 이동도가 다소 낮더라도 밴드갭이 넓은 물질이 압도적으로 유리합니다. 다만 실제 소자에서는 열을 빼내는 능력(열전도율), 기판 가격과 크기, 도핑의 용이성이 함께 고려됩니다.</p>
+  <p><strong>Baliga's figure of merit (BFOM)</strong>는 절연파괴 전계의 세제곱에 비례하므로, 이동도가 다소 낮더라도 밴드갭이 넓은 물질이 압도적으로 유리합니다. 다만 실제 소자에서는 열을 빼내는 능력(열전도율), 기판 가격과 크기, 도핑의 용이성이 함께 고려됩니다.</p>
 
   <section class="lab" id="lab-power" data-module="power">
     <div class="lab-head"><span class="badge">LAB 2-2</span><h4>밴드갭 vs 절연파괴 전계</h4><span class="sub">원의 크기 = 열전도율, 점에 마우스를 올려 보세요</span></div>

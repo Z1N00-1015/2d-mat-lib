@@ -22,7 +22,7 @@ export const FIELDS = [
     desc: '결정 격자와 회절의 원리를 익히고, XRD·Raman·TEM·XPS·AFM 등 재료 분석법이 알려 주는 정보를 비교합니다.',
     chapters: [
       { id: 'crystal', n: '01', title: '결정 구조와 격자', group: '결정학 기초',
-        desc: '브라베 격자, 기저, 단위 세포, 역격자와 브릴루앙 영역을 학습합니다.', labs: ['3D 결정 구조 뷰어', '2D 브라베 격자·역격자'] },
+        desc: '브라베 격자, 기저, 단위격자, 역격자와 브릴루앙 영역을 학습합니다.', labs: ['3D 결정 구조 뷰어', '2D 브라베 격자·역격자'] },
       { id: 'diffraction', n: '02', title: '결정면과 밀러 지수', group: '결정학 기초',
         desc: '결정면을 밀러 지수로 나타내고 면간 거리와 결정 방향의 관계를 살펴봅니다.', labs: ['밀러 지수'] },
       { id: 'characterization', n: '03', title: '2D 물질 분석법', group: '분광·현미경 분석',
@@ -66,11 +66,11 @@ export const FIELDS = [
 
 const MODULES = {
   hero: './hero.js', stack: './stack.js', tunneling: './tunneling.js', fet: './fet.js',
-  crystal: './crystal.js', lattice2d: './lattice2d.js', miller: './miller.js', bragg: './bragg.js',
-  xrd: './xrd.js?v=20261020h', moire: './moire.js', lineup: './lineup.js', spectrum: './spectrum.js',
-  mos2: './mos2.js', bands: './bands.js', power: './power.js', exfo: './exfo.js', cvd: './cvd.js',
-  glossary: './glossary.js', refs: './papers.js?v=20261020e', paperdata: './papers.js?v=20261020e',
-  raman: './raman.js?v=20261020h',
+  crystal: './crystal.js?v=20261020i', lattice2d: './lattice2d.js?v=20261020i', miller: './miller.js?v=20261020i', bragg: './bragg.js',
+  xrd: './xrd.js?v=20261020i', moire: './moire.js', lineup: './lineup.js', spectrum: './spectrum.js',
+  mos2: './mos2.js', bands: './bands.js', power: './power.js?v=20261020i', exfo: './exfo.js', cvd: './cvd.js',
+  glossary: './glossary.js?v=20261020i', refs: './papers.js?v=20261020e', paperdata: './papers.js?v=20261020e',
+  raman: './raman.js?v=20261020i',
 };
 
 const LOGO = '<svg class="brand-logo" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bslg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a6cf0"/><stop offset="1" stop-color="#1fb3a3"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="8" fill="url(#bslg)"/><g fill="none" stroke="#fff" stroke-width="1.6" stroke-opacity=".9"><path d="M16 7.5l7.4 4.25v8.5L16 24.5l-7.4-4.25v-8.5z"/></g><circle cx="16" cy="16" r="2.6" fill="#fff"/></svg>';

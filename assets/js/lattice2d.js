@@ -41,8 +41,8 @@ function classify(r, g) {
   if (at(g, 90)) return ['직사각 격자', 'rect', 'p2mm · 2개의 거울면'];
   const rc = r * Math.cos(g * Math.PI / 180);
   const cg = Math.cos(g * Math.PI / 180);
-  if (eq || Math.abs(Math.abs(rc) - 0.5) < tol || Math.abs(Math.abs(cg) - r / 2) < tol) return ['중심 직사각 격자', 'crect', 'c2mm · 마름모꼴 기본 단위 세포'];
-  return ['경사 격자', 'obl', 'p2 · 2회 회전 대칭만 존재'];
+  if (eq || Math.abs(Math.abs(rc) - 0.5) < tol || Math.abs(Math.abs(cg) - r / 2) < tol) return ['중심 직사각 격자', 'crect', 'c2mm · 마름모꼴 원시 단위격자'];
+  return ['평행사변형 격자', 'obl', 'p2 · 2회 회전 대칭만 존재'];
 }
 
 export function init(root) {
@@ -148,7 +148,7 @@ export function init(root) {
       ctx.fillStyle = '#ff9f0a'; const p2 = T(a2); ctx.fillText('a₂', p2[0] - 20, p2[1] - 6);
       ctx.font = `12px ${MONO}`; ctx.fillStyle = 'rgba(255,255,255,.55)'; ctx.textAlign = 'right';
       const area = Math.abs(a1[0] * a2[1] - a1[1] * a2[0]);
-      ctx.fillText(`기본 단위 세포 면적 = ${area.toFixed(3)} a²`, w - 14, h - 14);
+      ctx.fillText(`원시 단위격자 면적 = ${area.toFixed(3)} a²`, w - 14, h - 14);
       ctx.textAlign = 'left';
     }
     // ---- reciprocal space

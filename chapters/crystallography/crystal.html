@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book.js?v=20261020h"></script>
+<script type="module" src="../../assets/js/book.js?v=20261020i"></script>
 </head>
 <body data-root="../../" data-field="crystallography" data-chapter="crystal">
 <main class="main">
@@ -16,7 +16,7 @@
   <header class="chapter-head">
     <div class="eyebrow">CHAPTER II · CRYSTALLOGRAPHY</div>
     <h1>결정 구조와 격자</h1>
-    <p class="lede">반도체의 전기적·광학적 성질은 원자의 주기적 배열, 즉 결정 구조에서 출발합니다. 이 장에서는 결정을 기술하는 기본 언어인 브라베 격자, 기저, 단위 세포를 정의하고, 회절과 전자 상태를 다루는 데 필요한 역격자와 브릴루앙 영역까지 나아갑니다.</p>
+    <p class="lede">반도체의 전기적·광학적 성질은 원자의 주기적 배열, 즉 결정 구조에서 출발합니다. 이 장에서는 결정을 기술하는 기본 언어인 브라베 격자, 기저, 단위격자를 정의하고, 회절과 전자 상태를 다루는 데 필요한 역격자와 브릴루앙 영역까지 나아갑니다.</p>
     <div class="meta"></div>
   </header>
 
@@ -27,7 +27,7 @@
     <li><strong>기저(basis)</strong>: 각 격자점에 놓이는 원자 또는 원자 무리.</li>
   </ul>
   <div class="eq">결정 구조 = 브라베 격자 + 기저, &nbsp;&nbsp; <i>R</i> = <i>n</i>₁<i>a</i>₁ + <i>n</i>₂<i>a</i>₂ + <i>n</i>₃<i>a</i>₃<span class="where">n₁, n₂, n₃: 정수 · a₁, a₂, a₃: 기본 병진 벡터(primitive translation vectors)</span></div>
-  <p>병진 반복으로 결정 전체를 빈틈없이 채우는 공간 단위를 <strong>단위 세포(unit cell)</strong>라 하고, 그중 격자점을 정확히 하나만 포함하는 가장 작은 세포를 <strong>기본 단위 세포(primitive cell)</strong>라 합니다. 실리콘처럼 대칭을 드러내기 위해 격자점을 여러 개 포함하는 더 큰 세포를 쓰기도 하는데, 이를 관용 단위 세포(conventional cell)라 합니다.</p>
+  <p>병진 반복으로 결정 전체를 빈틈없이 채우는 공간 단위를 <strong>단위격자(unit cell)</strong>라 하고, 그중 격자점을 정확히 하나만 포함하는 가장 작은 격자를 <strong>원시 단위격자(primitive cell)</strong>라 합니다. 실리콘처럼 대칭을 드러내기 위해 격자점을 여러 개 포함하는 더 큰 격자를 쓰기도 하는데, 이를 관용 단위격자(conventional cell)라 합니다.</p>
 
   <h2><span class="sec">1.2</span>반도체의 대표 결정 구조</h2>
   <p>같은 원소나 조성이라도 원자 배열이 다르면 성질이 완전히 달라집니다. 아래 표는 이 책에서 다루는 물질들의 결정 구조입니다.</p>
@@ -66,9 +66,9 @@
             <div data-o="name" style="font-size:18px;font-weight:800;letter-spacing:-.01em;line-height:1.35"></div>
           </div>
           <div class="readout" data-o="props"></div>
-          <label class="slider"><div class="row"><span data-o="nlabel">초세포</span><b data-o="nval">3</b></div><input type="range" data-k="n" min="1" max="6" step="1" value="3"></label>
+          <label class="slider"><div class="row"><span data-o="nlabel">Supercell 크기</span><b data-o="nval">3</b></div><input type="range" data-k="n" min="1" max="6" step="1" value="3"></label>
           <label class="slider" data-o="layerwrap"><div class="row"><span>층 수</span><b data-o="lval">1</b></div><input type="range" data-k="layers" min="1" max="4" step="1" value="1"></label>
-          <label class="toggle">단위 세포 표시<input type="checkbox" data-k="cell" checked><i></i></label>
+          <label class="toggle">단위격자 표시<input type="checkbox" data-k="cell" checked><i></i></label>
           <label class="toggle">결합 표시<input type="checkbox" data-k="bonds" checked><i></i></label>
           <label class="toggle">자동 회전<input type="checkbox" data-k="spin" checked><i></i></label>
         </div>
@@ -88,28 +88,28 @@
         <tr><td>정사각 격자 (square)</td><td>|a₁| = |a₂|, γ = 90°</td><td>p4mm</td><td>—</td></tr>
         <tr><td>육방 격자 (hexagonal)</td><td>|a₁| = |a₂|, γ = 120°</td><td>p6mm</td><td>그래핀, h-BN, MoS₂</td></tr>
         <tr><td>직사각 격자 (rectangular)</td><td>|a₁| ≠ |a₂|, γ = 90°</td><td>p2mm</td><td>—</td></tr>
-        <tr><td>중심 직사각 격자 (centered rectangular)</td><td>|a₁| = |a₂|, γ 임의 (마름모꼴 기본 세포)</td><td>c2mm</td><td>—</td></tr>
-        <tr><td>경사 격자 (oblique)</td><td>|a₁| ≠ |a₂|, γ ≠ 90°</td><td>p2</td><td>—</td></tr>
+        <tr><td>중심 직사각 격자 (centered rectangular)</td><td>|a₁| = |a₂|, γ 임의 (마름모꼴 primitive cell)</td><td>c2mm</td><td>—</td></tr>
+        <tr><td>평행사변형 격자 (oblique lattice)</td><td>|a₁| ≠ |a₂|, γ ≠ 90°</td><td>p2</td><td>—</td></tr>
       </tbody>
     </table>
   </div>
-  <p>격자점 하나에서 이웃 격자점들까지의 수직 이등분선으로 둘러싸인 영역을 <strong>위그너–자이츠 세포(Wigner–Seitz cell)</strong>라 합니다. 이것은 격자의 대칭을 그대로 갖는 기본 단위 세포입니다.</p>
+  <p>격자점 하나에서 이웃 격자점들까지의 수직 이등분선으로 둘러싸인 영역을 <strong>Wigner–Seitz cell</strong>이라 합니다. 격자의 대칭을 그대로 갖는 특별한 원시 단위격자입니다.</p>
 
   <h2><span class="sec">1.4</span>역격자와 브릴루앙 영역</h2>
   <p>결정 속 파동(X선, 전자, 포논)을 다룰 때는 실공간의 격자 대신 파수 공간의 격자를 쓰는 것이 편리합니다. 실공간 기본 병진 벡터 aᵢ에 대해 다음을 만족하는 벡터 bⱼ로 생성되는 격자를 <strong>역격자(reciprocal lattice)</strong>라 합니다.</p>
   <div class="eq"><i>a</i><sub>i</sub> · <i>b</i><sub>j</sub> = 2π δ<sub>ij</sub> &nbsp;&nbsp;⟹&nbsp;&nbsp; <i>b</i>₁ = 2π (<i>a</i>₂ × ẑ) / [<i>a</i>₁ · (<i>a</i>₂ × ẑ)]<span class="where">2차원의 경우. 실공간에서 길이가 길어지면 역공간에서는 짧아집니다.</span></div>
-  <p>역격자의 위그너–자이츠 세포를 <strong>제1 브릴루앙 영역(first Brillouin zone)</strong>이라 합니다. 결정 내 전자의 상태는 이 영역 안의 파수 k만으로 모두 기술할 수 있기 때문에, 밴드 구조는 브릴루앙 영역의 고대칭점(Γ, M, K 등)을 잇는 경로를 따라 그립니다. 육방 격자의 브릴루앙 영역은 육각형이고, 그 꼭짓점 K와 K′가 그래핀의 디랙 원뿔이 위치하는 곳입니다(제3장).</p>
+  <p>역격자의 Wigner–Seitz cell을 <strong>제1 브릴루앙 영역(first Brillouin zone)</strong>이라 합니다. 결정 내 전자의 상태는 이 영역 안의 파수 k만으로 모두 기술할 수 있기 때문에, 밴드 구조는 브릴루앙 영역의 고대칭점(Γ, M, K 등)을 잇는 경로를 따라 그립니다. 육방 격자의 브릴루앙 영역은 육각형이고, 그 꼭짓점 K와 K′가 그래핀의 디랙 원뿔이 위치하는 곳입니다(제3장).</p>
 
   <section class="lab" id="lab-bravais" data-module="lattice2d">
     <div class="lab-head"><span class="badge">LAB 1-2</span><h4>2D 브라베 격자와 역격자</h4><span class="sub">길이 비와 사잇각을 바꿔 보세요</span></div>
     <div class="lab-body">
       <div class="lab-tools">
-        <div class="seg" data-k="preset"><button data-v="square">정사각</button><button class="on" data-v="hex">육방</button><button data-v="rect">직사각</button><button data-v="crect">중심 직사각</button><button data-v="obl">경사</button></div>
+        <div class="seg" data-k="preset"><button data-v="square">정사각</button><button class="on" data-v="hex">육방</button><button data-v="rect">직사각</button><button data-v="crect">중심 직사각</button><button data-v="obl">Oblique</button></div>
         <div class="grow"></div>
         <div data-o="type" style="font-weight:800;font-size:17px;text-align:right"></div>
       </div>
       <div class="lab-row2">
-        <div class="stage h-320"><canvas data-c="real"></canvas><div class="hud">실공간<br><span style="color:#64d2ff">a₁</span> · <span style="color:#ff9f0a">a₂</span> · <span style="color:#30d158">위그너–자이츠 세포</span></div></div>
+        <div class="stage h-320"><canvas data-c="real"></canvas><div class="hud">실공간<br><span style="color:#64d2ff">a₁</span> · <span style="color:#ff9f0a">a₂</span> · <span style="color:#30d158">Wigner–Seitz cell</span></div></div>
         <div class="stage h-320"><canvas data-c="recip"></canvas><div class="hud">역공간<br><span style="color:#64d2ff">b₁</span> · <span style="color:#ff9f0a">b₂</span> · <span style="color:#bf5af2">제1 브릴루앙 영역</span></div></div>
       </div>
       <div class="controls-row">
@@ -126,9 +126,9 @@
     <h4>📝 정리</h4>
     <ul>
       <li>결정 구조 = 브라베 격자 + 기저. 격자점은 기본 병진 벡터의 정수 조합이다.</li>
-      <li>기본 단위 세포는 격자점을 하나만 포함하며, 위그너–자이츠 세포는 격자의 대칭을 그대로 갖는 기본 단위 세포다.</li>
-      <li>2차원 브라베 격자는 정사각·육방·직사각·중심 직사각·경사의 다섯 종류다.</li>
-      <li>역격자는 aᵢ·bⱼ = 2πδᵢⱼ로 정의되고, 그 위그너–자이츠 세포가 제1 브릴루앙 영역이다.</li>
+      <li>원시 단위격자는 격자점을 하나만 포함하며, Wigner–Seitz cell은 격자의 대칭을 그대로 갖는 원시 단위격자다.</li>
+      <li>2차원 브라베 격자는 정사각·육방·직사각·중심 직사각·평행사변형(oblique)의 다섯 종류다.</li>
+      <li>역격자는 aᵢ·bⱼ = 2πδᵢⱼ로 정의되고, 그 Wigner–Seitz cell이 제1 브릴루앙 영역이다.</li>
     </ul>
   </div>
 </article>

@@ -13,7 +13,7 @@ const M = [
 const bfom = (m) => m.eps * m.mu * m.ec ** 3;
 const SI = bfom(M[0]);
 const METRIC = {
-  bfom: { t: '발리가 성능지수 BFOM (Si = 1, log)', f: m => bfom(m) / SI, log: true, unit: '×' },
+  bfom: { t: 'Baliga 성능지수 BFOM (Si = 1, log)', f: m => bfom(m) / SI, log: true, unit: '×' },
   ec: { t: '절연파괴 전계 (MV/cm)', f: m => m.ec, log: false, unit: 'MV/cm' },
   k: { t: '열전도율 (W/m·K, log)', f: m => m.k, log: true, unit: 'W/m·K' },
   mu: { t: '전자 이동도 (cm²/V·s, log)', f: m => m.mu, log: true, unit: 'cm²/V·s' },
