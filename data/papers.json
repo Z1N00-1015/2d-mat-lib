@@ -1,6 +1,6 @@
 {
- "schema_version": 1,
- "generated_at": "2026-10-20T10:08:34Z",
+ "schema_version": 3,
+ "generated_at": "2026-10-20T14:48:15Z",
  "notice": "서지정보와 연구실에서 검토 완료한 수치만 포함합니다. 원문 인용과 AI 요약은 포함하지 않습니다.",
  "metrics": {
   "raman_shift": {
@@ -156,6 +156,7 @@
     "InSe"
    ],
    "has_verified_data": true,
+   "approval": "human",
    "values": [
     {
      "kind": "measurement",
@@ -778,7 +779,8 @@
       "label": "Fig. 2A 캡션"
      }
     }
-   ]
+   ],
+   "device_components": []
   },
   {
    "id": "bd479848-be49-4e5c-8869-caadf14f4c46",
@@ -802,6 +804,7 @@
     "SiO2"
    ],
    "has_verified_data": true,
+   "approval": "human",
    "values": [
     {
      "kind": "measurement",
@@ -1759,7 +1762,8 @@
       "label": "Methods—Raman Spectroscopy"
      }
     }
-   ]
+   ],
+   "device_components": []
   },
   {
    "id": "1457a1b0-ce1b-4b70-8354-f4f5af315e52",
@@ -1805,6 +1809,7 @@
     "SiO2"
    ],
    "has_verified_data": true,
+   "approval": "human",
    "values": [
     {
      "kind": "measurement",
@@ -2506,7 +2511,8 @@
       "label": "Methods—Device fabrication and electrical measurements"
      }
     }
-   ]
+   ],
+   "device_components": []
   },
   {
    "id": "8a53483d-1beb-4a8f-93d5-a5ac8f61f0d2",
@@ -2554,6 +2560,7 @@
     "Sb"
    ],
    "has_verified_data": true,
+   "approval": "human",
    "values": [
     {
      "kind": "measurement",
@@ -3791,7 +3798,8 @@
       "label": "Extended Data Fig. 9 caption"
      }
     }
-   ]
+   ],
+   "device_components": []
   },
   {
    "id": "350fd982-a93d-4b3f-93fa-6d58f1898869",
@@ -3831,7 +3839,9 @@
    ],
    "materials": [],
    "has_verified_data": false,
-   "values": []
+   "approval": null,
+   "values": [],
+   "device_components": []
   },
   {
    "id": "18c341d2-3584-4652-acf0-f476c94bb67f",
@@ -3851,6 +3861,7 @@
     "WSe2"
    ],
    "has_verified_data": true,
+   "approval": "human",
    "values": [
     {
      "kind": "measurement",
@@ -4869,7 +4880,8 @@
       "label": "4.5"
      }
     }
-   ]
+   ],
+   "device_components": []
   }
  ]
 }
