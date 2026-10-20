@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Beyond Silicon · 2D 소재 연구 데이터와 길잡이</title>
-<meta name="description" content="2D 소재 논문 데이터와 핵심 연구 결과를 검색하고, 합성·분석·반도체 개념을 쉬운 설명으로 살펴보세요.">
+<title>Beyond Silicon · 2D 소재 가이드</title>
+<meta name="description" content="그래핀부터 원자층 반도체까지, 2D 소재의 종류와 연구 분야를 살펴보고 논문 데이터와 기초 설명을 찾아보세요.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="assets/css/book.css?v=20261020-homehub1">
+<link rel="stylesheet" href="assets/css/book.css?v=20261020-homehub2">
 <script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "./assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="assets/js/book.js?v=20261020-homehub1"></script>
-<script type="module" src="assets/js/hub.js?v=20261020-homehub1"></script>
-<script type="module" src="assets/js/home-search.js?v=20261020a"></script>
+<script type="module" src="assets/js/book.js?v=20261020-homehub2"></script>
+<script type="module" src="assets/js/hub.js?v=20261020-homehub2"></script>
+<script type="module" src="assets/js/home-search.js?v=20261020-homehub2"></script>
 </head>
 <body data-root="./" data-chapter="home">
 <main class="main">
   <section class="hero">
     <div>
-      <div class="eyebrow">2D MATERIALS · RESEARCH DATABASE</div>
-      <h1>2D 소재 연구 데이터와<br><em>쉬운 연구 길잡이</em></h1>
-      <p>논문에서 보고된 핵심 소재와 연구 결과를 찾아보세요. 낯선 합성법·분석법·물리 개념은 짧은 설명으로 이어서 확인할 수 있습니다.</p>
+      <div class="eyebrow">2D MATERIALS · FIELD GUIDE</div>
+      <h1>2D 소재 가이드</h1>
+      <p>그래핀부터 원자층 반도체까지, 다양한 2D 소재와 연구 분야를 한눈에 살펴보세요. 논문 데이터와 쉬운 개념 설명을 함께 찾아볼 수 있습니다.</p>
       <form class="home-search" id="home-search" role="search">
         <label for="home-search-input">무엇을 찾고 있나요?</label>
         <div class="home-search-row">
@@ -35,12 +35,6 @@
         </div>
         <p id="home-search-note" class="search-note">논문명, 핵심 소재, 검토된 수치와 측정·합성 정보를 검색합니다.</p>
       </form>
-      <div class="home-data-stats" aria-label="공개 논문 데이터 현황">
-        <div><b id="db-stat-papers">—</b><span>등록 논문</span></div>
-        <div><b id="db-stat-materials">—</b><span>핵심 소재</span></div>
-        <div><b id="db-stat-values">—</b><span>검토 완료 수치</span></div>
-      </div>
-      <p class="db-updated" id="db-updated" aria-live="polite"></p>
     </div>
     <div class="hero-art" data-module="hero" aria-label="물결치는 그래핀 원자층 3D 애니메이션"></div>
   </section>
@@ -69,9 +63,57 @@
     </div>
   </section>
 
-  <details class="research-overview" aria-labelledby="research-history-title">
-    <summary><span><span class="eyebrow">RESEARCH LANDSCAPE</span><strong id="research-history-title">2D 소재 연구 분야는 어떻게 넓어졌을까?</strong></span><span class="summary-toggle">연대표 보기</span></summary>
-    <div class="history-intro"><p>그래핀 연구에서 출발한 관심은 원자층 반도체와 이종접합, 강유전·강자성, 모아레 양자물성으로 확장됐습니다. 아래 대표 연구는 각 시기의 흐름을 보여주는 사례입니다.</p></div>
+  <details class="all-topics">
+    <summary>전체 분야와 도구 찾아보기 <span>목록 열기</span></summary>
+    <div id="fields"></div>
+  </details>
+
+  <details class="site-help">
+    <summary>이 사이트의 데이터는 어떻게 읽나요? <span>간단 안내</span></summary>
+    <div class="cards" style="max-width:1120px;margin:1rem auto 0">
+      <div class="card"><div class="ico">📚</div><h5>논문 데이터</h5><p>논문 등록·AI 분석·원문 검토는 로그인한 논문 분석실에서 진행하고, 공개 사이트에는 검토 완료 데이터만 표시합니다.</p><a class="btn" href="chapters/tools/papers.html">논문 데이터 보기 →</a></div>
+      <div class="card"><div class="ico">🧪</div><h5>인터랙티브 실험</h5><p>일부 페이지에는 물리 개념을 직접 조절해 보는 교육용 단순화 모델이 포함되어 있습니다.</p><a class="btn" href="chapters/materials/synthesis.html">실험이 있는 주제 보기 →</a></div>
+      <div class="card"><div class="ico">📐</div><h5>용어와 개념</h5><p>익숙하지 않은 전문 용어는 처음 나올 때 영문 표기와 함께 설명하고 용어 사전에 모았습니다.</p><a class="btn" href="chapters/tools/glossary.html">용어 사전 보기 →</a></div>
+    </div>
+  </details>
+
+  <section class="home-materials" aria-labelledby="materials-title">
+    <div class="section-heading"><div class="eyebrow">MATERIAL FAMILIES</div><h2 id="materials-title">다양한 2D 소재</h2><p>결합 구조와 전자·광학·자기 특성이 서로 다른 대표 소재 계열입니다.</p></div>
+    <div class="material-family-grid">
+      <article class="material-family"><span class="material-symbol carbon">C</span><div><h3>그래핀</h3><p>탄소 원자가 벌집 격자를 이루는 원자층. 높은 전하 이동도와 독특한 전자 구조를 연구합니다.</p><span class="material-examples">Graphene · bilayer graphene</span></div></article>
+      <article class="material-family"><span class="material-symbol tmd">MX₂</span><div><h3>전이금속 칼코게나이드</h3><p>반도체부터 금속상까지 다양한 전기적 특성과 강한 광학 응답을 보입니다.</p><span class="material-examples">MoS₂ · WS₂ · WSe₂</span></div></article>
+      <article class="material-family"><span class="material-symbol insulator">BN</span><div><h3>육방정계 질화붕소</h3><p>전기 절연성과 평탄한 표면 덕분에 2D 소자의 기판·절연층으로 널리 쓰입니다.</p><span class="material-examples">h-BN</span></div></article>
+      <article class="material-family"><span class="material-symbol phosphorus">P</span><div><h3>원소계 층상 반도체</h3><p>층수에 따라 밴드 구조가 바뀌며, 방향에 따른 전기·광학 이방성을 연구합니다.</p><span class="material-examples">Black phosphorus · phosphorene</span></div></article>
+      <article class="material-family"><span class="material-symbol mxene">Mₙ₊₁Xₙ</span><div><h3>MXene</h3><p>전이금속 탄화물·질화물 계열의 2D 소재. 표면 작용기와 조성에 따라 특성이 달라집니다.</p><span class="material-examples">Ti₃C₂Tₓ 등</span></div></article>
+      <article class="material-family"><span class="material-symbol magnet">↟</span><div><h3>자성·강유전 2D 소재</h3><p>스핀과 분극을 원자층에서 제어해 저전력 메모리와 새로운 기능성 소자를 탐색합니다.</p><span class="material-examples">CrI₃ · Fe₃GeTe₂ · CuInP₂S₆</span></div></article>
+    </div>
+  </section>
+
+  <section class="home-landscape" aria-labelledby="landscape-title">
+    <div class="section-heading"><div class="eyebrow">RESEARCH LANDSCAPE</div><h2 id="landscape-title">하나의 원자층에서 뻗어 나가는 연구</h2><p>합성과 구조 설계에서 전자·광학·양자 현상과 소자까지 이어지는 연구 지도를 살펴보세요.</p></div>
+    <figure class="landscape-figure">
+      <div class="landscape-scroll" tabindex="0" aria-label="2D 소재 연구 분야 그림. 작은 화면에서는 좌우로 이동해 보세요.">
+        <svg class="landscape-map" viewBox="0 0 1200 600" role="img" aria-labelledby="landscape-svg-title landscape-svg-desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="landscape-svg-title">2D 소재 연구 분야 지도</title>
+          <desc id="landscape-svg-desc">중앙의 원자층 소재에서 합성·에피택시, 이종구조, 반도체와 차세대 소자, 양자물리, 광학, 자기·강유전 연구로 연결되는 개념도</desc>
+          <g class="landscape-links" fill="none" stroke-width="2">
+            <path d="M480 248 330 142M600 220V138M720 248 870 142M480 352 330 458M600 380V462M720 352 870 458"/>
+          </g>
+          <g class="landscape-node node-synthesis"><rect x="70" y="70" width="300" height="126" rx="22"/><circle cx="112" cy="112" r="17"/><path d="m103 112 6 6 13-14"/><text x="145" y="112" class="node-kicker">GROWTH</text><text x="100" y="157" class="node-title">합성 · 에피택시</text><text x="100" y="180" class="node-note">결정성 · 대면적 성장</text></g>
+          <g class="landscape-node node-stack"><rect x="450" y="30" width="300" height="126" rx="22"/><circle cx="492" cy="72" r="17"/><path d="M482 76h20M485 69h14M488 62h8"/><text x="525" y="72" class="node-kicker">INTERFACES</text><text x="480" y="117" class="node-title">이종구조 · 모아레</text><text x="480" y="140" class="node-note">적층 · 비틀림 · 계면</text></g>
+          <g class="landscape-node node-device"><rect x="830" y="70" width="300" height="126" rx="22"/><circle cx="872" cy="112" r="17"/><path d="M863 112h18M872 103v18"/><text x="905" y="112" class="node-kicker">ELECTRONICS</text><text x="860" y="157" class="node-title">반도체 · 차세대 소자</text><text x="860" y="180" class="node-note">FET · 메모리 · 로직</text></g>
+          <g class="landscape-core"><rect x="420" y="218" width="360" height="164" rx="30"/><text x="600" y="270" class="core-kicker" text-anchor="middle">ATOM-THIN PLATFORM</text><text x="600" y="317" class="core-title" text-anchor="middle">2D 소재</text><text x="600" y="348" class="core-note" text-anchor="middle">층수 · 조성 · 적층 · 변형으로 조절</text></g>
+          <g class="landscape-node node-quantum"><rect x="70" y="404" width="300" height="126" rx="22"/><circle cx="112" cy="446" r="17"/><path d="M99 446q13-19 26 0t26 0" transform="translate(-13)"/><text x="145" y="446" class="node-kicker">QUANTUM PHYSICS</text><text x="100" y="491" class="node-title">양자물리 · 상관현상</text><text x="100" y="514" class="node-note">평탄 밴드 · 초전도</text></g>
+          <g class="landscape-node node-optics"><rect x="450" y="444" width="300" height="126" rx="22"/><circle cx="492" cy="486" r="17"/><path d="M482 486q10-13 20 0t20 0" transform="translate(-10)"/><text x="525" y="486" class="node-kicker">LIGHT &amp; SPECTROSCOPY</text><text x="480" y="531" class="node-title">광학 · 분광 분석</text><text x="480" y="554" class="node-note">발광 · 라만 · 광검출</text></g>
+          <g class="landscape-node node-function"><rect x="830" y="404" width="300" height="126" rx="22"/><circle cx="872" cy="446" r="17"/><path d="M872 434v24M864 440q8 7 16 0M864 452q8-7 16 0"/><text x="905" y="446" class="node-kicker">SPIN &amp; POLARIZATION</text><text x="860" y="491" class="node-title">자기 · 강유전 기능</text><text x="860" y="514" class="node-note">스핀트로닉스 · 메모리</text></g>
+        </svg>
+      </div>
+      <figcaption>2D 소재 연구는 서로 연결되어 있습니다. 소재의 합성과 적층 구조가 전자·광학·양자 물성을 바꾸고, 그 이해가 새로운 소자 설계로 이어집니다. 이 그림은 분야 간 관계를 소개하는 개념도입니다.</figcaption>
+    </figure>
+  </section>
+
+  <section class="home-history" aria-labelledby="research-history-title">
+    <div class="section-heading"><div class="eyebrow">RESEARCH MILESTONES</div><h2 id="research-history-title">2D 소재 연구동향 milestone</h2><p>새로운 소재 발견과 실험 기술이 연구 범위를 어떻게 넓혀 왔는지 대표 전환점을 따라갑니다.</p></div>
     <div class="history-timeline">
       <article class="history-item">
         <div class="history-year">2004</div>
@@ -113,23 +155,9 @@
         </div>
       </article>
     </div>
-  </details>
+  </section>
 
-  <details class="all-topics">
-    <summary>전체 분야와 도구 찾아보기 <span>목록 열기</span></summary>
-    <div id="fields"></div>
-  </details>
-
-  <details class="site-help">
-    <summary>이 사이트의 데이터는 어떻게 읽나요? <span>간단 안내</span></summary>
-    <div class="cards" style="max-width:1120px;margin:1rem auto 0">
-      <div class="card"><div class="ico">📚</div><h5>논문 데이터</h5><p>논문 등록·AI 분석·원문 검토는 로그인한 논문 분석실에서 진행하고, 공개 사이트에는 검토 완료 데이터만 표시합니다.</p><a class="btn" href="chapters/tools/papers.html">논문 데이터 보기 →</a></div>
-      <div class="card"><div class="ico">🧪</div><h5>인터랙티브 실험</h5><p>일부 페이지에는 물리 개념을 직접 조절해 보는 교육용 단순화 모델이 포함되어 있습니다.</p><a class="btn" href="chapters/materials/synthesis.html">실험이 있는 주제 보기 →</a></div>
-      <div class="card"><div class="ico">📐</div><h5>용어와 개념</h5><p>익숙하지 않은 전문 용어는 처음 나올 때 영문 표기와 함께 설명하고 용어 사전에 모았습니다.</p><a class="btn" href="chapters/tools/glossary.html">용어 사전 보기 →</a></div>
-    </div>
-  </details>
-
-  <footer class="site-foot" style="max-width:1120px;margin:4rem auto 0">Beyond Silicon · 2D 소재 연구 데이터와 쉬운 길잡이 — 시뮬레이션은 개념 설명을 위한 단순화 모델이며, 수치는 문헌의 대표값입니다.</footer>
+  <footer class="site-foot" style="max-width:1120px;margin:4rem auto 0">Beyond Silicon · 2D 소재 가이드 — 시뮬레이션은 개념 설명을 위한 단순화 모델이며, 수치는 문헌의 대표값입니다.</footer>
 </main>
 </body>
 </html>

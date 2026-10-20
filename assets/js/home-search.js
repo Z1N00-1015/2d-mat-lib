@@ -42,7 +42,6 @@ function paperSearchText(paper, coreMaterials) {
 
 function paperCard(paper, focus) {
   const core = focus[paper.id] || [];
-  const values = paper.values || [];
   const year = paper.year || '연도 미상';
   const type = textFields(paper.research_type);
   return `<article class="home-paper-card">
@@ -51,7 +50,6 @@ function paperCard(paper, focus) {
     <div class="home-paper-tags">${core.length
       ? core.map(material => `<span>${esc(subscript(material))}</span>`).join('')
       : '<span class="unclassified">핵심 소재 미분류</span>'}</div>
-    <p class="home-paper-count">${values.length ? `검토 완료 기록 ${values.length}건` : '서지정보 등록 · 검토 수치 없음'}</p>
     <div class="home-paper-links">${paper.url ? `<a href="${esc(paper.url)}" target="_blank" rel="noopener">${paper.doi ? 'DOI로 논문 보기 ↗' : '논문 페이지 ↗'}</a>` : ''}<a href="${rootPath}chapters/tools/papers.html">공개 데이터에서 보기 →</a></div>
   </article>`;
 }
@@ -73,16 +71,6 @@ async function init() {
     const data = await dataResponse.json();
     const focus = focusResponse.ok ? await focusResponse.json() : {};
     const papers = Array.isArray(data.papers) ? data.papers : [];
-    const materials = [...new Set(Object.values(focus).flat())].sort((a, b) => a.localeCompare(b));
-    const valueCount = papers.reduce((sum, paper) => sum + (paper.values || []).length, 0);
-    document.getElementById('db-stat-papers').textContent = papers.length.toLocaleString('ko-KR');
-    document.getElementById('db-stat-materials').textContent = materials.length.toLocaleString('ko-KR');
-    document.getElementById('db-stat-values').textContent = valueCount.toLocaleString('ko-KR');
-    const date = data.generated_at ? new Date(data.generated_at) : null;
-    document.getElementById('db-updated').textContent = date && !Number.isNaN(date.valueOf())
-      ? `논문 DB 업데이트 ${new Intl.DateTimeFormat('ko-KR', { dateStyle: 'medium', timeZone: 'Asia/Seoul' }).format(date)}`
-      : '';
-
     function render() {
       const query = input.value.trim();
       const terms = query.split(/\s+/).map(normalize).filter(Boolean);
