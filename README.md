@@ -57,9 +57,9 @@
 
 ## 논문 데이터
 
-`data/papers.json`은 [로그인형 웹 논문 분석실](https://lab-paper-library-z1n00-1015.onrender.com)의 현재 운영 DB에서 생성합니다. 승인된 DB 변경은 Render가 감지해 서지정보와 검토 완료 수치만 `main`에 반영하며, GitHub Pages가 자동 배포됩니다. 앱 사이드바의 **🌐 웹사이트 논문 데이터 반영**으로 즉시 갱신할 수도 있습니다. 원문 인용, AI 요약, 검토 대기 값과 PDF는 공개 JSON에 포함되지 않습니다.
+`data/papers.json`은 Mac의 로컬 논문 DB에서 생성합니다. 분석실에서 바뀐 내용을 `DB_저장.command`로 비공개 `lab-paper-library` 저장소에 저장하면, 이 저장소의 GitHub Actions가 5분마다 DB를 읽어 서지정보와 검토 완료 데이터만 내보내고 GitHub Pages를 갱신합니다. Actions 탭에서 `Sync research paper database`를 수동 실행할 수도 있습니다. 원문 인용, AI 요약, 검토 대기 값과 PDF는 공개 JSON에 포함되지 않습니다.
 
-Render 서비스에서 이 기능을 사용하려면 환경 변수 `PUBLIC_SITE_SYNC_TOKEN`을 설정해야 합니다. Fine-grained token은 `Z1N00-1015/2d-mat-lib` 저장소 하나에만 접근하도록 만들고 `Contents: Read and write` 권한만 부여합니다. 토큰은 Render의 **Environment**에 보관하며 웹 저장소의 GitHub Actions secret으로 등록하지 않습니다.
+이 동기화에는 `2d-mat-lib` 저장소의 Actions secret `LAB_PAPER_LIBRARY_READ_TOKEN`이 필요합니다. 이 토큰은 비공개 `lab-paper-library` 저장소를 읽기만 합니다. 로컬 DB를 저장한 뒤 보통 5분 안에 새 데이터가 사이트에 배포됩니다.
 
 ## 로컬 실행
 
