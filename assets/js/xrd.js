@@ -1,15 +1,14 @@
 // Powder XRD pattern from the structure factor of cubic crystals
-import { fitCanvas, seg, range, outs, FONT, MONO } from './util.js';
+import { fitCanvas, seg, outs, FONT, MONO } from './util.js';
 
 const FCC = [[0, 0, 0], [0, 0.5, 0.5], [0.5, 0, 0.5], [0.5, 0.5, 0]];
 const shift = (pts, d) => pts.map(p => p.map((x, i) => x + d[i]));
 const STRUCT = {
-  sc:   { a: 3.352, atoms: [[84, [0, 0, 0]]], name: '단순입방 (α-Po)', rule: '모든 (hkl)에서 회절이 나타납니다. 단위 세포에 격자점이 하나뿐이라 구조 인자가 0이 되는 경우가 없습니다.' },
+  diamond: { a: 3.567, atoms: [...FCC, ...shift(FCC, [0.25, 0.25, 0.25])].map(p => [6, p]), name: '다이아몬드 (C)', rule: '다이아몬드 입방 구조의 탄소입니다. FCC 격자 반사 중 일부가 기저 원자들의 간섭으로 소멸합니다.' },
   bcc:  { a: 2.8665, atoms: [[26, [0, 0, 0]], [26, [0.5, 0.5, 0.5]]], name: 'BCC 철', rule: '<b>h+k+l = 짝수</b>인 면만 나타납니다. (100), (111)은 체심 원자에서 산란된 파와 위상이 π만큼 달라 상쇄되므로 사라집니다.' },
   fcc:  { a: 3.615, atoms: FCC.map(p => [29, p]), name: 'FCC 구리', rule: '<b>h, k, l이 모두 홀수이거나 모두 짝수</b>인 면만 나타납니다: (111), (200), (220), (311), (222)…' },
-  dia:  { a: 5.431, atoms: [...FCC, ...shift(FCC, [0.25, 0.25, 0.25])].map(p => [14, p]), name: '다이아몬드 (실리콘)', rule: 'FCC 규칙에 더해 <b>h+k+l = 4n+2</b>인 짝수 면이 추가로 사라집니다. 그래서 Si에는 (200), (222)가 없습니다. Si 웨이퍼의 (400) 피크는 2θ ≈ 69.1°.' },
+  si:    { a: 5.431, atoms: [...FCC, ...shift(FCC, [0.25, 0.25, 0.25])].map(p => [14, p]), name: '실리콘 (Si)', rule: '다이아몬드 입방 구조입니다. (200), (222) 등 일부 반사는 구조 인자가 0이 되어 사라집니다.' },
   zb:   { a: 5.653, atoms: [...FCC.map(p => [31, p]), ...shift(FCC, [0.25, 0.25, 0.25]).map(p => [33, p])], name: '섬아연광 (GaAs)', rule: 'Ga(Z=31)와 As(Z=33)의 산란력 차이가 작아 (200)이 <b>f<sub>Ga</sub> − f<sub>As</sub></b>에 비례해 아주 약하게만 남습니다. 다이아몬드 구조와 비교해보세요.' },
-  nacl: { a: 5.640, atoms: [...FCC.map(p => [11, p]), ...shift(FCC, [0.5, 0, 0]).map(p => [17, p])], name: '암염 (NaCl)', rule: '모두 홀수인 면은 <b>f<sub>Cl</sub> − f<sub>Na</sub></b>, 모두 짝수인 면은 <b>f<sub>Cl</sub> + f<sub>Na</sub></b>에 비례합니다. 그래서 (111)은 약하고 (200)은 강합니다.' },
 };
 
 const fAtom = (Z, s) => Z * (0.25 + 0.75 * Math.exp(-10 * s * s));
@@ -51,9 +50,8 @@ export function init(root) {
   const { ctx, state } = fitCanvas(canvas, () => draw());
   const out = outs(root);
   const tip = out('tip');
-  let key = 'dia', a = 5.431, lam = 1.5406, peaks = [], hover = null;
-  const aCtl = range(root, 'a', v => { a = v; update(); });
-  seg(root, 'struct', v => { key = v; a = STRUCT[v].a; aCtl.set(a, false); update(); });
+  let key = 'si', lam = 1.5406, peaks = [], hover = null;
+  seg(root, 'struct', v => { key = v; update(); });
   seg(root, 'src', v => { lam = +v; update(); });
 
   const T0 = 10, T1 = 130;
@@ -61,11 +59,9 @@ export function init(root) {
   const X = (tt) => pad.l + (tt - T0) / (T1 - T0) * (state.w - pad.l - pad.r);
 
   function update() {
-    peaks = pattern(key, a, lam);
-    out('a', `${a.toFixed(3)} Å`);
+    peaks = pattern(key, STRUCT[key].a, lam);
     const S = STRUCT[key];
-    const strain = (a - S.a) / S.a * 100;
-    out('info', `<b>${S.name}</b> — ${S.rule}${Math.abs(strain) > 0.05 ? `<br>격자 변형 ${strain > 0 ? '+' : ''}${strain.toFixed(2)}% → 피크가 ${strain > 0 ? '낮은' : '높은'} 각도로 이동합니다 (d가 ${strain > 0 ? '커져' : '작아져'} θ가 ${strain > 0 ? '감소' : '증가'}).` : ''}`);
+    out('info', `<b>${S.name}</b> — ${S.rule}`);
     draw();
   }
 
@@ -82,14 +78,6 @@ export function init(root) {
     ctx.fillText('2θ', (pad.l + w - pad.r) / 2, h - 6);
     ctx.save(); ctx.translate(14, (pad.t + h - pad.b) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText('강도 (상대)', 0, 0); ctx.restore();
     ctx.strokeStyle = '#1d1d1f'; ctx.beginPath(); ctx.moveTo(pad.l, h - pad.b); ctx.lineTo(w - pad.r, h - pad.b); ctx.stroke();
-    // reference pattern ghost (unstrained)
-    const S = STRUCT[key];
-    if (Math.abs(a - S.a) > 0.002) {
-      const ref = pattern(key, S.a, lam);
-      ctx.strokeStyle = 'rgba(134,134,139,.45)'; ctx.setLineDash([3, 3]);
-      for (const p of ref) { if (p.tt < T0 || p.tt > T1) continue; ctx.beginPath(); ctx.moveTo(X(p.tt), Y(0)); ctx.lineTo(X(p.tt), Y(p.I)); ctx.stroke(); }
-      ctx.setLineDash([]);
-    }
     // profile
     const fw = 0.28, sig = fw / 2.3548;
     const grad = ctx.createLinearGradient(0, pad.t, 0, h - pad.b);

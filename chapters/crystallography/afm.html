@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book.js?v=20261020f"></script>
+<script type="module" src="../../assets/js/book.js?v=20261020g"></script>
 </head>
 <body data-root="../../" data-field="crystallography" data-chapter="afm">
 <main class="main"><article class="article">
@@ -35,19 +35,6 @@
 
   <h2><span class="sec">8.3</span>높이 이외의 물성</h2>
   <p>AFM 기반 모드를 확장하면 전류, 접착력, 탄성 응답, 표면 전위와 자기력 등을 공간적으로 비교할 수 있습니다. 이 측정들은 각각 전도성 탐침이나 특정 검출 모드를 필요로 하며, 탐침의 재료와 보정 방식이 결과에 큰 영향을 줄 수 있습니다. 일반적인 지형(topography) 측정값과 특수 모드 신호를 구분해 해석하세요.</p>
-  <section class="lab" id="lab-afm" data-module="afm">
-    <div class="lab-head"><span class="badge">LAB 2-8</span><h4>AFM 표면 높이 지도</h4><span class="sub">플레이크의 상대 높이와 표면 거칠기가 지형도에 미치는 영향을 살펴보세요</span></div>
-    <div class="lab-body lab-grid">
-      <div class="stage light h-320"><canvas data-c="topography" aria-label="플레이크와 기판의 개념적 AFM 높이 지도"></canvas></div>
-      <div class="panel">
-        <label class="slider"><div class="row"><span>상대 높이 차</span><b data-o="height">0.8 nm</b></div><input type="range" data-k="height" min="0" max="2" step="0.1" value="0.8"></label>
-        <label class="slider"><div class="row"><span>표면 거칠기 표현</span><b data-o="rough">0.2 nm</b></div><input type="range" data-k="rough" min="0" max="0.6" step="0.05" value="0.2"></label>
-        <div class="readout"><div><div class="k">설정한 상대 높이</div><div class="v" data-o="height-read">0.8 nm</div></div></div>
-        <p class="note">개념적인 합성 지형입니다. 표시값으로 실제 층수나 시료의 거칠기를 추론할 수 없습니다.</p>
-      </div>
-    </div>
-  </section>
-
   <div class="refs" data-module="refs" data-topic="afm"></div>
   <div class="summary"><h4>정리</h4><ul>
     <li>AFM은 탐침과 표면 사이 힘에 따른 외팔보 응답으로 높이 지도를 만듭니다.</li>

@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book.js?v=20261020f"></script>
+<script type="module" src="../../assets/js/book.js?v=20261020g"></script>
 </head>
 <body data-root="../../" data-field="crystallography" data-chapter="raman">
 <main class="main"><article class="article">
@@ -42,14 +42,15 @@
   <div class="callout tip"><span class="t">레이저 가열을 확인하세요</span><p>출력이 너무 높으면 국소 온도 상승이 피크 이동이나 시료 손상을 일으킬 수 있습니다. 출력이나 노출 시간을 낮춰 스펙트럼이 유지되는지 확인하고, 레이저 파장에 따른 공명 효과와 형광 배경도 고려하세요.</p></div>
 
   <section class="lab" id="lab-raman" data-module="raman">
-    <div class="lab-head"><span class="badge">LAB 2-5</span><h4>라만 피크 탐색</h4><span class="sub">측정한 두 모드의 Raman shift를 조절해 간격을 비교하세요</span></div>
+    <div class="lab-head"><span class="badge">LAB 2-5</span><h4>MoS₂ 층수와 strain에 따른 라만 피크</h4><span class="sub">층수를 바꾸고 단층에 인장 strain을 걸어 E·A 모드 변화를 살펴보세요</span></div>
     <div class="lab-body lab-grid">
-      <div class="stage light h-280"><canvas data-c="spectrum" aria-label="두 라만 피크의 위치를 보여 주는 개념 스펙트럼"></canvas></div>
+      <div class="stage light h-280"><canvas data-c="spectrum" aria-label="MoS₂의 층수와 strain에 따른 두 라만 피크"></canvas></div>
       <div class="panel">
-        <label class="slider"><div class="row"><span>면내 모드 E′</span><b data-o="e">385 cm⁻¹</b></div><input type="range" data-k="e" min="375" max="400" step="0.5" value="385"></label>
-        <label class="slider"><div class="row"><span>면외 모드 A₁′</span><b data-o="a">405 cm⁻¹</b></div><input type="range" data-k="a" min="390" max="420" step="0.5" value="405"></label>
-        <div class="readout"><div><div class="k">모드 간격</div><div class="v" data-o="delta">20 cm⁻¹</div></div></div>
-        <p class="note">슬라이더는 측정값을 직접 입력하는 개념 도구입니다. 피크 폭·세기나 층수 판별을 계산하지 않습니다.</p>
+        <label class="slider"><div class="row"><span>MoS₂ 층수</span><b data-o="layers">1층</b></div><input type="range" data-k="layers" min="1" max="8" step="1" value="1"></label>
+        <label class="slider"><div class="row"><span>단층 인장 변형률</span><b data-o="strain">0.00%</b></div><input type="range" data-k="strain" min="0" max="0.7" step="0.05" value="0"></label>
+        <div class="readout"><div><div class="k">E′ 면내 모드</div><div class="v" data-o="e">384.6 cm⁻¹</div></div><div><div class="k">A₁′ 면외 모드</div><div class="v" data-o="a">404.8 cm⁻¹</div></div><div><div class="k">피크 간격 Δω</div><div class="v" data-o="delta">20.2 cm⁻¹</div></div></div>
+        <p class="note" data-o="model-note">1층 MoS₂의 대표값 예시입니다. 환경과 기판에 따라 실제 피크 위치는 달라집니다.</p>
+        <p class="note">층수별 피크는 SiO₂/Si 기판에서 보고된 예시를 바탕으로 합니다. 4층 이상은 bulk에 가까운 값으로 포화시키며, strain은 단층에만 적용한 단순화 모델입니다.</p>
       </div>
     </div>
   </section>
@@ -58,6 +59,8 @@
   <p>라만은 시료 준비가 비교적 간단하고 현미경과 결합해 작은 영역을 지도화할 수 있습니다. 다만 모든 물질이 강한 라만 신호를 내는 것은 아니며, 서로 다른 원인이 비슷한 피크 이동을 만들 수 있습니다. 층수는 광학 대비나 AFM 높이와, 결정상·조성은 XRD·TEM·XPS 결과와 함께 판단하면 해석의 신뢰도를 높일 수 있습니다.</p>
   <div class="refs"><h3>더 읽을 자료</h3><ul>
     <li><a href="https://doi.org/10.1021/nn1003937" target="_blank" rel="noopener">Lee et al., “Anomalous Lattice Vibrations of Single- and Few-Layer MoS₂,” ACS Nano (2010)</a></li>
+    <li><a href="https://doi.org/10.1038/srep18754" target="_blank" rel="noopener">Kim et al., “Self-Limiting Layer Synthesis of Transition Metal Dichalcogenides,” Scientific Reports (2016)</a></li>
+    <li><a href="https://doi.org/10.1021/acs.nanolett.2c01707" target="_blank" rel="noopener">Datye et al., “Strain-Enhanced Mobility of Monolayer MoS₂,” Nano Letters (2022)</a></li>
   </ul></div>
   <div class="refs" data-module="refs" data-topic="raman"></div>
   <div class="summary"><h4>정리</h4><ul>

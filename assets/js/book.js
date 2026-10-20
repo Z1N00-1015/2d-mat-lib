@@ -30,13 +30,13 @@ export const FIELDS = [
       { id: 'xrd', n: '04', title: 'X선 회절(XRD)', group: '분광·현미경 분석',
         desc: '브래그 회절, 회절 피크와 분말 XRD 패턴을 통해 결정상·격자 정보를 분석합니다.', labs: ['브래그 반사', '분말 XRD'] },
       { id: 'raman', n: '05', title: '라만 분광법', group: '분광·현미경 분석',
-        desc: '비탄성 광산란과 Raman shift를 이해하고 2D 물질의 진동 모드와 층수·변형률 단서를 해석합니다.', labs: ['라만 피크 탐색'] },
+        desc: '비탄성 광산란과 Raman shift를 이해하고 2D 물질의 진동 모드와 층수·변형률 단서를 해석합니다.', labs: ['층수·strain과 라만 피크'] },
       { id: 'tem', n: '06', title: '투과전자현미경(TEM)', group: '분광·현미경 분석',
-        desc: 'TEM·STEM 영상과 전자 회절·분광으로 국소 구조, 결함과 원소 분포를 분석하는 방법을 살펴봅니다.', labs: ['HRTEM · DF-TEM · STEM 보기'] },
+        desc: 'TEM·STEM 영상과 전자 회절·분광으로 국소 구조, 결함과 원소 분포를 분석하는 방법을 살펴봅니다.', labs: [] },
       { id: 'xps', n: '07', title: 'X선 광전자분광법(XPS)', group: '분광·현미경 분석',
-        desc: '광전자 결합 에너지로 표면 원소 조성과 화학 상태를 분석하고 스펙트럼 해석의 주의점을 익힙니다.', labs: ['결합 에너지 계산'] },
+        desc: '광전자 결합 에너지로 표면 원소 조성과 화학 상태를 분석하고 스펙트럼 해석의 주의점을 익힙니다.', labs: [] },
       { id: 'afm', n: '08', title: '원자힘현미경(AFM)', group: '분광·현미경 분석',
-        desc: '탐침과 표면 사이의 힘으로 높이·거칠기를 측정하고 2D 플레이크 두께를 해석합니다.', labs: ['표면 높이 지도'] },
+        desc: '탐침과 표면 사이의 힘으로 높이·거칠기를 측정하고 2D 플레이크 두께를 해석합니다.', labs: [] },
     ],
   },
   {
@@ -67,10 +67,10 @@ export const FIELDS = [
 const MODULES = {
   hero: './hero.js', stack: './stack.js', tunneling: './tunneling.js', fet: './fet.js',
   crystal: './crystal.js', lattice2d: './lattice2d.js', miller: './miller.js', bragg: './bragg.js',
-  xrd: './xrd.js', moire: './moire.js', lineup: './lineup.js', spectrum: './spectrum.js',
+  xrd: './xrd.js?v=20261020g', moire: './moire.js', lineup: './lineup.js', spectrum: './spectrum.js',
   mos2: './mos2.js', bands: './bands.js', power: './power.js', exfo: './exfo.js', cvd: './cvd.js',
   glossary: './glossary.js', refs: './papers.js?v=20261020e', paperdata: './papers.js?v=20261020e',
-  raman: './raman.js', tem: './tem.js', xps: './xps.js', afm: './afm.js',
+  raman: './raman.js?v=20261020g',
 };
 
 const LOGO = '<svg class="brand-logo" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bslg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a6cf0"/><stop offset="1" stop-color="#1fb3a3"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="8" fill="url(#bslg)"/><g fill="none" stroke="#fff" stroke-width="1.6" stroke-opacity=".9"><path d="M16 7.5l7.4 4.25v8.5L16 24.5l-7.4-4.25v-8.5z"/></g><circle cx="16" cy="16" r="2.6" fill="#fff"/></svg>';
