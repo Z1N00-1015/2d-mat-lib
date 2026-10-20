@@ -12,7 +12,7 @@ export const FIELDS = [
       { id: 'intro', n: '01', title: '2차원 물질의 세계', group: '개요',
         desc: '원자층 물질의 결합과 구조, 실리콘 이후의 연구가 주목받는 이유를 간단히 훑어봅니다.', labs: ['흑연에서 그래핀으로'] },
       { id: 'synthesis', n: '02', title: '2D 물질의 합성', group: '합성과 연구',
-        desc: '기계적 박리와 화학 기상 증착(CVD), 핵생성·성장·결정립계와 에피택시를 소개합니다.', labs: ['기계적 박리', 'CVD 성장'] },
+        desc: '기계적 박리, CVD, 에피택시와 hypotaxy의 핵생성·성장 원리를 소개합니다.', labs: ['기계적 박리', 'CVD 성장', 'Hypotaxy'] },
       { id: 'ferroelectric', n: '03', title: '2D 강유전성', group: '합성과 연구',
         desc: '면내·면외 분극과 층간 sliding 강유전성의 원리, 대표 소재와 측정·소자 응용을 살펴봅니다.', labs: [] },
       { id: 'ferromagnetism', n: '04', title: '2D 강자성', group: '합성과 연구',
@@ -73,8 +73,9 @@ const MODULES = {
   crystal: './crystal.js?v=20261020i', lattice2d: './lattice2d.js?v=20261020i', miller: './miller.js?v=20261020i', bragg: './bragg.js',
   xrd: './xrd.js?v=20261020i', moire: './moire.js?v=20261020l', 'moire-reconstruction': './moire-reconstruction.js?v=20261020r', lineup: './lineup.js', spectrum: './spectrum.js',
   mos2: './mos2.js', bands: './bands.js', power: './power.js?v=20261020i', exfo: './exfo.js', cvd: './cvd.js',
-  glossary: './glossary.js?v=20261020k', refs: './papers.js?v=20261020e', paperdata: './papers.js?v=20261020e',
+  glossary: './glossary.js?v=20261020m', refs: './papers.js?v=20261020e', paperdata: './papers.js?v=20261020e',
   raman: './raman.js?v=20261020i',
+  hypotaxy: './hypotaxy.js?v=20261020c',
 };
 
 const LOGO = '<svg class="brand-logo" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bslg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a6cf0"/><stop offset="1" stop-color="#1fb3a3"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="8" fill="url(#bslg)"/><g fill="none" stroke="#fff" stroke-width="1.6" stroke-opacity=".9"><path d="M16 7.5l7.4 4.25v8.5L16 24.5l-7.4-4.25v-8.5z"/></g><circle cx="16" cy="16" r="2.6" fill="#fff"/></svg>';
