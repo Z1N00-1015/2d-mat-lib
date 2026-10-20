@@ -652,6 +652,11 @@ sub, sup { font-size: .72em; line-height: 0; }
 .kpi .v { font-family: var(--mono); font-size: 26px; font-weight: 800; letter-spacing: -.02em; }
 .kpi .k { font-size: 13px; color: var(--muted); }
 .vtable summary { cursor: pointer; font-size: 14px; color: var(--accent); }
+.paper-axis-controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 14px 0; }
+.paper-axis-controls label { display: grid; gap: 6px; color: var(--text-2); font-size: 13px; font-weight: 700; }
+.paper-axis-controls select { width: 100%; min-height: 42px; padding: 8px 12px; border: 1px solid var(--border-2); border-radius: 10px; background: var(--surface); color: var(--text); font: inherit; font-weight: 400; }
+.paper-scatter-stage { height: 460px; }
+.paper-scatter-stage canvas { touch-action: manipulation; cursor: crosshair; }
 
 /* glossary */
 .gloss-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 12px; }
@@ -686,6 +691,8 @@ table.gloss-table .empty { text-align: center; color: var(--muted); padding: 30p
 @media (max-width: 900px) {
   .lab-row2 { grid-template-columns: 1fr; }
   .kpis { grid-template-columns: 1fr 1fr; }
+  .paper-axis-controls { grid-template-columns: 1fr; }
+  .paper-scatter-stage { height: 380px; }
   .device-search-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .field-head { grid-template-columns: 1fr; }
 }
