@@ -63,6 +63,15 @@ const TERMS = [
   ['물질·공정', '기계적 박리', 'mechanical exfoliation', '접착 테이프 등으로 층상 결정에서 원자층을 떼어내는 방법.'],
   ['물질·공정', '화학 기상 증착', 'chemical vapor deposition, CVD', '기체 전구체의 화학 반응으로 기판 위에 박막을 형성하는 방법.'],
   ['물질·공정', '결정립계', 'grain boundary', '방위가 다른 결정립 사이의 경계. 캐리어를 산란시켜 이동도를 낮춘다.'],
+  ['물성', '강유전성', 'ferroelectricity', '외부 전기장 없이 자발 분극을 가지며, 전기장으로 분극 방향을 반전할 수 있는 성질.'],
+  ['물성', '자발 분극', 'spontaneous polarization', '외부 전기장이 없어도 물질의 단위 부피(또는 면적)에 존재하는 순 분극.'],
+  ['물성', '면내 분극', 'in-plane polarization, IP', '2D 층의 면과 나란한 방향의 분극 성분.'],
+  ['물성', '면외 분극', 'out-of-plane polarization, OOP', '2D 층에 수직인 방향의 분극 성분.'],
+  ['물성', '층간 미끄럼 강유전성', 'sliding ferroelectricity', '반데르발스 층의 상대적인 옆 방향 미끄럼으로 적층 대칭성과 계면 분극을 바꾸는 강유전성.'],
+  ['물성', '강자성', 'ferromagnetism', '스핀의 장거리 정렬로 자발 자화를 갖는 자기 질서.'],
+  ['물성', '자기 이방성', 'magnetic anisotropy', '자화 방향에 따라 달라지는 자기 에너지. 2D 자성체의 자화 방향과 열적 안정성에 영향을 준다.'],
+  ['물성', '큐리 온도', 'Curie temperature, T_C', '강자성체가 가열에 따라 장거리 강자성 질서를 잃는 전이 온도.'],
+  ['분석법', '자기 광학 Kerr 효과', 'magneto-optic Kerr effect, MOKE', '자화된 시료에서 반사광의 편광 방향 또는 타원율이 달라지는 자기 광학 효과.'],
 ];
 
 export function init(root) {

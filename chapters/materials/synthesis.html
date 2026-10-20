@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book.js?v=20261020i"></script>
+<script type="module" src="../../assets/js/book.js?v=20261020s"></script>
 </head>
 <body data-root="../../" data-field="materials" data-chapter="synthesis">
 <main class="main">
@@ -93,6 +93,28 @@
   <p>결정립계는 캐리어를 산란시켜 이동도를 떨어뜨리고 소자마다 특성이 달라지게 합니다. 따라서 웨이퍼 전체가 하나의 방위를 갖는 <strong>단결정 2D 박막</strong>을 키우는 것이 상용화의 핵심 과제입니다.</p>
   <p>이를 위해 기판의 결정 방위를 따라 박막을 성장시키는 <strong>에피택시(epitaxy)</strong>를 이용합니다. 사파이어 c-면의 원자 단차(atomic step)나 금속 기판의 결정면은 도메인이 특정 방향으로만 핵생성하도록 유도합니다. 다만 MoS₂ 도메인은 0°와 60°의 두 방위(쌍정, twin)로 정렬될 수 있어, 이 둘이 만나는 곳에는 여전히 경계가 생깁니다. LAB 2-2에서 에피택셜 정렬을 켜고 확인해 보세요. 쌍정 경계까지 없애기 위해 기판 단차의 방향을 조절하거나 다른 템플릿을 이용하는 방법들이 연구되고 있습니다.</p>
 
+  <h2><span class="sec">2.5</span>2D 소재의 강유전성과 강자성</h2>
+  <p>합성 연구의 목표는 원자층을 만드는 데서 끝나지 않습니다. 결정상, 적층 순서, 두께와 계면을 제어해 전기 분극이나 자성 같은 기능을 구현하고, 이를 메모리·스핀트로닉스 소자에 연결하는 연구도 활발합니다. 아래 사례는 대표적인 연구 방향이며, 물성은 성장 조건과 시료 구조에 따라 달라질 수 있습니다.</p>
+
+  <h3>2.5.1 2D 강유전성: 분극 방향과 전환 방식</h3>
+  <p><strong>강유전성(ferroelectricity)</strong>은 외부 전기장 없이도 존재하는 자발 분극(spontaneous polarization)을 전기장으로 반전할 수 있는 성질입니다. 2D 소재에서는 분극이 면 안에 놓이는지, 층에 수직인지에 따라 <strong>면내(in-plane, IP)</strong>와 <strong>면외(out-of-plane, OOP) 강유전성</strong>으로 나눠 설명합니다. 이 방향 분류와 별도로, 분극이 바뀌는 원리에 따라 층 사이 미끄럼을 이용하는 <strong>sliding ferroelectricity</strong>를 구분할 수 있습니다.</p>
+  <ul>
+    <li><strong>면내(IP):</strong> 단층 SnS에서 상온 면내 분극과 전환이 보고되었습니다. 면내 분극은 방향에 따라 소자 전류와 광응답이 달라질 수 있지만, 전극 배치와 결정 방향을 함께 고려해야 합니다. <a href="https://www.nature.com/articles/s41467-020-16291-9" target="_blank" rel="noopener">Nature Communications (2020), 단층 SnS의 면내 강유전성</a>.</li>
+    <li><strong>면외(OOP):</strong> 얇은 α-In₂Se₃와 몇 층 WTe₂에서 수직 분극 및 전기적 전환이 연구되었습니다. 층수, 결정상, 전극·기판에 의한 전하 차폐가 안정성과 측정 결과에 영향을 줍니다. <a href="https://pubs.rsc.org/en/content/articlelanding/2018/nr/c8nr04422h/unauth" target="_blank" rel="noopener">Nanoscale (2018), α-In₂Se₃</a>; <a href="https://www.nature.com/articles/s41586-018-0336-3" target="_blank" rel="noopener">Nature (2018), few-layer WTe₂</a>.</li>
+    <li><strong>층간 sliding:</strong> 반데르발스 이중층의 한 층을 옆으로 이동시키면 적층 registry와 대칭성이 바뀌고, 이에 따라 계면 분극의 방향이 전환될 수 있습니다. 각 단층 자체에 분극이 없어도 계면의 비대칭 적층으로 분극이 생길 수 있습니다. 3R 적층 MoS₂ 이중층에서 실험적으로 연구되었으며, 일부 구조에서는 이 sliding 전환이 면외 분극으로 관측됩니다. <a href="https://www.nature.com/articles/s41565-021-01059-z" target="_blank" rel="noopener">Nature Nanotechnology (2022), rhombohedral 적층 TMD 계면 강유전성</a>; <a href="https://doi.org/10.1126/science.ado1744" target="_blank" rel="noopener">Science (2024), 3R-MoS₂ sliding 전환</a>.</li>
+  </ul>
+  <p>이 세 표현은 서로 배타적인 분류가 아닙니다. 예를 들어 sliding은 분극을 바꾸는 <em>기작</em>이고, IP/OOP는 분극의 <em>방향</em>을 나타냅니다. 압전 응답이나 전하 트랩이 강유전 히스테리시스처럼 보일 수도 있으므로, PFM(압전 응답력 현미경)의 면내·면외 측정만으로 결론 내리지 않고 전기적 switching, 구조 및 대조 측정을 함께 확인합니다. 후보 물질을 소자로 옮길 때는 강유전체 전계효과 트랜지스터(FeFET), 강유전체 반도체 FET(FeS-FET), 비휘발성 메모리와 재구성형 다이오드가 응용 방향입니다.</p>
+
+  <h3>2.5.2 2D 강자성: 원자층에서의 스핀 질서</h3>
+  <p><strong>강자성(ferromagnetism)</strong>은 스핀들이 정렬해 자발 자화(spontaneous magnetization)를 갖는 물성입니다. 이상적인 등방성 2D Heisenberg 자석에서는 열 요동이 장거리 자성 질서를 무너뜨릴 수 있지만, 실제 층상 자성체의 자기 이방성(magnetic anisotropy)과 층간 결합은 이 제한을 바꿉니다. 따라서 자성의 존재와 전이 온도는 물질 이름만으로 정해지지 않고 두께, 적층, 변형률, 조성, 전하 밀도와 계면에 의존합니다.</p>
+  <ul>
+    <li><strong>CrI₃:</strong> 단층에서 면외 스핀 방향을 갖는 Ising형 강자성이 관측됐고, 이중층에서는 적층에 따라 층 사이 반강자성 결합이 나타납니다. <a href="https://www.nature.com/articles/nature22391" target="_blank" rel="noopener">Nature (2017), 단층 CrI₃</a>.</li>
+    <li><strong>Cr₂Ge₂Te₆:</strong> 얇은 층에서 자기 광학 Kerr 효과로 자성 전이를 추적한 대표적 2D 자성체입니다. <a href="https://www.nature.com/articles/nature22060" target="_blank" rel="noopener">Nature (2017), 2D van der Waals 자성</a>.</li>
+    <li><strong>Fe₃GeTe₂:</strong> 금속성 층상 강자성체로, 단층 한계까지의 자성과 게이팅을 통한 자성 조절이 연구되었습니다. 박막 합성에서는 분자선 에피택시(MBE)와 CVD 성장도 보고되어, 조성·기판·계면 제어가 중요한 연구 축입니다. <a href="https://www.nature.com/articles/s41586-018-0626-9" target="_blank" rel="noopener">Nature (2018), 게이트 조절 Fe₃GeTe₂</a>; <a href="https://www.nature.com/articles/s41699-017-0033-3" target="_blank" rel="noopener">npj 2D Materials and Applications (2017), MBE 박막 성장</a>.</li>
+  </ul>
+  <p>연구에서는 합성한 시료의 자성 전이 온도(Curie temperature), 자기 이방성과 층간 결합을 함께 측정합니다. 자기 광학 Kerr 효과(MOKE)나 원편광 이색성은 얇은 시료의 자화에 민감하고, 비정상 홀 효과(anomalous Hall effect)를 포함한 자화 수송 측정은 전류가 흐르는 소자에서 자성 상태를 살펴보는 데 쓰입니다. 응용 방향에는 스핀트로닉스, 자화 기반 메모리와 자기 광학 소자가 있습니다.</p>
+  <p class="note">문헌 사례는 물질의 보편적 보증값이 아닙니다. 상(phase), 층수, 적층, 기판, 결함과 측정 조건을 논문별로 확인하세요.</p>
+
   <div class="summary">
     <h4>📝 정리</h4>
     <ul>
@@ -100,6 +122,8 @@
       <li>285 nm SiO₂/Si 기판에서는 박막 간섭으로 단층 그래핀도 광학적으로 구별된다.</li>
       <li>CVD는 핵생성 → 성장 → 합체로 진행되며, 높은 온도와 낮은 공급량은 큰 결정립을 만든다.</li>
       <li>에피택시로 도메인 방위를 정렬하면 결정립계를 줄일 수 있으나, 쌍정 경계가 남을 수 있다.</li>
+      <li>2D 강유전성은 면내·면외 분극 방향과 층간 sliding 전환 기작을 구분해 살펴본다.</li>
+      <li>2D 강자성은 자기 이방성과 층간 결합으로 안정화될 수 있으며, 두께·적층·계면 제어가 합성과 소자 연구에 중요하다.</li>
     </ul>
   </div>
 </article>
