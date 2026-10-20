@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>투과전자현미경(TEM) · 결정학과 분석 방법 · Beyond Silicon</title>
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../../assets/css/book.css?v=20261020-temmoire5">
+<script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
+<script type="module" src="../../assets/js/book-runtime.js?v=20261020-temmoire5"></script>
+</head>
+<body data-root="../../" data-field="crystallography" data-chapter="tem">
+<main class="main"><article class="article">
+  <header class="chapter-head">
+    <div class="eyebrow">CHAPTER II · ELECTRON MICROSCOPY</div>
+    <h1>투과전자현미경(TEM)</h1>
+    <p class="lede">투과전자현미경(transmission electron microscopy, TEM)은 가속 전자를 얇은 시료에 통과시켜 영상과 회절 정보를 얻습니다. 2D 물질의 격자, 결함과 계면을 작은 영역에서 직접 관찰할 수 있습니다.</p>
+    <div class="meta"></div>
+  </header>
+
+  <h2><span class="sec">6.1</span>전자와 시료의 상호작용</h2>
+  <p>전자빔이 시료를 통과하면 일부 전자는 거의 방향을 바꾸지 않고, 일부는 탄성 또는 비탄성 산란을 합니다. 전자렌즈와 조리개로 이 신호를 모아 영상을 만들거나, 회절면에 모아 결정 정보를 얻습니다. 얇은 시료에서는 작은 영역의 원자 배열과 결함을 높은 공간 분해능으로 관찰할 수 있습니다.</p>
+  <p><strong>주사 투과전자현미경(scanning transmission electron microscopy, STEM)</strong>은 좁은 전자빔을 시료 위에서 주사하며 각 위치의 신호를 기록합니다. 검출 각도에 따라 명시야·암시야 대비가 달라지고, 고각 환형 암시야(HAADF) 영상은 원자 번호에 따른 대비를 제공할 수 있습니다. 대비는 시료 두께와 정렬에도 영향을 받으므로 원소를 영상만으로 확정하지 않습니다.</p>
+
+  <h2><span class="sec">6.2</span>영상·회절·분광의 역할</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>기법</th><th>측정 방식</th><th>주요 활용</th></tr></thead>
+    <tbody>
+      <tr><td>고분해능 투과전자현미경(high-resolution TEM, HRTEM)</td><td>투과·회절 전자의 위상 대비 영상</td><td>국소 격자 무늬, 적층, 결함과 계면 관찰</td></tr>
+      <tr><td>암시야 투과전자현미경(dark-field TEM, DF-TEM)</td><td>선택한 회절 빔으로 만든 영상</td><td>특정 결정립·방위·결함 영역의 대비 관찰</td></tr>
+      <tr><td>선택 영역 전자 회절(selected-area electron diffraction, SAED)</td><td>지정한 영역에서 나온 회절 점·고리</td><td>결정 대칭, 방위, 상과 다결정성 비교</td></tr>
+      <tr><td>주사 TEM (STEM)</td><td>수렴 전자빔을 주사해 위치별 투과·산란 신호 수집</td><td>원자 열, 계면과 조성의 국소 관찰</td></tr>
+      <tr><td>STEM-에너지 분산 X선 분광법(energy-dispersive X-ray spectroscopy, EDS)</td><td>특성 X선의 에너지별 신호와 원소 지도</td><td>원소 분포와 계면 조성의 국소 분석</td></tr>
+      <tr><td>STEM-전자 에너지 손실 분광법(electron energy-loss spectroscopy, EELS)</td><td>투과 전자의 에너지 손실 스펙트럼</td><td>원소, 결합 및 전자 구조에 대한 정보</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>HRTEM</strong>은 통과파와 회절파의 간섭으로 격자 무늬가 나타나는 위상 대비 영상입니다. 원자 위치와 밝기는 초점·두께·수차 조건에 영향을 받으므로, 영상의 푸리에 변환(FFT)과 회절 패턴, 시뮬레이션을 함께 비교합니다.</p>
+  <p><strong>DF-TEM</strong>은 회절 패턴에서 특정 반사점에 조리개를 맞추고 그 회절 빔만으로 영상을 만듭니다. 선택한 반사 조건을 만족하는 결정립이나 영역이 밝게 나타나므로 도메인·방위·결함 분포를 볼 수 있습니다. 조건에 따라 대비가 달라져 영상의 밝기만으로 조성을 판단하지 않습니다.</p>
+  <p><strong>STEM</strong>은 탐침을 한 점씩 주사하며 신호를 모읍니다. 저각 환형 검출은 명시야 대비를, 고각 환형 암시야(high-angle annular dark-field, HAADF)는 원자 번호에 민감한 대비를 줄 수 있습니다. STEM 영상과 EDS·EELS 지도를 조합하면 원자 배열과 원소·전자 상태 정보를 같은 영역에서 비교할 수 있습니다.</p>
+
+  <h2><span class="sec">6.3</span>모아레 패턴을 TEM으로 읽기</h2>
+  <p>이종구조의 회절점은 각 층의 격자와 상대 회전 정보를 담습니다. 회절 패턴이나 고분해능 영상의 푸리에 변환(FFT)에서 각 층의 역격자 벡터 <i>g</i><sub>1</sub>, <i>g</i><sub>2</sub>를 구하고, 차이 벡터 <i>g</i><sub>m</sub> = <i>g</i><sub>1</sub> − <i>g</i><sub>2</sub>로부터 실공간 모아레 주기 <i>L</i><sub>m</sub> = 1/|<i>g</i><sub>m</sub>|를 계산합니다. 여러 위치의 FFT를 비교하면 주기와 방향의 국소 변화를 추적할 수 있습니다.</p>
+  <p>ADF-STEM에서는 카메라 길이가 검출기의 유효 수집 각도를 바꾸어 모아레 대비를 좌우합니다. 카메라 길이는 시료의 실제 주기를 바꾸지 않습니다. DF-TEM은 SAED의 특정 회절점을 선택해 실공간 영상을 만들며, 선택한 반사에 대응하는 모아레 fringe를 보여줍니다. 서로 다른 회절점을 비교하거나 합성하면 영역별 휘어짐과 방향 변화를 읽을 수 있습니다.</p>
+  <section class="lab" id="lab-tem-moire" data-module="tem-moire">
+      <div class="lab-head"><span class="badge">LAB 6-1</span><h4>TEM 모아레 패턴 분석</h4><span class="sub">실제 육방 원자 배열과 두 층의 겹침 비교</span></div>
+    <div class="lab-body">
+      <div class="lab-tools">
+        <div class="seg" data-k="mode"><button class="on" data-v="adf">ADF-STEM</button><button data-v="df">DF-TEM</button></div>
+        <div class="grow"></div>
+        <div class="seg" data-k="spot"><button class="on" data-v="g1">회절점 g₁</button><button data-v="g2">g₂</button><button data-v="g3">g₃</button><button data-v="all">세 방향 합성</button></div>
+      </div>
+      <div class="lab-grid">
+        <div>
+          <div class="stage h-420"><canvas aria-label="배율과 격자 조건을 조절하는 MoS₂와 WSe₂의 흑백 육방 원자 배열"></canvas><div class="hud" data-o="hud"></div><div class="stage-badge" data-o="badge">ADF-STEM · 원자열 모식도</div></div>
+          <p class="hint" data-o="caption"></p>
+          <div class="legend"><span><i style="background:#f4f5f7"></i>아래층 원자열</span><span><i style="background:#aeb5bf"></i>위층 원자열</span><span><i style="background:#fff;box-shadow:0 0 8px #fff"></i>겹침 위치</span><span data-o="df-legend" style="display:none"><i style="background:#ff4c4c"></i>g₁ · R</span><span data-o="df-legend" style="display:none"><i style="background:#50eb82"></i>g₂ · G</span><span data-o="df-legend" style="display:none"><i style="background:#6096ff"></i>g₃ · B</span></div>
+        </div>
+        <div class="panel">
+          <div data-o="camera-panel">
+            <div class="ctrl-label">카메라 길이 (mm) <b data-o="camera">285</b></div>
+            <div class="seg" data-k="camera"><button data-v="115">115</button><button data-v="185">185</button><button class="on" data-v="285">285</button><button data-v="360">360</button></div>
+          </div>
+          <label class="slider"><div class="row"><span>격자 불일치 δ</span><b data-o="mismatch">4.0%</b></div><input type="range" data-k="mismatch" min="0" max="8" step="0.1" value="4.0"></label>
+          <label class="slider"><div class="row"><span>상대 회전각 θ</span><b data-o="twist">0.9°</b></div><input type="range" data-k="twist" min="0" max="6" step="0.1" value="0.9"></label>
+          <label class="slider"><div class="row"><span>이미지 배율</span><b data-o="zoom">1.0×</b></div><input type="range" data-k="zoom" min="0.7" max="1.8" step="0.1" value="1.0"></label>
+          <div class="readout">
+            <div><div class="k">시료 모델</div><div class="v">MoS₂/WSe₂</div></div>
+            <div><div class="k">모델 모아레 주기</div><div class="v" data-o="period">—</div></div>
+            <div class="wide"><div class="k" data-o="visibility-key">모아레 대비</div><div class="v" data-o="visibility">강함</div></div>
+          </div>
+          <div class="callout" data-o="message"></div>
+        </div>
+      </div>
+      <div class="callout warn"><span class="t">모델과 측정 결과의 의미</span><p>원자 위치는 MoS₂와 WSe₂의 투영된 육방 TMD 격자를 단순화해 그렸습니다. 크기·층간 위치·변형은 실제 원자 좌표가 아니며, 모델 모아레 주기는 격자 불일치와 회전각만으로 계산한 이상적 값입니다. 논문 본문은 MoS₂/WSe₂의 주기를 약 10 nm로 보여주고, Supplementary Information은 계산값 8.6 nm를 제시합니다. 카메라 길이별 대비는 보고된 경향을 바탕으로 한 모식도이며 실제 detector 응답이나 원본 영상을 재현하지 않습니다. 카메라 길이는 실공간 주기를 바꾸지 않습니다. DF-TEM의 밝고 어두운 무늬도 조성 지도가 아닙니다.</p></div>
+      <p><a href="https://doi.org/10.1088/1361-6633/ae5ea2" target="_blank" rel="noopener"><em>Visualizing lattice-mismatch-dependent strain relaxation in epitaxially grown MoS₂/WS₂ and MoS₂/WSe₂ hetero-bilayers</em>. Reports on Progress in Physics (2026).</a></p>
+    </div>
+  </section>
+
+  <h2><span class="sec">6.4</span>시료 준비와 측정 흐름</h2>
+  <ol>
+    <li>관찰 대상이 전자 투과에 적합한 두께와 지지 상태가 되도록 시료를 준비하고, 오염과 주름을 확인합니다.</li>
+    <li>저배율에서 관심 영역을 찾은 뒤 필요한 영상·회절·분광 신호를 수집합니다.</li>
+    <li>가능하면 낮은 조사량부터 시작해 영상이 시간에 따라 변하는지 점검하고, 여러 영역에서 재현성을 확인합니다.</li>
+  </ol>
+  <div class="callout tip"><span class="t">전자빔이 시료를 바꿀 수 있습니다</span><p>2D 물질은 전자 조사로 원자 결함이 생기거나 이동할 수 있습니다. 가속 전압 하나만으로 손상 여부를 판단하지 말고, 시료와 측정 조건에 맞게 조사량을 관리하며 관찰 전후의 변화를 확인하세요.</p></div>
+
+  <h2><span class="sec">6.5</span>장점과 한계</h2>
+  <p>TEM은 국소 원자 구조와 결함을 직접 살피는 데 강하지만, 작은 관찰 영역이 시료 전체를 대표하지 않을 수 있습니다. 박막화와 전사 과정이 시료 상태를 바꾸거나 오염을 남길 수 있고, 진공과 전자빔에 민감한 재료는 측정 중 변할 수 있습니다. 넓은 영역의 평균 구조는 XRD와, 표면 화학 상태는 XPS와 함께 비교하면 보완할 수 있습니다.</p>
+  <div class="refs"><h3>더 읽을 자료</h3><ul>
+    <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4169717/" target="_blank" rel="noopener">MoS₂ 박편의 전자빔 손상과 정량 HAADF-STEM 영상에 관한 실험 연구</a></li>
+    <li><a href="https://www.ou.edu/microscopy/capabilities/transmission-electron-microscopes" target="_blank" rel="noopener">University of Oklahoma: TEM 측정과 회절 기능</a></li>
+  </ul></div>
+  <div class="refs" data-module="refs" data-topic="tem"></div>
+</article></main>
+</body>
+</html>

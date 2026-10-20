@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>원자힘현미경(AFM) · 결정학과 분석 방법 · Beyond Silicon</title>
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../../assets/css/book.css?v=20261020-temmoire2">
+<script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
+<script type="module" src="../../assets/js/book-runtime.js?v=20261020-temmoire2"></script>
+</head>
+<body data-root="../../" data-field="crystallography" data-chapter="afm">
+<main class="main"><article class="article">
+  <header class="chapter-head">
+    <div class="eyebrow">CHAPTER II · SCANNING PROBE MICROSCOPY</div>
+    <h1>원자힘현미경(AFM)</h1>
+    <p class="lede">원자힘현미경(atomic force microscopy, AFM)은 날카로운 탐침을 표면 위에서 주사하며 탐침과 시료 사이의 힘을 측정합니다. 2D 물질의 표면 형상과 플레이크의 상대 높이·거칠기를 나노미터 규모로 지도화합니다.</p>
+    <div class="meta"></div>
+  </header>
+
+  <h2><span class="sec">8.1</span>탐침의 움직임으로 표면 높이를 그린다</h2>
+  <p>탐침이 달린 미세 캔틸레버(cantilever)가 표면 위를 이동합니다. 탐침과 표면 사이의 힘에 따라 캔틸레버가 휘거나 진동의 진폭·위상이 달라지고, 피드백 장치가 높이를 조절해 신호를 기록합니다. 측정 위치별 신호를 모으면 표면의 높이 지도가 만들어집니다.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>측정 모드</th><th>탐침 동작</th><th>주요 특징</th></tr></thead>
+    <tbody>
+      <tr><td>접촉 모드</td><td>탐침이 표면에 닿은 채 주사</td><td>빠른 높이 측정이 가능하지만 부드러운 시료에는 횡방향 힘과 손상을 주기 쉬움</td></tr>
+      <tr><td>탭핑 모드(tapping mode)</td><td>진동하는 탐침이 표면에 짧게 접근</td><td>횡방향 힘을 줄여 얇고 부드러운 플레이크를 측정할 때 널리 사용</td></tr>
+      <tr><td>비접촉 모드</td><td>표면에 닿지 않고 상호작용 힘을 검출</td><td>힘이 약하고 환경·표면 흡착층의 영향을 크게 받을 수 있음</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2><span class="sec">8.2</span>2D 물질의 높이와 거칠기 해석</h2>
+  <p>기판과 플레이크의 높이 차이로 상대 두께를 비교할 수 있고, 평탄한 영역의 높이 변동으로 표면 거칠기를 계산할 수 있습니다. 다만 AFM이 측정하는 단계 높이는 결정의 층간 간격과 반드시 같지 않습니다. 기판의 물 흡착, 잔류물, 표면 처리, 탐침 압력과 피드백 조건이 결과에 영향을 줍니다. 따라서 AFM 높이만으로 층수를 확정하지 말고 Raman·광학 대비나 TEM과 함께 판단합니다.</p>
+  <p>측정 전에는 깨끗한 기준 기판과 플레이크 가장자리를 확인하고, 여러 위치에서 반복 측정합니다. 높이 지도에서 줄무늬·급격한 점프가 나타나면 탐침 오염, 피드백 불안정 또는 표면 오염 여부를 점검합니다. 보고할 때는 측정 모드, 탐침 조건, 스캔 크기와 분석한 평탄 영역을 함께 기록해야 비교가 가능합니다.</p>
+
+  <h2><span class="sec">8.3</span>높이 이외의 물성</h2>
+  <p>AFM 기반 모드를 확장하면 전류, 접착력, 탄성 응답, 표면 전위와 자기력 등을 공간적으로 비교할 수 있습니다. 이 측정들은 각각 전도성 탐침이나 특정 검출 모드를 필요로 하며, 탐침의 재료와 보정 방식이 결과에 큰 영향을 줄 수 있습니다. 일반적인 지형(topography) 측정값과 특수 모드 신호를 구분해 해석하세요.</p>
+  <div class="refs" data-module="refs" data-topic="afm"></div>
+</article></main>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2D 물질과 광대역 반도체 · 반도체 물리와 소자 응용 · Beyond Silicon</title>
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../../assets/css/book.css?v=20261020-temmoire2">
+<script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
+<script type="module" src="../../assets/js/book-runtime.js?v=20261020-temmoire2"></script>
+</head>
+<body data-root="../../" data-field="semiconductor" data-chapter="materials">
+<main class="main">
+<article class="article">
+  <header class="chapter-head">
+    <div class="eyebrow">CHAPTER III · MATERIALS & APPLICATIONS</div>
+    <h1>2D 물질과 광대역 반도체</h1>
+    <p class="lede">제1·2장에서 익힌 물질과 결정 구조, 밴드의 언어로 실제 반도체를 살펴봅니다. 앞부분은 2D 물질 계열, 뒷부분은 전력 반도체로 쓰이는 광대역 반도체이며, 전력 소자의 성능 비교에 쓰이는 Baliga's figure of merit(BFOM)도 다룹니다.</p>
+    <div class="meta"></div>
+  </header>
+
+  <h2><span class="sec">2.1</span>2D 물질 계열</h2>
+  <p>2D 물질은 전기적 성질에 따라 반금속, 반도체, 절연체, 금속으로 나눌 수 있으며, 이들을 조합하면 원자층만으로 트랜지스터 하나를 구성할 수 있습니다.</p>
+  <ul>
+    <li><strong>그래핀(반금속)</strong>: 밴드갭이 0인 디랙 물질. 이동도가 매우 높아 고주파 소자, 투명 전극, 방열 소재로 쓰이지만 스위치로 쓰기는 어렵습니다.</li>
+    <li><strong>h-BN(절연체)</strong>: E<sub>g</sub> ≈ 6 eV. 원자적으로 평탄하고 전하 트랩이 적어 2D 소자의 기판과 게이트 절연막으로 쓰입니다.</li>
+    <li><strong>전이금속 디칼코제나이드(TMD, 반도체)</strong>: MX₂ 조성(M = Mo, W; X = S, Se, Te). 단층 MoS₂(≈1.9 eV)는 n형, WSe₂(≈1.65 eV)는 p형 또는 양극성 채널 후보입니다.</li>
+    <li><strong>흑린(반도체)</strong>: 주름진(puckered) 층 구조로 결정 방향에 따라 물성이 크게 다른 이방성 물질. 층 수에 따라 밴드갭이 0.3–2 eV로 변합니다.</li>
+    <li><strong>MXene(금속)</strong>: MAX 상에서 A 원소층을 식각해 얻는 전이금속 탄화·질화물. 용액 공정이 가능한 2D 금속입니다.</li>
+  </ul>
+
+  <h2><span class="sec">2.2</span>광대역 밴드갭 반도체</h2>
+  <p>밴드갭이 약 2.3 eV 이상인 반도체를 <strong>광대역 밴드갭(wide-bandgap, WBG) 반도체</strong>, 약 4 eV 이상을 <strong>초광대역(ultra-wide-bandgap, UWBG)</strong> 반도체라 합니다. 밴드갭이 넓으면 전자를 전도대로 들뜨게 하는 데 큰 에너지가 필요하므로, 높은 전계와 온도에서도 애벌랜치 항복이나 진성 캐리어 증가가 잘 일어나지 않습니다.</p>
+  <ul>
+    <li><strong>4H-SiC</strong>: 실리콘보다 약 8배 높은 절연파괴 전계와 2배 이상의 열전도율. 800 V급 전기차 인버터의 주력입니다.</li>
+    <li><strong>GaN</strong>: AlGaN/GaN 이종접합 계면에 분극으로 형성되는 2차원 전자가스(2DEG)를 이용한 HEMT로 고속 충전기와 RF 증폭기에 쓰입니다.</li>
+    <li><strong>β-Ga₂O₃</strong>: 4.85 eV의 초광대역 밴드갭. 용융 성장법으로 대구경 기판을 만들 수 있지만 낮은 열전도율과 p형 도핑이 과제입니다.</li>
+    <li><strong>다이아몬드</strong>: 가장 높은 열전도율(&gt;2000 W/m·K)과 절연파괴 전계를 가진 ‘궁극의 반도체’이지만 대면적 기판과 n형 도핑이 어렵습니다.</li>
+  </ul>
+
+  <section class="lab" id="lab-lineup">
+    <div class="lab-head"><span class="badge">LAB 2-1</span><h4>물질 라인업</h4><span class="sub">카드를 눌러 상세 정보를 보세요</span></div>
+    <div class="lab-body">
+      <div class="lab-tools"><div class="seg" data-k="family" id="lineup-filter"><button class="on" data-v="all">전체</button><button data-v="2d">2D 물질</button><button data-v="wbg">광대역 밴드갭</button></div></div>
+      <div class="lineup" id="lineup" data-module="lineup"></div>
+      <div class="mat-detail" id="mat-detail"></div>
+    </div>
+  </section>
+
+  <h2><span class="sec">2.3</span>전력 반도체와 Baliga's figure of merit (BFOM)</h2>
+  <p>전력 소자는 꺼져 있을 때 높은 전압을 견디고(항복 전압 V<sub>B</sub>), 켜져 있을 때 저항(온저항 R<sub>on</sub>)이 작아야 합니다. 높은 전압을 견디려면 드리프트층을 두껍게, 도핑을 낮게 해야 하지만 그러면 온저항이 커지는 상충 관계가 있습니다. 단극성 소자에서 이 상충 관계의 한계는 다음과 같이 물질 상수로 정해집니다.</p>
+  <div class="eq"><i>R</i><sub>on,sp</sub> = 4<i>V</i><sub>B</sub>² / (ε μ <i>E</i><sub>c</sub>³) &nbsp;&nbsp;⟹&nbsp;&nbsp; BFOM = ε μ <i>E</i><sub>c</sub>³<span class="where">ε: 유전율 · μ: 전자 이동도 · E<sub>c</sub>: 절연파괴 전계 (Baliga, 1982)</span></div>
+  <p><strong>Baliga's figure of merit (BFOM)</strong>는 절연파괴 전계의 세제곱에 비례하므로, 이동도가 다소 낮더라도 밴드갭이 넓은 물질이 압도적으로 유리합니다. 다만 실제 소자에서는 열을 빼내는 능력(열전도율), 기판 가격과 크기, 도핑의 용이성이 함께 고려됩니다.</p>
+
+  <section class="lab" id="lab-power" data-module="power">
+    <div class="lab-head"><span class="badge">LAB 2-2</span><h4>밴드갭 vs 절연파괴 전계</h4><span class="sub">원의 크기 = 열전도율, 점에 마우스를 올려 보세요</span></div>
+    <div class="lab-body">
+      <div class="lab-tools"><div class="seg" data-k="metric"><button class="on" data-v="bfom">BFOM</button><button data-v="ec">절연파괴 전계</button><button data-v="k">열전도율</button><button data-v="mu">전자 이동도</button></div></div>
+      <div class="lab-row2">
+        <div class="stage h-360"><canvas data-c="scatter"></canvas><div class="tip" data-o="tip"></div></div>
+        <div class="stage h-360"><canvas data-c="bars"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <h2><span class="sec">2.4</span>한눈에 비교</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th></th><th>Si</th><th>그래핀</th><th>MoS₂</th><th>h-BN</th><th>4H-SiC</th><th>GaN</th><th>β-Ga₂O₃</th></tr></thead>
+      <tbody>
+        <tr><td>분류</td><td>기준</td><td>2D 반금속</td><td>2D 반도체</td><td>2D 절연체</td><td>WBG</td><td>WBG</td><td>UWBG</td></tr>
+        <tr><td>밴드갭 (eV)</td><td>1.12</td><td>0</td><td>1.9 (단층)</td><td>≈ 6.0</td><td>3.26</td><td>3.4</td><td>4.85</td></tr>
+        <tr><td>결정 구조</td><td>다이아몬드</td><td>벌집 격자</td><td>삼각 프리즘</td><td>벌집 격자</td><td>육방 (ABCB)</td><td>우르차이트</td><td>단사정</td></tr>
+        <tr><td>전자 이동도 (cm²/V·s)</td><td>≈ 1,400</td><td>&gt; 100,000</td><td>≈ 10–200</td><td>—</td><td>≈ 1,000</td><td>≈ 1,200</td><td>≈ 200</td></tr>
+        <tr><td>절연파괴 전계 (MV/cm)</td><td>0.3</td><td>—</td><td>—</td><td>≈ 8–12</td><td>2.5</td><td>3.3</td><td>8</td></tr>
+        <tr><td>대표 응용</td><td>로직·메모리</td><td>RF·투명 전극</td><td>초미세 채널</td><td>절연막·캡슐화</td><td>EV 인버터</td><td>충전기·RF·LED</td><td>초고전압 전력</td></tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+</main>
+</body>
+</html>

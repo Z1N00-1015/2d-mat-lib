@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2차원 물질의 세계 · 2차원 물질의 이해 · Beyond Silicon</title>
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../../assets/css/book.css?v=20261020-temmoire2">
+<script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
+<script type="module" src="../../assets/js/book-runtime.js?v=20261020-temmoire2"></script>
+</head>
+<body data-root="../../" data-field="materials" data-chapter="intro">
+<main class="main">
+<article class="article">
+  <header class="chapter-head">
+    <div class="eyebrow">CHAPTER I · 2D MATERIALS</div>
+    <h1>2차원 물질의 세계</h1>
+    <p class="lede">원자 한 층 또는 몇 층으로 이루어진 2차원 물질은 얇은 두께와 독특한 결정·전자 구조를 바탕으로 새로운 물리 현상과 소자 가능성을 보여 줍니다. 이 장에서는 층상 결합, 대표 결정 구조, 주요 연구 분야를 먼저 살펴봅니다.</p>
+    <div class="meta"></div>
+  </header>
+
+  <h2><span class="sec">1.1</span>원자층 물질은 무엇인가?</h2>
+  <p><strong>2차원 물질(two-dimensional material)</strong>은 한 원자층 또는 몇 개의 원자층으로 이루어진 얇은 결정입니다. 층 안 원자들은 강한 화학 결합으로 연결되고, 층과 층 사이는 약한 반데르발스 힘으로 붙어 있어 얇은 층을 분리하거나 서로 다른 층을 쌓기 쉽습니다. 단층에서도 안정한 결정 구조를 만들 수 있고, 표면에 결합하지 않은 댕글링 본드가 거의 없는 물질이 많습니다.</p>
+  <p>얇은 두께는 게이트가 채널 전위를 제어하기 쉽게 해 초미세 트랜지스터 후보가 되며, 층수·적층 순서·기판·변형률을 바꾸면 광학·전기적 성질도 달라질 수 있습니다. 한편 결정 결함, 금속 접촉, 웨이퍼 규모 합성은 실제 소자 구현을 위해 해결해야 할 과제입니다.</p>
+  <div class="cards">
+    <div class="card"><div class="ico">🧱</div><h5>층상 결합</h5><p>층 내부 결합과 층간 결합의 세기가 달라 박리와 적층이 가능합니다.</p></div>
+    <div class="card"><div class="ico">⚛️</div><h5>원자층 두께</h5><p>원자층 수준의 얇은 채널은 짧은 게이트에서도 전기장 제어를 돕습니다.</p></div>
+    <div class="card"><div class="ico">🔬</div><h5>구조에 민감한 성질</h5><p>층수, 결함, 적층과 주변 환경에 따라 물질의 응답이 바뀔 수 있습니다.</p></div>
+  </div>
+
+  <h2><span class="sec">1.2</span>결합과 결정 구조</h2>
+  <p>원자가 반복되는 주기 배열을 <strong>결정 구조(crystal structure)</strong>라 합니다. 결정 구조는 반복 단위인 격자(lattice)와 그 격자점마다 배치된 원자들의 기저(basis)로 설명합니다. 2D 물질도 격자 대칭과 원자 기저가 달라지면 서로 다른 물질군과 성질을 갖습니다. 자세한 격자·대칭·회절 분석은 제2장에서 다룹니다.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>물질 계열</th><th>대표 구조·예</th><th>특징</th><th>연구 주제 예</th></tr></thead>
+      <tbody>
+        <tr><td>탄소 단층</td><td>그래핀 · 벌집 격자</td><td>높은 전하 이동도, 영 밴드갭</td><td>고주파 소자, 센서, 투명 전극</td></tr>
+        <tr><td>육방정 절연체</td><td>h-BN · 육방정 격자</td><td>넓은 밴드갭, 평탄한 표면</td><td>절연층, 캡슐화, 기판</td></tr>
+        <tr><td>전이금속 디칼코제나이드</td><td>MoS₂, WSe₂ · X–M–X 층</td><td>반도체 밴드갭, 스핀·밸리 자유도</td><td>트랜지스터, 광전자 소자</td></tr>
+        <tr><td>흑린</td><td>주름진 벌집형 층</td><td>면내 방향에 따른 비등방성</td><td>편광 광검출, 이방성 전자소자</td></tr>
+        <tr><td>MXene</td><td>전이금속 탄화물·질화물 층</td><td>표면 종단기에 따라 성질 조절</td><td>전극, 센서, 에너지 저장</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>같은 조성의 전이금속 디칼코제나이드도 원자층의 대칭과 적층 방식에 따라 2H·1T 같은 다형(polytype)이 나타날 수 있습니다. 단층 MoS₂의 대표 구조에서는 황 원자층 사이에 몰리브데넘 원자층이 놓인 X–M–X 샌드위치 배열을 이룹니다. 이 구조 언어와 회절 분석은 다음 큰 장에서 자세히 다룹니다.</p>
+
+  <h2><span class="sec">1.3</span>흑연에서 그래핀으로</h2>
+  <p>2D 물질의 출발점은 연필심의 재료인 <strong>흑연(graphite)</strong>입니다. 흑연은 탄소 원자가 벌집 격자를 이룬 원자층이 AB 순서로 쌓인 결정이며, 층간 거리는 0.335 nm입니다. 2004년 맨체스터 대학의 가임(A. Geim)과 노보셀로프(K. Novoselov)는 접착 테이프로 흑연을 반복해서 떼어내는 <strong>기계적 박리</strong>로 단층 그래핀을 분리하고 그 전기적 성질을 측정했습니다. 이 업적으로 두 사람은 2010년 노벨 물리학상을 받았습니다.</p>
+
+  <section class="lab" id="lab-stack" data-module="stack">
+    <div class="lab-head"><span class="badge">LAB 1-1</span><h4>흑연에서 그래핀으로</h4><span class="sub">슬라이더를 움직이거나 자동 재생을 눌러 보세요</span></div>
+    <div class="lab-body">
+      <div class="lab-grid">
+        <div class="stage h-420"><div class="stage-badge">층상 구조 → 단층</div></div>
+        <div class="panel">
+          <label class="slider"><div class="row"><span>진행 단계</span></div><input type="range" data-k="p" min="0" max="1" step="0.001" value="0"></label>
+          <button class="btn primary btn-block" data-a="play">▶ 자동 재생</button>
+          <div class="readout">
+            <div><div class="k">남은 층 수</div><div class="v" data-o="layers">—</div></div>
+            <div><div class="k">두께</div><div class="v" data-o="thick">—</div></div>
+          </div>
+          <div class="step-text" data-o="step" style="margin-top:0"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="callout fact"><span class="t">두께가 사라지면 무엇이 달라질까?</span><p>전자가 두께 방향으로 움직일 수 없게 되면(양자 구속), 에너지 밴드 구조 자체가 바뀝니다. 그래핀에서는 유효 질량이 0인 디랙 페르미온이, MoS₂에서는 층수에 따라 달라지는 밴드갭이 나타납니다. 제3장에서 다룹니다.</p></div>
+
+  <h2><span class="sec">1.4</span>발견에서 양산까지</h2>
+  <p>새로운 물질이 실험실에서 공장의 생산 라인에 오르기까지는 수십 년이 걸립니다. 광대역 반도체는 이미 양산 단계에 들어섰고, 2D 반도체는 연구 단계에서 공정 개발 단계로 넘어가는 중입니다.</p>
+  <div class="timeline">
+    <div class="tl"><div class="yr">1993</div><h5>고휘도 청색 LED</h5><p>GaN 기반 고휘도 청색 LED 구현. 2014년 아카사키·아마노·나카무라 노벨 물리학상.</p></div>
+    <div class="tl"><div class="yr">2004</div><h5>그래핀의 분리</h5><p>기계적 박리로 단층 그래핀을 분리하고 전계 효과를 측정. 2010년 노벨 물리학상.</p></div>
+    <div class="tl"><div class="yr">2010</div><h5>MoS₂ 단층의 직접 밴드갭</h5><p>단층이 되면 간접 → 직접 밴드갭으로 전이하며 강한 광발광이 나타남을 보고.</p></div>
+    <div class="tl"><div class="yr">2011</div><h5>단층 MoS₂ 트랜지스터</h5><p>상온에서 높은 전류 점멸비를 갖는 단층 MoS₂ 트랜지스터 시연.</p></div>
+    <div class="tl"><div class="yr">2018</div><h5>매직 앵글 초전도 · SiC 전기차</h5><p>1.1° 비틀린 이중층 그래핀의 초전도 발견. 같은 해 SiC MOSFET이 양산 전기차 인버터에 본격 채택.</p></div>
+    <div class="tl"><div class="yr">2022–25</div><h5>GAA 나노시트 양산</h5><p>3 nm·2 nm급 공정에서 GAA 구조 도입. 실리콘 채널 두께는 이미 수 nm 수준.</p></div>
+    <div class="tl future"><div class="yr">2030s</div><h5>2D 채널 + CFET (로드맵)</h5><p>업계 로드맵은 수직 적층형 CFET과 MoS₂·WSe₂ 같은 2D 채널을 옹스트롬 노드의 후보로 제시합니다. 웨이퍼 규모 단결정 성장과 저저항 접촉이 과제입니다.</p></div>
+  </div>
+
+  <h2><span class="sec">1.5</span>2D 물질의 주요 연구 분야</h2>
+  <div class="cards">
+    <div class="card"><div class="ico">🔌</div><h5>전자소자</h5><p>채널의 두께·접촉·결함을 조절해 초미세 FET와 센서의 성능을 높이는 연구입니다.</p></div>
+    <div class="card"><div class="ico">💡</div><h5>광전자·엑시톤</h5><p>빛의 흡수·방출, 엑시톤, 광검출과 발광 소자를 탐구합니다.</p></div>
+    <div class="card"><div class="ico">🌀</div><h5>스핀·밸리·트위스트로닉스</h5><p>스핀과 밸리 자유도, 층간 비틀림으로 생기는 모아레 초격자와 상관 물성을 연구합니다.</p></div>
+    <div class="card"><div class="ico">🧪</div><h5>합성·계면·측정</h5><p>대면적 성장, 이종구조 조립, 결함 제어와 여러 분석법을 통한 품질 평가를 다룹니다.</p></div>
+  </div>
+
+  <h2><span class="sec">1.6</span>주요 연구 주제의 구성</h2>
+  <p>이 사이트는 세 분야를 중심으로 구성됩니다. 제1부에서는 2D 물질과 연구 방향을 소개하고, 제2부에서는 결정학과 XRD·Raman·TEM·XPS·AFM 등 분석법을 다룹니다. 제3부는 반도체 물리와 밴드갭에서 출발해 FET 및 차세대 소자 응용으로 이어집니다.</p>
+  <div class="callout tip"><span class="t">LAB 상자 사용법</span><p>보라색 머리띠가 달린 상자는 직접 조작하는 실험입니다. 값을 극단으로 바꿔 보는 것이 가장 빨리 배우는 방법입니다. 모든 시뮬레이션은 실제 물리를 바탕으로 하되 교육용으로 단순화했습니다.</p></div>
+</article>
+</main>
+</body>
+</html>

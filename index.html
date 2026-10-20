@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beyond Silicon · 2D 물질 연구 길라잡이</title>
+<meta name="description" content="2D 물질의 구조와 합성, 분석, 전자·광학·양자 물성, 반도체 소자 응용까지 연구 흐름을 주제별로 살펴보는 길라잡이입니다.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="assets/css/book.css?v=20261020-temmoire3">
+<script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "./assets/vendor/OrbitControls.js" } }</script>
+<script type="module" src="assets/js/book-runtime.js?v=20261020-temmoire3"></script>
+</head>
+<body data-root="./" data-chapter="home">
+<main class="main">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">2D MATERIALS · RESEARCH GUIDE</div>
+      <h1>2D 물질 연구 길라잡이</h1>
+      <p>원자층 물질의 결정 구조와 합성·분석부터 전자·광학·양자 물성, 반도체와 차세대 소자 응용까지. 핵심 개념과 대표 연구 흐름을 주제별로 엮어 살펴봅니다.</p>
+    </div>
+    <div class="hero-art" data-module="hero" aria-label="물결치는 그래핀 원자층 3D 애니메이션"></div>
+  </section>
+
+  <section class="home-materials" aria-labelledby="materials-title">
+    <div class="section-heading"><div class="eyebrow">MATERIALS &amp; CRYSTAL STRUCTURES</div><h2 id="materials-title">2D 소재와 저차원 재료</h2><p>층상 2D 소재와 구조 비교를 위한 0D 분자형 결정의 원자 배열을 함께 살펴봅니다.</p></div>
+    <div class="home-material-lineup lineup" id="home-material-lineup" data-module="home-lineup" aria-label="원자구조 모식도가 포함된 2D 소재 및 0D 재료 라인업"></div>
+    <p class="home-material-note">SnS는 서로 다른 Sn·S 원자종을 표시하고, 안티모니 옥사이드는 Sb₄O₆ 케이지 모식도로 나타냈습니다. 원자 크기와 결합 길이는 실제 비율을 나타내지 않습니다.</p>
+  </section>
+
+  <section class="home-landscape" aria-labelledby="landscape-title">
+    <div class="section-heading"><div class="eyebrow">RESEARCH LANDSCAPE</div><h2 id="landscape-title">하나의 원자층에서 뻗어 나가는 연구</h2><p>합성부터 모아레 구조, 차세대 집적 소자와 강자성·강유전 특성까지 대표 연구 아이디어를 모식도로 살펴보세요.</p></div>
+    <figure class="landscape-figure">
+      <div class="landscape-gallery" aria-label="2D 소재 연구 분야 이미지 4개">
+        <article class="landscape-card">
+          <div class="landscape-card-copy"><h3>합성</h3><p>기판 위에서 결정막이 자라고 원자 배열을 이루는 모습</p></div>
+          <img class="landscape-art" src="assets/images/research-synthesis.jpg" alt="기판 위에 성장한 원자층 결정막과 확대된 원자 배열" width="1400" height="932" loading="lazy" decoding="async">
+        </article>
+        <article class="landscape-card">
+          <div class="landscape-card-copy"><h3>이종구조 · 모아레 격자</h3><p>두 원자층의 상대적인 회전과 겹침으로 나타나는 모아레 무늬</p></div>
+          <img class="landscape-art" src="assets/images/research-moire.jpg" alt="서로 어긋나게 겹친 두 원자 격자와 모아레 초격자" width="1400" height="1043" loading="lazy" decoding="async">
+        </article>
+        <article class="landscape-card landscape-card--integration">
+          <div class="landscape-card-copy"><h3>반도체 · 차세대 소자</h3><p>센서, 메모리, 2D logic, 실리콘 회로를 수직으로 쌓은 집적 구조</p></div>
+          <img class="landscape-art" src="assets/images/research-integration.jpg" alt="여러 회로층과 수직 연결 기둥으로 이루어진 monolithic 3D integration 구조" width="1384" height="1400" loading="lazy" decoding="async">
+        </article>
+        <article class="landscape-card">
+          <div class="landscape-card-copy"><h3>강자성 · 강유전 특성</h3><p>원자층 격자와 스핀·분극 방향의 표현</p></div>
+          <img class="landscape-art" src="assets/images/research-ferroic.jpg" alt="입체적인 원자층 격자 위의 스핀 및 분극 방향과 아래쪽 원자층" width="1400" height="919" loading="lazy" decoding="async">
+        </article>
+      </div>
+    </figure>
+  </section>
+
+  <section class="home-history" aria-labelledby="research-history-title">
+    <div class="section-heading"><div class="eyebrow">RESEARCH IN TIME</div><h2 id="research-history-title">시간으로 보는 2D 소재 연구</h2><p>소재 발견부터 소자·집적·대면적 성장까지, 서로 다른 연구 흐름의 대표 사례를 발표 시점 순으로 나열했습니다. 한 분야가 다른 분야로 대체됐다는 뜻은 아닙니다.</p></div>
+    <div class="history-timeline">
+      <article class="history-item">
+        <div class="history-year">2004</div>
+        <div><h3>원자층 탄소 결정과 그래핀 연구의 출발</h3>
+          <p>원자 몇 층 두께의 흑연 막을 분리하고 전기장 효과를 측정한 결과가 발표되며, 원자층 물질을 실험으로 다루는 연구가 본격화됐습니다.</p>
+          <a href="https://doi.org/10.1126/science.1102896" target="_blank" rel="noopener">Novoselov et al., Science (2004) ↗</a>
+        </div>
+      </article>
+      <article class="history-item">
+        <div class="history-year">2010–11</div>
+        <div><h3>TMD가 원자층 반도체와 소자 플랫폼으로 부상</h3>
+          <p>단층 MoS₂의 직접 밴드갭 발광과 박막 트랜지스터가 보고되면서, 그래핀을 넘어 밴드갭을 가진 2D 반도체 연구가 빠르게 확장됐습니다.</p>
+          <a href="https://doi.org/10.1103/PhysRevLett.105.136805" target="_blank" rel="noopener">Mak et al., Physical Review Letters (2010) ↗</a>
+          <span aria-hidden="true"> · </span>
+          <a href="https://doi.org/10.1038/nnano.2010.279" target="_blank" rel="noopener">Radisavljevic et al., Nature Nanotechnology (2011) ↗</a>
+        </div>
+      </article>
+      <article class="history-item">
+        <div class="history-year">2012</div>
+        <div><h3>개별 트랜지스터에서 논리회로로</h3>
+          <p>이중층 MoS₂ 위에 인버터, NAND, SRAM, 링 발진기를 구현해 2D 반도체가 여러 트랜지스터를 연결한 회로로 확장될 가능성을 보였습니다.</p>
+          <a href="https://doi.org/10.1021/nl302015v" target="_blank" rel="noopener">Wang et al., Nano Letters (2012) ↗</a>
+        </div>
+      </article>
+      <article class="history-item">
+        <div class="history-year">2013</div>
+        <div><h3>서로 다른 2D 층을 쌓는 반데르발스 이종접합</h3>
+          <p>격자 맞춤의 제약을 줄이며 층별 기능을 조합하는 방식이 정립되어, 소재를 쌓아 설계하는 연구가 열렸습니다.</p>
+          <a href="https://doi.org/10.1038/nature12385" target="_blank" rel="noopener">Geim &amp; Grigorieva, Nature (2013) ↗</a>
+        </div>
+      </article>
+      <article class="history-item">
+        <div class="history-year">2015</div>
+        <div><h3>웨이퍼 규모 TMD 박막 성장</h3>
+          <p>사파이어 위에 원자층 MoS₂ 박막을 넓은 면적으로 성장하고 웨이퍼 규모 트랜지스터 제작을 시연했습니다. 작은 박리 조각을 넘어 공정 규모를 넓히려는 연구가 본격화됐습니다.</p>
+          <a href="https://doi.org/10.1038/nature14417" target="_blank" rel="noopener">Kang et al., Nature (2015) ↗</a>
+        </div>
+      </article>
+      <article class="history-item">
+        <div class="history-year">2016–17</div>
+        <div><h3>강유전성과 강자성까지 기능이 넓어짐</h3>
+          <p>초박막 CuInP₂S₆의 강유전성과 단층 CrI₃의 강자성이 보고되며, 2D 소재는 전하·빛뿐 아니라 분극과 스핀을 다루는 플랫폼으로 확장됐습니다.</p>
+          <a href="https://doi.org/10.1038/ncomms12357" target="_blank" rel="noopener">Liu et al., Nature Communications (2016) ↗</a>
+          <span aria-hidden="true"> · </span>
+          <a href="https://doi.org/10.1038/nature22391" target="_blank" rel="noopener">Huang et al., Nature (2017) ↗</a>
+        </div>
+      </article>
+      <article class="history-item">
+        <div class="history-year">2018</div>
+        <div><h3>모아레 격자에서 상관 양자상태 발견</h3>
+          <p>매직 앵글로 비튼 이중층 그래핀에서 초전도가 보고되며, 비틀림각으로 전자 밴드와 상관현상을 설계하는 모아레 연구가 크게 확장됐습니다.</p>
+          <a href="https://doi.org/10.1038/nature26160" target="_blank" rel="noopener">Cao et al., Nature (2018) ↗</a>
+        </div>
+      </article>
+      <article class="history-item">
+        <div class="history-year">2019</div>
+        <div><h3>강유전체 반도체 자체를 채널로 쓰는 FeS-FET</h3>
+          <p>α-In₂Se₃를 채널로 사용해 분극 상태가 채널 전도도를 바꾸는 강유전체 반도체 전계효과 트랜지스터(FeS-FET)가 보고됐습니다. 강유전체 게이트 절연막을 쓰는 FeFET와 구별되는 소자 개념입니다.</p>
+          <a href="https://doi.org/10.1038/s41928-019-0338-7" target="_blank" rel="noopener">Si et al., Nature Electronics (2019) ↗</a>
+        </div>
+      </article>
+      <article class="history-item">
+        <div class="history-year">2024</div>
+        <div><h3>웨이퍼 규모 2D 트랜지스터 monolithic 3D integration</h3>
+          <p>MoS₂와 WSe₂ 전계효과 트랜지스터를 웨이퍼 규모로 여러 층 쌓아, 서로 다른 회로층을 한 기판 위에 직접 만드는 3차원 집적을 시연했습니다.</p>
+          <a href="https://doi.org/10.1038/s41586-023-06860-5" target="_blank" rel="noopener">Jayachandran et al., Nature (2024) ↗</a>
+        </div>
+      </article>
+      <article class="history-item">
+        <div class="history-year">2025</div>
+        <div><h3>Hypotaxy로 웨이퍼 규모 단결정 TMD 성장</h3>
+          <p>그래핀 template의 나노구멍으로 성장 반응을 아래쪽 기판까지 전달해 4인치 단결정 MoS₂를 만들고, 저온 성장과 monolithic 3D integration 가능성을 보였습니다.</p>
+          <a href="https://doi.org/10.1038/s41586-024-08492-9" target="_blank" rel="noopener">Moon et al., Nature (2025) ↗</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer class="site-foot" style="max-width:1120px;margin:4rem auto 0">Beyond Silicon · 2D 물질 연구 길라잡이</footer>
+</main>
+<script>
+  // Keep the home-page brand current even if a browser reuses an older cached layout module.
+  const homeBrandObserver = new MutationObserver(() => {
+    const subtitle = document.querySelector('.topbar .brand small');
+    if (!subtitle) return;
+    subtitle.textContent = '2D 물질 연구 길라잡이';
+    homeBrandObserver.disconnect();
+  });
+  homeBrandObserver.observe(document.body, { childList: true, subtree: true });
+</script>
+</body>
+</html>

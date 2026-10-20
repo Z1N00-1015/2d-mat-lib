@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>결정면과 밀러 지수 · 결정학과 분석 방법 · Beyond Silicon</title>
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../../assets/css/book.css?v=20261020-temmoire2">
+<script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
+<script type="module" src="../../assets/js/book-runtime.js?v=20261020-temmoire2"></script>
+</head>
+<body data-root="../../" data-field="crystallography" data-chapter="diffraction">
+<main class="main"><article class="article">
+  <header class="chapter-head">
+    <div class="eyebrow">CHAPTER II · CRYSTAL PLANES</div>
+    <h1>결정면과 밀러 지수</h1>
+    <p class="lede">결정 속 원자 배열은 여러 방향의 평행한 면으로 나누어 생각할 수 있습니다. 밀러 지수는 결정면의 방향을 나타내며, 면간 거리는 X선 회절을 포함한 결정 분석에서 중요한 기하 정보입니다.</p>
+    <div class="meta"></div>
+  </header>
+
+  <h2><span class="sec">2.1</span>밀러 지수</h2>
+  <p>결정 속에서 원자를 지나는 평행한 평면들을 <strong>결정면(lattice plane)</strong>이라 합니다. 결정면의 방향은 <strong>밀러 지수(Miller indices)</strong> (hkl)로 나타냅니다. 구하는 순서는 다음과 같습니다.</p>
+  <ol>
+    <li>결정면이 세 결정축과 만나는 절편을 격자 상수 단위로 구합니다. (예: 1, 1, ∞)</li>
+    <li>각 절편의 역수를 취합니다. (1, 1, 0)</li>
+    <li>가장 작은 정수비로 만듭니다. → (110)</li>
+  </ol>
+  <p>음의 절편은 숫자 위에 줄을 그어 (1̄11)처럼 표기합니다. 대칭적으로 동등한 면들의 집합은 중괄호 {hkl}로, 결정 방향은 대괄호 [uvw]로 씁니다.</p>
+
+  <h2><span class="sec">2.2</span>면간 거리</h2>
+  <p>면간 거리(interplanar spacing)는 같은 방향을 가진 이웃한 평행 결정면 사이의 간격입니다. 입방정(cubic crystal)에서는 격자 상수 a와 밀러 지수로 다음과 같이 계산합니다.</p>
+  <div class="eq"><i>d</i><sub>hkl</sub> = <i>a</i> / √(<i>h</i>² + <i>k</i>² + <i>l</i>²)<span class="where">입방정에서만 성립. 다른 결정계에서는 격자 상수와 각도를 함께 고려합니다.</span></div>
+
+  <section class="lab" id="lab-miller" data-module="miller">
+    <div class="lab-head"><span class="badge">LAB 2-1</span><h4>밀러 지수와 결정면</h4><span class="sub">지수를 바꾸면 평행한 결정면들이 표시됩니다</span></div>
+    <div class="lab-body lab-grid">
+      <div class="stage h-420"><canvas></canvas><div class="hud"><span style="color:#ff6b6b">x</span> · <span style="color:#30d158">y</span> · <span style="color:#2997ff">z</span></div><div class="stage-badge">드래그 · 회전</div></div>
+      <div class="panel">
+        <div class="group"><div class="label">밀러 지수 (h k l)</div><div class="miller-input">(
+          <div class="mstep" data-k="h"><button data-d="1">▲</button><output>1</output><button data-d="-1">▼</button></div>
+          <div class="mstep" data-k="k"><button data-d="1">▲</button><output>1</output><button data-d="-1">▼</button></div>
+          <div class="mstep" data-k="l"><button data-d="1">▲</button><output>1</output><button data-d="-1">▼</button></div>
+        )</div></div>
+        <div class="group"><div class="label">자주 쓰는 면</div><div class="seg" data-k="preset"><button data-v="1,0,0">(100)</button><button data-v="1,1,0">(110)</button><button class="on" data-v="1,1,1">(111)</button><button data-v="2,0,0">(200)</button><button data-v="2,1,0">(210)</button><button data-v="-1,1,1">(<span style="text-decoration:overline">1</span>11)</button></div></div>
+        <div class="group"><div class="label">브라베 격자</div><div class="seg" data-k="lat"><button data-v="sc">SC</button><button data-v="bcc">BCC</button><button class="on" data-v="fcc">FCC</button></div></div>
+        <div class="readout">
+          <div><div class="k">면간 거리 d/a</div><div class="v" data-o="d">—</div></div>
+          <div><div class="k">면 위 격자점</div><div class="v" data-o="atoms">—</div></div>
+          <div class="wide"><div class="k">Si (a = 5.431 Å)에서</div><div class="v" data-o="dsi" style="font-size:14px">—</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="callout fact"><span class="t">웨이퍼 면방위</span><p>실리콘 로직 소자는 계면 준위 밀도(D<sub>it</sub>)가 낮은 (100) 웨이퍼를 주로 씁니다. GaN을 실리콘 위에 성장할 때는 육방 대칭이 맞는 Si(111) 면을, 2D 물질의 에피택시에는 사파이어 c-면(0001)을 흔히 씁니다. (100)과 (200)은 방향은 같지만, (200)은 면간 거리가 절반인 면들을 가리킵니다.</p></div>
+</article></main>
+</body>
+</html>

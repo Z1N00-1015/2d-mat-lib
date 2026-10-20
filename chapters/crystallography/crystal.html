@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>결정 구조와 격자 · 결정학과 분석 방법 · Beyond Silicon</title>
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../../assets/css/book.css?v=20261020-temmoire2">
+<script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
+<script type="module" src="../../assets/js/book-runtime.js?v=20261020-temmoire2"></script>
+</head>
+<body data-root="../../" data-field="crystallography" data-chapter="crystal">
+<main class="main">
+<article class="article">
+  <header class="chapter-head">
+    <div class="eyebrow">CHAPTER II · CRYSTALLOGRAPHY</div>
+    <h1>결정 구조와 격자</h1>
+    <p class="lede">반도체의 전기적·광학적 성질은 원자의 주기적 배열, 즉 결정 구조에서 출발합니다. 이 장에서는 결정을 기술하는 기본 언어인 브라베 격자, 기저, 단위격자를 정의하고, 회절과 전자 상태를 다루는 데 필요한 역격자와 브릴루앙 영역까지 나아갑니다.</p>
+    <div class="meta"></div>
+  </header>
+
+  <h2><span class="sec">1.1</span>격자와 기저</h2>
+  <p><strong>결정(crystal)</strong>은 원자 또는 원자 무리가 3차원 공간에서 주기적으로 반복된 고체입니다. 이 주기성은 두 요소로 분리해 기술합니다.</p>
+  <ul>
+    <li><strong>브라베 격자(Bravais lattice)</strong>: 병진 대칭만으로 정의되는 무한한 점의 배열. 모든 격자점 R은 기본 병진 벡터 a₁, a₂, a₃의 정수 조합으로 표현됩니다.</li>
+    <li><strong>기저(basis)</strong>: 각 격자점에 놓이는 원자 또는 원자 무리.</li>
+  </ul>
+  <div class="eq">결정 구조 = 브라베 격자 + 기저, &nbsp;&nbsp; <i>R</i> = <i>n</i>₁<i>a</i>₁ + <i>n</i>₂<i>a</i>₂ + <i>n</i>₃<i>a</i>₃<span class="where">n₁, n₂, n₃: 정수 · a₁, a₂, a₃: 기본 병진 벡터(primitive translation vectors)</span></div>
+  <p>병진 반복으로 결정 전체를 빈틈없이 채우는 공간 단위를 <strong>단위격자(unit cell)</strong>라 하고, 그중 격자점을 정확히 하나만 포함하는 가장 작은 격자를 <strong>원시 단위격자(primitive cell)</strong>라 합니다. 실리콘처럼 대칭을 드러내기 위해 격자점을 여러 개 포함하는 더 큰 격자를 쓰기도 하는데, 이를 관용 단위격자(conventional cell)라 합니다.</p>
+
+  <h2><span class="sec">1.2</span>반도체의 대표 결정 구조</h2>
+  <p>같은 원소나 조성이라도 원자 배열이 다르면 성질이 완전히 달라집니다. 아래 표는 이 책에서 다루는 물질들의 결정 구조입니다.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>물질</th><th>구조</th><th>브라베 격자 / 공간군</th><th>격자 상수</th><th>배위</th></tr></thead>
+      <tbody>
+        <tr><td>Si</td><td>다이아몬드 구조</td><td>FCC · Fd3̄m</td><td class="num">5.431 Å</td><td>정사면체 (4)</td></tr>
+        <tr><td>GaN</td><td>우르차이트(wurtzite)</td><td>육방 · P6₃mc</td><td class="num">a 3.189, c 5.185 Å</td><td>정사면체 (4)</td></tr>
+        <tr><td>4H-SiC</td><td>육방 다형 (ABCB 적층)</td><td>육방 · P6₃mc</td><td class="num">a 3.073, c 10.05 Å</td><td>정사면체 (4)</td></tr>
+        <tr><td>그래핀</td><td>벌집 격자 (기저 2개)</td><td>2D 육방 · p6mm</td><td class="num">2.46 Å</td><td>평면 삼각 (3)</td></tr>
+        <tr><td>h-BN</td><td>벌집 격자 (B, N)</td><td>2D 육방 · P6₃/mmc(벌크)</td><td class="num">2.50 Å</td><td>평면 삼각 (3)</td></tr>
+        <tr><td>2H-MoS₂</td><td>S–Mo–S 샌드위치</td><td>육방 · P6₃/mmc</td><td class="num">a 3.16, c 12.29 Å</td><td>삼각 프리즘형 (6)</td></tr>
+        <tr><td>α-CsPbI₃</td><td>페로브스카이트 ABX₃</td><td>단순 입방 · Pm3̄m</td><td class="num">≈ 6.29 Å</td><td>PbI₆ 팔면체</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>다이아몬드 구조는 FCC 브라베 격자에 (0,0,0)과 (¼,¼,¼)의 두 원자 기저를 놓은 것이고, 같은 배열에서 두 자리에 서로 다른 원소가 들어가면 섬아연광(zincblende) 구조가 됩니다(GaAs). 우르차이트는 육방 격자에서 정사면체 결합을 이루는 구조로, 반전 대칭이 없어 큰 자발 분극을 가집니다.</p>
+
+  <section class="lab" id="lab-crystal" data-module="crystal">
+    <div class="lab-head"><span class="badge">LAB 1-1</span><h4>3D 결정 구조 뷰어</h4><span class="sub">드래그로 회전, 휠로 확대</span></div>
+    <div class="lab-body">
+      <div class="lab-tools">
+        <div class="seg" data-k="struct">
+          <button class="on" data-v="graphene">그래핀</button><button data-v="hbn">h-BN</button><button data-v="mos2">2H-MoS₂</button><button data-v="si">Si</button><button data-v="gan">GaN</button><button data-v="sic">4H-SiC</button><button data-v="perov">CsPbI₃</button>
+        </div>
+      </div>
+      <div class="lab-grid">
+        <div>
+          <div class="stage h-420"><canvas></canvas><div class="hud" data-o="hud"></div><div class="stage-badge">드래그 · 회전</div></div>
+          <div class="legend" data-o="legend"></div>
+        </div>
+        <div class="panel">
+          <div>
+            <div class="note" data-o="kind" style="color:var(--accent);font-weight:700"></div>
+            <div data-o="name" style="font-size:18px;font-weight:800;letter-spacing:-.01em;line-height:1.35"></div>
+          </div>
+          <div class="readout" data-o="props"></div>
+          <label class="slider"><div class="row"><span data-o="nlabel">Supercell 크기</span><b data-o="nval">3</b></div><input type="range" data-k="n" min="1" max="6" step="1" value="3"></label>
+          <label class="slider" data-o="layerwrap"><div class="row"><span>층 수</span><b data-o="lval">1</b></div><input type="range" data-k="layers" min="1" max="4" step="1" value="1"></label>
+          <label class="toggle">단위격자 표시<input type="checkbox" data-k="cell" checked><i></i></label>
+          <label class="toggle">결합 표시<input type="checkbox" data-k="bonds" checked><i></i></label>
+          <label class="toggle">자동 회전<input type="checkbox" data-k="spin" checked><i></i></label>
+        </div>
+      </div>
+      <p class="hint" data-o="desc"></p>
+    </div>
+  </section>
+
+  <div class="callout note"><span class="t">관찰해 볼 것</span><p>① Si에서 한 원자가 정확히 네 개의 이웃과 결합하는지 확인하세요. ② 4H-SiC를 옆에서 보면 c축 방향으로 네 층 주기의 지그재그 적층이 보입니다. ③ MoS₂의 층 수를 늘리면 두 번째 층이 첫 번째 층과 180° 회전된 2H 적층으로 쌓입니다.</p></div>
+
+  <h2><span class="sec">1.3</span>2차원 브라베 격자</h2>
+  <p>2D 물질을 다루기 위해 먼저 2차원 격자를 분류해 봅시다. 두 기본 병진 벡터 a₁, a₂의 길이 비 |a₂|/|a₁|와 사잇각 γ의 조합에 따라, 2차원 브라베 격자는 다음 다섯 종류뿐입니다.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>격자</th><th>조건</th><th>평면군(최고 대칭)</th><th>예</th></tr></thead>
+      <tbody>
+        <tr><td>정사각 격자 (square)</td><td>|a₁| = |a₂|, γ = 90°</td><td>p4mm</td><td>—</td></tr>
+        <tr><td>육방 격자 (hexagonal)</td><td>|a₁| = |a₂|, γ = 120°</td><td>p6mm</td><td>그래핀, h-BN, MoS₂</td></tr>
+        <tr><td>직사각 격자 (rectangular)</td><td>|a₁| ≠ |a₂|, γ = 90°</td><td>p2mm</td><td>—</td></tr>
+        <tr><td>중심 직사각 격자 (centered rectangular)</td><td>|a₁| = |a₂|, γ 임의 (마름모꼴 primitive cell)</td><td>c2mm</td><td>—</td></tr>
+        <tr><td>평행사변형 격자 (oblique lattice)</td><td>|a₁| ≠ |a₂|, γ ≠ 90°</td><td>p2</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>격자점 하나에서 이웃 격자점들까지의 수직 이등분선으로 둘러싸인 영역을 <strong>Wigner–Seitz cell</strong>이라 합니다. 격자의 대칭을 그대로 갖는 특별한 원시 단위격자입니다.</p>
+
+  <h2><span class="sec">1.4</span>역격자와 브릴루앙 영역</h2>
+  <p>결정 속 파동(X선, 전자, 포논)을 다룰 때는 실공간의 격자 대신 파수 공간의 격자를 쓰는 것이 편리합니다. 실공간 기본 병진 벡터 aᵢ에 대해 다음을 만족하는 벡터 bⱼ로 생성되는 격자를 <strong>역격자(reciprocal lattice)</strong>라 합니다.</p>
+  <div class="eq"><i>a</i><sub>i</sub> · <i>b</i><sub>j</sub> = 2π δ<sub>ij</sub> &nbsp;&nbsp;⟹&nbsp;&nbsp; <i>b</i>₁ = 2π (<i>a</i>₂ × ẑ) / [<i>a</i>₁ · (<i>a</i>₂ × ẑ)]<span class="where">2차원의 경우. 실공간에서 길이가 길어지면 역공간에서는 짧아집니다.</span></div>
+  <p>역격자의 Wigner–Seitz cell을 <strong>제1 브릴루앙 영역(first Brillouin zone)</strong>이라 합니다. 결정 내 전자의 상태는 이 영역 안의 파수 k만으로 모두 기술할 수 있기 때문에, 밴드 구조는 브릴루앙 영역의 고대칭점(Γ, M, K 등)을 잇는 경로를 따라 그립니다. 육방 격자의 브릴루앙 영역은 육각형이고, 그 꼭짓점 K와 K′가 그래핀의 디랙 원뿔이 위치하는 곳입니다(제3장).</p>
+
+  <section class="lab" id="lab-bravais" data-module="lattice2d">
+    <div class="lab-head"><span class="badge">LAB 1-2</span><h4>2D 브라베 격자와 역격자</h4><span class="sub">길이 비와 사잇각을 바꿔 보세요</span></div>
+    <div class="lab-body">
+      <div class="lab-tools">
+        <div class="seg" data-k="preset"><button data-v="square">정사각</button><button class="on" data-v="hex">육방</button><button data-v="rect">직사각</button><button data-v="crect">중심 직사각</button><button data-v="obl">Oblique</button></div>
+        <div class="grow"></div>
+        <div data-o="type" style="font-weight:800;font-size:17px;text-align:right"></div>
+      </div>
+      <div class="lab-row2">
+        <div class="stage h-320"><canvas data-c="real"></canvas><div class="hud">실공간<br><span style="color:#64d2ff">a₁</span> · <span style="color:#ff9f0a">a₂</span> · <span style="color:#30d158">Wigner–Seitz cell</span></div></div>
+        <div class="stage h-320"><canvas data-c="recip"></canvas><div class="hud">역공간<br><span style="color:#64d2ff">b₁</span> · <span style="color:#ff9f0a">b₂</span> · <span style="color:#bf5af2">제1 브릴루앙 영역</span></div></div>
+      </div>
+      <div class="controls-row">
+        <label class="slider"><div class="row"><span>|a₂| / |a₁|</span><b data-o="ratio">1.00</b></div><input type="range" data-k="ratio" min="0.5" max="2" step="0.01" value="1"></label>
+        <label class="slider"><div class="row"><span>사잇각 γ</span><b data-o="gamma">120°</b></div><input type="range" data-k="gamma" min="45" max="135" step="0.5" value="120"></label>
+        <label class="toggle" style="flex:0 1 180px">그래핀 기저 원자<input type="checkbox" data-k="basis"><i></i></label>
+      </div>
+      <p class="hint">|a₂|를 늘리면 b₂ 방향의 역격자 간격이 줄어드는 반비례 관계를 확인하세요. 육방 격자에서 노란 점은 K, K′, 초록 점은 M입니다.</p>
+    </div>
+  </section>
+  <div class="refs" data-module="refs" data-topic="crystal"></div>
+</article>
+</main>
+</body>
+</html>
