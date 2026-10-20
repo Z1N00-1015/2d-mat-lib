@@ -33,6 +33,10 @@ export function init(root) {
     return denominator ? 0.316 / denominator : Infinity;
   }
 
+  // The displayed upper layer is rotated by +θ/2 around the mean lattice axis.
+  function spotAngle(direction) { return direction.angle + twist * Math.PI / 360; }
+  function spotDegree(direction) { return (direction.degree + twist / 2) % 180; }
+
   function update() {
     const isAdf = mode === 'adf';
     cameraPanel.hidden = !isAdf;
@@ -45,10 +49,10 @@ export function init(root) {
     out('zoom', `${zoom.toFixed(1)}×`);
     out('period', Number.isFinite(moirePeriodNm()) ? `${moirePeriodNm().toFixed(1)} nm` : '∞');
     out('visibility-key', isAdf ? '논문에서 보고한 모아레 대비' : '선택 반사');
-    out('visibility', isAdf ? ({ 115: '매우 약함', 185: '약함', 285: '뚜렷함', 360: '억제됨' })[camera] : (spot === 'all' ? 'RGB 세 방향 합성' : `${SPOTS[spot].label} · ${SPOTS[spot].degree}° · ${SPOTS[spot].channel}`));
+    out('visibility', isAdf ? ({ 115: '매우 약함', 185: '약함', 285: '뚜렷함', 360: '억제됨' })[camera] : (spot === 'all' ? 'RGB 세 방향 합성' : `${SPOTS[spot].label} · ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel}`));
     out('message', isAdf
       ? `<span class="t">${camera} mm · ${({ 115: '약한 Bragg 신호', 185: '아직 약한 Bragg 신호', 285: '모아레 대비가 가장 뚜렷한 조건', 360: '저각 산란이 우세한 조건' })[camera]}</span><p>이상적 육방 격자에서 계산한 주기는 약 ${Number.isFinite(moirePeriodNm()) ? moirePeriodNm().toFixed(1) : '∞'} nm입니다. 카메라 길이는 표시 대비만 바꿉니다.</p>`
-      : `<span class="t">${spot === 'all' ? 'g₁(R) · g₂(G) · g₃(B) 방향 합성' : `SAED의 ${SPOTS[spot].label} · ${SPOTS[spot].degree}° · ${SPOTS[spot].channel} 방향 성분 강조`}</span><p>${spot === 'all' ? '세 방향 fringe를 R·G·B 색으로 합성합니다.' : '선택한 g 방향의 색상 fringe 성분을 강조합니다.'} 밝은 원자는 흑백 원자 구조를 유지하며, DF-TEM 대비는 원소 조성 지도가 아닙니다.</p>`);
+      : `<span class="t">${spot === 'all' ? 'g₁(R) · g₂(G) · g₃(B) 방향 합성' : `SAED의 ${SPOTS[spot].label} · ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel} 방향 성분 강조`}</span><p>${spot === 'all' ? '세 방향 fringe를 R·G·B 색으로 합성합니다.' : '선택한 g 방향의 색상 fringe 성분을 강조합니다.'} 방향은 상대 회전각에 따라 함께 회전합니다. DF-TEM 대비는 원소 조성 지도가 아닙니다.</p>`);
     out('caption', 'MoS₂와 WSe₂의 육방 원자 배열을 흑백 명암으로 표현했습니다. 밝기는 서로 다른 층을 구분하고, 흰 halo는 두 층 원자가 가까이 겹치는 위치를 표시합니다.');
     out('hud', `MoS₂ / WSe₂ · δ ${mismatch.toFixed(1)}% · θ ${twist.toFixed(1)}°<br>L ≈ ${Number.isFinite(moirePeriodNm()) ? moirePeriodNm().toFixed(1) + ' nm' : '∞'}`);
     redraw();
@@ -114,7 +118,8 @@ export function init(root) {
         const selectedDirections = spot === 'all' ? Object.values(SPOTS) : [SPOTS[spot]];
         const pitch = Number.isFinite(moirePeriodNm()) ? moirePeriodNm() * 13.5 * zoom / 0.316 : Math.max(state.w, state.h);
         const component = selectedDirections.reduce((sum, direction) => {
-          const phase = 2 * Math.PI * (atom.x * Math.cos(direction.angle) + atom.y * Math.sin(direction.angle)) / pitch;
+          const angle = spotAngle(direction);
+          const phase = 2 * Math.PI * (atom.x * Math.cos(angle) + atom.y * Math.sin(angle)) / pitch;
           return sum + Math.pow(0.5 + 0.5 * Math.cos(phase), 3);
         }, 0) / selectedDirections.length;
         alpha *= 0.12 + 0.88 * component;
@@ -154,7 +159,8 @@ export function init(root) {
     const dirs = spot === 'all' ? Object.values(SPOTS) : [SPOTS[spot]];
     const pitch = Number.isFinite(moirePeriodNm()) ? moirePeriodNm() * 13.5 * zoom / 0.316 : Math.max(w, h) * 1.3;
     dirs.forEach(direction => {
-      const nx = Math.cos(direction.angle), ny = Math.sin(direction.angle), tx = -ny, ty = nx;
+      const angle = spotAngle(direction);
+      const nx = Math.cos(angle), ny = Math.sin(angle), tx = -ny, ty = nx;
       ctx.strokeStyle = `rgba(${direction.color},${spot === 'all' ? 0.42 : 0.68})`; ctx.lineWidth = spot === 'all' ? 5 : 8;
       for (let n = -3; n <= 3; n++) {
         ctx.beginPath();
