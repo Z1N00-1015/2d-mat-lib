@@ -1,9 +1,9 @@
 import { fitCanvas, range, seg, outs } from './util.js';
 
-// Qualitative teaching model based on the reported camera-length series and DF-TEM images.
+// Projected atomic columns for two hexagonal TMD layers; coincidence is a qualitative model.
 export function init(root) {
   const canvas = root.querySelector('canvas');
-  let mode = 'adf', camera = 285, period = 9.5, spot = 'g1';
+  let mode = 'adf', camera = 285, mismatch = 3.96, twist = 0.9, spot = 'g1';
   const out = outs(root);
   const { ctx, state } = fitCanvas(canvas, draw);
   const cameraPanel = root.querySelector('[data-o="camera-panel"]');
@@ -12,112 +12,161 @@ export function init(root) {
   seg(root, 'mode', value => { mode = value; update(); });
   seg(root, 'camera', value => { camera = +value; update(); });
   seg(root, 'spot', value => { spot = value; update(); });
-  range(root, 'period', value => { period = value; update(); });
+  range(root, 'mismatch', value => { mismatch = value; update(); });
+  range(root, 'twist', value => { twist = value; update(); });
 
   function contrast() {
-    // Ordinal approximation of the paper's reported visibility at four camera lengths.
+    // Ordinal approximation of the camera-length contrast reported in the paper.
     return ({ 115: 0.16, 185: 0.25, 285: 0.92, 360: 0.38 })[camera] || 0.2;
+  }
+
+  function moirePeriodNm() {
+    const d = mismatch / 100, t = twist * Math.PI / 180;
+    const denominator = Math.sqrt(d * d + 2 * (1 + d) * (1 - Math.cos(t)));
+    return denominator ? 0.316 / denominator : Infinity;
   }
 
   function update() {
     const isAdf = mode === 'adf';
     cameraPanel.hidden = !isAdf;
     spotPanel.hidden = isAdf;
-    root.querySelector('[data-o="badge"]').textContent = isAdf ? 'ADF-STEM · 대비 모식도' : 'DF-TEM · 선택 반사 모식도';
+    root.querySelector('[data-o="badge"]').textContent = isAdf ? 'ADF-STEM · 원자열 모식도' : 'DF-TEM · 선택 반사 모식도';
     out('camera', String(camera));
-    out('period', `${period.toFixed(1)} nm`);
+    out('mismatch', `${mismatch.toFixed(1)}%`);
+    out('twist', `${twist.toFixed(1)}°`);
+    out('period', Number.isFinite(moirePeriodNm()) ? `${moirePeriodNm().toFixed(1)} nm` : '∞');
     out('visibility-key', isAdf ? '논문에서 보고한 모아레 대비' : '선택 반사');
     out('visibility', isAdf ? ({ 115: '매우 약함', 185: '약함', 285: '뚜렷함', 360: '억제됨' })[camera] : (spot === 'all' ? '세 방향 합성' : spot.toUpperCase()));
     out('message', isAdf
-      ? `<span class="t">${camera} mm · ${({ 115: '약한 Bragg 신호', 185: '아직 약한 Bragg 신호', 285: '모아레 대비가 가장 뚜렷한 조건', 360: '저각 산란이 우세한 조건' })[camera]}</span><p>카메라 길이는 ADF 검출 각도 범위를 바꿉니다. 시료의 모아레 주기 ${period.toFixed(1)} nm는 그대로입니다.</p>`
-      : `<span class="t">${spot === 'all' ? '세 개 1차 회절점 합성' : `SAED의 ${spot.toUpperCase()} 선택`}</span><p>DF-TEM은 선택한 회절 빔의 위상·회절 조건에 민감한 실공간 fringe를 보여줍니다. 대비는 원소 조성 지도가 아닙니다.</p>`);
-    out('caption', isAdf
-      ? '육방 모아레 초격자의 ADF-STEM 대비를 단순화한 그림입니다. 카메라 길이별 신호 변화는 논문에 보고된 네 조건을 바탕으로 합니다.'
-      : '선택한 회절점에 대응하는 1차원 모아레 fringe를 그렸습니다. 중앙부의 국소 굽힘은 논문에서 관찰한 변형을 설명하기 위한 정성적 모식입니다.');
-    out('hud', isAdf ? `MoS₂/WSe₂ · ${camera} mm<br>P = ${period.toFixed(1)} nm` : `MoS₂/WSe₂ · DF-TEM<br>P = ${period.toFixed(1)} nm`);
-    draw();
+      ? `<span class="t">${camera} mm · ${({ 115: '약한 Bragg 신호', 185: '아직 약한 Bragg 신호', 285: '모아레 대비가 가장 뚜렷한 조건', 360: '저각 산란이 우세한 조건' })[camera]}</span><p>이상적 육방 격자에서 계산한 주기는 약 ${Number.isFinite(moirePeriodNm()) ? moirePeriodNm().toFixed(1) : '∞'} nm입니다. 카메라 길이는 표시 대비만 바꿉니다.</p>`
+      : `<span class="t">${spot === 'all' ? '세 개 1차 회절점 합성' : `SAED의 ${spot.toUpperCase()} 선택`}</span><p>밝은 점은 두 층의 원자 투영 위치가 가까운 곳입니다. DF-TEM 대비는 선택 반사에 민감하며 원소 조성 지도가 아닙니다.</p>`);
+    out('caption', 'MoS₂와 WSe₂의 육방 원자 배열을 위에서 본 교육용 모식도입니다. 큰 원은 금속 원자, 작은 원은 위·아래 칼코젠 원자열의 투영이며, 흰 halo는 두 층 원자가 가까이 겹치는 위치입니다.');
+    out('hud', `MoS₂ / WSe₂ · δ ${mismatch.toFixed(1)}% · θ ${twist.toFixed(1)}°<br>L ≈ ${Number.isFinite(moirePeriodNm()) ? moirePeriodNm().toFixed(1) + ' nm' : '∞'}`);
+    redraw();
   }
 
-  function noiseBackground(w, h) {
-    ctx.fillStyle = '#080b10'; ctx.fillRect(0, 0, w, h);
-    for (let y = 0; y < h; y += 4) for (let x = 0; x < w; x += 4) {
-      const n = 14 + ((Math.sin(x * 12.9898 + y * 78.233) * 43758.5453) % 1 + 1) % 1 * 28;
-      ctx.fillStyle = `rgba(190,205,220,${n / 600})`;
-      ctx.fillRect(x, y, 3, 3);
-    }
-  }
-
-  function drawAdf(w, h) {
-    noiseBackground(w, h);
-    const pxPerNm = Math.min(w / 32, h / 24);
-    const pitch = period * pxPerNm;
-    const level = contrast();
+  function makeLayer(w, h, lattice, rotation, color) {
+    const a = 13.5 * lattice;
+    const c = Math.cos(rotation), s = Math.sin(rotation);
+    const a1 = [a * c, a * s];
+    const a2 = [a * (0.5 * c - Math.sqrt(3) / 2 * s), a * (0.5 * s + Math.sqrt(3) / 2 * c)];
+    const det = a1[0] * a2[1] - a1[1] * a2[0];
     const cx = w / 2, cy = h / 2;
-    const iy0 = Math.floor(-cy / (pitch * Math.sqrt(3) / 2)) - 1;
-    const iy1 = Math.ceil(cy / (pitch * Math.sqrt(3) / 2)) + 1;
-    const ix0 = Math.floor(-cx / pitch) - 2, ix1 = Math.ceil(cx / pitch) + 2;
-    for (let j = iy0; j <= iy1; j++) for (let i = ix0; i <= ix1; i++) {
-      const x = cx + (i + j * 0.5) * pitch;
-      const y = cy + j * pitch * Math.sqrt(3) / 2;
-      const glow = ctx.createRadialGradient(x, y, 1, x, y, pitch * 0.34);
-      glow.addColorStop(0, `rgba(232,241,250,${0.06 + level * 0.5})`);
-      glow.addColorStop(1, 'rgba(100,178,224,0)');
-      ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(x, y, pitch * 0.34, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = `rgba(242,247,250,${0.12 + level * 0.7})`;
-      ctx.beginPath(); ctx.arc(x, y, 2.1 + level * 2.7, 0, Math.PI * 2); ctx.fill();
+    let imin = Infinity, imax = -Infinity, jmin = Infinity, jmax = -Infinity;
+    for (const [x, y] of [[-cx, -cy], [cx, -cy], [cx, cy], [-cx, cy]]) {
+      const i = (x * a2[1] - y * a2[0]) / det, j = (a1[0] * y - a1[1] * x) / det;
+      imin = Math.min(imin, i); imax = Math.max(imax, i); jmin = Math.min(jmin, j); jmax = Math.max(jmax, j);
     }
-    if (camera === 360) {
-      const haze = ctx.createRadialGradient(cx, cy, pitch * 0.4, cx, cy, Math.max(w, h) * 0.7);
-      haze.addColorStop(0, 'rgba(180,190,205,.16)'); haze.addColorStop(1, 'rgba(180,190,205,0)');
-      ctx.fillStyle = haze; ctx.fillRect(0, 0, w, h);
+    const atoms = [];
+    const bases = [[0, 0, 'metal'], [(a1[0] + a2[0]) / 3, (a1[1] + a2[1]) / 3, 'chalcogen']];
+    for (let i = Math.floor(imin) - 2; i <= Math.ceil(imax) + 2; i++) for (let j = Math.floor(jmin) - 2; j <= Math.ceil(jmax) + 2; j++) {
+      const lx = i * a1[0] + j * a2[0], ly = i * a1[1] + j * a2[1];
+      for (const [bx, by, kind] of bases) {
+        const x = cx + lx + bx, y = cy + ly + by;
+        if (x < -12 || y < -12 || x > w + 12 || y > h + 12) continue;
+        atoms.push({ x, y, kind, color: color[kind], radius: kind === 'metal' ? 3.05 : 2.15 });
+      }
     }
-    scaleBar(pitch, w, h);
+    return atoms;
   }
 
-  function drawDf(w, h) {
-    noiseBackground(w, h);
-    const pxPerNm = Math.min(w / 32, h / 24);
-    const pitch = period * pxPerNm;
-    const theta = ({ g1: 0, g2: Math.PI / 3, g3: 2 * Math.PI / 3, all: 0 })[spot];
-    const cx = w * 0.52, cy = h * 0.52;
-    const dirs = spot === 'all' ? [0, Math.PI / 3, 2 * Math.PI / 3] : [theta];
+  function coincidenceSites(lower, upper) {
+    const cell = 2.5, threshold = 1.55;
+    const buckets = new Map();
+    for (const atom of lower) {
+      const key = `${Math.floor(atom.x / cell)},${Math.floor(atom.y / cell)}`;
+      if (!buckets.has(key)) buckets.set(key, []);
+      buckets.get(key).push(atom);
+    }
+    const sites = [];
+    for (const top of upper) {
+      const gx = Math.floor(top.x / cell), gy = Math.floor(top.y / cell);
+      let nearest = null, distance = threshold;
+      for (let dx = -1; dx <= 1; dx++) for (let dy = -1; dy <= 1; dy++) {
+        for (const bottom of buckets.get(`${gx + dx},${gy + dy}`) || []) {
+          const d = Math.hypot(top.x - bottom.x, top.y - bottom.y);
+          if (d < distance) { nearest = bottom; distance = d; }
+        }
+      }
+      if (nearest) sites.push({ x: (top.x + nearest.x) / 2, y: (top.y + nearest.y) / 2 });
+    }
+    return sites;
+  }
+
+  function atomColor(hex, alpha) {
+    const n = parseInt(hex.slice(1), 16);
+    return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${alpha})`;
+  }
+
+  function paintLayer(atoms, layerAlpha, isUpper) {
+    for (const atom of atoms) {
+      let alpha = layerAlpha;
+      if (mode === 'df') {
+        const direction = ({ g1: 0, g2: Math.PI / 3, g3: 2 * Math.PI / 3, all: 0 })[spot];
+        const phase = (atom.x * Math.cos(direction) + atom.y * Math.sin(direction)) / 31;
+        const selected = 0.28 + 0.72 * (0.5 + 0.5 * Math.cos(phase * Math.PI * 2));
+        alpha *= spot === 'all' ? 0.76 : selected;
+      }
+      ctx.fillStyle = atomColor(atom.color, alpha);
+      ctx.beginPath(); ctx.arc(atom.x, atom.y, atom.radius, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = isUpper ? 'rgba(255,255,255,.16)' : 'rgba(5,12,20,.68)';
+      ctx.lineWidth = 0.65; ctx.stroke();
+    }
+  }
+
+  function draw(w, h) {
+    if (!w || !h) return;
+    ctx.fillStyle = '#080b10'; ctx.fillRect(0, 0, w, h);
+    const t = twist * Math.PI / 180;
+    const lower = makeLayer(w, h, 1, -t / 2, { metal: '#49c7dc', chalcogen: '#2586c7' });
+    const upper = makeLayer(w, h, 1 + mismatch / 100, t / 2, { metal: '#ffad4e', chalcogen: '#f7dc78' });
+    const level = mode === 'adf' ? contrast() : 0.88;
+    paintLayer(lower, 0.35 + level * 0.54, false);
+    paintLayer(upper, 0.35 + level * 0.54, true);
+    const sites = coincidenceSites(lower, upper);
+    for (const site of sites) {
+      const glow = ctx.createRadialGradient(site.x, site.y, 0.5, site.x, site.y, 10 + level * 7);
+      glow.addColorStop(0, `rgba(255,255,255,${0.78 * level})`);
+      glow.addColorStop(0.22, `rgba(255,228,166,${0.48 * level})`);
+      glow.addColorStop(1, 'rgba(255,228,166,0)');
+      ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(site.x, site.y, 17, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = `rgba(255,255,255,${0.82 * level})`;
+      ctx.beginPath(); ctx.arc(site.x, site.y, 2, 0, Math.PI * 2); ctx.fill();
+    }
+    // Keep the selected-reflection signature visible over the actual projected atomic rows.
+    if (mode === 'df') drawDfFringes(w, h);
+    scaleBar(w, h);
+  }
+
+  function drawDfFringes(w, h) {
+    const dirs = spot === 'all' ? [0, Math.PI / 3, 2 * Math.PI / 3] : [({ g1: 0, g2: Math.PI / 3, g3: 2 * Math.PI / 3 })[spot]];
+    const pitch = Number.isFinite(moirePeriodNm()) ? moirePeriodNm() * 13.5 / 0.316 : Math.max(w, h) * 1.3;
     dirs.forEach((angle, k) => {
-      const nx = Math.cos(angle), ny = Math.sin(angle);
-      const tx = -ny, ty = nx;
-      const color = spot === 'all' ? ['100,210,255', '255,183,86', '206,174,255'][k] : '224,236,245';
-      ctx.strokeStyle = `rgba(${color},${spot === 'all' ? 0.48 : 0.78})`;
-      ctx.lineWidth = spot === 'all' ? 2 : 3;
-      for (let n = -12; n <= 12; n++) {
+      const color = spot === 'all' ? ['100,210,255', '255,183,86', '206,174,255'][k] : '245,247,255';
+      const nx = Math.cos(angle), ny = Math.sin(angle), tx = -ny, ty = nx;
+      ctx.strokeStyle = `rgba(${color},${spot === 'all' ? 0.2 : 0.15})`; ctx.lineWidth = spot === 'all' ? 8 : 10;
+      for (let n = -3; n <= 3; n++) {
         ctx.beginPath();
-        let started = false;
-        for (let t = -h * 0.75; t <= h * 0.75; t += 3) {
+        for (let t = -Math.max(w, h); t <= Math.max(w, h); t += 5) {
           const local = Math.exp(-(t * t) / (2 * (h * 0.2) ** 2));
-          const bend = (spot === 'all' ? 0.12 : 0.27) * pitch * local * Math.sin(t / (pitch * 0.75) + n * 0.24);
+          const bend = 0.035 * pitch * local * Math.sin(t / (pitch * 0.65) + n * 0.3);
           const normal = n * pitch + bend;
-          const x = cx + nx * normal + tx * t, y = cy + ny * normal + ty * t;
-          if (!started) { ctx.moveTo(x, y); started = true; } else ctx.lineTo(x, y);
+          const x = w / 2 + nx * normal + tx * t, y = h / 2 + ny * normal + ty * t;
+          if (t === -Math.max(w, h)) ctx.moveTo(x, y); else ctx.lineTo(x, y);
         }
         ctx.stroke();
       }
     });
-    // Dashed outline indicates a locally distorted central region.
-    ctx.save(); ctx.setLineDash([5, 5]); ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.ellipse(cx, cy, pitch * 0.95, pitch * 0.78, -0.25, 0, Math.PI * 2); ctx.stroke(); ctx.restore();
-    scaleBar(pitch, w, h);
   }
 
-  function scaleBar(pitch, w, h) {
-    const x = 22, y = h - 25, len = Math.min(pitch, w * 0.38);
-    ctx.strokeStyle = '#fff'; ctx.fillStyle = '#fff'; ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + len, y); ctx.stroke();
-    ctx.font = '12px sans-serif'; ctx.fillText(`${period.toFixed(1)} nm`, x, y - 7);
+  function scaleBar(w, h) {
+    const length = Math.min(w * 0.28, 13.5 / 0.316);
+    const x = 18, y = h - 20;
+    ctx.strokeStyle = 'rgba(255,255,255,.8)'; ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + length, y); ctx.stroke();
+    ctx.font = '11px sans-serif'; ctx.fillText('1 nm', x, y - 7);
   }
 
-  function draw() {
-    const { w, h } = state;
-    if (!w || !h) return;
-    mode === 'adf' ? drawAdf(w, h) : drawDf(w, h);
-  }
-
+  function redraw() { const { w, h } = state; draw(w, h); }
   update();
 }

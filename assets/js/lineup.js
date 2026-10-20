@@ -14,12 +14,12 @@ export const MATS = [
   { id: 'wse2', fam: '2d', sym: 'WSe₂', nm: '이셀레늄화텅스텐', eg: 1.65, egt: '1.65 eV (단층)', grad: ['#30d158', '#64d2ff'], draw: 'tmd', cols: ['#30d158', '#ff9f0a'],
     kind: '2D 반도체 · TMD', title: 'WSe₂', desc: '정공 전도에 유리한 TMD로, MoS₂와 짝을 이뤄 2D CMOS의 p형 채널 후보가 됩니다. 강한 스핀–궤도 결합으로 밸리 분극 연구의 대표 물질이며, 모아레 이종구조에서 다양한 상관 상태가 발견되었습니다.',
     spec: [['밴드갭', '1.65 eV'], ['극성', 'p형 / 양극성'], ['스핀-궤도 분리', '~0.45 eV'], ['두께', '~0.7 nm']], tags: ['2D p-FET', '엑시톤', '모아레 물리', 'LED'] },
-  { id: 'bp', fam: '2d', sym: 'P', nm: '흑린 (포스포린)', eg: 0.3, egt: '0.3 → ~2 eV', grad: ['#ff9f0a', '#ff375f'], draw: 'pucker', cols: ['#ff9f0a', '#ff375f'],
-    kind: '2D 반도체 · 이방성', title: '흑린 (Black Phosphorus)', desc: '주름진(puckered) 층 구조로 인해 결정 방향에 따라 물성이 크게 다른 이방성(anisotropic) 물질입니다. 층 수에 따라 밴드갭이 0.3 eV(벌크)에서 약 2 eV(단층)까지 변해 적외선 광소자에 유리하지만 공기 중에서 쉽게 산화됩니다.',
-    spec: [['밴드갭', '0.3 → ~2 eV'], ['이동도', '~1000 cm²/V·s'], ['구조', '사방정 주름'], ['약점', '대기 불안정']], tags: ['적외선 검출기', '이방성 소자', '편광 감지'] },
-  { id: 'mx', fam: '2d', sym: 'MXene', nm: 'Ti₃C₂Tₓ', eg: 0, egt: '금속성', grad: ['#a1a1a6', '#64d2ff'], draw: 'honey3', cols: ['#a1a1a6', '#3a3a3c', '#ff375f'],
-    kind: '2D 금속 · 전이금속 탄화물', title: 'MXene (Ti₃C₂Tₓ)', desc: 'MAX 상(MAX phase)에서 A 원소층을 선택적으로 식각해 얻는 2D 전이금속 탄화·질화물. 높은 전기전도도와 친수성 표면을 동시에 가져, 용액 공정 전극, 전자파 차폐, 에너지 저장 소재로 주목받습니다.',
-    spec: [['전기전도도', '~10⁴ S/cm'], ['표면', '–O, –OH, –F'], ['공정', '용액 기반'], ['발견', '2011년']], tags: ['EMI 차폐', '슈퍼커패시터', '투명 전극', '잉크'] },
+  { id: 'sns', fam: '2d', sym: 'SnS', nm: '황화주석(II)', eg: 1.1, egt: '~1.1 eV (벌크 대표값)', grad: ['#ff9f0a', '#64d2ff'], draw: 'pucker', cols: ['#ffad4e', '#64d2dc'],
+    kind: '2D 층상 반도체 · 이방성', title: '황화주석(II) (SnS)', desc: 'Sn과 S가 서로 다른 원자종으로 이루어진 층상 반도체입니다. 사방정계의 주름진 층 구조와 강한 in-plane 이방성을 가지며, 얇은 층에서는 강유전 분극과 광전 특성도 연구됩니다.',
+    spec: [['밴드갭', '~1.1 eV (벌크 대표값)'], ['구조', '사방정 주름층'], ['특징', '강한 in-plane 이방성'], ['연구', '2D 반도체·강유전']], tags: ['층상 반도체', '이방성 광학', '강유전성'] },
+  { id: 'sbo', fam: '0d', sym: 'Sb₂O₃', nm: '안티모니 트리옥사이드', eg: null, egt: '', cardMetric: '0D 분자형 결정', grad: ['#bf9bff', '#ff6b61'], draw: 'cage', cols: ['#a990dd', '#ff745f'],
+    kind: '0D 분자 결정 · 산화물', title: '안티모니 트리옥사이드 (α-Sb₂O₃)', desc: '입방 α상은 개별 Sb₄O₆ 케이지 분자로 이루어진 분자형 결정입니다. 원자층 2D 물질은 아니지만, 0D 무기 케이지 재료의 원자 구조를 비교하기 위해 함께 표시합니다.',
+    spec: [['화학식 단위', 'Sb₄O₆ 케이지'], ['차원성', '0D 분자형 결정'], ['결정상', '입방 α상']], tags: ['0D 케이지', '유전 특성', '분자 결정'] },
   { id: 'sic', fam: 'wbg', sym: 'SiC', nm: '4H-탄화규소', eg: 3.26, egt: '3.26 eV', grad: ['#64d2ff', '#5e5ce6'], draw: 'hexwbg', cols: ['#5e9cff', '#3a3a3c'],
     kind: '광대역 밴드갭(WBG) · 전력', title: '4H-SiC', desc: '실리콘보다 약 8배 높은 절연파괴 전계와 2배 이상의 열전도율을 가집니다. 고온·고전압 환경에서도 안정적이어서 전기차 인버터와 충전 인프라, 태양광 인버터의 표준이 되어가고 있습니다.',
     spec: [['밴드갭', '3.26 eV'], ['절연파괴', '2.5 MV/cm'], ['열전도율', '~370 W/m·K'], ['웨이퍼', '6–8 인치']], tags: ['EV 인버터', '고속 충전', '태양광', '철도'] },
@@ -94,6 +94,19 @@ export function drawMini(ctx, w, h, m, t) {
       dot(x, y, a * 0.16, m.cols[0]);
       dot(x + a * 0.4, y + a * 0.4, a * 0.12, m.cols[1]);
     }
+  } else if (m.draw === 'cage') {
+    const s = a * 0.82;
+    const atoms = [[-s, -s * 0.48, -1], [s, -s * 0.48, 1], [0, s * 0.72, -1], [0, -s * 0.95, 1]];
+    const project = ([x, y, z]) => [x + z * s * 0.42, y - z * s * 0.28];
+    const edges = [[0, 1], [0, 2], [0, 3], [1, 2], [1, 3], [2, 3]];
+    ctx.strokeStyle = 'rgba(220,220,235,.7)'; ctx.lineWidth = Math.max(1, a * 0.07);
+    for (const [i, j] of edges) {
+      const p = project(atoms[i]), q = project(atoms[j]);
+      const o = [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2];
+      line(p[0], p[1], o[0], o[1]); line(o[0], o[1], q[0], q[1]);
+      dot(o[0], o[1], a * 0.16, m.cols[1]);
+    }
+    atoms.forEach(atom => { const [x, y] = project(atom); dot(x, y, a * 0.2, m.cols[0]); });
   }
   ctx.restore();
   ctx.strokeStyle = 'rgba(255,255,255,.12)'; ctx.lineWidth = 1;
@@ -113,7 +126,7 @@ export function init(root) {
     const el = document.createElement('div');
     el.className = 'mat reveal in';
     el.dataset.id = m.id; el.dataset.fam = m.fam;
-    el.innerHTML = `<canvas></canvas><div class="sym">${m.sym}</div><div class="nm">${m.nm}</div><div class="eg">E<sub>g</sub> ${m.egt}</div><div class="bar"><i style="width:${Math.max(3, m.eg / 6.2 * 100)}%;background:linear-gradient(90deg,${m.grad[0]},${m.grad[1]})"></i></div>`;
+    el.innerHTML = `<canvas></canvas><div class="sym">${m.sym}</div><div class="nm">${m.nm}</div><div class="eg">${m.cardMetric || `E<sub>g</sub> ${m.egt}`}</div><div class="bar"><i style="width:${Math.max(3, (m.eg || 0) / 6.2 * 100)}%;background:linear-gradient(90deg,${m.grad[0]},${m.grad[1]})"></i></div>`;
     root.appendChild(el);
     const c = el.querySelector('canvas');
     const f = fitCanvas(c, () => drawMini(f.ctx, f.state.w, f.state.h, m, 0));

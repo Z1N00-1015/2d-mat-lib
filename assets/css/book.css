@@ -379,6 +379,7 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
 .home-materials, .home-landscape, .home-history { max-width: 1120px; margin: 0 auto 3rem; }
 .home-materials .section-heading { max-width: 860px; }
 .home-material-lineup { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 980px; margin: 16px auto 0; }
+.home-material-lineup.lineup { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .home-material-lineup .home-mat { cursor: default; padding: 14px; }
 .home-material-lineup .home-mat:hover { transform: none; border-color: var(--border); }
 .home-material-lineup .home-mat canvas { display: block; max-width: 190px; margin: 0 auto 9px; }
@@ -479,7 +480,7 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
   .hero { grid-template-columns: 1fr; }
   .hero-canvas { max-width: 320px; }
   .home-paper-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .home-guide-grid, .material-family-grid, .home-material-lineup { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-guide-grid, .material-family-grid, .home-material-lineup, .home-material-lineup.lineup { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .two-col, .lab-grid.even { grid-template-columns: 1fr; }
   .topbar .brand small { display: none; }
 }

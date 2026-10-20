@@ -1,7 +1,7 @@
 import { MATS, drawMini } from './lineup.js';
 import { fitCanvas } from './util.js';
 
-const HOME_MATERIALS = MATS.filter(material => material.fam === '2d');
+const HOME_MATERIALS = MATS.filter(material => material.fam === '2d' || material.fam === '0d');
 
 export function init(root) {
   root.innerHTML = HOME_MATERIALS.map(material => `<article class="mat home-mat">
