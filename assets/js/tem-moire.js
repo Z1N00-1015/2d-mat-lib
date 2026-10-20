@@ -35,13 +35,25 @@ export function init(root) {
   }
 
   // Rigid-lattice moiré orientation α from the paper's lattice-mismatch/twist relation.
-  // Each first-order direction keeps its hexagonal offset and rotates by the same α.
   function moireOrientationDeg() {
     const d = mismatch / 100, t = twist * Math.PI / 180;
     return Math.atan2(Math.sin(t), (1 + d) - Math.cos(t)) * 180 / Math.PI;
   }
-  function spotAngle(direction) { return direction.angle + moireOrientationDeg() * Math.PI / 180; }
-  function spotDegree(direction) { return (direction.degree + moireOrientationDeg()) % 180; }
+  // A DF fringe normal follows Δg = g_upper - g_lower. With the layer order
+  // used below, its signed rotation is opposite to α (modulo 180°).
+  function spotAngle(direction) {
+    const d = mismatch / 100, half = twist * Math.PI / 360;
+    const lowerAngle = direction.angle - half;
+    const upperAngle = direction.angle + half;
+    const upperScale = 1 / (1 + d);
+    const dx = upperScale * Math.cos(upperAngle) - Math.cos(lowerAngle);
+    const dy = upperScale * Math.sin(upperAngle) - Math.sin(lowerAngle);
+    return Math.atan2(dy, dx);
+  }
+  function spotDegree(direction) {
+    const degrees = spotAngle(direction) * 180 / Math.PI;
+    return ((degrees % 180) + 180) % 180;
+  }
 
   function update() {
     const isAdf = mode === 'adf';
@@ -55,10 +67,10 @@ export function init(root) {
     out('zoom', `${zoom.toFixed(1)}×`);
     out('period', Number.isFinite(moirePeriodNm()) ? `${moirePeriodNm().toFixed(1)} nm` : '∞');
     out('visibility-key', isAdf ? '논문에서 보고한 모아레 대비' : '선택 반사');
-    out('visibility', isAdf ? ({ 115: '매우 약함', 185: '약함', 285: '뚜렷함', 360: '억제됨' })[camera] : (spot === 'all' ? `RGB 합성 · α ${moireOrientationDeg().toFixed(1)}°` : `${SPOTS[spot].label} · 방향 ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel}`));
+    out('visibility', isAdf ? ({ 115: '매우 약함', 185: '약함', 285: '뚜렷함', 360: '억제됨' })[camera] : (spot === 'all' ? `RGB 합성 · 실공간 α ${moireOrientationDeg().toFixed(1)}°` : `Δ${SPOTS[spot].label} 법선 ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel}`));
     out('message', isAdf
       ? `<span class="t">${camera} mm · ${({ 115: '약한 Bragg 신호', 185: '아직 약한 Bragg 신호', 285: '모아레 대비가 가장 뚜렷한 조건', 360: '저각 산란이 우세한 조건' })[camera]}</span><p>이상적 육방 격자에서 계산한 주기는 약 ${Number.isFinite(moirePeriodNm()) ? moirePeriodNm().toFixed(1) : '∞'} nm입니다. 카메라 길이는 표시 대비만 바꿉니다.</p>`
-      : `<span class="t">${spot === 'all' ? `g₁(R) · g₂(G) · g₃(B) 합성 · α ${moireOrientationDeg().toFixed(1)}°` : `SAED의 ${SPOTS[spot].label} · 방향 ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel} 성분 강조`}</span><p>논문의 강체 격자 관계 α = atan2(sin θ, 1+δ−cos θ)로 모아레 방향각을 계산하고, 각 gᵢ 방향은 기본 방위 βᵢ에 α를 더해 표시합니다. fringe 선은 선택 방향에 수직입니다. 이 모식도는 국소 굽힘을 포함하지 않습니다.</p>`);
+      : `<span class="t">${spot === 'all' ? `g₁(R) · g₂(G) · g₃(B) 합성 · 실공간 α ${moireOrientationDeg().toFixed(1)}°` : `SAED의 ${SPOTS[spot].label} · Δg 법선 ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel} 성분 강조`}</span><p>논문의 강체 격자 관계 α = atan2(sin θ, 1+δ−cos θ)로 실공간 모아레 격자의 회전을 계산합니다. DF fringe의 법선은 두 층의 역격자 벡터 차 Δgᵢ = gᵢ(위층) − gᵢ(아래층)이며, 색 띠는 Δgᵢ에 수직입니다. 역격자 방향은 흰 겹침점이 이루는 실공간 격자와 반대 부호로 회전합니다. 따라서 두 회전 방향이 반대로 보이는 것이 이 모델에서는 맞습니다. 국소 굽힘은 포함하지 않습니다.</p>`);
     out('caption', 'MoS₂와 WSe₂의 육방 원자 배열을 흑백 명암으로 표현했습니다. 밝기는 서로 다른 층을 구분하고, 흰 halo는 두 층 원자가 가까이 겹치는 위치를 표시합니다.');
     out('hud', `MoS₂ / WSe₂ · δ ${mismatch.toFixed(1)}% · θ ${twist.toFixed(1)}°<br>L ≈ ${Number.isFinite(moirePeriodNm()) ? moirePeriodNm().toFixed(1) + ' nm' : '∞'}`);
     redraw();
