@@ -260,6 +260,111 @@ function initSynthesisChart(root, data, focus, getMaterial) {
   return () => { hover = null; tip.classList.remove('on'); draw(); renderTable(); };
 }
 
+function initMaterialTemperatureChart(root, data, focus, getMaterial) {
+  const canvas = root.querySelector('[data-o="material-temp-canvas"]');
+  const tip = root.querySelector('[data-o="material-temp-tip"]');
+  const status = root.querySelector('[data-o="material-temp-status"]');
+  const table = root.querySelector('[data-o="material-temp-table"]');
+  const papers = data.papers || [];
+  let points = [], hover = null;
+  const { ctx, state } = fitCanvas(canvas, draw);
+  const selected = getMaterial;
+  const coreMaterials = p => focus[p.id] || [];
+
+  function records() {
+    const result = [];
+    for (const p of papers) {
+      const core = coreMaterials(p);
+      if (selected() !== '전체' && (selected() === '미분류' ? core.length : !core.includes(selected()))) continue;
+      for (const v of p.values) {
+        if (v.metric_key !== 'growth_temperature' || !Number.isFinite(+v.norm_value) || +v.norm_value <= 0) continue;
+        // A temperature recorded during contact-metal deposition is not the 2D material growth temperature.
+        if (/contact|접촉/i.test(p.title + ' ' + (v.name || '')) && /증착|deposition/i.test(v.name || '')) continue;
+        result.push({ p, v, material: core.length ? core.join(' · ') : '미분류' });
+      }
+    }
+    return result.sort((a, b) => String(b.p.publication_date || b.p.year || '').localeCompare(String(a.p.publication_date || a.p.year || '')));
+  }
+
+  function draw() {
+    const { w, h } = state;
+    if (!w || !h) return;
+    ctx.clearRect(0, 0, w, h);
+    const values = records();
+    const box = { left: Math.min(84, Math.max(66, w * .15)), right: w - 24, top: 28, bottom: h - 78 };
+    if (!values.length) {
+      status.textContent = '선택한 소재에 검토된 합성 온도 값이 없습니다.';
+      ctx.fillStyle = '#70737d'; ctx.font = '14px ' + FONT; ctx.textAlign = 'center';
+      ctx.fillText('선택된 소재의 합성 온도 데이터가 없습니다.', w / 2, h / 2);
+      points = [];
+      return;
+    }
+    const materials = [...new Set(values.map(v => v.material))].sort((a, b) => a === '미분류' ? 1 : b === '미분류' ? -1 : a.localeCompare(b));
+    const ys = values.map(v => +v.v.norm_value);
+    const low = Math.min(...ys), high = Math.max(...ys);
+    const step = Math.max(50, Math.ceil(((high - low) / 5 || high / 5) / 50) * 50);
+    const min = Math.max(0, Math.floor(low / step) * step - step);
+    const max = Math.ceil(high / step) * step + step;
+    const yAt = value => box.bottom - (value - min) / (max - min || 1) * (box.bottom - box.top);
+    ctx.font = '11px ' + MONO; ctx.fillStyle = '#777b86'; ctx.strokeStyle = 'rgba(120,125,140,.22)'; ctx.lineWidth = 1;
+    for (let value = min; value <= max + step * .001; value += step) {
+      const y = yAt(value);
+      ctx.beginPath(); ctx.moveTo(box.left, y); ctx.lineTo(box.right, y); ctx.stroke();
+      ctx.textAlign = 'right'; ctx.fillText(String(value), box.left - 9, y + 4);
+    }
+    const xAt = material => box.left + (materials.indexOf(material) + .5) * (box.right - box.left) / materials.length;
+    materials.forEach(material => {
+      const x = xAt(material);
+      ctx.strokeStyle = 'rgba(120,125,140,.15)'; ctx.setLineDash([3, 4]);
+      ctx.beginPath(); ctx.moveTo(x, box.top); ctx.lineTo(x, box.bottom); ctx.stroke(); ctx.setLineDash([]);
+      ctx.save(); ctx.translate(x, box.bottom + 24); ctx.rotate(materials.length > 4 ? -.28 : 0);
+      ctx.fillStyle = material === '미분류' ? '#858894' : '#5f626d'; ctx.font = '12px ' + FONT;
+      ctx.textAlign = materials.length > 4 ? 'right' : 'center'; ctx.fillText(formula(material), 0, 0); ctx.restore();
+    });
+    points = values.map((item, i) => {
+      const same = values.filter(v => v.material === item.material && +v.v.norm_value === +item.v.norm_value);
+      const index = same.indexOf(item);
+      const jitter = (index - (same.length - 1) / 2) * Math.min(11, 54 / Math.max(1, same.length));
+      return { ...item, x: xAt(item.material) + jitter, y: yAt(+item.v.norm_value) };
+    });
+    for (const point of points) {
+      const active = hover === point;
+      ctx.beginPath(); ctx.arc(point.x, point.y, active ? 7 : 5, 0, Math.PI * 2);
+      ctx.fillStyle = point.material === '미분류' ? '#a0a3ad' : (active ? '#8e7cff' : '#fff'); ctx.fill();
+      ctx.lineWidth = 2; ctx.strokeStyle = point.material === '미분류' ? '#858894' : '#7564e8'; ctx.stroke();
+    }
+    ctx.fillStyle = '#5f626d'; ctx.font = '12px ' + FONT; ctx.textAlign = 'center';
+    ctx.fillText('핵심 소재', (box.left + box.right) / 2, h - 12);
+    ctx.save(); ctx.translate(15, (box.top + box.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText('합성 온도 (°C)', 0, 0); ctx.restore();
+    status.textContent = `${values.length}개 조건 · ${new Set(values.map(v => v.p.id)).size}편 · ${materials.length}개 소재 분류`;
+    table.innerHTML = values.map(({ p, v, material }) => '<tr><td>'
+      + (p.url ? '<a href="' + esc(p.url) + '" target="_blank" rel="noopener">' + esc(p.title) + '</a>' : esc(p.title))
+      + '<br><small>' + esc(p.journal || '') + ' · ' + (p.year || '연도 미상') + '</small></td><td>' + formula(esc(material))
+      + '</td><td>' + fmtValue(v) + (v.qualifier ? '<br><small>' + esc(v.qualifier) + '</small>' : '')
+      + '</td><td>' + esc(v.sample || '시료 미기록') + '</td><td>' + (v.evidence?.page ? 'p. ' + esc(v.evidence.page) : '—') + '</td></tr>').join('');
+  }
+
+  canvas.addEventListener('pointermove', event => {
+    const rect = canvas.getBoundingClientRect();
+    const x = (event.clientX - rect.left) * state.w / rect.width, y = (event.clientY - rect.top) * state.h / rect.height;
+    let nearest = null, distance = 14;
+    for (const point of points) { const d = Math.hypot(point.x - x, point.y - y); if (d < distance) { nearest = point; distance = d; } }
+    if (nearest !== hover) { hover = nearest; draw(); }
+    if (!nearest) { tip.classList.remove('on'); return; }
+    tip.innerHTML = '<b>' + esc(nearest.p.title) + '</b><br>핵심 소재: ' + formula(esc(nearest.material))
+      + '<br>합성 온도: ' + fmtValue(nearest.v) + '<br>시료: ' + esc(nearest.v.sample || '미기록')
+      + '<br><span style="opacity:.7">' + esc(nearest.p.journal || '') + ' ' + (nearest.p.year || '')
+      + (nearest.v.evidence?.page ? ' · p. ' + esc(nearest.v.evidence.page) : '') + '</span>';
+    tip.style.left = Math.max(8, Math.min(x + 12, state.w - 290)) + 'px';
+    tip.style.top = Math.max(8, Math.min(y + 12, state.h - 145)) + 'px';
+    tip.style.maxWidth = '290px'; tip.style.whiteSpace = 'normal'; tip.classList.add('on');
+  });
+  canvas.addEventListener('pointerleave', () => { hover = null; tip.classList.remove('on'); draw(); });
+  canvas.addEventListener('click', () => { if (hover?.p.url) window.open(hover.p.url, '_blank', 'noopener'); });
+  draw();
+  return () => { hover = null; tip.classList.remove('on'); draw(); };
+}
+
 async function initData(root) {
   const status = root.querySelector('[data-o="status"]');
   try {
@@ -293,6 +398,7 @@ async function initData(root) {
     let material = '전체';
     let xMetric = xSelect.value, yMetric = ySelect.value;
     const refreshSynthesis = initSynthesisChart(root, data, focus, () => material);
+    const refreshMaterialTemperature = initMaterialTemperatureChart(root, data, focus, () => material);
     const canvas = root.querySelector('canvas');
     const tip = root.querySelector('.tip');
     const { ctx, state } = fitCanvas(canvas, draw);
@@ -483,6 +589,7 @@ async function initData(root) {
       draw();
       renderTable();
       refreshSynthesis();
+      refreshMaterialTemperature();
     });
     root.querySelector('[data-o="updated"]').textContent = '데이터 기준: ' + String(data.generated_at || '').slice(0, 10);
     draw();

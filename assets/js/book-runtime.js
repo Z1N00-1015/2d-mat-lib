@@ -64,7 +64,7 @@ export const FIELDS = [
     desc: '논문 데이터와 주요 용어를 살펴보고 연구실 논문 분석실로 이동합니다.',
     chapters: [
       { id: 'papers', n: '01', title: '논문 데이터', group: '연구 자료',
-        desc: '논문 데이터베이스에서 검토 완료한 수치와 합성 조건을 논문별로 비교합니다.', labs: ['논문별 수치 비교', '합성 조건 비교'] },
+        desc: '논문 데이터베이스에서 검토 완료한 수치와 합성 조건을 논문별로 비교합니다.', labs: ['논문별 수치 비교', '합성 조건 비교', '소재별 합성 온도'] },
       { id: 'glossary', n: '02', title: '용어 사전', group: '참고 도구',
         desc: '2D 물질과 반도체 분야의 핵심 용어를 표준 표기와 영문으로 찾아봅니다.', labs: [] },
     ],
@@ -77,7 +77,7 @@ const MODULES = {
   crystal: './crystal.js?v=20261020i', lattice2d: './lattice2d.js?v=20261020i', miller: './miller.js?v=20261020i', bragg: './bragg.js',
   xrd: './xrd.js?v=20261020i', moire: './moire.js?v=20261020l', 'moire-reconstruction': './moire-reconstruction.js?v=20261020s', spectrum: './spectrum.js',
   mos2: './mos2.js', bands: './bands.js', power: './power.js?v=20261020i', exfo: './exfo.js', cvd: './cvd.js',
-  glossary: './glossary.js?v=20261021-materials-structure', refs: './papers.js?v=20261021-paper-synthesis', paperdata: './papers.js?v=20261021-paper-synthesis',
+  glossary: './glossary.js?v=20261021-materials-structure', refs: './papers.js?v=20261021-material-temperatures', paperdata: './papers.js?v=20261021-material-temperatures',
   raman: './raman.js?v=20261020i', 'tem-moire': './tem-moire.js?v=20261020l',
   hypotaxy: './hypotaxy.js?v=20261020h', 'home-lineup': './home-materials.js?v=20261020materials2',
   lineup: './lineup.js?v=20261020materials2',

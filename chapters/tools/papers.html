@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css?v=20261021-paper-axes">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book-runtime.js?v=20261021-materials-structure"></script>
+<script type="module" src="../../assets/js/book-runtime.js?v=20261021-material-temperatures-v2"></script>
 </head>
 <body data-root="../../" data-field="tools" data-chapter="papers">
 <main class="main">
@@ -56,6 +56,20 @@
         <details class="vtable">
           <summary>합성 조건 비교 표 보기</summary>
           <div class="table-wrap"><table class="gloss-table"><thead><tr><th>논문</th><th>핵심 소재</th><th>가로축 조건</th><th>세로축 조건</th><th>시료</th></tr></thead><tbody data-o="synth-table"></tbody></table></div>
+        </details>
+      </div>
+    </section>
+
+    <h2><span class="sec">1.3</span>소재별 합성 온도</h2>
+    <p>각 논문에서 보고한 성장·합성 온도를 핵심 소재별 점으로 표시합니다. 핵심 소재는 사이트의 수동 검토 분류를 사용하고, 전극 접촉 형성처럼 2D 소재 성장과 무관한 증착 온도는 제외합니다. 소재 분류가 없는 값은 ‘미분류’로 표시합니다.</p>
+    <section class="lab">
+      <div class="lab-head"><span class="badge">LAB 1-3</span><h4>핵심 소재별 합성 온도</h4><span class="sub">점마다 논문의 보고 조건 하나를 나타냅니다</span></div>
+      <div class="lab-body">
+        <div class="stage light paper-scatter-stage"><canvas data-o="material-temp-canvas"></canvas><div class="tip" data-o="material-temp-tip"></div></div>
+        <p class="hint" data-o="material-temp-status"></p>
+        <details class="vtable">
+          <summary>소재별 합성 온도 데이터 보기</summary>
+          <div class="table-wrap"><table class="gloss-table"><thead><tr><th>논문</th><th>핵심 소재</th><th>합성 온도</th><th>시료</th><th>근거 위치</th></tr></thead><tbody data-o="material-temp-table"></tbody></table></div>
         </details>
       </div>
     </section>
