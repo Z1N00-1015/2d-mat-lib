@@ -75,7 +75,7 @@ const MODULES = {
   mos2: './mos2.js', bands: './bands.js', power: './power.js?v=20261020i', exfo: './exfo.js', cvd: './cvd.js',
   glossary: './glossary.js?v=20261020m', refs: './papers.js?v=20261020e', paperdata: './papers.js?v=20261020e',
   raman: './raman.js?v=20261020i',
-  hypotaxy: './hypotaxy.js?v=20261020f',
+  hypotaxy: './hypotaxy.js?v=20261020h',
 };
 
 const LOGO = '<svg class="brand-logo" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bslg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a6cf0"/><stop offset="1" stop-color="#1fb3a3"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="8" fill="url(#bslg)"/><g fill="none" stroke="#fff" stroke-width="1.6" stroke-opacity=".9"><path d="M16 7.5l7.4 4.25v8.5L16 24.5l-7.4-4.25v-8.5z"/></g><circle cx="16" cy="16" r="2.6" fill="#fff"/></svg>';
