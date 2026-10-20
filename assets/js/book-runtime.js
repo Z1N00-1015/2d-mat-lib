@@ -71,7 +71,7 @@ export const FIELDS = [
 const MODULES = {
   hero: './hero.js', stack: './stack.js', tunneling: './tunneling.js', fet: './fet.js',
   crystal: './crystal.js?v=20261020i', lattice2d: './lattice2d.js?v=20261020i', miller: './miller.js?v=20261020i', bragg: './bragg.js',
-  xrd: './xrd.js?v=20261020i', moire: './moire.js?v=20261020l', 'moire-reconstruction': './moire-reconstruction.js?v=20261020r', spectrum: './spectrum.js',
+  xrd: './xrd.js?v=20261020i', moire: './moire.js?v=20261020l', 'moire-reconstruction': './moire-reconstruction.js?v=20261020s', spectrum: './spectrum.js',
   mos2: './mos2.js', bands: './bands.js', power: './power.js?v=20261020i', exfo: './exfo.js', cvd: './cvd.js',
   glossary: './glossary.js?v=20261020p', refs: './papers.js?v=20261020e', paperdata: './papers.js?v=20261020e',
   raman: './raman.js?v=20261020i', 'tem-moire': './tem-moire.js?v=20261020b',

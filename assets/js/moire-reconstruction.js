@@ -126,39 +126,7 @@ export function init(root) {
     // A moiré parallelogram is shown as a square-ish cell. The same periodic
     // relaxed field is tiled across it so its registry and walls remain clear.
     const screen = (s, t) => [ox + Lpx * (s - 0.5 + (t - 0.5) * 0.5), oy + Lpx * SQRT3 * 0.5 * (t - 0.5)];
-    const pixels = Math.max(30, Math.round(Lpx * 1.5));
-    const image = ctx.createImageData(pixels, pixels);
-    for (let py = 0; py < pixels; py++) for (let px = 0; px < pixels; px++) {
-      const x = (px / (pixels - 1) - 0.5) * Lpx * 1.5;
-      const y = (py / (pixels - 1) - 0.5) * Lpx * 1.5;
-      const t = y / (Lpx * SQRT3 * 0.5) + 0.5;
-      const s = x / Lpx - (t - 0.5) * 0.5 + 0.5;
-      const [ux, uy] = sample(f, s, t);
-      const dx = s + 0.5 * t + ux, dy = SQRT3 * 0.5 * t + uy;
-      const phases = B.map(([bx, by]) => bx * dx + by * dy);
-      const registry = phases.reduce((sum, phase) => sum + Math.cos(phase), 0);
-      const aa = clamp((registry + 1.35) / 4.35, 0, 1);
-      const p = (py * pixels + px) * 4;
-      // AB and BA are distinguished by the sign of the local stacking chirality.
-      const chirality = Math.sin(phases[0]) + Math.sin(phases[1]) + Math.sin(phases[2]);
-      const domain = chirality >= 0 ? [69, 145, 244] : [241, 151, 72];
-      const shade = 0.20 + 0.48 * (1 - aa);
-      image.data[p] = Math.round(18 + domain[0] * shade);
-      image.data[p + 1] = Math.round(22 + domain[1] * shade);
-      image.data[p + 2] = Math.round(31 + domain[2] * shade);
-      image.data[p + 3] = 255;
-    }
-    const temp = document.createElement('canvas');
-    temp.width = pixels; temp.height = pixels;
-    temp.getContext('2d').putImageData(image, 0, 0);
-    ctx.save();
-    ctx.beginPath();
-    ctx.moveTo(...screen(-0.08, 0.08)); ctx.lineTo(...screen(1.08, 0.08));
-    ctx.lineTo(...screen(1.08, 0.92)); ctx.lineTo(...screen(-0.08, 0.92)); ctx.closePath();
-    ctx.clip();
-    ctx.drawImage(temp, ox - Lpx * 0.75, oy - Lpx * 0.75, Lpx * 1.5, Lpx * 1.5);
-    ctx.restore();
-
+    // Show only the atomic lattices; omit the former triangular domain map.
     // Draw a bounded number of atoms from both honeycomb layers. At small
     // angles the display samples the dense lattice for browser performance.
     const cells = A_NM / (2 * Math.sin(theta * Math.PI / 360)) / A_NM;
@@ -201,7 +169,7 @@ export function init(root) {
     ctx.fillText('아래층', 14, h - 28);
     ctx.fillStyle = '#ffc27f';
     ctx.fillText(motion < 1 ? '위층 · 이동 중' : '위층', 70, h - 28);
-    out('hud', `θ = ${theta.toFixed(2)}° · 층간 상호작용 ${Math.round(coupling * 100)}%<br>relaxation 진행 ${Math.round(motion * 100)}%<br>AB blue · BA orange · AA dark`);
+    out('hud', `θ = ${theta.toFixed(2)}° · 층간 상호작용 ${Math.round(coupling * 100)}%<br>원자 구조 relaxation ${Math.round(motion * 100)}%`);
     dirty = false;
   }
 
