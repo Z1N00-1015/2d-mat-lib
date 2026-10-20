@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book.js?v=20261020e"></script>
+<script type="module" src="../../assets/js/book.js?v=20261020f"></script>
 </head>
 <body data-root="../../" data-field="crystallography" data-chapter="tem">
 <main class="main"><article class="article">
@@ -45,6 +45,17 @@
     <li>가능하면 낮은 조사량부터 시작해 영상이 시간에 따라 변하는지 점검하고, 여러 영역에서 재현성을 확인합니다.</li>
   </ol>
   <div class="callout tip"><span class="t">전자빔이 시료를 바꿀 수 있습니다</span><p>2D 물질은 전자 조사로 원자 결함이 생기거나 이동할 수 있습니다. 가속 전압 하나만으로 손상 여부를 판단하지 말고, 시료와 측정 조건에 맞게 조사량을 관리하며 관찰 전후의 변화를 확인하세요.</p></div>
+
+  <section class="lab" id="lab-tem" data-module="tem">
+    <div class="lab-head"><span class="badge">LAB 2-6</span><h4>전자현미경 영상 모드 비교</h4><span class="sub">같은 격자를 세 영상 방식으로 살펴보세요</span></div>
+    <div class="lab-body">
+      <div class="lab-tools"><div class="seg" data-k="mode" role="group" aria-label="전자현미경 영상 모드"><button class="on" data-v="hrtem">HRTEM</button><button data-v="df">DF-TEM</button><button data-v="stem">STEM · HAADF</button></div></div>
+      <div class="stage light h-320"><canvas data-c="image" aria-label="선택한 전자현미경 방식의 개념 영상"></canvas><div class="hud" data-o="hud"></div></div>
+      <div class="controls-row"><label class="slider"><div class="row"><span>개념적 결함 표시량</span><b data-o="defect">12%</b></div><input type="range" data-k="defect" min="0" max="40" step="1" value="12"></label></div>
+      <p class="hint" data-o="description"></p>
+      <p class="note">격자와 대비를 설명하기 위한 도식이며 실제 TEM 영상이나 원자 분해능 시뮬레이션이 아닙니다. 결함 표시량도 실험값이 아닙니다.</p>
+    </div>
+  </section>
 
   <h2><span class="sec">6.4</span>장점과 한계</h2>
   <p>TEM은 국소 원자 구조와 결함을 직접 살피는 데 강하지만, 작은 관찰 영역이 시료 전체를 대표하지 않을 수 있습니다. 박막화와 전사 과정이 시료 상태를 바꾸거나 오염을 남길 수 있고, 진공과 전자빔에 민감한 재료는 측정 중 변할 수 있습니다. 넓은 영역의 평균 구조는 XRD와, 표면 화학 상태는 XPS와 함께 비교하면 보완할 수 있습니다.</p>

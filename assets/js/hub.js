@@ -1,9 +1,7 @@
 // Hub page: render every field (분야) and its chapter cards from the manifest in book.js
-import { FIELDS, chapterUrl } from './book.js?v=20261020b';
+import { FIELDS, chapterUrl } from './book.js?v=20261020f';
 
 const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const levelDots = (n) => n ? '●'.repeat(n) + '○'.repeat(3 - n) : '';
-
 const local = FIELDS.filter(f => !f.external);
 const chapters = local.flatMap(f => f.chapters.filter(c => c.labs.length));
 document.getElementById('st-field').textContent = FIELDS.length;
@@ -23,18 +21,16 @@ document.getElementById('fields').innerHTML = FIELDS.map(f => {
       </div></section>`;
   }
   const labs = f.chapters.reduce((s, c) => s + c.labs.length, 0);
-  const mins = f.chapters.reduce((s, c) => s + c.time, 0);
   const cards = f.chapters.map(c => {
     return `<a class="toc-card" href="${chapterUrl('./', f, c)}">
       <span class="n">${c.n === '··' ? '부록' : 'LESSON ' + c.n}</span>
       <h3>${esc(c.title)}</h3><p>${esc(c.desc)}</p>
       ${c.labs.length ? `<div class="labs">${c.labs.map(l => `<span>${esc(l)}</span>`).join('')}</div>` : ''}
-      ${c.level ? `<span class="muted" style="font-size:12px;margin-top:auto">⏱ ${c.time}분 · 난이도 ${levelDots(c.level)}</span>` : ''}
     </a>`;
   }).join('');
   return `<section class="field" id="field-${f.id}">
     <div class="field-head"><div><div class="en">FIELD ${f.n} · ${esc(f.en)}</div><h3>${esc(f.title)}</h3><p>${esc(f.desc)}</p></div>
-      <div class="field-meta"><span class="chip">📖 ${f.chapters.length}개 소단원</span><span class="chip">🧪 실험 ${labs}개</span><span class="chip">⏱ 약 ${Math.round(mins / 10) * 10}분</span></div></div>
+      <div class="field-meta"><span class="chip">📖 ${f.chapters.length}개 소단원</span><span class="chip">🧪 인터랙티브 ${labs}개</span></div></div>
     <div class="field-body"><div class="toc-grid">${cards}</div>${(f.links || []).map(link => `<a class="btn" href="${esc(link.url)}" target="_blank" rel="noopener">${esc(link.title)} ↗</a>`).join('')}</div>
   </section>`;
 }).join('');

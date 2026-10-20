@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book.js?v=20261020e"></script>
+<script type="module" src="../../assets/js/book.js?v=20261020f"></script>
 </head>
 <body data-root="../../" data-field="crystallography" data-chapter="xps">
 <main class="main"><article class="article">
@@ -45,6 +45,19 @@
   <h2><span class="sec">7.4</span>표면 민감도와 한계</h2>
   <p>XPS에서 검출되는 광전자는 고체 내부를 지나며 비탄성 산란을 할 수 있어, 신호는 보통 표면 근처에서 더 강합니다. 따라서 표면 흡착물이나 산화층을 분석하는 데 유리하지만 벌크 전체 조성을 그대로 나타내지는 않습니다. 표면 세척이나 이온 스퍼터링은 오염 제거에 쓰일 수 있으나 화학 상태와 조성을 바꿀 수 있으므로 처리 전후를 구분해야 합니다.</p>
   <p>XPS는 표면 화학 상태를, Raman은 진동 상태를, TEM-EDS/EELS는 작은 영역의 구조와 원소 분포를 보완합니다. 각 기법이 조사하는 깊이와 영역이 다르므로 결과를 직접 같은 양으로 취급하지 말고 측정 범위를 함께 비교하세요.</p>
+  <section class="lab" id="lab-xps" data-module="xps">
+    <div class="lab-head"><span class="badge">LAB 2-7</span><h4>XPS 결합 에너지 계산</h4><span class="sub">광자 에너지와 측정 운동 에너지로 에너지 축을 맞춰 보세요</span></div>
+    <div class="lab-body lab-grid">
+      <div class="stage light h-240"><canvas data-c="energy" aria-label="XPS 광자 에너지, 운동 에너지, 결합 에너지의 관계"></canvas></div>
+      <div class="panel">
+        <label class="slider"><div class="row"><span>광자 에너지 hν</span><b data-o="photon">1486.6 eV</b></div><input type="range" data-k="photon" min="200" max="1500" step="0.1" value="1486.6"></label>
+        <label class="slider"><div class="row"><span>운동 에너지 E<sub>K</sub></span><b data-o="kinetic">1200.0 eV</b></div><input type="range" data-k="kinetic" min="0" max="1400" step="0.1" value="1200"></label>
+        <label class="slider"><div class="row"><span>분석기 일함수 φ</span><b data-o="work">4.5 eV</b></div><input type="range" data-k="work" min="0" max="10" step="0.1" value="4.5"></label>
+        <div class="readout"><div><div class="k">계산한 결합 에너지 E<sub>B</sub></div><div class="v" data-o="binding">282.1 eV</div></div></div>
+        <p class="note">에너지 보정·피크 분해를 하지 않는 계산 예시입니다. 측정값과 기기의 기준 설정을 사용하세요.</p>
+      </div>
+    </div>
+  </section>
   <div class="refs"><h3>더 읽을 자료</h3><ul>
     <li><a href="https://doi.org/10.1016/j.susc.2006.08.038" target="_blank" rel="noopener">“Core level spectroscopy of MoS₂,” Surface Science (2006)</a></li>
     <li><a href="https://www.nist.gov/laboratories/tools-instruments/x-ray-photoelectron-spectroscopy" target="_blank" rel="noopener">NIST: XPS 표면 화학 분석</a></li>
