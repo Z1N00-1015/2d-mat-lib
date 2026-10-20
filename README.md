@@ -8,7 +8,7 @@
 
 - `index.html` — 표지: 전체 분야와 각 분야의 목차
 - `chapters/<분야>/<장>.html` — 분야 소개 페이지 (사이드바 목차, LAB, 정리, 이전/다음 페이지)
-- `assets/js/book.js` — 분야·페이지 목록(`FIELDS`)과 공통 레이아웃, 실험 모듈 지연 로딩
+- `assets/js/book-runtime.js` — 분야·페이지 목록(`FIELDS`)과 공통 레이아웃, 실험 모듈 지연 로딩
 - `assets/css/book.css` — 디자인 시스템 (SemiBook과 같은 계열, 라이트/다크 테마)
 - `assets/js/*.js` — 실험 모듈 (three.js, Canvas)
 - `data/papers.json` — 연구실 논문 DB 공개용 데이터
@@ -51,7 +51,7 @@
 
 ## 새 분야 추가하기
 
-1. `assets/js/book.js`의 `FIELDS` 배열에 분야(`id`, `title`, `chapters`)를 추가합니다.
+1. `assets/js/book-runtime.js`의 `FIELDS` 배열에 분야(`id`, `title`, `chapters`)를 추가합니다.
 2. `chapters/<분야 id>/` 폴더에 장 페이지를 만듭니다. 기존 장 페이지를 복사해 `data-field`, `data-chapter`와 본문만 바꾸면 됩니다.
 3. 표지, 사이드바, 이전/다음 장 링크는 `FIELDS`에서 자동으로 만들어집니다.
 

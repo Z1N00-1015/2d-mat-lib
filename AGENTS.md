@@ -7,7 +7,7 @@
 
 ## 구조
 - `index.html`: 표지(전체 분야 목록). `assets/js/hub.js`가 `FIELDS`로 그린다.
-- `assets/js/book.js`: 분야·페이지 목록 `FIELDS`, 상단 바·사이드바·절 목차·이전/다음 페이지·테마, 실험 모듈 지연 로딩(`MODULES`).
+- `assets/js/book-runtime.js`: 분야·페이지 목록 `FIELDS`, 상단 바·사이드바·절 목차·이전/다음 페이지·테마, 실험 모듈 지연 로딩(`MODULES`).
 - `chapters/<분야 id>/<장 id>.html`: 장 페이지. `<body data-root="../../" data-field="…" data-chapter="…">`.
 - `assets/css/book.css`: 디자인 시스템(SemiBook 계열). 색은 CSS 변수만 쓰고 라이트/다크를 모두 확인한다.
 - `assets/js/<실험>.js`: 실험 모듈. `export function init(root)` 하나를 내보내고, 페이지의 `data-module="이름"` 요소가 화면 근처에 오면 실행된다.
@@ -17,7 +17,7 @@
 - 용어는 고체물리·반도체공학 분야의 표준 표기를 쓰고, 처음 나올 때 영문을 괄호로 병기한다. 새 용어는 `assets/js/glossary.js`에도 추가한다.
 - 분야 페이지 형식: `chapter-head`(eyebrow·h1·lede·빈 `.meta`) → `h2`(`<span class="sec">1.1</span>`) 절 → `section.lab`(`LAB 장-번호`) → `.summary`.
 - 새 장을 만들면 `FIELDS`의 해당 분야 `chapters`에 추가한다(표지·사이드바·이전/다음 장이 자동 생성됨).
-- 새 실험 모듈을 만들면 `book.js`의 `MODULES`에 등록한다.
+- 새 실험 모듈을 만들면 `book-runtime.js`의 `MODULES`에 등록한다.
 - 시뮬레이션은 교육용 단순화 모델임을 본문이나 힌트에 밝힌다. 수치는 문헌 대표값을 쓰고 출처가 분명하지 않은 값을 만들지 않는다.
 - 공개 사이트이므로 논문 원문 인용, 미공개 연구 데이터, 개인 정보, API 키를 넣지 않는다.
 
