@@ -98,5 +98,15 @@
 
   <footer class="site-foot" style="max-width:1120px;margin:4rem auto 0">Beyond Silicon · 2D 물질 연구 길라잡이</footer>
 </main>
+<script>
+  // Keep the home-page brand current even if a browser reuses an older cached layout module.
+  const homeBrandObserver = new MutationObserver(() => {
+    const subtitle = document.querySelector('.topbar .brand small');
+    if (!subtitle) return;
+    subtitle.textContent = '2D 물질 연구 길라잡이';
+    homeBrandObserver.disconnect();
+  });
+  homeBrandObserver.observe(document.body, { childList: true, subtree: true });
+</script>
 </body>
 </html>
