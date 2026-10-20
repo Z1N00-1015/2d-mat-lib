@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>투과전자현미경(TEM) · 결정학과 분석 방법 · Beyond Silicon</title>
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../../assets/css/book.css">
+<script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
+<script type="module" src="../../assets/js/book.js?v=20261020c"></script>
+</head>
+<body data-root="../../" data-field="crystallography" data-chapter="tem">
+<main class="main"><article class="article">
+  <header class="chapter-head">
+    <div class="eyebrow">CHAPTER II · ELECTRON MICROSCOPY</div>
+    <h1>투과전자현미경(TEM)</h1>
+    <p class="lede">투과전자현미경(transmission electron microscopy, TEM)은 가속 전자를 얇은 시료에 통과시켜 영상과 회절 정보를 얻습니다. 2D 물질의 격자, 결함과 계면을 작은 영역에서 직접 관찰할 수 있습니다.</p>
+    <div class="meta"></div>
+  </header>
+
+  <h2><span class="sec">5.1</span>전자와 시료의 상호작용</h2>
+  <p>전자빔이 시료를 통과하면 일부 전자는 거의 방향을 바꾸지 않고, 일부는 탄성 또는 비탄성 산란을 합니다. 전자렌즈와 조리개로 이 신호를 모아 영상을 만들거나, 회절면에 모아 결정 정보를 얻습니다. 얇은 시료에서는 작은 영역의 원자 배열과 결함을 높은 공간 분해능으로 관찰할 수 있습니다.</p>
+  <p><strong>주사 투과전자현미경(scanning transmission electron microscopy, STEM)</strong>은 좁은 전자빔을 시료 위에서 주사하며 각 위치의 신호를 기록합니다. 검출 각도에 따라 명시야·암시야 대비가 달라지고, 고각 환형 암시야(HAADF) 영상은 원자 번호에 따른 대비를 제공할 수 있습니다. 대비는 시료 두께와 정렬에도 영향을 받으므로 원소를 영상만으로 확정하지 않습니다.</p>
+
+  <h2><span class="sec">5.2</span>영상·회절·분광의 역할</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>기법</th><th>측정 결과</th><th>주요 활용</th></tr></thead>
+    <tbody>
+      <tr><td>고분해능 TEM (HRTEM)</td><td>격자 무늬가 보이는 실공간 영상</td><td>국소 격자 간격, 적층, 결함과 계면 관찰</td></tr>
+      <tr><td>선택 영역 전자 회절 (SAED)</td><td>지정한 영역에서 나온 회절 점·고리</td><td>결정 대칭, 방위, 상과 다결정성 비교</td></tr>
+      <tr><td>STEM-EDS</td><td>특성 X선의 에너지별 신호와 원소 지도</td><td>원소 분포와 계면 조성의 국소 분석</td></tr>
+      <tr><td>STEM-EELS</td><td>투과 전자의 에너지 손실 스펙트럼</td><td>원소, 결합 및 전자 구조에 대한 정보</td></tr>
+    </tbody>
+  </table></div>
+  <p>HRTEM 영상의 원자 위치와 밝기는 초점·두께·수차 조건에 영향을 받습니다. 영상의 주기성을 푸리에 변환해 얻는 FFT와 회절 패턴을 함께 비교하고, 원자 배열 모델과 대조해 해석합니다. EDS와 EELS도 검출 한계와 시료 두께, 빔에 의한 변화를 고려해야 합니다.</p>
+
+  <h2><span class="sec">5.3</span>시료 준비와 측정 흐름</h2>
+  <ol>
+    <li>관찰 대상이 전자 투과에 적합한 두께와 지지 상태가 되도록 시료를 준비하고, 오염과 주름을 확인합니다.</li>
+    <li>저배율에서 관심 영역을 찾은 뒤 필요한 영상·회절·분광 신호를 수집합니다.</li>
+    <li>가능하면 낮은 조사량부터 시작해 영상이 시간에 따라 변하는지 점검하고, 여러 영역에서 재현성을 확인합니다.</li>
+  </ol>
+  <div class="callout tip"><span class="t">전자빔이 시료를 바꿀 수 있습니다</span><p>2D 물질은 전자 조사로 원자 결함이 생기거나 이동할 수 있습니다. 가속 전압 하나만으로 손상 여부를 판단하지 말고, 시료와 측정 조건에 맞게 조사량을 관리하며 관찰 전후의 변화를 확인하세요.</p></div>
+
+  <h2><span class="sec">5.4</span>장점과 한계</h2>
+  <p>TEM은 국소 원자 구조와 결함을 직접 살피는 데 강하지만, 작은 관찰 영역이 시료 전체를 대표하지 않을 수 있습니다. 박막화와 전사 과정이 시료 상태를 바꾸거나 오염을 남길 수 있고, 진공과 전자빔에 민감한 재료는 측정 중 변할 수 있습니다. 넓은 영역의 평균 구조는 XRD와, 표면 화학 상태는 XPS와 함께 비교하면 보완할 수 있습니다.</p>
+  <div class="refs"><h3>더 읽을 자료</h3><ul>
+    <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4169717/" target="_blank" rel="noopener">MoS₂ 박편의 전자빔 손상과 정량 HAADF-STEM 영상에 관한 실험 연구</a></li>
+    <li><a href="https://www.ou.edu/microscopy/capabilities/transmission-electron-microscopes" target="_blank" rel="noopener">University of Oklahoma: TEM 측정과 회절 기능</a></li>
+  </ul></div>
+  <div class="summary"><h4>정리</h4><ul>
+    <li>TEM은 투과 전자로 국소 영상과 회절 정보를 얻습니다.</li>
+    <li>STEM-EDS/EELS는 국소 원소 분포와 전자 에너지 손실을 분석합니다.</li>
+    <li>시료 준비, 대표성, 오염과 전자빔 손상을 측정 조건과 함께 고려합니다.</li>
+  </ul></div>
+</article></main>
+</body>
+</html>

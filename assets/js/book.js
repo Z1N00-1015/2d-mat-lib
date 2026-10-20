@@ -27,6 +27,12 @@ export const FIELDS = [
         desc: '밀러 지수, 면간 거리, 브래그 법칙, 구조 인자와 분말 XRD를 다룹니다.', labs: ['밀러 지수', '브래그 반사', '분말 XRD'] },
       { id: 'characterization', n: '03', title: '2D 물질 분석법', group: '분광·현미경 분석', time: 12, level: 1,
         desc: 'Raman·TEM·XPS·AFM의 측정 원리와 각 방법으로 확인할 수 있는 물성을 개괄합니다.', labs: [] },
+      { id: 'raman', n: '04', title: '라만 분광법', group: '분광·현미경 분석', time: 18, level: 2,
+        desc: '비탄성 광산란과 Raman shift를 이해하고 2D 물질의 진동 모드와 층수·변형률 단서를 해석합니다.', labs: [] },
+      { id: 'tem', n: '05', title: '투과전자현미경(TEM)', group: '분광·현미경 분석', time: 20, level: 2,
+        desc: 'TEM·STEM 영상과 전자 회절·분광으로 국소 구조, 결함과 원소 분포를 분석하는 방법을 살펴봅니다.', labs: [] },
+      { id: 'xps', n: '06', title: 'X선 광전자분광법(XPS)', group: '분광·현미경 분석', time: 18, level: 2,
+        desc: '광전자 결합 에너지로 표면 원소 조성과 화학 상태를 분석하고 스펙트럼 해석의 주의점을 익힙니다.', labs: [] },
     ],
   },
   {
