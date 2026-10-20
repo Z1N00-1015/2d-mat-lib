@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>단결정 성장 · 2차원 물질의 이해 · Beyond Silicon</title>
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../../assets/css/book.css?v=20261021-materials-structure">
+<script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
+<script type="module" src="../../assets/js/book-runtime.js?v=20261021-materials-structure"></script>
+</head>
+<body data-root="../../" data-field="materials" data-chapter="single-crystal-growth">
+<main class="main"><article class="article">
+  <header class="chapter-head">
+    <div class="eyebrow">CHAPTER I · 2D MATERIALS</div>
+    <h1>단결정 성장</h1>
+    <p class="lede">단결정 2D 박막은 웨이퍼 규모 소자 집적을 위한 핵심 목표입니다. 기판의 결정 정보를 전달하는 에피택시와, 그래핀 template 아래에서 결정 방향을 전달하는 hypotaxy를 비교합니다.</p>
+    <div class="meta"></div>
+  </header>
+  <h2><span class="sec">7.1</span>에피택시와 단결정 박막</h2>
+  <p>결정립계는 캐리어를 산란시켜 이동도를 떨어뜨리고 소자마다 특성이 달라지게 합니다. 따라서 웨이퍼 전체가 하나의 방위를 갖는 <strong>단결정 2D 박막</strong>을 키우는 것이 상용화의 핵심 과제입니다.</p>
+  <p>이를 위해 기판의 결정 방위를 따라 박막을 성장시키는 <strong>에피택시(epitaxy)</strong>를 이용합니다. 사파이어 c-면의 원자 단차(atomic step)나 금속 기판의 결정면은 도메인이 특정 방향으로만 핵생성하도록 유도합니다. 다만 MoS₂ 도메인은 0°와 60°의 두 방위(쌍정, twin)로 정렬될 수 있어, 이 둘이 만나는 곳에는 여전히 경계가 생깁니다. CVD 성장에서 온도·공급량에 따른 도메인 변화를 보는 인터랙티브는 <a href="deposition.html#lab-cvd">박막 증착 장</a>에 있습니다. 쌍정 경계까지 없애기 위해 기판 단차의 방향을 조절하거나 다른 템플릿을 이용하는 방법들이 연구되고 있습니다.</p>
+
+  <p>에피택시는 기판과 박막의 결정 방위 관계를 이용해 정렬된 성장을 유도하는 넓은 개념입니다. 분자선 에피택시(MBE)는 원자·분자 빔을 초고진공에서 공급하는 방법이고, CVD 기반 에피택시는 기체 전구체 반응으로 결정 정렬을 유도합니다. 격자 정합만이 유일한 조건은 아니며, 기판 대칭성·표면 단차·반데르발스 상호작용도 정렬에 관여할 수 있습니다. 사파이어 위에 웨이퍼 규모 단층 MoS₂를 성장시킨 사례는 <a href="https://doi.org/10.1038/nature14417" target="_blank" rel="noopener">Kang et al., Nature (2015)</a>에서 확인할 수 있습니다.</p>
+
+  <h2><span class="sec">7.2</span>Hypotaxy: 그래핀 나노구멍을 통한 성장</h2>
+  <p><strong>Hypotaxy</strong>는 그래핀 같은 2D template 아래에 놓인 금속 박막을 황화(sulfurization) 또는 셀렌화(selenization)해, template의 결정 방위에 정렬된 TMD 핵을 아래쪽에 성장시키는 방법입니다. 나노구멍은 반응종이 아래 금속층에 닿는 통로이자 핵생성 위치가 될 수 있습니다. 핵들이 옆으로 성장해 서로 연결되면, 결정성이 정렬된 연속 박막을 얻을 수 있습니다. 기존 에피택시와 달리 결정 방위를 전달하는 층이 성장 후 제거될 수 있어 비정질·격자 불일치 기판에도 적용할 가능성이 연구되고 있습니다. <a href="https://www.nature.com/articles/s41586-024-08492-9" target="_blank" rel="noopener">Moon et al., Nature (2025), wafer-scale TMD hypotaxy</a>.</p>
+  <p>대표 연구에서는 그래핀에 산소 플라즈마로 나노구멍을 만들고, 그 아래 전이금속 박막을 황화해 MoS₂를 성장시켰습니다. 저온 성장 사례와 여러 TMD·기판 조합도 보고되었습니다. 해당 논문에서 인접 구멍 및 핵의 간격은 대략 10–20 nm였지만, 구멍의 <em>평균 직경에 따른 핵생성률 변화는 보편적인 정량 법칙으로 제시되지 않았습니다.</em> 아래 실습은 이 문헌 범위 안에서 간격 척도를 16 nm로 두고 반응 조건을 일정하게 가정한 개념도입니다. 구멍의 위치와 크기는 서로 다르게 배치되며, 슬라이더는 구멍 크기 분포의 평균 직경을 조절합니다. 구멍 직경이 커지면 반응종 접근이 쉬워져 각 구멍에서 핵이 생길 가능성이 커진다는 개념적 경향을 나타냅니다. 실제 위치·크기 분포와 핵 개수, 결정 배향은 플라즈마 처리, 기판, 전구체와 성장 조건에 따라 달라집니다.</p>
+
+  <section class="lab" id="lab-hypotaxy" data-module="hypotaxy">
+    <div class="lab-head"><span class="badge">LAB 7-2</span><h4>Hypotaxy: 나노구멍과 핵생성</h4><span class="sub">평균 구멍 크기를 정하고 성장 시작을 눌러 보세요</span></div>
+    <div class="lab-body lab-grid">
+      <div class="stage h-360"><canvas></canvas><div class="hud" data-o="hud"></div></div>
+      <div class="panel">
+        <label class="slider"><div class="row"><span>목표 평균 나노구멍 직경</span><b data-o="diameter">2.0 nm</b></div><input type="range" data-k="diameter" min="0.5" max="6" step="0.1" value="2"></label>
+        <div class="lab-tools"><button class="btn primary" data-a="run-hypotaxy">▶ 성장 시작</button><button class="btn" data-a="reset-hypotaxy">↻ 처음부터</button></div>
+        <div class="readout">
+          <div><div class="k">핵생성 위치</div><div class="v" data-o="nuclei">—</div></div>
+          <div><div class="k">그래핀 덮임 면적</div><div class="v" data-o="cover">—</div></div>
+          <div class="wide"><div class="k">모식적 경향</div><div class="v" data-o="trend">—</div></div>
+          <div class="wide"><div class="k">성장 시간</div><div class="v" data-o="time">—</div></div>
+        </div>
+        <p class="hint">성장 시작을 누르면 육각형 구멍이 먼저 커지고, 뒤이어 삼각형 핵이 자랍니다. 핵이 생길 때 구멍이 작으면 같은 방향으로 정렬되고, 구멍이 먼저 3.5 nm 이상 커져 있으면 핵 방향을 무작위로 표시합니다. 3.5 nm는 순서를 보여주기 위한 교육용 임계값이며, 보편적인 실험 기준이 아닙니다. 핵생성 개수와 성장 속도도 문헌의 정량 예측값이 아닙니다.</p>
+      </div>
+    </div>
+  </section>
+  <div class="refs" data-module="refs" data-topic="crystal"></div>
+</article>
+</main>
+</body>
+</html>

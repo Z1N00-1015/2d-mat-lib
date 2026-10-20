@@ -1,4 +1,4 @@
-import { FIELDS } from './book-runtime.js?v=20261020-nav1';
+import { FIELDS } from './book-runtime.js?v=20261021-materials-structure';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'

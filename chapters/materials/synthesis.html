@@ -6,41 +6,36 @@
 <title>2D 물질의 합성 · 2차원 물질의 이해 · Beyond Silicon</title>
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../../assets/css/book.css?v=20261020-temmoire2">
+<link rel="stylesheet" href="../../assets/css/book.css?v=20261021-materials-structure">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book-runtime.js?v=20261020-temmoire2"></script>
+<script type="module" src="../../assets/js/book-runtime.js?v=20261021-materials-structure"></script>
 </head>
 <body data-root="../../" data-field="materials" data-chapter="synthesis">
-<main class="main">
-<article class="article">
+<main class="main"><article class="article">
   <header class="chapter-head">
     <div class="eyebrow">CHAPTER I · 2D MATERIALS</div>
     <h1>2D 물질의 합성</h1>
-    <p class="lede">아무리 뛰어난 물질도 크고 균일하게 만들 수 없으면 산업에 쓰일 수 없습니다. 이 장에서는 기계적 박리, 화학 기상 증착(CVD), 에피택시와 hypotaxy를 핵생성·성장·결정립계의 관점에서 살펴봅니다.</p>
+    <p class="lede">2D 물질은 벌크 결정에서 원자층을 분리하거나, 기판 위에서 원자·분자 전구체를 반응시켜 얻습니다. 연구 목적과 필요한 면적·결정 품질에 따라 합성 경로를 선택합니다.</p>
     <div class="meta"></div>
   </header>
+  <h2><span class="sec">6.1</span>하향식과 상향식 합성</h2>
+  <p><strong>하향식(top-down)</strong>은 이미 존재하는 층상 결정을 얇게 분리하는 방법이고, <strong>상향식(bottom-up)</strong>은 원자·분자 전구체를 조립해 결정과 박막을 성장시키는 방법입니다. 박막 증착과 단결정 성장은 다음 페이지에서 따로 설명합니다.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>경로</th><th>대표 방법</th><th>특징</th><th>주요 활용</th></tr></thead>
+    <tbody>
+      <tr><td>하향식</td><td>기계적 박리</td><td>결함이 적은 작은 플레이크</td><td>기초 물성·소자 연구</td></tr>
+      <tr><td>하향식</td><td>액상 박리·이온 삽입</td><td>분산액·대량 생산에 유리하나 크기와 품질 분포가 넓음</td><td>잉크·복합재·전극</td></tr>
+      <tr><td>상향식</td><td>전구체 반응·박막 증착</td><td>기판 위에서 조성·두께·성장을 제어</td><td>연속 박막·집적 소자</td></tr>
+      <tr><td>상향식</td><td>전환·황화·셀렌화</td><td>전구체 막을 반응시켜 2D 화합물로 변환</td><td>칼코겐화물 박막</td></tr>
+    </tbody>
+  </table></div>
 
-  <h2><span class="sec">2.1</span>하향식과 상향식</h2>
-  <p>2D 물질을 얻는 방법은 크게 두 가지입니다. 벌크 층상 결정에서 층을 떼어내는 <strong>하향식(top-down)</strong> 방법과, 원자·분자 단위의 전구체로부터 박막을 쌓아 올리는 <strong>상향식(bottom-up)</strong> 방법입니다.</p>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>방법</th><th>분류</th><th>결정 품질</th><th>크기·생산성</th><th>주 용도</th></tr></thead>
-      <tbody>
-        <tr><td>기계적 박리</td><td>하향식</td><td>매우 높음</td><td>수–수십 µm, 수작업</td><td>기초 물성 연구</td></tr>
-        <tr><td>액상 박리</td><td>하향식</td><td>보통 (작은 조각)</td><td>대량, 분산액</td><td>잉크·복합재</td></tr>
-        <tr><td>화학 기상 증착 (CVD)</td><td>상향식</td><td>높음 (조건 의존)</td><td>웨이퍼 규모</td><td>소자 집적</td></tr>
-        <tr><td>Hypotaxy</td><td>상향식</td><td>높음 (단결정 박막)</td><td>웨이퍼 규모</td><td>단결정 박막 성장</td></tr>
-        <tr><td>분자선 에피택시 (MBE)</td><td>상향식</td><td>높음</td><td>웨이퍼 규모, 느림</td><td>이종구조 연구</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h2><span class="sec">2.2</span>기계적 박리</h2>
+  <h2><span class="sec">6.2</span>기계적 박리</h2>
   <p><strong>기계적 박리(mechanical exfoliation)</strong>는 접착 테이프를 흑연 같은 층상 결정에 붙였다 떼기를 반복해 점점 얇은 조각을 얻는 방법입니다. 마지막으로 테이프를 기판에 눌러 조각을 옮기면, 그중 일부가 단층으로 남습니다.</p>
-  <p>원자 한 층은 너무 얇아 보이지 않을 것 같지만, 두께 약 285 nm의 SiO₂로 덮인 실리콘 기판 위에서는 광학 현미경으로도 구별할 수 있습니다. 산화막의 위아래 계면에서 반사된 빛이 간섭하는데, 그래핀 한 층이 얹히면 광경로가 바뀌어 반사 색의 대비가 생기기 때문입니다. 2004년 그래핀 발견도 이 원리 덕분에 가능했습니다.</p>
+  <p>두께 약 285 nm의 SiO₂로 덮인 실리콘 기판에서는 얇은 플레이크를 광학 현미경으로 구별할 수 있습니다. 산화막 계면에서 반사된 빛이 간섭하고, 그래핀 한 층이 얹히면 광경로가 바뀌어 반사 색의 대비가 생깁니다. 2004년 그래핀의 분리와 확인에도 이 방법이 쓰였습니다.</p>
 
   <section class="lab" id="lab-exfo" data-module="exfo">
-    <div class="lab-head"><span class="badge">LAB 2-1</span><h4>기계적 박리 (스카치테이프법)</h4><span class="sub">웨이퍼 위 조각에 마우스를 올려 층 수를 확인하세요</span></div>
+    <div class="lab-head"><span class="badge">LAB 6-1</span><h4>기계적 박리 (스카치테이프법)</h4><span class="sub">웨이퍼 위 조각에 마우스를 올려 층 수를 확인하세요</span></div>
     <div class="lab-body lab-grid">
       <div class="stage light h-360"><canvas></canvas><div class="tip" data-o="tip"></div></div>
       <div class="panel">
@@ -58,64 +53,13 @@
     </div>
   </section>
 
-  <h2><span class="sec">2.3</span>화학 기상 증착(CVD)</h2>
-  <p><strong>화학 기상 증착(chemical vapor deposition, CVD)</strong>은 기체 상태의 전구체를 고온의 반응로에 흘려 기판 표면에서 반응시켜 박막을 형성하는 방법입니다. MoS₂의 경우 MoO₃(또는 Mo 유기금속 화합물)와 황(S) 증기를 600–900 °C에서 반응시킵니다. 성장은 다음 단계로 진행됩니다.</p>
-  <ol>
-    <li><strong>핵생성(nucleation)</strong>: 기판 위에 흡착된 원자들이 모여 안정한 크기 이상의 핵을 만든다.</li>
-    <li><strong>성장(growth)</strong>: 핵의 가장자리에 원자가 붙으며 단결정 도메인이 커진다. MoS₂ 도메인은 결정의 3회 대칭을 반영해 흔히 삼각형으로 자란다.</li>
-    <li><strong>합체(coalescence)</strong>: 이웃한 도메인이 만나 연속 박막이 된다. 방위가 다른 도메인이 만나는 곳에는 <strong>결정립계(grain boundary)</strong>가 생긴다.</li>
-  </ol>
-  <p>핵생성 속도와 성장 속도의 비가 박막의 결정립 크기를 결정합니다. 온도가 높으면 흡착 원자의 확산이 활발해 이미 있는 핵에 붙기 쉬우므로 핵 밀도가 낮아지고 결정립이 커집니다. 반대로 전구체 공급량이 많으면 과포화도가 높아져 핵이 많이 생기고 결정립이 작아집니다.</p>
+  <h2><span class="sec">6.3</span>액상 박리와 화학적 박리</h2>
+  <p>액상 박리(liquid-phase exfoliation)는 용매 안에서 초음파나 전단력을 이용해 층상 결정을 얇은 조각으로 나눕니다. 큰 면적의 플레이크를 분산액 형태로 얻어 잉크와 복합재를 만들기 쉽지만, 플레이크의 크기·층수·결함 분포를 함께 평가해야 합니다.</p>
+  <p>이온 삽입(intercalation)은 층 사이에 이온이나 분자를 넣어 층간 결합을 약화한 뒤 박리하는 방식입니다. 삽입종과 반응 조건에 따라 조성이나 결정상이 달라질 수 있어, 합성 후 세척과 구조 분석이 중요합니다.</p>
 
-  <section class="lab" id="lab-cvd" data-module="cvd">
-    <div class="lab-head"><span class="badge">LAB 2-2</span><h4>CVD 성장 시뮬레이터: MoS₂ 도메인</h4><span class="sub">온도와 공급량을 바꿔 결정립 크기를 비교하세요</span></div>
-    <div class="lab-body">
-      <div class="lab-tools"><button class="btn primary" data-a="run">성장 시작</button><button class="btn" data-a="reset">초기화</button></div>
-      <div class="lab-grid">
-        <div class="stage h-360"><canvas></canvas><div class="hud" data-o="hud"></div></div>
-        <div class="panel">
-          <label class="slider"><div class="row"><span>성장 온도</span><b data-o="T">750 °C</b></div><input type="range" data-k="T" min="600" max="900" step="5" value="750"></label>
-          <label class="slider"><div class="row"><span>전구체 공급량</span><b data-o="F">보통</b></div><input type="range" data-k="F" min="0.2" max="3" step="0.05" value="1"></label>
-          <label class="toggle">에피택셜 정렬 (사파이어 c-면)<input type="checkbox" data-k="epi"><i></i></label>
-          <label class="toggle">결정립계 강조<input type="checkbox" data-k="gb" checked><i></i></label>
-          <div class="readout">
-            <div><div class="k">피복률</div><div class="v" data-o="cov">0%</div></div>
-            <div><div class="k">도메인 수</div><div class="v" data-o="n">0</div></div>
-            <div class="wide"><div class="k">평균 도메인 크기</div><div class="v" data-o="size">—</div></div>
-          </div>
-        </div>
-      </div>
-      <p class="hint">결정립계 강조를 켜면 도메인을 방위별 색으로 칠하고, 방위가 다른 도메인 사이의 경계를 어둡게 표시합니다.</p>
-    </div>
-  </section>
-  <div class="refs" data-module="refs" data-topic="cvd"></div>
-
-  <h2><span class="sec">2.4</span>에피택시와 단결정 박막</h2>
-  <p>결정립계는 캐리어를 산란시켜 이동도를 떨어뜨리고 소자마다 특성이 달라지게 합니다. 따라서 웨이퍼 전체가 하나의 방위를 갖는 <strong>단결정 2D 박막</strong>을 키우는 것이 상용화의 핵심 과제입니다.</p>
-  <p>이를 위해 기판의 결정 방위를 따라 박막을 성장시키는 <strong>에피택시(epitaxy)</strong>를 이용합니다. 사파이어 c-면의 원자 단차(atomic step)나 금속 기판의 결정면은 도메인이 특정 방향으로만 핵생성하도록 유도합니다. 다만 MoS₂ 도메인은 0°와 60°의 두 방위(쌍정, twin)로 정렬될 수 있어, 이 둘이 만나는 곳에는 여전히 경계가 생깁니다. LAB 2-2에서 에피택셜 정렬을 켜고 확인해 보세요. 쌍정 경계까지 없애기 위해 기판 단차의 방향을 조절하거나 다른 템플릿을 이용하는 방법들이 연구되고 있습니다.</p>
-
-  <h2><span class="sec">2.5</span>Hypotaxy: 그래핀 나노구멍을 통한 성장</h2>
-  <p><strong>Hypotaxy</strong>는 그래핀 같은 2D template 아래에 놓인 금속 박막을 황화(sulfurization) 또는 셀렌화(selenization)해, template의 결정 방위에 정렬된 TMD 핵을 아래쪽에 성장시키는 방법입니다. 나노구멍은 반응종이 아래 금속층에 닿는 통로이자 핵생성 위치가 될 수 있습니다. 핵들이 옆으로 성장해 서로 연결되면, 결정성이 정렬된 연속 박막을 얻을 수 있습니다. 기존 에피택시와 달리 결정 방위를 전달하는 층이 성장 후 제거될 수 있어 비정질·격자 불일치 기판에도 적용할 가능성이 연구되고 있습니다. <a href="https://www.nature.com/articles/s41586-024-08492-9" target="_blank" rel="noopener">Moon et al., Nature (2025), wafer-scale TMD hypotaxy</a>.</p>
-  <p>대표 연구에서는 그래핀에 산소 플라즈마로 나노구멍을 만들고, 그 아래 전이금속 박막을 황화해 MoS₂를 성장시켰습니다. 저온 성장 사례와 여러 TMD·기판 조합도 보고되었습니다. 해당 논문에서 인접 구멍 및 핵의 간격은 대략 10–20 nm였지만, 구멍의 <em>평균 직경에 따른 핵생성률 변화는 보편적인 정량 법칙으로 제시되지 않았습니다.</em> 아래 실습은 이 문헌 범위 안에서 간격 척도를 16 nm로 두고 반응 조건을 일정하게 가정한 개념도입니다. 구멍의 위치와 크기는 서로 다르게 배치되며, 슬라이더는 구멍 크기 분포의 평균 직경을 조절합니다. 구멍 직경이 커지면 반응종 접근이 쉬워져 각 구멍에서 핵이 생길 가능성이 커진다는 개념적 경향을 나타냅니다. 실제 위치·크기 분포와 핵 개수, 결정 배향은 플라즈마 처리, 기판, 전구체와 성장 조건에 따라 달라집니다.</p>
-
-  <section class="lab" id="lab-hypotaxy" data-module="hypotaxy">
-    <div class="lab-head"><span class="badge">LAB 2-3</span><h4>Hypotaxy: 나노구멍과 핵생성</h4><span class="sub">평균 구멍 크기를 정하고 성장 시작을 눌러 보세요</span></div>
-    <div class="lab-body lab-grid">
-      <div class="stage h-360"><canvas></canvas><div class="hud" data-o="hud"></div></div>
-      <div class="panel">
-        <label class="slider"><div class="row"><span>목표 평균 나노구멍 직경</span><b data-o="diameter">2.0 nm</b></div><input type="range" data-k="diameter" min="0.5" max="6" step="0.1" value="2"></label>
-        <div class="lab-tools"><button class="btn primary" data-a="run-hypotaxy">▶ 성장 시작</button><button class="btn" data-a="reset-hypotaxy">↻ 처음부터</button></div>
-        <div class="readout">
-          <div><div class="k">핵생성 위치</div><div class="v" data-o="nuclei">—</div></div>
-          <div><div class="k">그래핀 덮임 면적</div><div class="v" data-o="cover">—</div></div>
-          <div class="wide"><div class="k">모식적 경향</div><div class="v" data-o="trend">—</div></div>
-          <div class="wide"><div class="k">성장 시간</div><div class="v" data-o="time">—</div></div>
-        </div>
-        <p class="hint">성장 시작을 누르면 육각형 구멍이 먼저 커지고, 뒤이어 삼각형 핵이 자랍니다. 핵이 생길 때 구멍이 작으면 같은 방향으로 정렬되고, 구멍이 먼저 3.5 nm 이상 커져 있으면 핵 방향을 무작위로 표시합니다. 3.5 nm는 순서를 보여주기 위한 교육용 임계값이며, 보편적인 실험 기준이 아닙니다. 핵생성 개수와 성장 속도도 문헌의 정량 예측값이 아닙니다.</p>
-      </div>
-    </div>
-  </section>
-</article>
-</main>
+  <h2><span class="sec">6.4</span>목표에 맞는 합성 경로</h2>
+  <p>고품질의 작은 플레이크에서 기본 물성을 확인할 때는 기계적 박리가 편리하고, 넓은 기판에 연속막을 만들거나 소자 집적을 목표로 할 때는 상향식 성장과 박막 증착이 중요합니다. 결정립계와 방위까지 제어한 박막이 필요하면 <a href="single-crystal-growth.html">단결정 성장</a>에서 다루는 에피택시와 hypotaxy를 고려할 수 있습니다.</p>
+  <p><a href="deposition.html">박막 증착: CVD·PVD·ALD</a> 페이지에서 각 공정의 원리와 2D 소재 성장 사례를 비교합니다.</p>
+</article></main>
 </body>
 </html>
