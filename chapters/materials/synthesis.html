@@ -6,7 +6,7 @@
 <title>2D 물질의 합성 · 2차원 물질의 이해 · Beyond Silicon</title>
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../../assets/css/book.css?v=20261021-materials-structure">
+<link rel="stylesheet" href="../../assets/css/book.css?v=20261021-synthesis-visuals">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
 <script type="module" src="../../assets/js/book-runtime.js?v=20261021-materials-structure"></script>
 </head>
@@ -29,6 +29,35 @@
       <tr><td>상향식</td><td>전환·황화·셀렌화</td><td>전구체 막을 반응시켜 2D 화합물로 변환</td><td>칼코겐화물 박막</td></tr>
     </tbody>
   </table></div>
+  <figure class="process-figure" aria-label="2D 물질의 대표적인 박리 방법">
+    <div class="process-grid">
+      <section class="process-card">
+        <h3>기계적 박리</h3>
+        <svg viewBox="0 0 220 140" role="img" aria-labelledby="mech-fig-title mech-fig-desc"><title id="mech-fig-title">기계적 박리 모식도</title><desc id="mech-fig-desc">테이프가 층상 결정의 위쪽 층을 떼어내고 얇은 플레이크를 기판에 옮깁니다.</desc>
+          <path class="substrate" d="M35 108h150v12H35z"/><path class="atom-alt" d="M55 96h110v5H55zm0-9h110v5H55zm0-9h110v5H55z"/><path class="accent-line" d="M65 28h90l-13 23H78z"/><path class="line" d="M110 54v20m-6-7 6 7 6-7"/>
+          <path class="atom" d="M75 77h70v5H75z"/><text class="tiny-label" x="110" y="22" text-anchor="middle">접착 테이프</text><text class="tiny-label" x="110" y="135" text-anchor="middle">기판에 플레이크 전사</text>
+        </svg>
+        <p>층간 결합을 기계적으로 떼어 얇은 플레이크를 얻습니다.</p>
+      </section>
+      <section class="process-card">
+        <h3>액상 박리</h3>
+        <svg viewBox="0 0 220 140" role="img" aria-labelledby="liquid-fig-title liquid-fig-desc"><title id="liquid-fig-title">액상 박리 모식도</title><desc id="liquid-fig-desc">용매 속 층상 결정에 초음파나 전단력을 가해 얇은 플레이크 분산액을 만듭니다.</desc>
+          <path class="line" d="M60 31h100l-9 79H69z"/><path class="vapor" d="M67 65h86l-6 42H73z"/><path class="atom-alt" d="M82 91l28-5m-18 15 29-6m4-18 23-5" stroke="var(--accent-2)" stroke-width="5" stroke-linecap="round"/><circle class="atom" cx="90" cy="76" r="4"/><circle class="atom" cx="135" cy="94" r="4"/><path class="accent-line" d="M87 45q23-16 46 0m-46 0q23 16 46 0"/>
+          <text class="tiny-label" x="110" y="25" text-anchor="middle">용매 + 초음파/전단</text><text class="tiny-label" x="110" y="130" text-anchor="middle">플레이크 분산액</text>
+        </svg>
+        <p>용매 안에서 박리해 플레이크 잉크나 분산액으로 활용합니다.</p>
+      </section>
+      <section class="process-card">
+        <h3>이온 삽입 후 박리</h3>
+        <svg viewBox="0 0 220 140" role="img" aria-labelledby="ion-fig-title ion-fig-desc"><title id="ion-fig-title">이온 삽입 박리 모식도</title><desc id="ion-fig-desc">이온이 층 사이로 들어가 간격을 벌리고, 후속 처리로 층이 분리됩니다.</desc>
+          <path class="atom-alt" d="M45 43h130v6H45zm0 25h130v6H45zm0 25h130v6H45z"/><circle class="atom" cx="75" cy="59" r="7"/><circle class="atom" cx="110" cy="59" r="7"/><circle class="atom" cx="145" cy="59" r="7"/><path class="accent-line" d="M110 22v24m-7-8 7 8 7-8"/><path class="line" d="M110 84v25m-7-8 7 8 7-8"/>
+          <text class="tiny-label" x="110" y="16" text-anchor="middle">이온 삽입</text><text class="tiny-label" x="110" y="130" text-anchor="middle">층간 거리 증가 · 분리</text>
+        </svg>
+        <p>층 사이에 이온을 넣어 결합을 약화한 뒤 분리합니다.</p>
+      </section>
+    </div>
+    <figcaption><b>박리 경로 개념도.</b> 플레이크 크기·층수·결함은 공정과 소재에 따라 달라집니다.</figcaption>
+  </figure>
 
   <h2><span class="sec">6.2</span>기계적 박리</h2>
   <p><strong>기계적 박리(mechanical exfoliation)</strong>는 접착 테이프를 흑연 같은 층상 결정에 붙였다 떼기를 반복해 점점 얇은 조각을 얻는 방법입니다. 마지막으로 테이프를 기판에 눌러 조각을 옮기면, 그중 일부가 단층으로 남습니다.</p>

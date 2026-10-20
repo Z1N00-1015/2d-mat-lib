@@ -6,7 +6,7 @@
 <title>박막 증착 · 2차원 물질의 이해 · Beyond Silicon</title>
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../../assets/css/book.css?v=20261021-materials-structure">
+<link rel="stylesheet" href="../../assets/css/book.css?v=20261021-synthesis-visuals">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
 <script type="module" src="../../assets/js/book-runtime.js?v=20261021-materials-structure"></script>
 </head>
@@ -28,6 +28,41 @@
       <tr><td>ALD</td><td>전구체를 순차 주입하는 표면 자기 제한 반응</td><td>초박막·고종횡비 구조의 두께 제어</td><td>비활성 basal plane에서 초기 핵생성과 균일 피복이 과제</td></tr>
     </tbody>
   </table></div>
+  <figure class="process-figure" aria-label="CVD, PVD, ALD의 막 형성 원리 비교">
+    <div class="process-grid">
+      <section class="process-card">
+        <h3>CVD · 기체 반응</h3>
+        <svg viewBox="0 0 220 140" role="img" aria-labelledby="cvd-fig-title cvd-fig-desc"><title id="cvd-fig-title">CVD 기체 반응 모식도</title><desc id="cvd-fig-desc">기체 전구체가 가열된 기판 표면에 도달해 반응하고 결정 도메인을 형성합니다.</desc>
+          <path class="substrate" d="M25 111h170v12H25z"/><path class="line" d="M37 104h146"/><path class="accent-line" d="M65 33v36m45-42v42m45-36v36"/><path class="line" d="M59 62l6 8 6-8m33-3 6 8 6-8m33 3 6 8 6-8"/>
+          <circle class="vapor" cx="65" cy="27" r="8"/><circle class="vapor" cx="110" cy="22" r="8"/><circle class="vapor" cx="155" cy="27" r="8"/>
+          <path class="atom" d="M74 103l9-16 9 16zM98 103l9-16 9 16zM122 103l9-16 9 16zM146 103l9-16 9 16z"/>
+          <text class="tiny-label" x="110" y="16" text-anchor="middle">기체 전구체</text><text class="tiny-label" x="110" y="136" text-anchor="middle">가열된 기판</text>
+        </svg>
+        <p>전구체가 표면에서 반응하며 핵과 결정 도메인이 자랍니다.</p>
+      </section>
+      <section class="process-card">
+        <h3>PVD · 물리적 수송</h3>
+        <svg viewBox="0 0 220 140" role="img" aria-labelledby="pvd-fig-title pvd-fig-desc"><title id="pvd-fig-title">PVD 물리적 수송 모식도</title><desc id="pvd-fig-desc">진공에서 타깃 원자가 방출되어 기판으로 이동하고 얇은 전구체 막을 형성합니다.</desc>
+          <path class="line" d="M25 24h170v91H25z"/><path class="substrate" d="M50 101h120v10H50z"/><path class="atom-alt" d="M76 91h68v10H76z"/><path class="substrate" d="M83 30h54v14H83z"/>
+          <path class="accent-line" d="M96 48l-15 34m27-34v34m12-34 15 34"/><circle class="atom" cx="81" cy="82" r="3"/><circle class="atom" cx="108" cy="80" r="3"/><circle class="atom" cx="135" cy="83" r="3"/>
+          <text class="tiny-label" x="110" y="20" text-anchor="middle">증발·스퍼터 타깃</text><text class="tiny-label" x="110" y="130" text-anchor="middle">진공 챔버 · 기판</text>
+        </svg>
+        <p>증발·스퍼터링한 원자가 이동해 막을 만들고, 후속 황화·셀렌화를 거칠 수 있습니다.</p>
+      </section>
+      <section class="process-card">
+        <h3>ALD · 순차 표면 반응</h3>
+        <svg viewBox="0 0 220 140" role="img" aria-labelledby="ald-fig-title ald-fig-desc"><title id="ald-fig-title">ALD 순차 표면 반응 모식도</title><desc id="ald-fig-desc">A 전구체와 B 반응물을 번갈아 공급해 표면 반응을 포화시키며 층을 쌓습니다.</desc>
+          <path class="substrate" d="M27 105h166v12H27z"/><path class="line" d="M45 97h130"/>
+          <circle class="atom" cx="58" cy="91" r="7"/><circle class="atom" cx="84" cy="91" r="7"/><circle class="atom" cx="110" cy="91" r="7"/><circle class="atom" cx="136" cy="91" r="7"/><circle class="atom" cx="162" cy="91" r="7"/>
+          <circle class="atom-alt" cx="71" cy="76" r="6"/><circle class="atom-alt" cx="97" cy="76" r="6"/><circle class="atom-alt" cx="123" cy="76" r="6"/><circle class="atom-alt" cx="149" cy="76" r="6"/>
+          <path class="accent-line" d="M58 27v28m52-28v28m52-28v28"/><path class="line" d="M52 49l6 7 6-7m46 0 6 7 6-7m46 0 6 7 6-7"/>
+          <text class="tiny-label" x="58" y="20" text-anchor="middle">A 주입</text><text class="tiny-label" x="162" y="20" text-anchor="middle">B 주입</text><text class="tiny-label" x="110" y="135" text-anchor="middle">반응 포화 → 반복</text>
+        </svg>
+        <p>두 전구체를 번갈아 공급해 표면 반응을 반복하고, 사이클 수로 막 두께를 조절합니다.</p>
+      </section>
+    </div>
+    <figcaption><b>공정 원리 개념도.</b> 실제 반응 경로와 막 구조는 소재·전구체·기판 조건에 따라 달라집니다.</figcaption>
+  </figure>
 
   <h2><span class="sec">5.2</span>화학 기상 증착(CVD)</h2>
   <p><strong>화학 기상 증착(chemical vapor deposition, CVD)</strong>은 기체 상태의 전구체를 고온의 반응로에 흘려 기판 표면에서 반응시켜 박막을 형성하는 방법입니다. MoS₂의 경우 MoO₃(또는 Mo 유기금속 화합물)와 황(S) 증기를 600–900 °C에서 반응시킵니다. 성장은 다음 단계로 진행됩니다.</p>

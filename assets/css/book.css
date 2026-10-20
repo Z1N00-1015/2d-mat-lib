@@ -230,6 +230,25 @@ figure .fig-body { background: var(--surface); border: 1px solid var(--border); 
 figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; text-align: center; }
 figcaption b { color: var(--text-2); }
 
+/* synthesis process diagrams */
+.process-figure { margin: 1.6rem 0 2rem; }
+.process-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.process-grid-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.process-card { min-width: 0; overflow: hidden; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+.process-card h3 { margin: 0; padding: 12px 14px 0; color: var(--text); font-size: 15px; }
+.process-card p { margin: 0; padding: 0 14px 14px; color: var(--text-2); font-size: 12.5px; line-height: 1.55; }
+.process-card svg { display: block; width: 100%; height: auto; padding: 8px 10px; }
+.process-figure figcaption { margin-top: 10px; }
+.process-figure svg .substrate { fill: var(--surface-2); stroke: var(--border-2); }
+.process-figure svg .atom { fill: var(--accent); }
+.process-figure svg .atom-alt { fill: var(--accent-2); }
+.process-figure svg .vapor { fill: var(--accent-soft); stroke: var(--accent); }
+.process-figure svg .line { fill: none; stroke: var(--text-2); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.process-figure svg .accent-line { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.process-figure svg .label { fill: var(--text-2); font: 11px var(--font); }
+.process-figure svg .tiny-label { fill: var(--muted); font: 9px var(--font); }
+@media (max-width: 700px) { .process-grid, .process-grid-two { grid-template-columns: 1fr; } .process-card { display: grid; grid-template-columns: minmax(120px, 38%) 1fr; grid-template-rows: auto 1fr; align-items: center; } .process-card h3 { grid-column: 2; grid-row: 1; padding: 12px 12px 0; } .process-card svg { grid-column: 1; grid-row: 1 / span 2; padding: 8px; } .process-card p { grid-column: 2; grid-row: 2; padding: 4px 12px 12px; } .process-grid-two .process-card { display: block; } .process-grid-two .process-card h3 { padding: 12px 14px 0; } .process-grid-two .process-card svg { padding: 8px 10px; } .process-grid-two .process-card p { padding: 0 14px 14px; } }
+
 /* ---------- lab (interactive experiment) ---------- */
 .lab {
   margin: 2.2rem -24px; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden;
