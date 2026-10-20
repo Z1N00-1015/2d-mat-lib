@@ -120,7 +120,7 @@ function buildLayout() {
   bar.className = 'progress-bar';
   body.prepend(bar);
 
-  // Keep the sidebar compact by default; each field can be expanded on demand.
+  // Keep the current field open on chapter pages; other fields start collapsed.
   const side = document.createElement('nav');
   side.className = 'sidebar';
   side.setAttribute('aria-label', '목차');
@@ -144,7 +144,7 @@ function buildLayout() {
     }
     const sectionId = `nav-field-${f.id}`;
     const isCurrentField = f.id === fieldId;
-    html += `<button class="nav-field-toggle${isCurrentField ? ' is-current' : ''}" type="button" aria-expanded="false" aria-controls="${sectionId}"><span>${f.n}. ${f.title}</span><span class="chevron" aria-hidden="true">⌄</span></button><div class="nav-field-content" id="${sectionId}" hidden>${content}</div>`;
+    html += `<button class="nav-field-toggle${isCurrentField ? ' is-current' : ''}" type="button" aria-expanded="${isCurrentField}" aria-controls="${sectionId}"><span>${f.n}. ${f.title}</span><span class="chevron" aria-hidden="true">⌄</span></button><div class="nav-field-content" id="${sectionId}"${isCurrentField ? '' : ' hidden'}>${content}</div>`;
   }
   side.innerHTML = html;
   body.insertBefore(side, top.nextSibling);
@@ -208,19 +208,8 @@ function buildLayout() {
   addEventListener('scroll', prog, { passive: true });
   prog();
 
-  // pager + footer
+  // footer
   const art = document.querySelector('.article');
-  if (art && field) {
-    const list = field.chapters, i = list.findIndex(c => c.id === current);
-    const prev = list[i - 1], next = list[i + 1];
-    const pg = document.createElement('div');
-    pg.className = 'pager';
-    pg.innerHTML = (prev
-      ? `<a class="prev" href="${prev.id}.html"><small>← 이전 장</small><b>${prev.n} ${prev.title}</b></a>`
-      : `<a class="prev" href="${root}index.html"><small>← 표지</small><b>전체 분야로 돌아가기</b></a>`)
-      + (next ? `<a class="next" href="${next.id}.html"><small>다음 장 →</small><b>${next.n} ${next.title}</b></a>` : '');
-    art.appendChild(pg);
-  }
   if (art) {
     const f = document.createElement('footer');
     f.className = 'site-foot';
