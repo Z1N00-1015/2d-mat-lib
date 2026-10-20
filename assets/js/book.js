@@ -112,7 +112,7 @@ function buildLayout() {
   top.className = 'topbar';
   top.innerHTML = `
     <button class="icon-btn menu-btn" aria-label="목차 열기">${ICONS.menu}</button>
-    <a class="brand" href="${root}index.html">${LOGO}<span>${BRAND.name}</span><small>${field ? field.title : BRAND.sub}</small></a>
+    <a class="brand" href="${root}index.html">${LOGO}<span>${BRAND.name}</span><small>${field ? field.title : current === 'home' ? '2D 소재 연구 DB' : BRAND.sub}</small></a>
     <div class="spacer"></div>
     <button class="icon-btn theme-btn" aria-label="테마 전환"></button>`;
   body.prepend(top);

@@ -1,16 +1,15 @@
 // Hub page: render every field (분야) and its chapter cards from the manifest in book.js
-import { FIELDS, chapterUrl } from './book.js?v=20261020z';
+import { FIELDS, chapterUrl } from './book.js?v=20261020-homehub1';
 
 const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const local = FIELDS.filter(f => !f.external);
-const chapters = local.flatMap(f => f.chapters.filter(c => c.labs.length));
-document.getElementById('st-field').textContent = FIELDS.length;
-document.getElementById('st-ch').textContent = local.reduce((s, f) => s + f.chapters.length, 0);
-document.getElementById('st-lab').textContent = chapters.reduce((s, c) => s + c.labs.length, 0);
 const first = local[0];
-document.getElementById('start').href = chapterUrl('./', first, first.chapters[0]);
+const start = document.getElementById('start');
+if (start && first) start.href = chapterUrl('./', first, first.chapters[0]);
 
-document.getElementById('fields').innerHTML = FIELDS.map(f => {
+const fieldRoot = document.getElementById('fields');
+if (!fieldRoot) throw new Error('Missing #fields hub container');
+fieldRoot.innerHTML = FIELDS.map(f => {
   if (f.external) {
     return `<section class="field ext" id="field-${f.id}">
       <div class="field-head"><div><div class="en">FIELD ${f.n} · ${esc(f.en)}</div><h3>${esc(f.title)}</h3><p>${esc(f.desc)}</p></div>
