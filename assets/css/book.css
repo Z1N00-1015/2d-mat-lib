@@ -397,49 +397,35 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
 .landscape-figure { margin: 0; padding: 12px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); }
 .landscape-scroll { overflow-x: auto; border-radius: 12px; outline-color: var(--accent); scrollbar-color: var(--border-2) transparent; }
 .landscape-map { display: block; width: 100%; min-width: 1120px; height: auto; }
-.landscape-links { stroke: var(--border-2); }
 .landscape-node .node-card { fill: var(--bg); stroke: var(--border); stroke-width: 1.5; }
 .landscape-node .node-title { fill: var(--text); font: 750 19px var(--font); }
 .landscape-node .node-note { fill: var(--text-2); font: 12px var(--font); }
 .landscape-node .sketch-label { fill: var(--muted); font: 10px var(--font); }
-.landscape-node .sketch-line, .landscape-node .sketch-arrow, .landscape-node .sketch-crystal,
-.landscape-node .twist-arrow, .landscape-node .band-axis, .landscape-node .band-flat,
-.landscape-node .band-dispersive, .landscape-node .energy-level, .landscape-node .photon-arrow,
-.landscape-node .spectrum-axis, .landscape-node .spectrum-curve, .landscape-node .domain-arrow {
-  fill: none; stroke: var(--node-accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-}
-.landscape-node .sketch-accent { fill: var(--node-accent); }
-.landscape-node .sketch-layer { fill: color-mix(in srgb, var(--node-accent) 30%, var(--surface)); stroke: var(--node-accent); stroke-width: 1.5; }
-.landscape-node .sketch-substrate { fill: var(--surface-2); stroke: var(--border-2); stroke-width: 1; }
-.landscape-node .sketch-crystal { fill: color-mix(in srgb, var(--node-accent) 18%, var(--surface)); }
-.landscape-node .lattice-a path { fill: none; stroke: var(--node-accent); stroke-width: 1.5; opacity: .8; }
-.landscape-node .lattice-b path { fill: none; stroke: var(--teal); stroke-width: 1.5; opacity: .8; }
-.landscape-node .moire-cell { fill: color-mix(in srgb, var(--node-accent) 10%, transparent); stroke: var(--node-accent); stroke-width: 2; stroke-dasharray: 4 3; }
-.landscape-node .device-metal { fill: var(--surface-2); stroke: var(--border-2); stroke-width: 1; }
-.landscape-node .device-channel { fill: color-mix(in srgb, var(--node-accent) 26%, var(--surface)); stroke: var(--node-accent); stroke-width: 1.5; }
-.landscape-node .device-dielectric { fill: color-mix(in srgb, var(--teal) 18%, var(--surface)); stroke: var(--teal); stroke-width: 1; }
-.landscape-node .polar-arrow { fill: none; stroke: var(--node-accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.landscape-node .band-axis, .landscape-node .spectrum-axis { stroke: var(--border-2); }
-.landscape-node .band-flat { stroke-width: 3; }
-.landscape-node .band-dispersive { stroke: var(--teal); }
-.landscape-node .energy-level { stroke: var(--border-2); }
-.landscape-node .photon-arrow { stroke: var(--node-accent); }
-.landscape-node .spectrum-curve { stroke-width: 2.5; }
-.landscape-node .domain-a { fill: color-mix(in srgb, var(--node-accent) 20%, var(--surface)); stroke: var(--node-accent); stroke-width: 1.5; }
-.landscape-node .domain-b { fill: color-mix(in srgb, var(--teal) 18%, var(--surface)); stroke: var(--teal); stroke-width: 1.5; }
-.landscape-node .domain-arrow { stroke: var(--node-accent); stroke-width: 2.5; }
-.landscape-node .domain-arrow.opposite { stroke: var(--teal); }
-.node-synthesis, .node-synthesis circle, .node-synthesis path { --node-accent: #47b9a8; }
-.node-stack, .node-stack circle, .node-stack path { --node-accent: #a28bff; }
-.node-device, .node-device circle, .node-device path { --node-accent: #5ba9f4; }
-.node-quantum, .node-quantum circle, .node-quantum path { --node-accent: #ed78a7; }
-.node-optics, .node-optics circle, .node-optics path { --node-accent: #dfad4c; }
-.node-function, .node-function circle, .node-function path { --node-accent: #ed8269; }
-.landscape-core rect { fill: var(--accent-soft); stroke: color-mix(in srgb, var(--accent) 60%, var(--border)); stroke-width: 2; }
-.landscape-core .core-kicker { fill: var(--accent); font: 700 12px var(--mono); letter-spacing: 1.2px; }
-.landscape-core .core-title { fill: var(--text); font: 850 36px var(--font); }
-.landscape-core .core-note { fill: var(--text-2); font: 14px var(--font); }
+.landscape-node .growth-atoms circle { fill: #f2b544; stroke: #fff0b2; stroke-width: 1; animation: precursor-fall 3.8s ease-in-out infinite alternate; }
+.landscape-node .growth-atoms circle:nth-child(even) { animation-delay: -1.4s; }
+.landscape-node .growth-arrow, .landscape-node .vapor-line { fill: none; stroke: #d7fff6; stroke-width: 1.5; stroke-dasharray: 3 5; opacity: .75; }
+.landscape-node .zoom-ring { fill: var(--surface-2); stroke: #47b9a8; stroke-width: 2; }
+.landscape-node .zoom-lattice { fill: none; stroke: #d7fff6; stroke-width: 2; opacity: .82; }
+.node-synthesis { --node-accent: #47b9a8; }
+.node-stack { --node-accent: #a28bff; }
+.node-device { --node-accent: #5ba9f4; }
+.node-function { --node-accent: #f28b68; }
+.landscape-node .moire-rotor { transform-box: fill-box; transform-origin: center; animation: moire-rotate 18s linear infinite; }
+.landscape-node .moire-cell-large { fill: #ac94ff12; stroke: #e4d9ff; stroke-width: 2; stroke-dasharray: 7 5; }
+.landscape-node .rotation-orbit, .landscape-node .rotation-head { fill: none; stroke: #f5c05a; stroke-width: 2; stroke-linecap: round; }
+.landscape-node .integration-stack { filter: drop-shadow(0 10px 8px #0003); }
+.landscape-node .stack-vias { fill: none; stroke: #e5ce8e; stroke-width: 4; stroke-linecap: round; }
+.landscape-node .stack-label, .landscape-node .ferro-label { fill: var(--text-2); font: 650 12px var(--font); }
+.landscape-node .stack-guide { stroke: var(--border-2); stroke-width: 1.5; }
+.landscape-node .atom-bonds { fill: none; stroke: #8193a8; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.landscape-node .atom-row circle { fill: url(#atom-blue); stroke: #bdeaff; stroke-width: 1; filter: drop-shadow(0 3px 2px #0006); }
+.landscape-node .atom-row-ferro circle { fill: url(#atom-gold); stroke: #ffe2a0; }
+.landscape-node .spin-arrows, .landscape-node .polar-arrows { fill: none; stroke: #ff665f; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow-red); }
+.landscape-node .polar-arrows { stroke: #9d87ff; marker-end: url(#arrow-violet); }
+.landscape-node .property-baseline { fill: none; stroke: var(--border-2); stroke-width: 1; }
 .landscape-figure figcaption { padding: 11px 8px 3px; color: var(--muted); font-size: 12.5px; line-height: 1.55; }
+@keyframes moire-rotate { to { transform: rotate(360deg); } }
+@keyframes precursor-fall { from { transform: translateY(-5px); opacity: .65; } to { transform: translateY(7px); opacity: 1; } }
 .home-history .section-heading { margin-bottom: 14px; }
 .home-history .history-timeline { padding: 0 4px; }
 .research-overview, .all-topics, .site-help { max-width: 1120px; margin: 0 auto 14px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
@@ -557,6 +543,7 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .landscape-node .moire-rotor, .landscape-node .growth-atoms circle { animation: none; }
 }
 
 /* ==========================================================
