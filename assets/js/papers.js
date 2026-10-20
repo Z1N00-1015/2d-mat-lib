@@ -3,7 +3,7 @@
 import { fitCanvas, seg, FONT, MONO } from './util.js';
 
 let cache = null;
-const load = () => (cache ||= fetch(new URL('../../data/papers.json', import.meta.url)).then(r => {
+const load = () => (cache ||= fetch(new URL('../../data/papers.json', import.meta.url), { cache: 'no-store' }).then(r => {
   if (!r.ok) throw new Error(`papers.json ${r.status}`);
   return r.json();
 }));
