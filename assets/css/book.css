@@ -420,8 +420,8 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
 .landscape-node .atom-bonds { fill: none; stroke: #8193a8; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .landscape-node .atom-row circle { fill: url(#atom-blue); stroke: #bdeaff; stroke-width: 1; filter: drop-shadow(0 3px 2px #0006); }
 .landscape-node .atom-row-ferro circle { fill: url(#atom-gold); stroke: #ffe2a0; }
-.landscape-node .spin-arrows, .landscape-node .polar-arrows { fill: none; stroke: #ff665f; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow-red); }
-.landscape-node .polar-arrows { stroke: #9d87ff; marker-end: url(#arrow-violet); }
+.landscape-node .spin-arrows, .landscape-node .polar-arrows { fill: none; stroke: #ff665f; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.landscape-node .polar-arrows { stroke: #9d87ff; }
 .landscape-node .property-baseline { fill: none; stroke: var(--border-2); stroke-width: 1; }
 .landscape-figure figcaption { padding: 11px 8px 3px; color: var(--muted); font-size: 12.5px; line-height: 1.55; }
 @keyframes moire-rotate { to { transform: rotate(360deg); } }
