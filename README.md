@@ -57,17 +57,9 @@
 
 ## 논문 데이터
 
-`data/papers.json`은 비공개 저장소 `lab-paper-library`의 `public_export.py`로 만든 파일입니다.
-서지정보와 연구실에서 검토 완료한 수치만 들어 있고, 원문 인용과 AI 요약은 포함하지 않습니다.
+`data/papers.json`은 [로그인형 웹 논문 분석실](https://lab-paper-library-z1n00-1015.onrender.com)의 현재 운영 DB에서 생성합니다. 승인된 DB 변경은 Render가 감지해 서지정보와 검토 완료 수치만 `main`에 반영하며, GitHub Pages가 자동 배포됩니다. 앱 사이드바의 **🌐 웹사이트 논문 데이터 반영**으로 즉시 갱신할 수도 있습니다. 원문 인용, AI 요약, 검토 대기 값과 PDF는 공개 JSON에 포함되지 않습니다.
 
-GitHub Actions가 매시간 원본 저장소를 확인해 공개용 JSON을 다시 내보냅니다. 데이터가 바뀌면 `main`에 자동 커밋하고 GitHub Pages에도 배포합니다. 이를 위해 `2d-mat-lib` 저장소의 **Settings → Secrets and variables → Actions**에 `LAB_PAPER_LIBRARY_READ_TOKEN` Secret을 등록해야 합니다. 토큰은 비공개 저장소 `lab-paper-library`에만 접근하도록 만들고 `Contents: Read-only` 권한만 부여하세요. 수동으로 즉시 동기화하려면 Actions 탭에서 **Sync research paper database → Run workflow**를 실행하면 됩니다.
-
-논문 등록·PDF 보관·AI 분석·사람 검토는 [로그인형 웹 논문 분석실](https://lab-paper-library-z1n00-1015.onrender.com)에서 진행하도록 구성 중입니다. 이 앱은 비공개 저장소의 별도 Render 서비스로 운영하며, Pages에는 서지정보와 검토 완료 수치만 게시합니다. Render 서비스와 Google 로그인을 설정하기 전까지 논문 분석실 주소는 사용할 수 없습니다.
-
-```bash
-# lab-paper-library 폴더에서
-python public_export.py --out ../2d-mat-lib/data/papers.json
-```
+Render 서비스에서 이 기능을 사용하려면 환경 변수 `PUBLIC_SITE_SYNC_TOKEN`을 설정해야 합니다. Fine-grained token은 `Z1N00-1015/2d-mat-lib` 저장소 하나에만 접근하도록 만들고 `Contents: Read and write` 권한만 부여합니다. 토큰은 Render의 **Environment**에 보관하며 웹 저장소의 GitHub Actions secret으로 등록하지 않습니다.
 
 ## 로컬 실행
 
