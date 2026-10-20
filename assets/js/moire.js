@@ -8,7 +8,7 @@ export function init(root) {
   const canvas = root.querySelector('canvas');
   const { ctx, state } = fitCanvas(canvas, () => (dirty = true));
   const out = outs(root);
-  let theta = 1.1, delta = 0, zoom = 12, mode = 'dots', anim = false, dirty = true;
+  let theta = 1.1, delta = 0, zoom = 5, mode = 'domains', anim = false, dirty = true;
   const tCtl = range(root, 'theta', v => { theta = v; refresh(); });
   const dCtl = range(root, 'delta', v => { delta = v; refresh(); });
   range(root, 'zoom', v => { zoom = v; refresh(); });
@@ -42,10 +42,15 @@ export function init(root) {
     out('zoom', `×${(zoom / 12).toFixed(1)}`);
     out('L', isFinite(La) ? `${(La * A_NM).toFixed(2)}<small>nm</small>` : '∞');
     out('La', isFinite(La) ? La.toFixed(1) : '∞');
+    out('domain-size', isFinite(La) ? `${(La * A_NM).toFixed(2)}<small>nm</small>` : '∞');
     out('N', isFinite(La) ? `≈ ${Math.round(4 * La * La).toLocaleString()} 개` : '—');
     const msg = out('msg');
     let html = '비틀림 각 θ가 작을수록 모아레 주기 L은 커집니다. 화면을 좌우로 드래그해 비틀어 보세요.', hot = false;
-    if (Math.abs(theta - 1.08) < 0.1 && delta < 0.3) { html = '✨ <b>매직 앵글</b>: 층간 혼성(interlayer hybridization)으로 디랙 원뿔의 페르미 속도가 0에 가까워져 평탄 밴드(flat band)가 형성됩니다. 운동 에너지보다 전자 간 쿨롱 상호작용이 우세해져 상관 절연체(correlated insulator)와 비통상 초전도가 나타납니다.'; hot = true; }
+    if (mode === 'domains') {
+      html = '파랑·주황 영역은 AB·BA stacking domains, 어두운 띠는 domain walls, 원은 AA 영역을 나타내는 모식도입니다. θ를 낮추면 모아레 주기가 커지고, AB·BA 영역이 AA 주변과 domain walls보다 상대적으로 넓어지는 경향을 볼 수 있습니다. TBG의 작은 각도 영역에서 관찰되는 재구성을 단순화했습니다.';
+      if (delta > 0.1) html += ' 격자 불일치가 있는 조합은 실제 도메인 대칭과 모양이 다를 수 있습니다.';
+    }
+    else if (Math.abs(theta - 1.08) < 0.1 && delta < 0.3) { html = '✨ <b>매직 앵글</b>: 층간 혼성(interlayer hybridization)으로 디랙 원뿔의 페르미 속도가 0에 가까워져 평탄 밴드(flat band)가 형성됩니다. 운동 에너지보다 전자 간 쿨롱 상호작용이 우세해져 상관 절연체(correlated insulator)와 비통상 초전도가 나타납니다.'; hot = true; }
     else if (Math.abs(theta - 21.79) < 0.05) html = '<b>정합(commensurate) 구조</b>: θ = 21.79°에서 두 격자가 √7 × √7 초격자로 정확히 일치합니다(Σ7 대응 격자, coincidence site lattice).';
     else if (Math.abs(theta - 13.17) < 0.05) html = '<b>정합 구조</b>: θ = 13.17°는 √19 × √19 초격자를 만듭니다. 정합 각도는 cos θ = (m²+4mn+n²) / 2(m²+mn+n²) 로 주어집니다.';
     else if (theta > 29.5) html = '<b>30° 비틀림</b>: 병진 주기성이 없는 12회 회전 대칭의 <b>준결정(quasicrystal)</b>이 됩니다 (Science 2018).';
@@ -82,7 +87,7 @@ export function init(root) {
         ctx.moveTo(x + r, y); ctx.arc(x, y, r, 0, 6.2832);
       }
       ctx.fill();
-    } else {
+    } else if (mode === 'bonds') {
       ctx.lineWidth = Math.max(0.8, a * 0.09);
       ctx.beginPath();
       for (let i = imin; i <= imax; i++) for (let j = jmin; j <= jmax; j++) {
@@ -119,7 +124,9 @@ export function init(root) {
       const M1 = [2 * Math.PI * g2[1] / gd, -2 * Math.PI * g2[0] / gd];
       const M2 = [-2 * Math.PI * g1[1] / gd, 2 * Math.PI * g1[0] / gd];
       const Lpx = Math.hypot(...M1);
-      if (Lpx > 40 && Lpx < 4 * Math.max(w, h)) {
+      if (mode === 'domains') {
+        drawDomains(M1, M2, Lpx, w, h);
+      } else if (Lpx > 40 && Lpx < 4 * Math.max(w, h)) {
         ctx.strokeStyle = 'rgba(255,255,255,.55)'; ctx.lineWidth = 1.2; ctx.setLineDash([4, 4]);
         const n = Math.ceil(Math.max(w, h) / Lpx) + 1;
         // moiré unit cell
@@ -134,6 +141,62 @@ export function init(root) {
         }
         ctx.fillStyle = 'rgba(255,255,255,.8)'; ctx.font = '600 12px -apple-system, sans-serif';
         ctx.fillText('AA', o[0] + Math.min(18, Lpx * 0.12) + 4, o[1] - 4);
+      }
+    } else if (mode === 'domains') {
+      ctx.fillStyle = 'rgba(255,255,255,.78)';
+      ctx.font = '500 14px -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('θ = 0°, δ = 0%에서는 모아레 주기가 무한대입니다', w / 2, h / 2);
+    }
+  }
+
+  function drawDomains(M1, M2, Lpx, w, h) {
+    if (!Number.isFinite(Lpx) || Lpx < 1e-6) return;
+    const o = [w / 2, h / 2];
+    const det = M1[0] * M2[1] - M1[1] * M2[0];
+    if (Math.abs(det) < 1e-9) return;
+    const toCell = (x, y) => [(x * M2[1] - y * M2[0]) / det, (M1[0] * y - M1[1] * x) / det];
+    const corners = [[-o[0], -o[1]], [w - o[0], -o[1]], [w - o[0], h - o[1]], [-o[0], h - o[1]]].map(([x, y]) => toCell(x, y));
+    const imin = Math.floor(Math.min(...corners.map(p => p[0]))) - 1;
+    const imax = Math.ceil(Math.max(...corners.map(p => p[0]))) + 1;
+    const jmin = Math.floor(Math.min(...corners.map(p => p[1]))) - 1;
+    const jmax = Math.ceil(Math.max(...corners.map(p => p[1]))) + 1;
+    const point = (i, j) => [o[0] + i * M1[0] + j * M2[0], o[1] + i * M1[1] + j * M2[1]];
+    const strength = 1 / (1 + Math.exp((theta - 1.4) / 0.35));
+    const fillTriangle = (a, b, c, color) => {
+      const center = [(a[0] + b[0] + c[0]) / 3, (a[1] + b[1] + c[1]) / 3];
+      const inset = 0.42 + 0.5 * strength;
+      const inner = [a, b, c].map(p => [center[0] + (p[0] - center[0]) * inset, center[1] + (p[1] - center[1]) * inset]);
+      ctx.beginPath(); ctx.moveTo(...a); ctx.lineTo(...b); ctx.lineTo(...c); ctx.closePath();
+      ctx.fillStyle = 'rgba(12,16,24,.92)'; ctx.fill();
+      ctx.beginPath(); ctx.moveTo(...inner[0]); ctx.lineTo(...inner[1]); ctx.lineTo(...inner[2]); ctx.closePath();
+      ctx.fillStyle = color; ctx.fill();
+    };
+    for (let i = imin; i <= imax; i++) for (let j = jmin; j <= jmax; j++) {
+      const p = point(i, j), p1 = point(i + 1, j), p2 = point(i, j + 1), p12 = point(i + 1, j + 1);
+      fillTriangle(p, p1, p2, 'rgba(79,151,255,.32)');
+      fillTriangle(p12, p2, p1, 'rgba(255,166,73,.32)');
+    }
+    // AA regions lie at the vertices of the triangular moiré lattice.
+    const aa = Math.max(2, Math.min(zoom * 2.5, Lpx * (0.2 - 0.15 * strength)));
+    ctx.fillStyle = 'rgba(231,239,255,.92)';
+    ctx.beginPath();
+    for (let i = imin; i <= imax; i++) for (let j = jmin; j <= jmax; j++) {
+      const [x, y] = point(i, j);
+      if (x < -aa || y < -aa || x > w + aa || y > h + aa) continue;
+      ctx.moveTo(x + aa, y); ctx.arc(x, y, aa, 0, Math.PI * 2);
+    }
+    ctx.fill();
+    if (Lpx > 62) {
+      ctx.font = '600 12px -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillStyle = 'rgba(255,255,255,.95)';
+      const ab = point(1 / 3, 1 / 3), ba = point(2 / 3, 2 / 3);
+      if (ab[0] > 12 && ab[0] < w - 12 && ab[1] > 12 && ab[1] < h - 12) ctx.fillText('AB', ab[0], ab[1] + 4);
+      if (ba[0] > 12 && ba[0] < w - 12 && ba[1] > 12 && ba[1] < h - 12) ctx.fillText('BA', ba[0], ba[1] + 4);
+      if (o[0] > 12 && o[0] < w - 12 && o[1] > 12 && o[1] < h - 12) {
+        ctx.fillStyle = '#171b25';
+        ctx.fillText('AA', o[0], o[1] + 4);
       }
     }
   }

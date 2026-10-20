@@ -9,6 +9,10 @@ Codex와 Claude가 작업을 마칠 때 맨 위에 새 항목을 추가한다. �
 -->
 
 ## 2026-10-20 · codex
+- 변경: 모아레 주기 절에 twisted bilayer graphene의 원자 재구성(atomic reconstruction), AB·BA stacking domains, AA 영역 축소, domain wall 형성을 추가하고 관련 연구를 연결. 인터랙티브 기본 모드를 각도에 따른 도메인 크기 모식도로 바꾸고 모아레 주기·삼각 도메인 변을 표시. 용어 사전에 관련 용어를 추가하고 모듈 캐시 버전을 갱신. 로컬 모바일 화면에서 1.1°와 5°를 비교하고 0° 경계 조건, 라이트/다크 테마, 브라우저 오류를 확인.
+- 남은 일/주의: 인터랙티브는 stacking domain의 변화를 보여주는 개념도이며 원자 위치를 에너지 최소화로 구하는 atomistic simulation은 아님. 약 1° crossover는 TBG의 대표적 경향으로 다른 물질 조합에는 그대로 적용되지 않음. main 푸시 후 GitHub Actions 배포 완료가 필요.
+
+## 2026-10-20 · codex
 - 변경: 직역투와 잘 쓰이지 않는 결정학·측정 용어를 다듬음. `단위 세포`를 표준 용어 `단위격자`로 통일하고 Wigner–Seitz cell, oblique lattice, tapping mode, cosmic-ray spike, Baliga's figure of merit는 통용되는 영문 또는 설명형 용어로 표기. `외팔보`, `초세포`, `2D 물질 가족`도 각각 `캔틸레버`, `supercell`, `2D 물질 계열`로 정리. 바뀐 문구를 포함한 HTML·모듈의 브라우저 캐시 버전 갱신.
 - 남은 일/주의: 분야별 전문 용어를 계속 다듬을 때는 처음 나올 때 원어를 함께 표기하고, 익숙하지 않은 직역 대신 표준 영어 용어를 사용.
 

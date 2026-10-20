@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book.js?v=20261020i"></script>
+<script type="module" src="../../assets/js/book.js?v=20261020k"></script>
 </head>
 <body data-root="../../" data-field="materials" data-chapter="moire">
 <main class="main">
@@ -28,24 +28,28 @@
   <div class="eq"><i>L</i> = <i>a</i> / [2 sin(θ/2)] &nbsp;&nbsp;(격자 불일치가 없을 때)<span class="where">격자 불일치 δ가 있으면 L = (1+δ)a / √[2(1+δ)(1−cos θ) + δ²]</span></div>
   <p>θ가 작을수록 L은 커집니다. 그래핀(a = 0.246 nm)을 1.1° 비틀면 L ≈ 12.8 nm로, 원래 격자 상수의 약 52배이며 모아레 단위격자 하나에 약 11,000개의 원자가 들어갑니다. 비틀림 없이도 격자 상수가 1.8% 다른 그래핀/h-BN을 겹치면 약 14 nm 주기의 모아레가 생깁니다.</p>
 
+  <h3>원자 재구성과 stacking domains</h3>
+  <p>층이 서로 미끄러지며 생기는 stacking energy와 층 안의 탄성 에너지가 경쟁합니다. twisted bilayer graphene(TBG)에서는 낮은 에너지의 AB·BA 적층 영역이 넓어지고, AA 적층 영역은 작아지며, 두 영역 사이는 좁은 domain wall(soliton)이 잇습니다. 특히 비틀림각이 약 1°보다 작아지면 이런 atomic reconstruction이 뚜렷해집니다. 이 crossover 각도와 도메인 모양은 물질 조합, strain, 기판 조건에 따라 달라집니다. <a href="https://doi.org/10.1038/s41563-019-0346-z" target="_blank" rel="noreferrer">Yoo et al., Nature Materials (2019)</a>; <a href="https://doi.org/10.1038/s41467-022-35477-x" target="_blank" rel="noreferrer">Carr et al., Nature Communications (2023)</a>.</p>
+
   <section class="lab" id="lab-moire" data-module="moire">
-    <div class="lab-head"><span class="badge">LAB 3-1</span><h4>모아레 초격자</h4><span class="sub">화면을 좌우로 드래그해 비틀어 보세요</span></div>
+    <div class="lab-head"><span class="badge">LAB 3-1</span><h4>모아레 주기와 stacking domains</h4><span class="sub">각도를 바꿔 단위격자와 도메인 크기의 변화를 보세요</span></div>
     <div class="lab-body">
       <div class="lab-tools">
         <div class="seg" data-k="preset"><button class="on" data-v="magic">매직 앵글 1.1°</button><button data-v="t5">5°</button><button data-v="t13">13.2°</button><button data-v="t21">21.8° (정합)</button><button data-v="ghbn">그래핀/h-BN</button></div>
         <div class="grow"></div>
-        <div class="seg" data-k="mode"><button class="on" data-v="dots">격자점</button><button data-v="bonds">결합</button></div>
+        <div class="seg" data-k="mode"><button class="on" data-v="domains">도메인</button><button data-v="dots">격자점</button><button data-v="bonds">결합</button></div>
       </div>
       <div class="lab-grid">
         <div class="stage h-420"><canvas></canvas><div class="hud" data-o="hud"></div><div class="stage-badge" data-o="badge">드래그 · 비틀기</div></div>
         <div class="panel">
           <label class="slider"><div class="row"><span>비틀림 각 θ</span><b data-o="theta">1.10°</b></div><input type="range" data-k="theta" min="0" max="30" step="0.01" value="1.1"></label>
           <label class="slider"><div class="row"><span>격자 불일치 δ</span><b data-o="delta">0.0%</b></div><input type="range" data-k="delta" min="0" max="10" step="0.1" value="0"></label>
-          <label class="slider"><div class="row"><span>확대</span><b data-o="zoom">×1.0</b></div><input type="range" data-k="zoom" min="5" max="28" step="0.1" value="12"></label>
+          <label class="slider"><div class="row"><span>확대</span><b data-o="zoom">×0.4</b></div><input type="range" data-k="zoom" min="5" max="28" step="0.1" value="5"></label>
           <label class="toggle">천천히 회전<input type="checkbox" data-k="anim"><i></i></label>
           <div class="readout">
             <div><div class="k">모아레 주기 L</div><div class="v" data-o="L">—</div></div>
             <div><div class="k">L / a</div><div class="v" data-o="La">—</div></div>
+            <div><div class="k">삼각 도메인 변 (모식)</div><div class="v" data-o="domain-size">—</div></div>
             <div class="wide"><div class="k">모아레 단위격자당 원자 수</div><div class="v" data-o="N">—</div></div>
           </div>
           <div class="callout" data-o="msg"></div>
@@ -62,7 +66,7 @@
   <h2><span class="sec">3.4</span>매직 앵글과 평탄 밴드</h2>
   <p>비틀린 이중층 그래핀에서는 두 층의 디랙 원뿔이 층간 혼성(interlayer hybridization)으로 섞입니다. 비틀림 각이 약 1.1°일 때 페르미 준위 근처의 밴드가 거의 평평해지는데, 이를 <strong>평탄 밴드(flat band)</strong>라 하고 이 각도를 <strong>매직 앵글(magic angle)</strong>이라 합니다.</p>
   <p>밴드가 평평하면 전자의 운동 에너지가 매우 작아지므로, 상대적으로 전자 간 쿨롱 상호작용이 지배적이 됩니다. 2018년 MIT 연구진은 매직 앵글 이중층 그래핀에서 상관 절연체(correlated insulator)와 초전도를 발견했고(Cao et al., Nature 2018), 이후 비틀림 각을 조절해 물성을 설계하는 분야를 <strong>트위스트로닉스(twistronics)</strong>라 부르게 되었습니다.</p>
-  <div class="callout warn"><span class="t">시뮬레이션의 한계</span><p>LAB 3-1은 두 격자의 기하학적 겹침만 보여줍니다. 실제 시료에서는 층간 상호작용으로 원자가 미세하게 이동하는 격자 재구성(lattice reconstruction)이 일어나 AB/BA 영역이 넓어지고 AA 영역이 줄어듭니다.</p></div>
+  <div class="callout warn"><span class="t">시뮬레이션의 한계</span><p>도메인 모드는 모아레 격자를 삼각형으로 나눈 교육용 개념도입니다. 비틀림각에 따른 도메인 크기와 재구성 경향을 보여주지만, 원자 위치를 에너지 최소화로 계산하는 atomistic simulation은 아닙니다. 실제 domain wall과 stacking 구조는 물질·strain·기판에 따라 달라집니다.</p></div>
 
   <div class="summary">
     <h4>📝 정리</h4>
