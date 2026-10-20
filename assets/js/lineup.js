@@ -1,7 +1,7 @@
 // Material lineup: Apple-style compare cards with mini animated structures
 import { fitCanvas, animate } from './util.js';
 
-const MATS = [
+export const MATS = [
   { id: 'gr', fam: '2d', sym: 'C', nm: '그래핀', eg: 0, egt: '0 eV', grad: ['#64d2ff', '#2997ff'], draw: 'honey', cols: ['#b8c0cc', '#b8c0cc'],
     kind: '2D 반금속(semimetal) · 디랙 물질', title: '그래핀', desc: '탄소 원자 한 층. 알려진 물질 중 최고 수준의 전자 이동도와 열전도율, 강철의 200배에 이르는 강도를 가집니다. 밴드갭이 없어 논리 소자의 스위치로는 어렵지만 고주파 소자, 투명 전극, 센서, 방열 소재로 쓰입니다.',
     spec: [['밴드갭', '0 eV'], ['이동도', '>10⁵ cm²/V·s'], ['열전도율', '~3000–5000 W/m·K'], ['두께', '0.34 nm']], tags: ['RF 트랜지스터', '투명 전극', '바이오 센서', '방열'] },
@@ -34,7 +34,7 @@ const MATS = [
     spec: [['밴드갭', '5.47 eV'], ['절연파괴', '~10 MV/cm'], ['열전도율', '>2000 W/m·K'], ['BFOM (Si=1)', '>20,000']], tags: ['고출력 RF', '방열 기판', 'NV 양자 센서', '방사선 검출'] },
 ];
 
-function drawMini(ctx, w, h, m, t) {
+export function drawMini(ctx, w, h, m, t) {
   ctx.clearRect(0, 0, w, h);
   const cx = w / 2, cy = h / 2, R = Math.min(w, h) * 0.46;
   ctx.save();

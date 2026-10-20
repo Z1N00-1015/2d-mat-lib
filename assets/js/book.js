@@ -1,7 +1,7 @@
 // Beyond Silicon site runtime: field/page manifest, layout, theme, and lazy lab loading.
 // To add a new field (분야): append an entry to FIELDS and put its pages in chapters/<field id>/.
 
-export const BRAND = { name: 'Beyond Silicon', sub: '2D 물질 연구 분야 안내' };
+export const BRAND = { name: 'Beyond Silicon', sub: '2D 물질 연구 리뷰' };
 export const PAPER_LIBRARY_URL = 'https://lab-paper-library-z1n00-1015.onrender.com';
 
 export const FIELDS = [
@@ -75,7 +75,7 @@ const MODULES = {
   mos2: './mos2.js', bands: './bands.js', power: './power.js?v=20261020i', exfo: './exfo.js', cvd: './cvd.js',
   glossary: './glossary.js?v=20261020m', refs: './papers.js?v=20261020e', paperdata: './papers.js?v=20261020e',
   raman: './raman.js?v=20261020i',
-  hypotaxy: './hypotaxy.js?v=20261020h',
+  hypotaxy: './hypotaxy.js?v=20261020h', 'home-lineup': './home-materials.js?v=20261020review1',
 };
 
 const LOGO = '<svg class="brand-logo" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bslg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a6cf0"/><stop offset="1" stop-color="#1fb3a3"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="8" fill="url(#bslg)"/><g fill="none" stroke="#fff" stroke-width="1.6" stroke-opacity=".9"><path d="M16 7.5l7.4 4.25v8.5L16 24.5l-7.4-4.25v-8.5z"/></g><circle cx="16" cy="16" r="2.6" fill="#fff"/></svg>';
@@ -112,7 +112,7 @@ function buildLayout() {
   top.className = 'topbar';
   top.innerHTML = `
     <button class="icon-btn menu-btn" aria-label="목차 열기">${ICONS.menu}</button>
-    <a class="brand" href="${root}index.html">${LOGO}<span>${BRAND.name}</span><small>${field ? field.title : current === 'home' ? '2D 소재 연구 DB' : BRAND.sub}</small></a>
+    <a class="brand" href="${root}index.html">${LOGO}<span>${BRAND.name}</span><small>${field ? field.title : BRAND.sub}</small></a>
     <div class="spacer"></div>
     <button class="icon-btn theme-btn" aria-label="테마 전환"></button>`;
   body.prepend(top);
