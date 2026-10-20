@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: pages
@@ -15,6 +17,8 @@ concurrency:
 jobs:
   sync-and-deploy:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.changes.outputs.changed }}
     steps:
       - name: Check out website
         uses: actions/checkout@v4
@@ -76,19 +80,35 @@ jobs:
           git commit -m "chore(data): sync reviewed research papers"
           git push origin HEAD:main
 
-      # GITHUB_TOKEN pushes do not start another workflow run, so publish Pages here.
-      - name: Publish updated site to gh-pages
+      - name: Configure GitHub Pages
         if: steps.changes.outputs.changed == 'true'
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+        uses: actions/configure-pages@v5
+
+      - name: Prepare site files
+        if: steps.changes.outputs.changed == 'true'
         run: |
           mkdir -p "$RUNNER_TEMP/site"
           rsync -a --exclude='.git' --exclude='.github' --exclude='lab-paper-library/' ./ "$RUNNER_TEMP/site/"
           touch "$RUNNER_TEMP/site/.nojekyll"
-          cd "$RUNNER_TEMP/site"
-          git init -q -b gh-pages
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -q -m "Deploy ${GITHUB_SHA::7} with updated paper data"
-          git push -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
+
+      - name: Upload updated site artifact
+        if: steps.changes.outputs.changed == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/site
+
+  deploy:
+    needs: sync-and-deploy
+    if: needs.sync-and-deploy.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy updated site to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
