@@ -161,6 +161,17 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0; }
   overflow-y: auto; padding: 20px 14px 40px; border-right: 1px solid var(--border); background: var(--bg-2);
   z-index: 40;
 }
+.sidebar .nav-field-toggle {
+  width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  margin-top: 5px; padding: 10px; border: 0; border-radius: 9px; background: transparent;
+  color: var(--muted); font: inherit; font-size: 12px; font-weight: 700; letter-spacing: .04em;
+  text-align: left; cursor: pointer;
+}
+.sidebar .nav-field-toggle:hover, .sidebar .nav-field-toggle[aria-expanded="true"] { background: var(--surface-2); color: var(--text); }
+.sidebar .nav-field-toggle.is-current { color: var(--accent); }
+.sidebar .nav-field-toggle .chevron { font-size: 17px; line-height: 1; transition: transform .18s ease; }
+.sidebar .nav-field-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+.sidebar .nav-field-content { padding-bottom: 6px; }
 .sidebar .nav-group { font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; padding: 14px 10px 6px; }
 .sidebar a.nav-item {
   display: flex; gap: 10px; align-items: baseline; padding: 7px 10px; border-radius: 9px; color: var(--text-2);

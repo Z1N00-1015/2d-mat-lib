@@ -120,31 +120,41 @@ function buildLayout() {
   bar.className = 'progress-bar';
   body.prepend(bar);
 
-  // Keep every field visible; expand only the current chapter's section links.
+  // Keep the sidebar compact by default; each field can be expanded on demand.
   const side = document.createElement('nav');
   side.className = 'sidebar';
   side.setAttribute('aria-label', '목차');
   let html = `<a class="nav-item ${current === 'home' ? 'active' : ''}" href="${root}index.html"><span class="num">⌂</span>표지 · 전체 분야</a>`;
   const fields = FIELDS;
   for (const f of fields) {
-    html += `<div class="nav-group">${f.n}. ${f.title}</div>`;
+    let content = '';
     if (f.external) {
-      html += `<a class="nav-item" href="${f.external}" target="_blank" rel="noopener"><span class="num">↗</span><span>SemiBook 열기</span></a>`;
-      continue;
+      content += `<a class="nav-item" href="${f.external}" target="_blank" rel="noopener"><span class="num">↗</span><span>SemiBook 열기</span></a>`;
+    } else {
+      let lastGroup = '';
+      for (const c of f.chapters) {
+        if (c.group && c.group !== lastGroup) { content += `<div class="nav-group" style="padding-top:8px;font-size:11px">${c.group}</div>`; lastGroup = c.group; }
+        const isCurrent = f.id === fieldId && c.id === current;
+        content += `<a class="nav-item ${isCurrent ? 'active' : ''}" href="${chapterUrl(root, f, c)}"><span class="num">${c.n}</span><span>${c.title}</span></a>`;
+        if (isCurrent) content += '<div class="sub" id="subtoc"></div>';
+      }
+      for (const link of f.links || []) {
+        content += `<a class="nav-item" href="${link.url}" target="_blank" rel="noopener"><span class="num">↗</span><span>${link.title}</span></a>`;
+      }
     }
-    let lastGroup = '';
-    for (const c of f.chapters) {
-      if (c.group && c.group !== lastGroup) { html += `<div class="nav-group" style="padding-top:8px;font-size:11px">${c.group}</div>`; lastGroup = c.group; }
-      const isCurrent = f.id === fieldId && c.id === current;
-      html += `<a class="nav-item ${isCurrent ? 'active' : ''}" href="${chapterUrl(root, f, c)}"><span class="num">${c.n}</span><span>${c.title}</span></a>`;
-      if (isCurrent) html += '<div class="sub" id="subtoc"></div>';
-    }
-    for (const link of f.links || []) {
-      html += `<a class="nav-item" href="${link.url}" target="_blank" rel="noopener"><span class="num">↗</span><span>${link.title}</span></a>`;
-    }
+    const sectionId = `nav-field-${f.id}`;
+    const isCurrentField = f.id === fieldId;
+    html += `<button class="nav-field-toggle${isCurrentField ? ' is-current' : ''}" type="button" aria-expanded="false" aria-controls="${sectionId}"><span>${f.n}. ${f.title}</span><span class="chevron" aria-hidden="true">⌄</span></button><div class="nav-field-content" id="${sectionId}" hidden>${content}</div>`;
   }
   side.innerHTML = html;
   body.insertBefore(side, top.nextSibling);
+  side.querySelectorAll('.nav-field-toggle').forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      document.getElementById(toggle.getAttribute('aria-controls')).hidden = expanded;
+    });
+  });
   const scrim = document.createElement('div');
   scrim.className = 'scrim';
   body.appendChild(scrim);

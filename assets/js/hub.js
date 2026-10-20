@@ -1,5 +1,5 @@
 // Hub page: render every field (분야) and its chapter cards from the manifest in book.js
-import { FIELDS, chapterUrl } from './book.js?v=20261020-homehub1';
+import { FIELDS, chapterUrl } from './book.js?v=20261020-nav1';
 
 const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const local = FIELDS.filter(f => !f.external);
