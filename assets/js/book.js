@@ -1,7 +1,7 @@
 // Beyond Silicon site runtime: field/page manifest, layout, theme, and lazy lab loading.
 // To add a new field (분야): append an entry to FIELDS and put its pages in chapters/<field id>/.
 
-export const BRAND = { name: 'Beyond Silicon', sub: '2D 물질 연구 리뷰' };
+export const BRAND = { name: 'Beyond Silicon', sub: '2D 물질 연구 길라잡이' };
 export const PAPER_LIBRARY_URL = 'https://lab-paper-library-z1n00-1015.onrender.com';
 
 export const FIELDS = [
