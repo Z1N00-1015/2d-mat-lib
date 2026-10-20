@@ -7,7 +7,7 @@
 <meta name="description" content="2D 물질의 구조와 합성, 분석, 전자·광학·양자 물성, 반도체 소자 응용까지 연구 흐름을 주제별로 살펴보는 길라잡이입니다.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="assets/css/book.css?v=20261020-landscape4">
+<link rel="stylesheet" href="assets/css/book.css?v=20261020-landscape5">
 <script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "./assets/vendor/OrbitControls.js" } }</script>
 <script type="module" src="assets/js/book-runtime.js?v=20261020-nav2"></script>
 </head>
@@ -31,73 +31,25 @@
   <section class="home-landscape" aria-labelledby="landscape-title">
     <div class="section-heading"><div class="eyebrow">RESEARCH LANDSCAPE</div><h2 id="landscape-title">하나의 원자층에서 뻗어 나가는 연구</h2><p>합성부터 모아레 구조, 차세대 집적 소자와 강자성·강유전 특성까지 대표 연구 아이디어를 모식도로 살펴보세요.</p></div>
     <figure class="landscape-figure">
-      <div class="landscape-scroll" tabindex="0" aria-label="2D 소재 연구 분야 그림. 작은 화면에서는 좌우로 이동해 보세요.">
-        <svg class="landscape-map" viewBox="0 0 1200 820" role="img" aria-labelledby="landscape-svg-title landscape-svg-desc" xmlns="http://www.w3.org/2000/svg">
-          <title id="landscape-svg-title">2D 소재 연구 분야 지도</title>
-          <desc id="landscape-svg-desc">합성 중 결정막이 기판 위에서 자라는 모습, 회전하는 두 원자층의 모아레 격자, 여러 회로층을 쌓은 3차원 반도체, 강자성 스핀과 강유전 분극의 원자 모식도</desc>
-          <defs>
-            <linearGradient id="film-grad" x2="0" y2="1"><stop stop-color="#66d6c6"/><stop offset="1" stop-color="#268d83"/></linearGradient>
-            <linearGradient id="wafer-grad" x2="0" y2="1"><stop stop-color="#68738c"/><stop offset="1" stop-color="#30394d"/></linearGradient>
-            <radialGradient id="atom-gold" cx="32%" cy="25%"><stop stop-color="#fff0a6"/><stop offset=".35" stop-color="#f5bc40"/><stop offset="1" stop-color="#a75b12"/></radialGradient>
-            <radialGradient id="atom-blue" cx="32%" cy="25%"><stop stop-color="#c4efff"/><stop offset=".38" stop-color="#55aeea"/><stop offset="1" stop-color="#24589b"/></radialGradient>
-            <pattern id="substrate-atoms" width="36" height="30" patternUnits="userSpaceOnUse"><path d="M0 15 9 0h18l9 15-9 15H9zM18 0v30M0 15h36" fill="none" stroke="#a7b2c5" stroke-width="1" opacity=".5"/><circle cx="0" cy="15" r="4.8" fill="url(#atom-blue)"/><circle cx="9" cy="0" r="4.8" fill="url(#atom-blue)"/><circle cx="27" cy="0" r="4.8" fill="url(#atom-blue)"/><circle cx="36" cy="15" r="4.8" fill="url(#atom-blue)"/><circle cx="27" cy="30" r="4.8" fill="url(#atom-blue)"/><circle cx="9" cy="30" r="4.8" fill="url(#atom-blue)"/></pattern>
-            <pattern id="tmd-atoms" width="36" height="30" patternUnits="userSpaceOnUse"><path d="M0 15 9 0h18l9 15-9 15H9zM18 0v30M0 15h36" fill="none" stroke="#d5fff4" stroke-width="1" opacity=".62"/><circle cx="0" cy="15" r="5.2" fill="url(#atom-gold)"/><circle cx="9" cy="0" r="4" fill="url(#atom-blue)"/><circle cx="27" cy="0" r="4" fill="url(#atom-blue)"/><circle cx="36" cy="15" r="5.2" fill="url(#atom-gold)"/><circle cx="27" cy="30" r="4" fill="url(#atom-blue)"/><circle cx="9" cy="30" r="4" fill="url(#atom-blue)"/></pattern>
-            <pattern id="moire-bottom" width="21" height="18" patternUnits="userSpaceOnUse"><path d="M0 9 5.25 0h10.5L21 9l-5.25 9H5.25zM10.5 0v18M0 9h21" fill="none" stroke="#78c7fa" stroke-width=".8" opacity=".7"/><circle cx="0" cy="9" r="3.7" fill="url(#atom-blue)"/><circle cx="5.25" cy="0" r="3.7" fill="url(#atom-blue)"/><circle cx="15.75" cy="0" r="3.7" fill="url(#atom-blue)"/><circle cx="21" cy="9" r="3.7" fill="url(#atom-blue)"/><circle cx="15.75" cy="18" r="3.7" fill="url(#atom-blue)"/><circle cx="5.25" cy="18" r="3.7" fill="url(#atom-blue)"/></pattern>
-            <pattern id="moire-top" width="21" height="18" patternUnits="userSpaceOnUse"><path d="M0 9 5.25 0h10.5L21 9l-5.25 9H5.25zM10.5 0v18M0 9h21" fill="none" stroke="#ffd17a" stroke-width=".8" opacity=".7"/><circle cx="0" cy="9" r="3.7" fill="url(#atom-gold)"/><circle cx="5.25" cy="0" r="3.7" fill="url(#atom-gold)"/><circle cx="15.75" cy="0" r="3.7" fill="url(#atom-gold)"/><circle cx="21" cy="9" r="3.7" fill="url(#atom-gold)"/><circle cx="15.75" cy="18" r="3.7" fill="url(#atom-gold)"/><circle cx="5.25" cy="18" r="3.7" fill="url(#atom-gold)"/></pattern>
-            <pattern id="ferro-blue-atoms" width="32" height="28" patternUnits="userSpaceOnUse"><path d="M0 14 8 0h16l8 14-8 14H8zM16 0v28M0 14h32" fill="none" stroke="#9bb6cf" stroke-width="1.3" opacity=".68"/><circle cx="0" cy="14" r="7" fill="url(#atom-blue)"/><circle cx="8" cy="0" r="7" fill="url(#atom-blue)"/><circle cx="24" cy="0" r="7" fill="url(#atom-blue)"/><circle cx="32" cy="14" r="7" fill="url(#atom-blue)"/><circle cx="24" cy="28" r="7" fill="url(#atom-blue)"/><circle cx="8" cy="28" r="7" fill="url(#atom-blue)"/></pattern>
-            <pattern id="ferro-gold-atoms" width="32" height="28" patternUnits="userSpaceOnUse"><path d="M0 14 8 0h16l8 14-8 14H8zM16 0v28M0 14h32" fill="none" stroke="#ffe0a0" stroke-width="1.3" opacity=".68"/><circle cx="0" cy="14" r="7" fill="url(#atom-gold)"/><circle cx="8" cy="0" r="7" fill="url(#atom-gold)"/><circle cx="24" cy="0" r="7" fill="url(#atom-gold)"/><circle cx="32" cy="14" r="7" fill="url(#atom-gold)"/><circle cx="24" cy="28" r="7" fill="url(#atom-gold)"/><circle cx="8" cy="28" r="7" fill="url(#atom-gold)"/></pattern>
-            <pattern id="chip-cells" width="26" height="18" patternUnits="userSpaceOnUse"><path d="M0 9h26M13 0v18" fill="none" stroke="#d8e9ff" stroke-width="1" opacity=".38"/><rect x="4" y="4" width="7" height="9" rx="1.5" fill="#b9e9a5" stroke="#efffdc" stroke-width=".7"/><rect x="17" y="4" width="6" height="9" rx="1.5" fill="#9fdfa9" stroke="#efffdc" stroke-width=".7"/></pattern>
-            <clipPath id="moire-window"><rect x="653" y="112" width="476" height="190" rx="15"/></clipPath>
-            <clipPath id="film-window"><path d="M120 282q30-8 50-24 22-17 42 0 23 19 48 0 22-17 46 0 20 15 42 23l-5 8H122z"/></clipPath>
-          </defs>
-          <g class="landscape-node node-synthesis">
-            <rect class="node-card" x="22" y="22" width="568" height="364" rx="24"/><text x="48" y="61" class="node-title">합성</text><text x="48" y="84" class="node-note">기판 위에 원자들이 결합하며 결정막으로 자라는 과정</text>
-            <path d="M76 287 304 287 365 319 137 319z" fill="url(#wafer-grad)" stroke="#8792a7" stroke-width="1.5"/><path d="M76 287 304 287 365 319 137 319z" fill="url(#substrate-atoms)" opacity=".82"/><path d="M137 319h228v14H137z" fill="#222b3b"/><path d="M76 287h228v15H76z" fill="#47536a"/>
-            <path d="M120 282q30-8 50-24 22-17 42 0 23 19 48 0 22-17 46 0 20 15 42 23l-5 8H122z" fill="url(#film-grad)" stroke="#75e1d2" stroke-width="1.5"/><rect x="110" y="240" width="250" height="58" fill="url(#tmd-atoms)" clip-path="url(#film-window)"/>
-            <g class="growth-atoms"><circle cx="145" cy="238" r="5"/><circle cx="190" cy="223" r="5"/><circle cx="233" cy="242" r="5"/><circle cx="281" cy="218" r="5"/><circle cx="326" cy="237" r="5"/><circle cx="369" cy="221" r="5"/></g>
-            <path d="M167 251v19M229 243v22M293 244v18M348 245v20" class="growth-arrow"/>
-            <g fill="#f2b544" stroke="#ffdf82" stroke-width="1"><circle cx="115" cy="174" r="6"/><circle cx="174" cy="152" r="5"/><circle cx="230" cy="177" r="6"/><circle cx="294" cy="147" r="5"/><circle cx="350" cy="171" r="6"/><circle cx="398" cy="149" r="5"/><circle cx="137" cy="206" r="4"/><circle cx="260" cy="205" r="4"/><circle cx="379" cy="198" r="4"/></g>
-            <path d="M98 188 423 188" class="vapor-line"/><text x="84" y="162" class="sketch-label">precursor → surface reaction → crystal film</text>
-            <circle cx="461" cy="224" r="81" class="zoom-ring"/><circle cx="461" cy="224" r="75" fill="url(#tmd-atoms)"/><g class="zoom-lattice"><path d="M405 229 429 188 476 188 500 229 476 270 429 270zM429 188l24 41m23-41-23 41m47 0h-47m-24 41 24-41m23 41-23-41m-47 0h47"/></g>
-            <text x="433" y="326" class="sketch-label">정렬된 원자 배열</text><text x="80" y="355" class="sketch-label">기판</text><text x="190" y="278" class="sketch-label">성장하는 2D 결정막</text>
-          </g>
-          <g class="landscape-node node-stack">
-            <rect class="node-card" x="610" y="22" width="568" height="364" rx="24"/><text x="636" y="61" class="node-title">이종구조 · 모아레 격자</text><text x="636" y="84" class="node-note">두 층의 상대 회전이 큰 주기의 무늬를 만듭니다</text>
-            <rect x="653" y="112" width="476" height="190" rx="15" fill="var(--surface-2)" stroke="var(--border)"/>
-            <rect x="664" y="121" width="455" height="171" fill="url(#moire-bottom)" opacity=".92"/>
-            <g clip-path="url(#moire-window)"><g class="moire-rotor"><rect x="664" y="121" width="455" height="171" fill="url(#moire-top)" opacity=".8"/></g></g>
-            <path class="moire-cell-large" d="M852 150 923 139 987 172 1002 231 964 273 891 276 838 237 832 183z"/>
-            <path d="M1049 144a42 42 0 1 1-19 73" class="rotation-orbit"/><path d="m1023 211 7 7 9-3" class="rotation-head"/>
-            <text x="674" y="322" class="sketch-label">아래층</text><circle cx="729" cy="318" r="4" fill="#63b5f1"/><text x="760" y="322" class="sketch-label">윗층</text><circle cx="814" cy="318" r="4" fill="#f1a52f"/><text x="860" y="322" class="sketch-label">모아레 초격자</text><text x="1019" y="257" class="sketch-label">회전 θ</text>
-            <text x="636" y="359" class="sketch-label">윗층이 천천히 회전하며 격자 정렬과 어긋남이 반복됩니다</text>
-          </g>
-          <g class="landscape-node node-device">
-            <rect class="node-card" x="22" y="410" width="568" height="386" rx="24"/><text x="48" y="449" class="node-title">반도체 · 차세대 소자</text><text x="48" y="472" class="node-note">2D logic을 메모리·센서·실리콘 회로와 수직으로 집적</text>
-            <g class="integration-stack">
-              <path d="M125 698 333 698 414 740 206 740z" fill="#7f63ca" stroke="#bdadff"/><path d="M206 740v13l208-1v-12" fill="#4c3b81"/>
-              <path d="m143 650 208 0 80 42-208 0z" fill="#d6a33f" stroke="#ffe08a"/><path d="m223 692 208 0v12l-208 0z" fill="#8d6623"/>
-              <path d="m160 603 208 0 80 42-208 0z" fill="#2d9b8d" stroke="#7ce5d6"/><path d="m240 645 208 0v12l-208 0z" fill="#176c65"/>
-              <path d="m178 556 208 0 80 42-208 0z" fill="#4d94d4" stroke="#9bd1ff"/><path d="m258 598 208 0v12l-208 0z" fill="#2f6092"/>
-              <path d="m143 650 208 0 80 42-208 0z" fill="url(#chip-cells)" opacity=".78"/><path d="m160 603 208 0 80 42-208 0z" fill="url(#chip-cells)" opacity=".72"/><path d="m178 556 208 0 80 42-208 0z" fill="url(#chip-cells)" opacity=".72"/>
-              <g class="stack-vias"><path d="M207 659v28M252 659v28M297 659v28M342 659v28M227 610v27M272 610v27M317 610v27M362 610v27M245 563v27M290 563v27M335 563v27M380 563v27"/></g>
-              <g fill="#d9f4ff" stroke="#3978b1"><rect x="207" y="568" width="24" height="17" rx="4"/><rect x="254" y="568" width="24" height="17" rx="4"/><rect x="301" y="568" width="24" height="17" rx="4"/><rect x="348" y="568" width="24" height="17" rx="4"/></g>
-            </g>
-            <text x="456" y="575" class="stack-label">Sensor</text><text x="456" y="621" class="stack-label">Memory</text><text x="456" y="669" class="stack-label">2D logic</text><text x="456" y="716" class="stack-label">Si logic</text>
-            <path d="M446 568h8M446 614h8M446 662h8M446 709h8" class="stack-guide"/>
-            <text x="73" y="773" class="sketch-label">회로층 사이의 짧은 수직 연결로 기능을 한 칩에 통합</text>
-          </g>
-          <g class="landscape-node node-function">
-            <rect class="node-card" x="610" y="410" width="568" height="386" rx="24"/><text x="636" y="449" class="node-title">강자성 · 강유전 특성</text><text x="636" y="472" class="node-note">원자층의 스핀과 전기 분극을 방향성으로 표현</text>
-            <text x="669" y="517" class="ferro-label">강자성 · spin</text><text x="936" y="517" class="ferro-label">강유전 · polarization</text>
-            <rect x="654" y="538" width="234" height="145" rx="10" fill="url(#ferro-blue-atoms)" stroke="#7794ad" stroke-width="1.5"/><rect x="923" y="538" width="234" height="145" rx="10" fill="url(#ferro-gold-atoms)" stroke="#c99c47" stroke-width="1.5"/>
-            <path d="M654 683 841 683 888 711 701 711z" fill="#344255" stroke="#728299"/><path d="M923 683 1110 683 1157 711 970 711z" fill="#344255" stroke="#728299"/>
-            <g class="spin-arrows"><path d="M681 637v-38m-7 9 7-9 7 9M729 637v-38m-7 9 7-9 7 9M777 637v-38m-7 9 7-9 7 9M825 637v-38m-7 9 7-9 7 9"/></g>
-            <g class="polar-arrows"><path d="M950 637v-38m-7 9 7-9 7 9M998 637v-38m-7 9 7-9 7 9M1046 637v-38m-7 9 7-9 7 9M1094 637v-38m-7 9 7-9 7 9"/></g>
-            <path d="M695 738h155M955 738h155" class="property-baseline"/><text x="704" y="763" class="sketch-label">평행한 spin 정렬</text><text x="960" y="763" class="sketch-label">전기 분극 방향</text>
-          </g>
-        </svg>
+      <div class="landscape-gallery" aria-label="2D 소재 연구 분야 이미지 4개">
+        <article class="landscape-card">
+          <div class="landscape-card-copy"><h3>합성</h3><p>기판 위에서 결정막이 자라고 원자 배열을 이루는 모습</p></div>
+          <img class="landscape-art" src="assets/images/research-synthesis.jpg" alt="기판 위에 성장한 원자층 결정막과 확대된 원자 배열" width="1400" height="932" loading="lazy" decoding="async">
+        </article>
+        <article class="landscape-card">
+          <div class="landscape-card-copy"><h3>이종구조 · 모아레 격자</h3><p>두 원자층의 상대적인 회전과 겹침으로 나타나는 모아레 무늬</p></div>
+          <img class="landscape-art" src="assets/images/research-moire.jpg" alt="서로 어긋나게 겹친 두 원자 격자와 모아레 초격자" width="1400" height="1043" loading="lazy" decoding="async">
+        </article>
+        <article class="landscape-card landscape-card--integration">
+          <div class="landscape-card-copy"><h3>반도체 · 차세대 소자</h3><p>센서, 메모리, 2D logic, 실리콘 회로를 수직으로 쌓은 집적 구조</p></div>
+          <img class="landscape-art" src="assets/images/research-integration.jpg" alt="여러 회로층과 수직 연결 기둥으로 이루어진 monolithic 3D integration 구조" width="1384" height="1400" loading="lazy" decoding="async">
+        </article>
+        <article class="landscape-card">
+          <div class="landscape-card-copy"><h3>강자성 · 강유전 특성</h3><p>원자층 격자와 스핀·분극 방향의 표현</p></div>
+          <img class="landscape-art" src="assets/images/research-ferroic.jpg" alt="입체적인 원자층 격자 위의 스핀 및 분극 방향과 아래쪽 원자층" width="1400" height="919" loading="lazy" decoding="async">
+        </article>
       </div>
-      <figcaption>각 그림은 원리를 직관적으로 보여주기 위한 모식도입니다. 실제 구조·크기·공정 조건을 그대로 재현한 것은 아닙니다. 작은 화면에서는 그림을 좌우로 움직여 보세요.</figcaption>
+      <figcaption>보내주신 참고 이미지의 원자 배열과 적층 구도를 바탕으로 사이트 색감에 맞춰 편집했습니다. 실제 측정값이나 특정 물질의 원자 좌표를 재현한 도면은 아닙니다.</figcaption>
     </figure>
   </section>
 
