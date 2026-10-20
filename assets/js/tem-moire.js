@@ -6,6 +6,7 @@ const SPOTS = {
   g2: { angle: Math.PI / 3, label: 'g₂', degree: 60, channel: 'G', color: '80,235,130' },
   g3: { angle: 2 * Math.PI / 3, label: 'g₃', degree: 120, channel: 'B', color: '96,150,255' },
 };
+const REFERENCE_LATTICE_NM = 0.3316;
 
 export function init(root) {
   const canvas = root.querySelector('canvas');
@@ -30,12 +31,17 @@ export function init(root) {
   function moirePeriodNm() {
     const d = mismatch / 100, t = twist * Math.PI / 180;
     const denominator = Math.sqrt(d * d + 2 * (1 + d) * (1 - Math.cos(t)));
-    return denominator ? 0.316 / denominator : Infinity;
+    return denominator ? (1 + d) * REFERENCE_LATTICE_NM / denominator : Infinity;
   }
 
-  // The displayed upper layer is rotated by +θ/2 around the mean lattice axis.
-  function spotAngle(direction) { return direction.angle + twist * Math.PI / 360; }
-  function spotDegree(direction) { return (direction.degree + twist / 2) % 180; }
+  // Rigid-lattice moiré orientation α from the paper's lattice-mismatch/twist relation.
+  // Each first-order direction keeps its hexagonal offset and rotates by the same α.
+  function moireOrientationDeg() {
+    const d = mismatch / 100, t = twist * Math.PI / 180;
+    return Math.atan2(Math.sin(t), (1 + d) - Math.cos(t)) * 180 / Math.PI;
+  }
+  function spotAngle(direction) { return direction.angle + moireOrientationDeg() * Math.PI / 180; }
+  function spotDegree(direction) { return (direction.degree + moireOrientationDeg()) % 180; }
 
   function update() {
     const isAdf = mode === 'adf';
@@ -49,10 +55,10 @@ export function init(root) {
     out('zoom', `${zoom.toFixed(1)}×`);
     out('period', Number.isFinite(moirePeriodNm()) ? `${moirePeriodNm().toFixed(1)} nm` : '∞');
     out('visibility-key', isAdf ? '논문에서 보고한 모아레 대비' : '선택 반사');
-    out('visibility', isAdf ? ({ 115: '매우 약함', 185: '약함', 285: '뚜렷함', 360: '억제됨' })[camera] : (spot === 'all' ? 'RGB 세 방향 합성' : `${SPOTS[spot].label} · ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel}`));
+    out('visibility', isAdf ? ({ 115: '매우 약함', 185: '약함', 285: '뚜렷함', 360: '억제됨' })[camera] : (spot === 'all' ? `RGB 합성 · α ${moireOrientationDeg().toFixed(1)}°` : `${SPOTS[spot].label} · 방향 ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel}`));
     out('message', isAdf
       ? `<span class="t">${camera} mm · ${({ 115: '약한 Bragg 신호', 185: '아직 약한 Bragg 신호', 285: '모아레 대비가 가장 뚜렷한 조건', 360: '저각 산란이 우세한 조건' })[camera]}</span><p>이상적 육방 격자에서 계산한 주기는 약 ${Number.isFinite(moirePeriodNm()) ? moirePeriodNm().toFixed(1) : '∞'} nm입니다. 카메라 길이는 표시 대비만 바꿉니다.</p>`
-      : `<span class="t">${spot === 'all' ? 'g₁(R) · g₂(G) · g₃(B) 방향 합성' : `SAED의 ${SPOTS[spot].label} · ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel} 방향 성분 강조`}</span><p>${spot === 'all' ? '세 방향 fringe를 R·G·B 색으로 합성합니다.' : '선택한 g 방향의 색상 fringe 성분을 강조합니다.'} 방향은 상대 회전각에 따라 함께 회전합니다. DF-TEM 대비는 원소 조성 지도가 아닙니다.</p>`);
+      : `<span class="t">${spot === 'all' ? `g₁(R) · g₂(G) · g₃(B) 합성 · α ${moireOrientationDeg().toFixed(1)}°` : `SAED의 ${SPOTS[spot].label} · 방향 ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel} 성분 강조`}</span><p>논문의 강체 격자 관계 α = atan2(sin θ, 1+δ−cos θ)로 모아레 방향각을 계산하고, 각 gᵢ 방향은 기본 방위 βᵢ에 α를 더해 표시합니다. fringe 선은 선택 방향에 수직입니다. 이 모식도는 국소 굽힘을 포함하지 않습니다.</p>`);
     out('caption', 'MoS₂와 WSe₂의 육방 원자 배열을 흑백 명암으로 표현했습니다. 밝기는 서로 다른 층을 구분하고, 흰 halo는 두 층 원자가 가까이 겹치는 위치를 표시합니다.');
     out('hud', `MoS₂ / WSe₂ · δ ${mismatch.toFixed(1)}% · θ ${twist.toFixed(1)}°<br>L ≈ ${Number.isFinite(moirePeriodNm()) ? moirePeriodNm().toFixed(1) + ' nm' : '∞'}`);
     redraw();
@@ -116,7 +122,7 @@ export function init(root) {
       let alpha = layerAlpha;
       if (mode === 'df') {
         const selectedDirections = spot === 'all' ? Object.values(SPOTS) : [SPOTS[spot]];
-        const pitch = Number.isFinite(moirePeriodNm()) ? moirePeriodNm() * 13.5 * zoom / 0.316 : Math.max(state.w, state.h);
+        const pitch = Number.isFinite(moirePeriodNm()) ? moirePeriodNm() * 13.5 * zoom / REFERENCE_LATTICE_NM : Math.max(state.w, state.h);
         const component = selectedDirections.reduce((sum, direction) => {
           const angle = spotAngle(direction);
           const phase = 2 * Math.PI * (atom.x * Math.cos(angle) + atom.y * Math.sin(angle)) / pitch;
@@ -157,7 +163,7 @@ export function init(root) {
 
   function drawDfFringes(w, h) {
     const dirs = spot === 'all' ? Object.values(SPOTS) : [SPOTS[spot]];
-    const pitch = Number.isFinite(moirePeriodNm()) ? moirePeriodNm() * 13.5 * zoom / 0.316 : Math.max(w, h) * 1.3;
+    const pitch = Number.isFinite(moirePeriodNm()) ? moirePeriodNm() * 13.5 * zoom / REFERENCE_LATTICE_NM : Math.max(w, h) * 1.3;
     dirs.forEach(direction => {
       const angle = spotAngle(direction);
       const nx = Math.cos(angle), ny = Math.sin(angle), tx = -ny, ty = nx;
@@ -177,7 +183,7 @@ export function init(root) {
   }
 
   function scaleBar(w, h) {
-    const length = Math.min(w * 0.55, 13.5 * zoom / 0.316);
+    const length = Math.min(w * 0.55, 13.5 * zoom / REFERENCE_LATTICE_NM);
     const x = 18, y = h - 20;
     ctx.strokeStyle = 'rgba(255,255,255,.8)'; ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.lineWidth = 1.5;
     ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + length, y); ctx.stroke();
