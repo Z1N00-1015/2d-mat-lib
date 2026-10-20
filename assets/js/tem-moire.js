@@ -39,19 +39,13 @@ export function init(root) {
     const d = mismatch / 100, t = twist * Math.PI / 180;
     return Math.atan2(Math.sin(t), (1 + d) - Math.cos(t)) * 180 / Math.PI;
   }
-  // A DF fringe normal follows Δg = g_upper - g_lower. With the layer order
-  // used below, its signed rotation is opposite to α (modulo 180°).
-  function spotAngle(direction) {
-    const d = mismatch / 100, half = twist * Math.PI / 360;
-    const lowerAngle = direction.angle - half;
-    const upperAngle = direction.angle + half;
-    const upperScale = 1 / (1 + d);
-    const dx = upperScale * Math.cos(upperAngle) - Math.cos(lowerAngle);
-    const dy = upperScale * Math.sin(upperAngle) - Math.sin(lowerAngle);
-    return Math.atan2(dy, dx);
-  }
+  // In this real-space teaching view, colored fringe traces follow the same
+  // moiré-lattice rotation α as the white coincidence sites. Their normal is
+  // used for the intensity modulation; reciprocal Δg vectors are not drawn.
+  function fringeAngle(direction) { return direction.angle + moireOrientationDeg() * Math.PI / 180; }
+  function fringeNormalAngle(direction) { return fringeAngle(direction) - Math.PI / 2; }
   function spotDegree(direction) {
-    const degrees = spotAngle(direction) * 180 / Math.PI;
+    const degrees = fringeAngle(direction) * 180 / Math.PI;
     return ((degrees % 180) + 180) % 180;
   }
 
@@ -66,11 +60,11 @@ export function init(root) {
     out('twist', `${twist.toFixed(1)}°`);
     out('zoom', `${zoom.toFixed(1)}×`);
     out('period', Number.isFinite(moirePeriodNm()) ? `${moirePeriodNm().toFixed(1)} nm` : '∞');
-    out('visibility-key', isAdf ? '논문에서 보고한 모아레 대비' : '선택 반사');
-    out('visibility', isAdf ? ({ 115: '매우 약함', 185: '약함', 285: '뚜렷함', 360: '억제됨' })[camera] : (spot === 'all' ? `RGB 합성 · 실공간 α ${moireOrientationDeg().toFixed(1)}°` : `Δ${SPOTS[spot].label} 법선 ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel}`));
+    out('visibility-key', isAdf ? '논문에서 보고한 모아레 대비' : '실공간 방향');
+    out('visibility', isAdf ? ({ 115: '매우 약함', 185: '약함', 285: '뚜렷함', 360: '억제됨' })[camera] : (spot === 'all' ? `RGB 합성 · α ${moireOrientationDeg().toFixed(1)}°` : `${SPOTS[spot].label} · ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel}`));
     out('message', isAdf
       ? `<span class="t">${camera} mm · ${({ 115: '약한 Bragg 신호', 185: '아직 약한 Bragg 신호', 285: '모아레 대비가 가장 뚜렷한 조건', 360: '저각 산란이 우세한 조건' })[camera]}</span><p>이상적 육방 격자에서 계산한 주기는 약 ${Number.isFinite(moirePeriodNm()) ? moirePeriodNm().toFixed(1) : '∞'} nm입니다. 카메라 길이는 표시 대비만 바꿉니다.</p>`
-      : `<span class="t">${spot === 'all' ? `g₁(R) · g₂(G) · g₃(B) 합성 · 실공간 α ${moireOrientationDeg().toFixed(1)}°` : `SAED의 ${SPOTS[spot].label} · Δg 법선 ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel} 성분 강조`}</span><p>논문의 강체 격자 관계 α = atan2(sin θ, 1+δ−cos θ)로 실공간 모아레 격자의 회전을 계산합니다. DF fringe의 법선은 두 층의 역격자 벡터 차 Δgᵢ = gᵢ(위층) − gᵢ(아래층)이며, 색 띠는 Δgᵢ에 수직입니다. 역격자 방향은 흰 겹침점이 이루는 실공간 격자와 반대 부호로 회전합니다. 따라서 두 회전 방향이 반대로 보이는 것이 이 모델에서는 맞습니다. 국소 굽힘은 포함하지 않습니다.</p>`);
+      : `<span class="t">${spot === 'all' ? `g₁(R) · g₂(G) · g₃(B) 실공간 방향 합성 · α ${moireOrientationDeg().toFixed(1)}°` : `${SPOTS[spot].label} · 실공간 띠 방향 ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel}`}</span><p>논문의 강체 격자 관계 α = atan2(sin θ, 1+δ−cos θ)로 실공간 모아레 격자의 회전을 계산합니다. 사용자가 비교하기 쉽도록 색 띠도 흰 겹침점과 같은 α 방향으로 함께 회전시켰습니다. 이 그림의 g₁/g₂/g₃ 표시는 선택한 방향 계열을 구분하는 실공간 안내선이며, 역공간의 Δgᵢ 벡터 자체를 그린 것은 아닙니다. 국소 굽힘은 포함하지 않습니다.</p>`);
     out('caption', 'MoS₂와 WSe₂의 육방 원자 배열을 흑백 명암으로 표현했습니다. 밝기는 서로 다른 층을 구분하고, 흰 halo는 두 층 원자가 가까이 겹치는 위치를 표시합니다.');
     out('hud', `MoS₂ / WSe₂ · δ ${mismatch.toFixed(1)}% · θ ${twist.toFixed(1)}°<br>L ≈ ${Number.isFinite(moirePeriodNm()) ? moirePeriodNm().toFixed(1) + ' nm' : '∞'}`);
     redraw();
@@ -136,7 +130,7 @@ export function init(root) {
         const selectedDirections = spot === 'all' ? Object.values(SPOTS) : [SPOTS[spot]];
         const pitch = Number.isFinite(moirePeriodNm()) ? moirePeriodNm() * 13.5 * zoom / REFERENCE_LATTICE_NM : Math.max(state.w, state.h);
         const component = selectedDirections.reduce((sum, direction) => {
-          const angle = spotAngle(direction);
+          const angle = fringeNormalAngle(direction);
           const phase = 2 * Math.PI * (atom.x * Math.cos(angle) + atom.y * Math.sin(angle)) / pitch;
           return sum + Math.pow(0.5 + 0.5 * Math.cos(phase), 3);
         }, 0) / selectedDirections.length;
@@ -177,7 +171,7 @@ export function init(root) {
     const dirs = spot === 'all' ? Object.values(SPOTS) : [SPOTS[spot]];
     const pitch = Number.isFinite(moirePeriodNm()) ? moirePeriodNm() * 13.5 * zoom / REFERENCE_LATTICE_NM : Math.max(w, h) * 1.3;
     dirs.forEach(direction => {
-      const angle = spotAngle(direction);
+      const angle = fringeNormalAngle(direction);
       const nx = Math.cos(angle), ny = Math.sin(angle), tx = -ny, ty = nx;
       ctx.strokeStyle = `rgba(${direction.color},${spot === 'all' ? 0.42 : 0.68})`; ctx.lineWidth = spot === 'all' ? 5 : 8;
       for (let n = -3; n <= 3; n++) {
