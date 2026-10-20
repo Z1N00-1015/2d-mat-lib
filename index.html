@@ -7,9 +7,9 @@
 <meta name="description" content="2D 물질의 구조와 합성, 분석, 전자·광학·양자 물성, 반도체 소자 응용까지 연구 흐름을 주제별로 살펴보는 길라잡이입니다.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="assets/css/book.css?v=20261020-review1">
+<link rel="stylesheet" href="assets/css/book.css?v=20261020-landscape2">
 <script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "./assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="assets/js/book-runtime.js?v=20261020-nav1"></script>
+<script type="module" src="assets/js/book-runtime.js?v=20261020-nav2"></script>
 </head>
 <body data-root="./" data-chapter="home">
 <main class="main">
@@ -29,30 +29,54 @@
   </section>
 
   <section class="home-landscape" aria-labelledby="landscape-title">
-    <div class="section-heading"><div class="eyebrow">RESEARCH LANDSCAPE</div><h2 id="landscape-title">하나의 원자층에서 뻗어 나가는 연구</h2><p>합성과 구조 설계에서 전자·광학·양자 현상과 소자까지 이어지는 연구 지도를 살펴보세요.</p></div>
+    <div class="section-heading"><div class="eyebrow">RESEARCH LANDSCAPE</div><h2 id="landscape-title">하나의 원자층에서 뻗어 나가는 연구</h2><p>하이포택시 성장, 모아레 격자, FeS-FET처럼 각 연구 분야의 대표 아이디어를 간단한 모식도로 살펴보세요.</p></div>
     <figure class="landscape-figure">
       <div class="landscape-scroll" tabindex="0" aria-label="2D 소재 연구 분야 그림. 작은 화면에서는 좌우로 이동해 보세요.">
-        <svg class="landscape-map" viewBox="0 0 1200 600" role="img" aria-labelledby="landscape-svg-title landscape-svg-desc" xmlns="http://www.w3.org/2000/svg">
+        <svg class="landscape-map" viewBox="0 0 1200 800" role="img" aria-labelledby="landscape-svg-title landscape-svg-desc" xmlns="http://www.w3.org/2000/svg">
           <title id="landscape-svg-title">2D 소재 연구 분야 지도</title>
           <desc id="landscape-svg-desc">중앙의 원자층 소재에서 합성·에피택시, 이종구조, 반도체와 차세대 소자, 양자물리, 광학, 자기·강유전 연구로 연결되는 개념도</desc>
-          <g class="landscape-links" fill="none" stroke-width="2">
-            <path d="M480 248 330 142M600 220V138M720 248 870 142M480 352 330 458M600 380V462M720 352 870 458"/>
+          <g class="landscape-links" fill="none" stroke-width="2"><path d="M455 330 355 234M600 260V240M745 330 845 234M455 440 355 556M600 480V565M745 440 845 556"/></g>
+          <g class="landscape-node node-synthesis">
+            <rect class="node-card" x="30" y="25" width="350" height="220" rx="20"/><text x="52" y="58" class="node-title">합성 · 에피택시</text><text x="52" y="78" class="node-note">그래핀 나노구멍 아래쪽에서 결정이 자랍니다</text>
+            <path class="sketch-line" d="M70 119h100m20 0h120M70 116l8-7 8 7 8-7 8 7 8-7 8 7 8-7 8 7 8-7 8 7 8-7 8 7m20 0 8-7 8 7 8-7 8 7 8-7 8 7 8-7 8 7 8-7 8 7"/>
+            <circle class="sketch-accent" cx="178" cy="117" r="4"/><path class="sketch-arrow" d="M178 87v53m-6-8 6 8 6-8"/>
+            <path class="sketch-layer" d="M72 174h216v16H72z"/><path class="sketch-substrate" d="M72 192h216v15H72z"/><path class="sketch-crystal" d="m155 173 23-30 23 30z"/>
+            <text x="76" y="105" class="sketch-label">graphene template</text><text x="188" y="104" class="sketch-label">nanopore</text><text x="207" y="164" class="sketch-label">MoS₂ nucleus</text><text x="76" y="219" class="sketch-label">metal film / substrate</text>
           </g>
-          <g class="landscape-node node-synthesis"><rect x="70" y="70" width="300" height="126" rx="22"/><circle cx="112" cy="112" r="17"/><path d="m103 112 6 6 13-14"/><text x="145" y="112" class="node-kicker">GROWTH</text><text x="100" y="157" class="node-title">합성 · 에피택시</text><text x="100" y="180" class="node-note">결정성 · 대면적 성장</text></g>
-          <g class="landscape-node node-stack"><rect x="450" y="30" width="300" height="126" rx="22"/><circle cx="492" cy="72" r="17"/><path d="M482 76h20M485 69h14M488 62h8"/><text x="525" y="72" class="node-kicker">INTERFACES</text><text x="480" y="117" class="node-title">이종구조 · 모아레</text><text x="480" y="140" class="node-note">적층 · 비틀림 · 계면</text></g>
-          <g class="landscape-node node-device"><rect x="830" y="70" width="300" height="126" rx="22"/><circle cx="872" cy="112" r="17"/><path d="M863 112h18M872 103v18"/><text x="905" y="112" class="node-kicker">ELECTRONICS</text><text x="860" y="157" class="node-title">반도체 · 차세대 소자</text><text x="860" y="180" class="node-note">FET · 메모리 · 로직</text></g>
-          <g class="landscape-core"><rect x="420" y="218" width="360" height="164" rx="30"/><text x="600" y="270" class="core-kicker" text-anchor="middle">ATOM-THIN PLATFORM</text><text x="600" y="317" class="core-title" text-anchor="middle">2D 소재</text><text x="600" y="348" class="core-note" text-anchor="middle">층수 · 조성 · 적층 · 변형으로 조절</text></g>
-          <g class="landscape-node node-quantum"><rect x="70" y="404" width="300" height="126" rx="22"/><circle cx="112" cy="446" r="17"/><path d="M99 446q13-19 26 0t26 0" transform="translate(-13)"/><text x="145" y="446" class="node-kicker">QUANTUM PHYSICS</text><text x="100" y="491" class="node-title">양자물리 · 상관현상</text><text x="100" y="514" class="node-note">평탄 밴드 · 초전도</text></g>
-          <g class="landscape-node node-optics"><rect x="450" y="444" width="300" height="126" rx="22"/><circle cx="492" cy="486" r="17"/><path d="M482 486q10-13 20 0t20 0" transform="translate(-10)"/><text x="525" y="486" class="node-kicker">LIGHT &amp; SPECTROSCOPY</text><text x="480" y="531" class="node-title">광학 · 분광 분석</text><text x="480" y="554" class="node-note">발광 · 라만 · 광검출</text></g>
-          <g class="landscape-node node-function"><rect x="830" y="404" width="300" height="126" rx="22"/><circle cx="872" cy="446" r="17"/><path d="M872 434v24M864 440q8 7 16 0M864 452q8-7 16 0"/><text x="905" y="446" class="node-kicker">SPIN &amp; POLARIZATION</text><text x="860" y="491" class="node-title">자기 · 강유전 기능</text><text x="860" y="514" class="node-note">스핀트로닉스 · 메모리</text></g>
+          <g class="landscape-node node-stack">
+            <rect class="node-card" x="425" y="15" width="350" height="230" rx="20"/><text x="448" y="49" class="node-title">이종구조 · 모아레</text><text x="448" y="69" class="node-note">다른 격자를 쌓거나 살짝 비틀면 큰 반복무늬가 생깁니다</text>
+            <g class="lattice-a"><path d="M474 102 500 87 526 102 526 132 500 147 474 132zM526 102 552 87 578 102 578 132 552 147 526 132zM500 147 526 132 552 147 552 177 526 192 500 177zM552 147 578 132 604 147 604 177 578 192 552 177zM578 102 604 87 630 102 630 132 604 147 578 132z"/></g>
+            <g class="lattice-b"><path d="M486 96 512 81 538 96 538 126 512 141 486 126zM538 96 564 81 590 96 590 126 564 141 538 126zM512 141 538 126 564 141 564 171 538 186 512 171zM564 141 590 126 616 141 616 171 590 186 564 171zM590 96 616 81 642 96 642 126 616 141 590 126z"/></g>
+            <path class="moire-cell" d="m526 105 48-27 48 27v55l-48 27-48-27z"/><path class="twist-arrow" d="M681 111a23 23 0 1 1 1 25m-6-7 7 8 7-8"/>
+            <text x="660" y="171" class="sketch-label">twist θ</text><text x="493" y="218" class="sketch-label">원자 격자</text><text x="590" y="218" class="sketch-label">모아레 초격자</text>
+          </g>
+          <g class="landscape-node node-device">
+            <rect class="node-card" x="820" y="25" width="350" height="220" rx="20"/><text x="843" y="58" class="node-title">반도체 · 차세대 소자</text><text x="843" y="78" class="node-note">강유전체 채널에 정보를 저장하는 FeS-FET</text>
+            <path class="device-metal" d="M866 121h48v13h-48zM1076 121h48v13h-48zM929 185h132v17H929z"/><path class="device-channel" d="M914 137h162v30H914z"/><path class="device-dielectric" d="M929 170h132v13H929z"/>
+            <path class="polar-arrow" d="M957 160v-15m-6 6 6-6 6 6m27 9v-15m-6 6 6-6 6 6m27 9v-15m-6 6 6-6 6 6"/>
+            <text x="870" y="116" class="sketch-label">S</text><text x="1097" y="116" class="sketch-label">D</text><text x="1064" y="157" class="sketch-label">α-In₂Se₃</text><text x="1067" y="180" class="sketch-label">HfO₂</text><text x="977" y="199" class="sketch-label">back gate</text><text x="1007" y="219" class="sketch-label">분극 방향 → 채널 전도도</text>
+          </g>
+          <g class="landscape-core"><rect x="410" y="300" width="380" height="170" rx="30"/><text x="600" y="355" class="core-kicker" text-anchor="middle">ATOM-THIN PLATFORM</text><text x="600" y="405" class="core-title" text-anchor="middle">2D 소재</text><text x="600" y="437" class="core-note" text-anchor="middle">층수 · 조성 · 적층 · 변형으로 조절</text></g>
+          <g class="landscape-node node-quantum">
+            <rect class="node-card" x="30" y="550" width="350" height="220" rx="20"/><text x="52" y="584" class="node-title">양자물리 · 상관현상</text><text x="52" y="604" class="node-note">좁은 밴드에서 전자 사이 상호작용이 두드러집니다</text>
+            <path class="band-axis" d="M75 720V632M75 720h160"/><path class="band-flat" d="M90 661q36-4 70 0t65 0M90 674q36 4 70 0t65 0"/><path class="band-dispersive" d="M92 701q30-53 62-52t65 51M92 642q30 53 62 52t65-51"/><text x="250" y="663" class="sketch-label">flat band</text><text x="250" y="686" class="sketch-label">상관 상태</text><text x="90" y="744" class="sketch-label">파수 k →</text>
+          </g>
+          <g class="landscape-node node-optics">
+            <rect class="node-card" x="425" y="565" width="350" height="205" rx="20"/><text x="448" y="599" class="node-title">광학 · 분광 분석</text><text x="448" y="619" class="node-note">산란·발광 스펙트럼에서 진동과 물성을 읽습니다</text>
+            <path class="energy-level" d="M472 659h70M472 699h70M472 735h70"/><path class="photon-arrow" d="M507 730V665m-6 8 6-8 6 8M520 663v32m-6-8 6 8 6-8"/><path class="spectrum-axis" d="M583 735v-72m0 72h155"/><path class="spectrum-curve" d="M590 730q18 0 23-3t7-19 7-8 7 25 13 5 9-37 8-21 8 45 12 15 10-3 8-2 24 3"/><text x="477" y="755" class="sketch-label">phonon</text><text x="657" y="755" class="sketch-label">Raman shift →</text>
+          </g>
+          <g class="landscape-node node-function">
+            <rect class="node-card" x="820" y="550" width="350" height="220" rx="20"/><text x="843" y="584" class="node-title">자기 · 강유전 기능</text><text x="843" y="604" class="node-note">스핀과 분극의 방향이 영역마다 달라질 수 있습니다</text>
+            <path class="domain-a" d="M870 636h112v90H870zM982 636h112v90H982zM1094 636h48v90h-48z"/><path class="domain-arrow" d="M904 704v-42m-9 11 9-11 9 11m42 42v-42m-9 11 9-11 9 11"/><path class="domain-arrow opposite" d="M1017 659v42m-9-11 9 11 9-11m43-31v42m-9-11 9 11 9-11"/><text x="888" y="750" class="sketch-label">↑ domain</text><text x="1015" y="750" class="sketch-label">↓ domain</text>
+          </g>
         </svg>
       </div>
-      <figcaption>2D 소재 연구는 서로 연결되어 있습니다. 소재의 합성과 적층 구조가 전자·광학·양자 물성을 바꾸고, 그 이해가 새로운 소자 설계로 이어집니다. 이 그림은 분야 간 관계를 소개하는 개념도입니다.</figcaption>
+      <figcaption>각 그림은 원리를 직관적으로 보여주기 위한 모식도입니다. 실제 구조·크기·공정 조건을 그대로 재현한 것은 아닙니다. 소재 합성과 격자 설계가 물성을 바꾸고, 그 이해가 광학·양자 연구와 새로운 소자 설계로 이어집니다. 작은 화면에서는 그림을 좌우로 움직여 보세요.</figcaption>
     </figure>
   </section>
 
   <section class="home-history" aria-labelledby="research-history-title">
-    <div class="section-heading"><div class="eyebrow">RESEARCH MILESTONES</div><h2 id="research-history-title">2D 물질 연구의 주요 전환점</h2><p>새로운 소재 발견과 실험 기술이 연구 범위를 어떻게 넓혀 왔는지 대표 전환점을 따라갑니다.</p></div>
+    <div class="section-heading"><div class="eyebrow">RESEARCH IN TIME</div><h2 id="research-history-title">시간으로 보는 2D 소재 연구</h2><p>소재 발견부터 소자·집적·대면적 성장까지, 서로 다른 연구 흐름의 대표 사례를 발표 시점 순으로 나열했습니다. 한 분야가 다른 분야로 대체됐다는 뜻은 아닙니다.</p></div>
     <div class="history-timeline">
       <article class="history-item">
         <div class="history-year">2004</div>
@@ -71,10 +95,24 @@
         </div>
       </article>
       <article class="history-item">
+        <div class="history-year">2012</div>
+        <div><h3>개별 트랜지스터에서 논리회로로</h3>
+          <p>이중층 MoS₂ 위에 인버터, NAND, SRAM, 링 발진기를 구현해 2D 반도체가 여러 트랜지스터를 연결한 회로로 확장될 가능성을 보였습니다.</p>
+          <a href="https://doi.org/10.1021/nl302015v" target="_blank" rel="noopener">Wang et al., Nano Letters (2012) ↗</a>
+        </div>
+      </article>
+      <article class="history-item">
         <div class="history-year">2013</div>
         <div><h3>서로 다른 2D 층을 쌓는 반데르발스 이종접합</h3>
           <p>격자 맞춤의 제약을 줄이며 층별 기능을 조합하는 방식이 정립되어, 소재를 쌓아 설계하는 연구가 열렸습니다.</p>
           <a href="https://doi.org/10.1038/nature12385" target="_blank" rel="noopener">Geim &amp; Grigorieva, Nature (2013) ↗</a>
+        </div>
+      </article>
+      <article class="history-item">
+        <div class="history-year">2015</div>
+        <div><h3>웨이퍼 규모 TMD 박막 성장</h3>
+          <p>사파이어 위에 원자층 MoS₂ 박막을 넓은 면적으로 성장하고 웨이퍼 규모 트랜지스터 제작을 시연했습니다. 작은 박리 조각을 넘어 공정 규모를 넓히려는 연구가 본격화됐습니다.</p>
+          <a href="https://doi.org/10.1038/nature14417" target="_blank" rel="noopener">Kang et al., Nature (2015) ↗</a>
         </div>
       </article>
       <article class="history-item">
@@ -87,10 +125,31 @@
         </div>
       </article>
       <article class="history-item">
-        <div class="history-year">2018–현재</div>
-        <div><h3>비틀림과 계면으로 모아레 양자물성 설계</h3>
-          <p>작은 비틀림각이 만드는 평탄 밴드와 상관 절연·초전도 상태가 주목받으며, 원자층의 각도·적층·재구성을 조절하는 연구가 활발해졌습니다. 동시에 대면적 합성, 정밀 분석, 실제 소자 집적도 중요한 과제로 이어지고 있습니다.</p>
+        <div class="history-year">2018</div>
+        <div><h3>모아레 격자에서 상관 양자상태 발견</h3>
+          <p>매직 앵글로 비튼 이중층 그래핀에서 초전도가 보고되며, 비틀림각으로 전자 밴드와 상관현상을 설계하는 모아레 연구가 크게 확장됐습니다.</p>
           <a href="https://doi.org/10.1038/nature26160" target="_blank" rel="noopener">Cao et al., Nature (2018) ↗</a>
+        </div>
+      </article>
+      <article class="history-item">
+        <div class="history-year">2019</div>
+        <div><h3>강유전체 반도체 자체를 채널로 쓰는 FeS-FET</h3>
+          <p>α-In₂Se₃를 채널로 사용해 분극 상태가 채널 전도도를 바꾸는 강유전체 반도체 전계효과 트랜지스터(FeS-FET)가 보고됐습니다. 강유전체 게이트 절연막을 쓰는 FeFET와 구별되는 소자 개념입니다.</p>
+          <a href="https://doi.org/10.1038/s41928-019-0338-7" target="_blank" rel="noopener">Si et al., Nature Electronics (2019) ↗</a>
+        </div>
+      </article>
+      <article class="history-item">
+        <div class="history-year">2024</div>
+        <div><h3>웨이퍼 규모 2D 트랜지스터 monolithic 3D integration</h3>
+          <p>MoS₂와 WSe₂ 전계효과 트랜지스터를 웨이퍼 규모로 여러 층 쌓아, 서로 다른 회로층을 한 기판 위에 직접 만드는 3차원 집적을 시연했습니다.</p>
+          <a href="https://doi.org/10.1038/s41586-023-06860-5" target="_blank" rel="noopener">Jayachandran et al., Nature (2024) ↗</a>
+        </div>
+      </article>
+      <article class="history-item">
+        <div class="history-year">2025</div>
+        <div><h3>Hypotaxy로 웨이퍼 규모 단결정 TMD 성장</h3>
+          <p>그래핀 template의 나노구멍으로 성장 반응을 아래쪽 기판까지 전달해 4인치 단결정 MoS₂를 만들고, 저온 성장과 monolithic 3D integration 가능성을 보였습니다.</p>
+          <a href="https://doi.org/10.1038/s41586-024-08492-9" target="_blank" rel="noopener">Moon et al., Nature (2025) ↗</a>
         </div>
       </article>
     </div>

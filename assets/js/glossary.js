@@ -52,6 +52,7 @@ const TERMS = [
   ['소자', '스케일 길이', 'scale length, λ', '소스·드레인 전위가 채널로 침투하는 특성 거리. L_g/λ가 클수록 게이트 제어력이 좋다.'],
   ['소자', '강유전체 전계효과 트랜지스터', 'ferroelectric field-effect transistor, FeFET', '게이트 적층에 강유전체를 넣어 잔류 분극으로 채널 전도도를 비휘발성으로 조절하는 트랜지스터.'],
   ['소자', '강유전체 반도체 전계효과 트랜지스터', 'ferroelectric semiconductor field-effect transistor, FeS-FET', '강유전체 반도체를 채널로 사용하고 그 분극 상태로 채널 전도도를 조절하는 FET. 게이트 절연막을 강유전체로 쓰는 FeFET와 구별된다.'],
+  ['소자', '단일체 3차원 집적', 'monolithic 3D integration', '같은 기판 위에서 소자층과 연결 배선을 순차적으로 형성해 회로층을 수직으로 쌓는 집적 방식. 층간 연결을 짧게 하고 면적당 기능을 높일 수 있지만, 아래층 소자가 견딜 수 있는 열 예산과 공정 호환성이 중요하다.'],
   ['소자', '음의 정전용량 전계효과 트랜지스터', 'negative-capacitance field-effect transistor, NCFET', '강유전체의 음의 정전용량 효과를 이용해 채널 내부 전압을 증폭하고 낮은 전압 동작을 연구하는 FET 구조. 실제 성능은 재료와 적층 설계에 좌우된다.'],
   ['소자', '2차원 전자가스', 'two-dimensional electron gas, 2DEG', '이종접합 계면 등에 갇혀 면내로만 운동하는 전자 집단. AlGaN/GaN에서는 분극으로 형성된다.'],
   ['소자', '절연파괴 전계', 'breakdown field, E_c', '애벌랜치 항복이 일어나는 임계 전계. 밴드갭이 넓을수록 크다.'],

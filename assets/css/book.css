@@ -396,22 +396,45 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
 .material-examples { color: var(--muted); font: 11px/1.5 var(--mono); }
 .landscape-figure { margin: 0; padding: 12px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); }
 .landscape-scroll { overflow-x: auto; border-radius: 12px; outline-color: var(--accent); scrollbar-color: var(--border-2) transparent; }
-.landscape-map { display: block; width: 100%; min-width: 820px; height: auto; }
+.landscape-map { display: block; width: 100%; min-width: 1120px; height: auto; }
 .landscape-links { stroke: var(--border-2); }
-.landscape-node rect { fill: var(--bg); stroke: var(--border); stroke-width: 1.5; }
-.landscape-node circle { fill: var(--accent-soft); }
-.landscape-node path { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.landscape-node .node-kicker { fill: var(--muted); font: 700 11px var(--mono); letter-spacing: 1px; }
-.landscape-node .node-title { fill: var(--text); font: 750 21px var(--font); }
-.landscape-node .node-note { fill: var(--text-2); font: 13px var(--font); }
+.landscape-node .node-card { fill: var(--bg); stroke: var(--border); stroke-width: 1.5; }
+.landscape-node .node-title { fill: var(--text); font: 750 19px var(--font); }
+.landscape-node .node-note { fill: var(--text-2); font: 12px var(--font); }
+.landscape-node .sketch-label { fill: var(--muted); font: 10px var(--font); }
+.landscape-node .sketch-line, .landscape-node .sketch-arrow, .landscape-node .sketch-crystal,
+.landscape-node .twist-arrow, .landscape-node .band-axis, .landscape-node .band-flat,
+.landscape-node .band-dispersive, .landscape-node .energy-level, .landscape-node .photon-arrow,
+.landscape-node .spectrum-axis, .landscape-node .spectrum-curve, .landscape-node .domain-arrow {
+  fill: none; stroke: var(--node-accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.landscape-node .sketch-accent { fill: var(--node-accent); }
+.landscape-node .sketch-layer { fill: color-mix(in srgb, var(--node-accent) 30%, var(--surface)); stroke: var(--node-accent); stroke-width: 1.5; }
+.landscape-node .sketch-substrate { fill: var(--surface-2); stroke: var(--border-2); stroke-width: 1; }
+.landscape-node .sketch-crystal { fill: color-mix(in srgb, var(--node-accent) 18%, var(--surface)); }
+.landscape-node .lattice-a path { fill: none; stroke: var(--node-accent); stroke-width: 1.5; opacity: .8; }
+.landscape-node .lattice-b path { fill: none; stroke: var(--teal); stroke-width: 1.5; opacity: .8; }
+.landscape-node .moire-cell { fill: color-mix(in srgb, var(--node-accent) 10%, transparent); stroke: var(--node-accent); stroke-width: 2; stroke-dasharray: 4 3; }
+.landscape-node .device-metal { fill: var(--surface-2); stroke: var(--border-2); stroke-width: 1; }
+.landscape-node .device-channel { fill: color-mix(in srgb, var(--node-accent) 26%, var(--surface)); stroke: var(--node-accent); stroke-width: 1.5; }
+.landscape-node .device-dielectric { fill: color-mix(in srgb, var(--teal) 18%, var(--surface)); stroke: var(--teal); stroke-width: 1; }
+.landscape-node .polar-arrow { fill: none; stroke: var(--node-accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.landscape-node .band-axis, .landscape-node .spectrum-axis { stroke: var(--border-2); }
+.landscape-node .band-flat { stroke-width: 3; }
+.landscape-node .band-dispersive { stroke: var(--teal); }
+.landscape-node .energy-level { stroke: var(--border-2); }
+.landscape-node .photon-arrow { stroke: var(--node-accent); }
+.landscape-node .spectrum-curve { stroke-width: 2.5; }
+.landscape-node .domain-a { fill: color-mix(in srgb, var(--node-accent) 20%, var(--surface)); stroke: var(--node-accent); stroke-width: 1.5; }
+.landscape-node .domain-b { fill: color-mix(in srgb, var(--teal) 18%, var(--surface)); stroke: var(--teal); stroke-width: 1.5; }
+.landscape-node .domain-arrow { stroke: var(--node-accent); stroke-width: 2.5; }
+.landscape-node .domain-arrow.opposite { stroke: var(--teal); }
 .node-synthesis, .node-synthesis circle, .node-synthesis path { --node-accent: #47b9a8; }
 .node-stack, .node-stack circle, .node-stack path { --node-accent: #a28bff; }
 .node-device, .node-device circle, .node-device path { --node-accent: #5ba9f4; }
 .node-quantum, .node-quantum circle, .node-quantum path { --node-accent: #ed78a7; }
 .node-optics, .node-optics circle, .node-optics path { --node-accent: #dfad4c; }
 .node-function, .node-function circle, .node-function path { --node-accent: #ed8269; }
-.landscape-node circle { fill: color-mix(in srgb, var(--node-accent) 17%, var(--surface)); }
-.landscape-node path { stroke: var(--node-accent); }
 .landscape-core rect { fill: var(--accent-soft); stroke: color-mix(in srgb, var(--accent) 60%, var(--border)); stroke-width: 2; }
 .landscape-core .core-kicker { fill: var(--accent); font: 700 12px var(--mono); letter-spacing: 1.2px; }
 .landscape-core .core-title { fill: var(--text); font: 850 36px var(--font); }

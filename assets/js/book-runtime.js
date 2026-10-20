@@ -73,7 +73,7 @@ const MODULES = {
   crystal: './crystal.js?v=20261020i', lattice2d: './lattice2d.js?v=20261020i', miller: './miller.js?v=20261020i', bragg: './bragg.js',
   xrd: './xrd.js?v=20261020i', moire: './moire.js?v=20261020l', 'moire-reconstruction': './moire-reconstruction.js?v=20261020r', lineup: './lineup.js', spectrum: './spectrum.js',
   mos2: './mos2.js', bands: './bands.js', power: './power.js?v=20261020i', exfo: './exfo.js', cvd: './cvd.js',
-  glossary: './glossary.js?v=20261020m', refs: './papers.js?v=20261020e', paperdata: './papers.js?v=20261020e',
+  glossary: './glossary.js?v=20261020n', refs: './papers.js?v=20261020e', paperdata: './papers.js?v=20261020e',
   raman: './raman.js?v=20261020i',
   hypotaxy: './hypotaxy.js?v=20261020h', 'home-lineup': './home-materials.js?v=20261020review1',
 };
