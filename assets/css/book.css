@@ -320,6 +320,16 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
 .stats { display: flex; gap: 26px; flex-wrap: wrap; margin-top: 1.4rem; }
 .stats div b { display: block; font-size: 26px; font-weight: 800; font-family: var(--mono); letter-spacing: -.02em; }
 .stats div span { font-size: 13px; color: var(--muted); }
+.research-overview { max-width: 1120px; margin: 0 auto 3.2rem; }
+.flow-intro { max-width: 820px; margin-bottom: 1.2rem; }
+.flow-intro .eyebrow { font-family: var(--mono); font-size: 12px; color: var(--accent); font-weight: 700; letter-spacing: .04em; }
+.flow-intro h2 { margin: .25rem 0 .45rem; font-size: 28px; font-weight: 800; letter-spacing: -.025em; }
+.flow-intro p { margin: 0; color: var(--text-2); font-size: 16px; }
+.flow-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.flow-card { min-height: 205px; }
+.flow-card p { flex: 1; }
+.flow-next { margin-top: 6px; color: var(--accent); font-size: 13px; font-weight: 700; }
+.flow-loop { margin-top: 12px; padding: 10px 14px; border-radius: 10px; background: var(--accent-soft); color: var(--text-2); font-size: 13px; font-weight: 650; text-align: center; }
 .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
 .toc-card { position: relative; display: flex; flex-direction: column; gap: 6px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px; color: var(--text); transition: transform .15s, border-color .15s, box-shadow .15s; overflow: hidden; }
 .toc-card:hover { transform: translateY(-3px); border-color: var(--accent); text-decoration: none; box-shadow: var(--shadow); }
@@ -365,6 +375,10 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
   .hero-canvas { max-width: 320px; }
   .two-col, .lab-grid.even { grid-template-columns: 1fr; }
   .topbar .brand small { display: none; }
+}
+@media (max-width: 760px) {
+  .flow-grid { grid-template-columns: 1fr; }
+  .flow-card { min-height: 0; }
 }
 @media (max-width: 560px) {
   body { font-size: 16px; }
