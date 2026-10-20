@@ -1,5 +1,5 @@
 // Powder XRD pattern from the structure factor of cubic crystals
-import { fitCanvas, seg, outs, FONT, MONO } from './util.js';
+import { fitCanvas, seg, toggle, outs, FONT, MONO } from './util.js';
 
 const FCC = [[0, 0, 0], [0, 0.5, 0.5], [0.5, 0, 0.5], [0.5, 0.5, 0]];
 const shift = (pts, d) => pts.map(p => p.map((x, i) => x + d[i]));
@@ -50,9 +50,10 @@ export function init(root) {
   const { ctx, state } = fitCanvas(canvas, () => draw());
   const out = outs(root);
   const tip = out('tip');
-  let key = 'si', lam = 1.5406, peaks = [], hover = null;
+  let key = 'si', lam = 1.5406, peaks = [], hover = null, showSubstrate = false;
   seg(root, 'struct', v => { key = v; update(); });
   seg(root, 'src', v => { lam = +v; update(); });
+  toggle(root, 'substrate', v => { showSubstrate = v; update(); });
 
   const T0 = 10, T1 = 130;
   const pad = { l: 46, r: 20, t: 34, b: 40 };
@@ -61,8 +62,18 @@ export function init(root) {
   function update() {
     peaks = pattern(key, STRUCT[key].a, lam);
     const S = STRUCT[key];
-    out('info', `<b>${S.name}</b> — ${S.rule}`);
+    const siD004 = 5.431 / 4;
+    const siTheta = Math.asin(lam / (2 * siD004));
+    const substrate2theta = 2 * siTheta * 180 / Math.PI;
+    out('info', `<b>${S.name}</b> — ${S.rule}${showSubstrate ? `<br><span style="color:#9a6700"><b>Si(001) 단결정 기판:</b> Si(004) 반사 위치 2θ = ${substrate2theta.toFixed(2)}° (높이는 위치를 알아보기 위한 모식 표시)</span>` : ''}`);
     draw();
+  }
+
+  function substratePeak() {
+    const d = 5.431 / 4;
+    const sinT = lam / (2 * d);
+    if (sinT >= 1) return null;
+    return { tt: 2 * Math.asin(sinT) * 180 / Math.PI, d, best: '004', substrate: true };
   }
 
   function draw() {
@@ -106,6 +117,16 @@ export function init(root) {
       ctx.fillText(`(${p.best})`, x, y);
       lastX = x;
     }
+    const substrate = showSubstrate && substratePeak();
+    if (substrate && substrate.tt >= T0 && substrate.tt <= T1) {
+      const x = X(substrate.tt), base = h - pad.b;
+      ctx.strokeStyle = '#d18b00'; ctx.lineWidth = 5; ctx.globalAlpha = 0.18;
+      ctx.beginPath(); ctx.moveTo(x, Y(0)); ctx.lineTo(x, Y(86)); ctx.stroke();
+      ctx.globalAlpha = 1; ctx.strokeStyle = '#9a6700'; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.moveTo(x, base); ctx.lineTo(x, Y(82)); ctx.stroke();
+      ctx.fillStyle = '#805800'; ctx.font = `600 11px ${MONO}`; ctx.textAlign = x > w - 100 ? 'right' : 'left';
+      ctx.fillText('Si(004) 기판', x + (x > w - 100 ? -6 : 6), Y(82) - 7);
+    }
     if (hover) {
       const x = X(hover.tt);
       ctx.strokeStyle = '#ff375f'; ctx.setLineDash([2, 3]);
@@ -119,9 +140,13 @@ export function init(root) {
     const tt = T0 + (px - pad.l) / (state.w - pad.l - pad.r) * (T1 - T0);
     let best = null, bd = 1.5;
     for (const p of peaks) { const dd = Math.abs(p.tt - tt); if (dd < bd && p.I > 0.3) { bd = dd; best = p; } }
+    const substrate = showSubstrate && substratePeak();
+    if (substrate && Math.abs(substrate.tt - tt) < 1.5) best = substrate;
     hover = best;
     if (best) {
-      tip.innerHTML = `<b>(${best.best})</b> &nbsp; h²+k²+l² = ${best.s2}<br>2θ = ${best.tt.toFixed(2)}° · d = ${best.d.toFixed(4)} Å<br>상대 강도 ${best.I.toFixed(1)}`;
+      tip.innerHTML = best.substrate
+        ? `<b>단결정 Si(001) 기판 · (004)</b><br>2θ = ${best.tt.toFixed(2)}° · d = ${best.d.toFixed(4)} Å<br>반사 위치 표시 · 강도는 모식 표시`
+        : `<b>(${best.best})</b> &nbsp; h²+k²+l² = ${best.s2}<br>2θ = ${best.tt.toFixed(2)}° · d = ${best.d.toFixed(4)} Å<br>상대 강도 ${best.I.toFixed(1)}`;
       tip.style.left = Math.min(px + 14, state.w - 190) + 'px'; tip.style.top = (e.clientY - r.top - 10) + 'px';
       tip.classList.add('on');
     } else tip.classList.remove('on');

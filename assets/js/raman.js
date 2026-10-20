@@ -73,6 +73,20 @@ export function init(root) {
       ctx.textAlign = px > w - 90 ? 'right' : 'left';
       ctx.fillText(`${peak.label} ${peak.value.toFixed(1)}`, px + (px > w - 90 ? -5 : 5), p.t - 9);
     }
+
+    // Annotate the E′–A₁′ separation directly on the spectrum.
+    const ex = x(e), ax = x(a), gapY = baseY - 20;
+    ctx.strokeStyle = '#555866'; ctx.fillStyle = '#555866'; ctx.lineWidth = 1.4;
+    ctx.beginPath(); ctx.moveTo(ex, gapY - 5); ctx.lineTo(ex, gapY + 4); ctx.moveTo(ax, gapY - 5); ctx.lineTo(ax, gapY + 4);
+    ctx.moveTo(ex + 5, gapY); ctx.lineTo(ax - 5, gapY); ctx.stroke();
+    // Arrow heads point outward to show the interval between both peak centers.
+    ctx.beginPath(); ctx.moveTo(ex + 5, gapY); ctx.lineTo(ex + 10, gapY - 3.5); ctx.lineTo(ex + 10, gapY + 3.5); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(ax - 5, gapY); ctx.lineTo(ax - 10, gapY - 3.5); ctx.lineTo(ax - 10, gapY + 3.5); ctx.closePath(); ctx.fill();
+    const label = `Δω = ${(a - e).toFixed(1)} cm⁻¹`;
+    ctx.font = `600 11px ${MONO}`; ctx.textAlign = 'center';
+    const mid = (ex + ax) / 2, textY = gapY - 7, tw = ctx.measureText(label).width;
+    ctx.fillStyle = 'rgba(255,255,255,0.9)'; ctx.fillRect(mid - tw / 2 - 4, textY - 10, tw + 8, 14);
+    ctx.fillStyle = '#41434c'; ctx.fillText(label, mid, textY);
   }
   update();
 }
