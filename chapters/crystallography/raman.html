@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book.js?v=20261020c"></script>
+<script type="module" src="../../assets/js/book.js?v=20261020e"></script>
 </head>
 <body data-root="../../" data-field="crystallography" data-chapter="raman">
 <main class="main"><article class="article">
@@ -18,11 +18,11 @@
     <div class="meta"></div>
   </header>
 
-  <h2><span class="sec">4.1</span>빛의 에너지 이동을 측정한다</h2>
+  <h2><span class="sec">5.1</span>빛의 에너지 이동을 측정한다</h2>
   <p>대부분의 입사광은 에너지 변화 없이 산란되는 Rayleigh 산란을 합니다. 일부 광자는 시료의 진동 에너지를 주고받으며 산란되는데, 이때 산란광과 입사광 사이의 에너지 차이를 <strong>라만 이동(Raman shift)</strong>이라 합니다. 광자 에너지 차이를 파수(cm⁻¹)로 표시하므로 레이저 파장이 달라도 같은 진동 모드를 비교할 수 있습니다.</p>
   <p>진동 모드에 에너지를 전달한 산란은 Stokes 산란, 이미 들뜬 진동 상태에서 에너지를 얻은 산란은 anti-Stokes 산란입니다. 상온에서는 보통 Stokes 신호가 더 강합니다. 피크의 위치는 진동 에너지, 폭과 모양은 결정성·결함·상호작용 변화에 대한 정보를 담을 수 있습니다.</p>
 
-  <h2><span class="sec">4.2</span>스펙트럼으로 2D 물질을 읽기</h2>
+  <h2><span class="sec">5.2</span>스펙트럼으로 2D 물질을 읽기</h2>
   <p>층상 전이금속 디칼코제나이드(transition metal dichalcogenide, TMD)에서는 층 사이 결합과 유전 환경이 바뀌면서 진동 모드의 주파수와 세기가 달라집니다. 예를 들어 MoS₂의 대표적인 면내·면외 모드는 층수에 따라 서로 다른 경향을 보이며, 두 모드 사이의 간격도 층수 판별에 활용됩니다. 이 변화는 기판, 변형률, 도핑과 측정 조건에도 영향을 받으므로 단일 피크만으로 층수를 단정하지 않습니다.</p>
   <div class="table-wrap"><table>
     <thead><tr><th>스펙트럼 특징</th><th>가능한 해석</th><th>함께 확인할 점</th></tr></thead>
@@ -33,7 +33,7 @@
     </tbody>
   </table></div>
 
-  <h2><span class="sec">4.3</span>측정과 해석의 흐름</h2>
+  <h2><span class="sec">5.3</span>측정과 해석의 흐름</h2>
   <ol>
     <li>레이저 파장과 출력, 대물렌즈를 정하고 기판이나 기준 시료의 배경 신호를 확인합니다.</li>
     <li>시료를 조사해 파장별 산란 세기를 수집합니다. 필요하면 위치별 지도를 측정해 균일성을 비교합니다.</li>
@@ -41,11 +41,12 @@
   </ol>
   <div class="callout tip"><span class="t">레이저 가열을 확인하세요</span><p>출력이 너무 높으면 국소 온도 상승이 피크 이동이나 시료 손상을 일으킬 수 있습니다. 출력이나 노출 시간을 낮춰 스펙트럼이 유지되는지 확인하고, 레이저 파장에 따른 공명 효과와 형광 배경도 고려하세요.</p></div>
 
-  <h2><span class="sec">4.4</span>장점과 한계</h2>
+  <h2><span class="sec">5.4</span>장점과 한계</h2>
   <p>라만은 시료 준비가 비교적 간단하고 현미경과 결합해 작은 영역을 지도화할 수 있습니다. 다만 모든 물질이 강한 라만 신호를 내는 것은 아니며, 서로 다른 원인이 비슷한 피크 이동을 만들 수 있습니다. 층수는 광학 대비나 AFM 높이와, 결정상·조성은 XRD·TEM·XPS 결과와 함께 판단하면 해석의 신뢰도를 높일 수 있습니다.</p>
   <div class="refs"><h3>더 읽을 자료</h3><ul>
     <li><a href="https://doi.org/10.1021/nn1003937" target="_blank" rel="noopener">Lee et al., “Anomalous Lattice Vibrations of Single- and Few-Layer MoS₂,” ACS Nano (2010)</a></li>
   </ul></div>
+  <div class="refs" data-module="refs" data-topic="raman"></div>
   <div class="summary"><h4>정리</h4><ul>
     <li>Raman shift는 입사광과 산란광 사이에서 교환된 진동 에너지를 나타냅니다.</li>
     <li>피크 위치·폭·세기는 층수와 물성 변화의 단서지만 여러 변수에 함께 좌우됩니다.</li>

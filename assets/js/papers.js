@@ -23,6 +23,11 @@ const TOPICS = {
   mos2: { match: p => p.materials.includes('MoS2') || /MoS/i.test(p.title), keys: [...DEVICE, 'growth_temperature', 'raman_shift'] },
   cvd: { match: p => hasKey(p, SYNTH) || /growth|epitax|hypotax|wafer/i.test(p.title), keys: SYNTH },
   crystal: { match: p => /phase|3R|stacking|single-crystal|epitax|hypotax/i.test(p.title), keys: [...SYNTH, 'raman_shift'] },
+  xrd: { methodLabel: 'X선 회절(XRD)', methodRe: /\bXRD\b|X-ray diffraction|X ray diffraction|X선 회절|powder diffraction/i },
+  raman: { methodLabel: 'Raman 분광법', methodRe: /Raman|라만/i },
+  tem: { methodLabel: '전자현미경(TEM·DF-TEM·STEM)', methodRe: /\bTEM\b|HRTEM|HR-TEM|DF-TEM|STEM|SAED|HAADF|전자현미경/i },
+  xps: { methodLabel: 'X선 광전자분광법(XPS)', methodRe: /\bXPS\b|X-ray photoelectron|X선 광전자/i },
+  afm: { methodLabel: '원자힘현미경(AFM)', methodRe: /\bAFM\b|atomic force microscopy|원자힘현미경/i },
 };
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -60,14 +65,42 @@ function card(p, keys, focus) {
   </article>`;
 }
 
+function methodCard(p, topic, focus) {
+  const values = p.values.filter(v => topic.methodRe.test(v.method || ''));
+  // Some exports attach a whole experiment narrative to each metric. Only show
+  // numbers when the method field names the technique directly, to avoid
+  // presenting unrelated device or synthesis values as characterization data.
+  const measurements = values.filter(v => fmtValue(v) && (v.method || '').length <= 80).slice(0, 3);
+  const core = focus[p.id] || [];
+  const reported = measurements.length
+    ? `<dl class="pvals">${measurements.map(v => `<div><dt>${esc(v.metric_label || v.canonical_name || v.name)}${v.evidence?.page ? ` <small>p. ${v.evidence.page}</small>` : ''}</dt><dd>${fmtValue(v)}</dd></div>`).join('')}</dl>`
+    : '<div class="pnone">논문 DB에서 이 분석법을 사용한 연구로 분류했습니다. 연결된 수치가 없거나 분석법 전용 값으로 확인되지 않았습니다.</div>';
+  return `<article class="pcard">
+    <div class="pmeta">${esc(p.journal || '저널 정보 없음')} · ${p.year || '연도 미상'} · ${esc(topic.methodLabel)}</div>
+    <h4>${esc(p.title)}</h4>
+    <div class="pauth">${firstAuthor(p)}</div>
+    ${core.length ? `<div class="pchips" aria-label="핵심 소재">${core.map(m => `<span>${formula(esc(m))}</span>`).join('')}</div>` : ''}
+    ${reported}
+    ${p.url ? `<a class="plink" href="${esc(p.url)}" target="_blank" rel="noopener">${p.doi ? 'DOI ' + esc(p.doi) : '논문 페이지'} ↗</a>` : ''}
+  </article>`;
+}
+
 async function initRefs(root) {
   const topic = TOPICS[root.dataset.topic];
+  if (!topic) { root.remove(); return; }
   try {
     const [data, focus] = await Promise.all([load(), loadFocus()]);
-    const list = data.papers.filter(topic.match);
+    const matching = data.papers.filter(topic.methodRe
+      ? p => p.values.some(v => topic.methodRe.test(v.method || ''))
+      : topic.match);
+    const list = topic.methodRe
+      ? matching.sort((a, b) => String(b.publication_date || b.year || '').localeCompare(String(a.publication_date || a.year || ''))).slice(0, 3)
+      : matching;
     if (!list.length) { root.remove(); return; }
-    root.innerHTML = `<div class="refs-head"><span class="refs-tag">연구실 논문 DB</span><h4>관련 논문 ${list.length}편</h4><a href="papers.html">전체 데이터 보기 ›</a></div>
-      <div class="refs-row">${list.map(p => card(p, topic.keys, focus)).join('')}</div>`;
+    const rootPath = document.body.dataset.root || '../../';
+    const heading = topic.methodRe ? `DB 내 관련 최신 연구 ${list.length}편` : `관련 논문 ${list.length}편`;
+    root.innerHTML = `<div class="refs-head"><span class="refs-tag">연구실 논문 DB</span><h4>${heading}</h4><a href="${rootPath}chapters/tools/papers.html">전체 데이터 보기 ›</a></div>
+      <div class="refs-row">${list.map(p => topic.methodRe ? methodCard(p, topic, focus) : card(p, topic.keys, focus)).join('')}</div>`;
   } catch (e) {
     root.remove();
     console.warn('[refs]', e);

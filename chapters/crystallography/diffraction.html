@@ -3,51 +3,47 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>결정면과 X선 회절 · 결정학과 분석 방법 · Beyond Silicon</title>
+<title>결정면과 밀러 지수 · 결정학과 분석 방법 · Beyond Silicon</title>
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book.js?v=20261020c"></script>
+<script type="module" src="../../assets/js/book.js?v=20261020e"></script>
 </head>
 <body data-root="../../" data-field="crystallography" data-chapter="diffraction">
-<main class="main">
-<article class="article">
+<main class="main"><article class="article">
   <header class="chapter-head">
-    <div class="eyebrow">CHAPTER II · CRYSTALLOGRAPHY</div>
-    <h1>결정면과 X선 회절</h1>
-    <p class="lede">결정 속 원자 배열은 눈으로 볼 수 없지만, 파장이 원자 간격과 비슷한 X선을 쪼이면 그 간섭 무늬로 알아낼 수 있습니다. 이 장에서는 결정면에 이름을 붙이는 밀러 지수, 회절 조건인 브래그 법칙, 그리고 어떤 반사가 나타나고 사라지는지를 결정하는 구조 인자를 다룹니다.</p>
+    <div class="eyebrow">CHAPTER II · CRYSTAL PLANES</div>
+    <h1>결정면과 밀러 지수</h1>
+    <p class="lede">결정 속 원자 배열은 여러 방향의 평행한 면으로 나누어 생각할 수 있습니다. 밀러 지수는 결정면의 방향을 나타내며, 면간 거리는 X선 회절을 포함한 결정 분석에서 중요한 기하 정보입니다.</p>
     <div class="meta"></div>
   </header>
 
   <h2><span class="sec">2.1</span>밀러 지수</h2>
   <p>결정 속에서 원자를 지나는 평행한 평면들을 <strong>결정면(lattice plane)</strong>이라 합니다. 결정면의 방향은 <strong>밀러 지수(Miller indices)</strong> (hkl)로 나타냅니다. 구하는 순서는 다음과 같습니다.</p>
   <ol>
-    <li>결정면이 세 결정축과 만나는 절편을 격자 상수 단위로 구한다. (예: 1, 1, ∞)</li>
-    <li>각 절편의 역수를 취한다. (1, 1, 0)</li>
-    <li>가장 작은 정수비로 만든다. → (110)</li>
+    <li>결정면이 세 결정축과 만나는 절편을 격자 상수 단위로 구합니다. (예: 1, 1, ∞)</li>
+    <li>각 절편의 역수를 취합니다. (1, 1, 0)</li>
+    <li>가장 작은 정수비로 만듭니다. → (110)</li>
   </ol>
-  <p>음의 절편은 숫자 위에 줄을 그어 (1̄11)처럼 표기합니다. 대칭적으로 동등한 면들의 집합은 중괄호 {hkl}로, 방향은 대괄호 [uvw]로 씁니다. 입방정에서 이웃한 평행 결정면 사이의 거리, 즉 <strong>면간 거리(interplanar spacing)</strong>는 다음과 같습니다.</p>
-  <div class="eq"><i>d</i><sub>hkl</sub> = <i>a</i> / √(<i>h</i>² + <i>k</i>² + <i>l</i>²)<span class="where">입방정(cubic)에서만 성립. a: 격자 상수</span></div>
+  <p>음의 절편은 숫자 위에 줄을 그어 (1̄11)처럼 표기합니다. 대칭적으로 동등한 면들의 집합은 중괄호 {hkl}로, 결정 방향은 대괄호 [uvw]로 씁니다.</p>
+
+  <h2><span class="sec">2.2</span>면간 거리</h2>
+  <p>면간 거리(interplanar spacing)는 같은 방향을 가진 이웃한 평행 결정면 사이의 간격입니다. 입방정(cubic crystal)에서는 격자 상수 a와 밀러 지수로 다음과 같이 계산합니다.</p>
+  <div class="eq"><i>d</i><sub>hkl</sub> = <i>a</i> / √(<i>h</i>² + <i>k</i>² + <i>l</i>²)<span class="where">입방정에서만 성립. 다른 결정계에서는 격자 상수와 각도를 함께 고려합니다.</span></div>
 
   <section class="lab" id="lab-miller" data-module="miller">
     <div class="lab-head"><span class="badge">LAB 2-1</span><h4>밀러 지수와 결정면</h4><span class="sub">지수를 바꾸면 평행한 결정면들이 표시됩니다</span></div>
     <div class="lab-body lab-grid">
       <div class="stage h-420"><canvas></canvas><div class="hud"><span style="color:#ff6b6b">x</span> · <span style="color:#30d158">y</span> · <span style="color:#2997ff">z</span></div><div class="stage-badge">드래그 · 회전</div></div>
       <div class="panel">
-        <div class="group"><div class="label">밀러 지수 (h k l)</div>
-          <div class="miller-input">(
-            <div class="mstep" data-k="h"><button data-d="1">▲</button><output>1</output><button data-d="-1">▼</button></div>
-            <div class="mstep" data-k="k"><button data-d="1">▲</button><output>1</output><button data-d="-1">▼</button></div>
-            <div class="mstep" data-k="l"><button data-d="1">▲</button><output>1</output><button data-d="-1">▼</button></div>
-          )</div>
-        </div>
-        <div class="group"><div class="label">자주 쓰는 면</div>
-          <div class="seg" data-k="preset"><button data-v="1,0,0">(100)</button><button data-v="1,1,0">(110)</button><button class="on" data-v="1,1,1">(111)</button><button data-v="2,0,0">(200)</button><button data-v="2,1,0">(210)</button><button data-v="-1,1,1">(<span style="text-decoration:overline">1</span>11)</button></div>
-        </div>
-        <div class="group"><div class="label">브라베 격자</div>
-          <div class="seg" data-k="lat"><button data-v="sc">SC</button><button data-v="bcc">BCC</button><button class="on" data-v="fcc">FCC</button></div>
-        </div>
+        <div class="group"><div class="label">밀러 지수 (h k l)</div><div class="miller-input">(
+          <div class="mstep" data-k="h"><button data-d="1">▲</button><output>1</output><button data-d="-1">▼</button></div>
+          <div class="mstep" data-k="k"><button data-d="1">▲</button><output>1</output><button data-d="-1">▼</button></div>
+          <div class="mstep" data-k="l"><button data-d="1">▲</button><output>1</output><button data-d="-1">▼</button></div>
+        )</div></div>
+        <div class="group"><div class="label">자주 쓰는 면</div><div class="seg" data-k="preset"><button data-v="1,0,0">(100)</button><button data-v="1,1,0">(110)</button><button class="on" data-v="1,1,1">(111)</button><button data-v="2,0,0">(200)</button><button data-v="2,1,0">(210)</button><button data-v="-1,1,1">(<span style="text-decoration:overline">1</span>11)</button></div></div>
+        <div class="group"><div class="label">브라베 격자</div><div class="seg" data-k="lat"><button data-v="sc">SC</button><button data-v="bcc">BCC</button><button class="on" data-v="fcc">FCC</button></div></div>
         <div class="readout">
           <div><div class="k">면간 거리 d/a</div><div class="v" data-o="d">—</div></div>
           <div><div class="k">면 위 격자점</div><div class="v" data-o="atoms">—</div></div>
@@ -57,74 +53,13 @@
     </div>
   </section>
 
-  <div class="callout fact"><span class="t">웨이퍼 면방위</span><p>실리콘 로직 소자는 계면 준위 밀도(D<sub>it</sub>)가 낮은 (100) 웨이퍼를 주로 씁니다. GaN을 실리콘 위에 성장할 때는 육방 대칭이 맞는 Si(111) 면을, 2D 물질의 에피택시에는 사파이어 c-면(0001)을 흔히 씁니다. (100)과 (200)은 방향은 같지만, (200)은 면간 거리가 절반인 면들(면심 원자를 지나는 면 포함)을 가리킵니다.</p></div>
+  <div class="callout fact"><span class="t">웨이퍼 면방위</span><p>실리콘 로직 소자는 계면 준위 밀도(D<sub>it</sub>)가 낮은 (100) 웨이퍼를 주로 씁니다. GaN을 실리콘 위에 성장할 때는 육방 대칭이 맞는 Si(111) 면을, 2D 물질의 에피택시에는 사파이어 c-면(0001)을 흔히 씁니다. (100)과 (200)은 방향은 같지만, (200)은 면간 거리가 절반인 면들을 가리킵니다.</p></div>
 
-  <h2><span class="sec">2.2</span>브래그 법칙</h2>
-  <p>면간 거리 d인 평행한 결정면들에 파장 λ의 X선이 각도 θ로 입사하면, 이웃한 두 면에서 반사된 파의 경로차는 2d sinθ입니다. 이 경로차가 파장의 정수배일 때만 모든 면의 반사파가 같은 위상으로 더해져 강한 회절이 일어납니다.</p>
-  <div class="eq">2<i>d</i> sin θ = <i>n</i>λ<span class="where">θ: 입사각(glancing angle, 결정면과 이루는 각) · n: 회절 차수 · 회절계에서는 2θ를 측정합니다</span></div>
-  <p>λ &gt; 2d이면 어떤 각도에서도 조건을 만족할 수 없으므로 회절이 일어나지 않습니다. 원자 간격(수 Å)을 측정하려면 그와 비슷한 파장의 X선(Cu Kα, λ = 1.5406 Å)이 필요한 이유입니다.</p>
-
-  <section class="lab" id="lab-bragg" data-module="bragg">
-    <div class="lab-head"><span class="badge">LAB 2-2</span><h4>브래그 반사</h4><span class="sub">각도를 돌려 보강 간섭이 일어나는 순간을 찾으세요</span></div>
-    <div class="lab-body lab-grid">
-      <div class="stage h-420"><canvas data-c="main"></canvas><div class="hud" data-o="hud"></div></div>
-      <div class="panel">
-        <label class="slider"><div class="row"><span>입사각 θ</span><b data-o="theta">30.0°</b></div><input type="range" data-k="theta" min="5" max="85" step="0.1" value="30"></label>
-        <label class="slider"><div class="row"><span>파장 λ</span><b data-o="lam">1.54 Å</b></div><input type="range" data-k="lam" min="0.6" max="3" step="0.01" value="1.54"></label>
-        <label class="slider"><div class="row"><span>면간 거리 d</span><b data-o="d">2.00 Å</b></div><input type="range" data-k="d" min="1" max="4" step="0.01" value="2"></label>
-        <div class="readout">
-          <div><div class="k">경로차 2d sinθ</div><div class="v" data-o="path">—</div></div>
-          <div><div class="k">경로차 / λ</div><div class="v" data-o="n">—</div></div>
-        </div>
-        <div class="stage light h-150"><canvas data-c="curve"></canvas><div class="hud">반사 세기 vs θ (결정면 8장)</div></div>
-      </div>
-    </div>
-  </section>
-  <p>오른쪽 아래 그래프는 결정면이 8장일 때의 반사 세기입니다. 면이 많을수록 브래그 각에서의 피크가 날카로워지는데, 실제 결정에는 수만 장 이상의 면이 있어 회절 피크는 매우 좁습니다. 반대로 결정립이 아주 작으면 피크가 넓어지며, 이를 이용해 결정립 크기를 추정하는 것이 셰러 식(Scherrer equation)입니다.</p>
-
-  <h2><span class="sec">2.3</span>구조 인자와 소멸 규칙</h2>
-  <p>브래그 조건은 회절이 <em>일어날 수 있는</em> 각도를 알려줄 뿐, 실제 세기는 단위 세포 안의 원자 배치에 따라 달라집니다. 단위 세포 내 원자 j(위치 xⱼ, yⱼ, zⱼ, 원자 산란 인자 fⱼ)의 산란파를 위상과 함께 더한 것이 <strong>구조 인자(structure factor)</strong>입니다.</p>
-  <div class="eq"><i>F</i><sub>hkl</sub> = Σ<sub>j</sub> <i>f</i><sub>j</sub> exp[2π<i>i</i>(<i>hx</i><sub>j</sub> + <i>ky</i><sub>j</sub> + <i>lz</i><sub>j</sub>)], &nbsp;&nbsp; <i>I</i><sub>hkl</sub> ∝ |<i>F</i><sub>hkl</sub>|²</div>
-  <p>원자들의 산란파가 서로 정확히 상쇄되면 F = 0이 되어, 브래그 조건을 만족해도 피크가 나타나지 않습니다. 이것이 <strong>소멸 규칙(systematic absence)</strong>입니다.</p>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>구조</th><th>회절이 나타나는 조건</th><th>처음 나타나는 피크</th></tr></thead>
-      <tbody>
-        <tr><td>단순 입방 (SC)</td><td>모든 (hkl)</td><td>(100), (110), (111), (200)…</td></tr>
-        <tr><td>체심 입방 (BCC)</td><td>h + k + l = 짝수</td><td>(110), (200), (211), (220)…</td></tr>
-        <tr><td>면심 입방 (FCC)</td><td>h, k, l 모두 홀수 또는 모두 짝수</td><td>(111), (200), (220), (311)…</td></tr>
-        <tr><td>다이아몬드 (Si)</td><td>FCC 조건 + h+k+l ≠ 4n+2</td><td>(111), (220), (311), (400)…</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <section class="lab" id="lab-xrd" data-module="xrd">
-    <div class="lab-head"><span class="badge">LAB 2-3</span><h4>분말 X선 회절 패턴</h4><span class="sub">피크에 마우스를 올리면 (hkl)과 면간 거리가 표시됩니다</span></div>
-    <div class="lab-body">
-      <div class="lab-tools">
-        <div class="seg" data-k="struct"><button data-v="sc">SC</button><button data-v="bcc">BCC (Fe)</button><button data-v="fcc">FCC (Cu)</button><button class="on" data-v="dia">다이아몬드 (Si)</button><button data-v="zb">섬아연광 (GaAs)</button><button data-v="nacl">암염 (NaCl)</button></div>
-      </div>
-      <div class="stage light h-320"><canvas></canvas><div class="tip" data-o="tip"></div></div>
-      <div class="controls-row">
-        <label class="slider"><div class="row"><span>격자 상수 a</span><b data-o="a">5.431 Å</b></div><input type="range" data-k="a" min="2.5" max="6.5" step="0.001" value="5.431"></label>
-        <div class="group" style="display:flex;flex-direction:column;gap:4px;flex:0 1 auto"><span class="note">X선 광원</span><div class="seg" data-k="src"><button class="on" data-v="1.5406">Cu Kα</button><button data-v="1.7890">Co Kα</button><button data-v="0.7107">Mo Kα</button></div></div>
-      </div>
-      <p class="hint" data-o="info"></p>
-    </div>
-  </section>
-
-  <div class="callout tip"><span class="t">해 볼 것</span><p>① 다이아몬드(Si)와 FCC를 비교해 (200) 피크가 사라지는 것을 확인하세요. ② 섬아연광(GaAs)에서는 Ga와 As의 원자 산란 인자가 달라 (200)이 아주 약하게 남습니다. ③ 격자 상수를 조금 늘리면(인장 변형) 모든 피크가 낮은 각도로 이동합니다. 박막의 변형률을 XRD로 측정하는 원리입니다.</p></div>
-
-  <div class="summary">
-    <h4>📝 정리</h4>
-    <ul>
-      <li>밀러 지수는 절편의 역수를 가장 작은 정수비로 나타낸 것이며, 입방정에서 d<sub>hkl</sub> = a/√(h²+k²+l²)이다.</li>
-      <li>브래그 법칙 2d sinθ = nλ는 회절이 일어날 수 있는 각도를 준다.</li>
-      <li>회절 세기는 구조 인자의 제곱 |F<sub>hkl</sub>|²에 비례하며, F = 0인 반사는 소멸한다.</li>
-      <li>FCC는 h, k, l이 모두 홀수 또는 모두 짝수일 때, 다이아몬드 구조는 추가로 h+k+l ≠ 4n+2일 때만 회절한다.</li>
-    </ul>
-  </div>
-</article>
-</main>
+  <div class="summary"><h4>정리</h4><ul>
+    <li>밀러 지수는 결정면의 방향을 절편의 역수로 나타낸 표기입니다.</li>
+    <li>면간 거리는 결정계와 밀러 지수에 따라 달라지며, 입방정에서는 d<sub>hkl</sub> = a/√(h²+k²+l²)입니다.</li>
+    <li>결정면의 기하와 회절을 연결하는 X선 회절은 다음 분석법 장에서 다룹니다.</li>
+  </ul></div>
+</article></main>
 </body>
 </html>
