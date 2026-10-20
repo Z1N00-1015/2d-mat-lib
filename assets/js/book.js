@@ -14,7 +14,7 @@ export const FIELDS = [
       { id: 'synthesis', n: '02', title: '2D 물질의 합성', group: '합성과 연구',
         desc: '기계적 박리와 화학 기상 증착(CVD), 핵생성·성장·결정립계와 에피택시를 소개합니다.', labs: ['기계적 박리', 'CVD 성장'] },
       { id: 'moire', n: '03', title: '이종구조와 모아레 연구', group: '합성과 연구',
-        desc: '반데르발스 이종구조, 비틀림 각도, 모아레 초격자와 트위스트로닉스를 살펴봅니다.', labs: ['모아레 초격자'] },
+        desc: '반데르발스 이종구조, 비틀림 각도, 모아레 초격자와 트위스트로닉스를 살펴봅니다.', labs: ['모아레 주기', '원자 재구성'] },
     ],
   },
   {
@@ -67,7 +67,7 @@ export const FIELDS = [
 const MODULES = {
   hero: './hero.js', stack: './stack.js', tunneling: './tunneling.js', fet: './fet.js',
   crystal: './crystal.js?v=20261020i', lattice2d: './lattice2d.js?v=20261020i', miller: './miller.js?v=20261020i', bragg: './bragg.js',
-  xrd: './xrd.js?v=20261020i', moire: './moire.js?v=20261020k', lineup: './lineup.js', spectrum: './spectrum.js',
+  xrd: './xrd.js?v=20261020i', moire: './moire.js?v=20261020l', 'moire-reconstruction': './moire-reconstruction.js?v=20261020l', lineup: './lineup.js', spectrum: './spectrum.js',
   mos2: './mos2.js', bands: './bands.js', power: './power.js?v=20261020i', exfo: './exfo.js', cvd: './cvd.js',
   glossary: './glossary.js?v=20261020j', refs: './papers.js?v=20261020e', paperdata: './papers.js?v=20261020e',
   raman: './raman.js?v=20261020i',
