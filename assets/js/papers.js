@@ -109,6 +109,156 @@ async function initRefs(root) {
 
 // ---------- paper comparison ----------
 const CHART_METRICS = ['mobility', 'on_off_ratio', 'on_current', 'subthreshold_swing', 'contact_resistance', 'growth_temperature'];
+const SYNTHESIS_METRICS = ['growth_temperature', 'growth_time', 'gas_flow', 'pressure', 'ramp_rate', 'precursor_film'];
+
+function initSynthesisChart(root, data, focus, getMaterial) {
+  const controls = root.querySelector('[data-synth-controls]');
+  const xSelect = root.querySelector('[data-o="synth-axis-x"]');
+  const ySelect = root.querySelector('[data-o="synth-axis-y"]');
+  const canvas = root.querySelector('[data-o="synth-canvas"]');
+  const tip = root.querySelector('[data-o="synth-tip"]');
+  const status = root.querySelector('[data-o="synth-status"]');
+  const papers = data.papers || [];
+  const metrics = SYNTHESIS_METRICS.filter(key => data.metrics[key]
+    && papers.some(p => p.values.some(v => v.metric_key === key && Number.isFinite(+v.norm_value) && +v.norm_value > 0)));
+  if (metrics.length < 2) {
+    controls.hidden = true;
+    status.textContent = '비교할 수 있는 합성 수치가 아직 충분하지 않습니다.';
+    return () => {};
+  }
+  const label = key => data.metrics[key].unit
+    ? data.metrics[key].label + ' (' + data.metrics[key].unit + ')'
+    : data.metrics[key].label;
+  const options = metrics.map(key => '<option value="' + esc(key) + '">' + esc(label(key)) + '</option>').join('');
+  xSelect.innerHTML = options;
+  ySelect.innerHTML = options;
+  xSelect.value = metrics.includes('growth_temperature') ? 'growth_temperature' : metrics[0];
+  ySelect.value = metrics.includes('gas_flow') ? 'gas_flow' : metrics.find(key => key !== xSelect.value);
+  let xMetric = xSelect.value, yMetric = ySelect.value, points = [], hover = null;
+  const { ctx, state } = fitCanvas(canvas, draw);
+  const primary = p => focus[p.id] || [];
+
+  function pairs() {
+    const material = getMaterial();
+    const result = [];
+    for (const p of papers) {
+      const core = primary(p);
+      if (material !== '전체' && (material === '미분류' ? core.length : !core.includes(material))) continue;
+      const xs = p.values.filter(v => v.metric_key === xMetric && Number.isFinite(+v.norm_value) && +v.norm_value > 0);
+      const ys = p.values.filter(v => v.metric_key === yMetric && Number.isFinite(+v.norm_value) && +v.norm_value > 0);
+      for (const x of xs) for (const y of ys) {
+        const xsample = String(x.sample || '').trim(), ysample = String(y.sample || '').trim();
+        if ((xsample && ysample && xsample === ysample) || (xs.length === 1 && ys.length === 1)) {
+          result.push({ p, x, y, sample: xsample === ysample ? (xsample || '') : [xsample, ysample].filter(Boolean).join(' · ') });
+        }
+      }
+    }
+    return result.sort((a, b) => String(b.p.publication_date || b.p.year || '').localeCompare(String(a.p.publication_date || a.p.year || '')));
+  }
+  function range(values) {
+    const low = Math.min(...values), high = Math.max(...values), logarithmic = high / low > 35;
+    if (logarithmic) {
+      let min = Math.floor(Math.log10(low)), max = Math.ceil(Math.log10(high));
+      if (min === max) { min--; max++; }
+      return { logarithmic, min, max, map: v => (Math.log10(v) - min) / (max - min) };
+    }
+    let min = low, max = high;
+    if (min === max) { min *= .85; max *= 1.15; }
+    else { const pad = (max - min) * .1; min = Math.max(0, min - pad); max += pad; }
+    return { logarithmic, min, max, map: v => (v - min) / (max - min) };
+  }
+  function draw() {
+    const { w, h } = state;
+    if (!w || !h) return;
+    ctx.clearRect(0, 0, w, h);
+    const values = pairs();
+    const box = { left: Math.min(90, Math.max(66, w * .15)), right: w - 22, top: 24, bottom: h - 62 };
+    if (!values.length) {
+      status.textContent = '0편 · 선택한 조건 조합의 비교 데이터 없음';
+      ctx.fillStyle = '#70737d'; ctx.font = '14px ' + FONT; ctx.textAlign = 'center';
+      ctx.fillText('같은 시료 또는 논문 단위로 비교할 합성 조건이 없습니다.', w / 2, h / 2);
+      points = [];
+      return;
+    }
+    const xv = values.map(v => +v.x.norm_value), yv = values.map(v => +v.y.norm_value);
+    const xr = range(xv), yr = range(yv);
+    const grid = (axis, vertical, nums) => {
+      let ticks = [];
+      if (axis.logarithmic) {
+        for (let e = Math.ceil(axis.min); e <= Math.floor(axis.max); e++) ticks.push([10 ** e, '10' + (e ? '⁽' + e + '⁾' : '')]);
+      } else {
+        const step = 10 ** Math.floor(Math.log10((axis.max - axis.min) / 5)) || 1;
+        const first = Math.ceil(axis.min / step) * step;
+        for (let n = first; n <= axis.max + step * .001; n += step) ticks.push([n, (+n.toPrecision(3)).toLocaleString('en-US')]);
+      }
+      if (ticks.length < 2) ticks = [[Math.min(...nums), fmtNum(Math.min(...nums))], [Math.max(...nums), fmtNum(Math.max(...nums))]];
+      ctx.font = '11px ' + MONO; ctx.fillStyle = '#777b86'; ctx.strokeStyle = 'rgba(120,125,140,.22)'; ctx.lineWidth = 1;
+      for (const [n, text] of ticks) {
+        const pos = vertical ? box.bottom - axis.map(n) * (box.bottom - box.top) : box.left + axis.map(n) * (box.right - box.left);
+        ctx.beginPath();
+        if (vertical) { ctx.moveTo(box.left, pos); ctx.lineTo(box.right, pos); }
+        else { ctx.moveTo(pos, box.top); ctx.lineTo(pos, box.bottom); }
+        ctx.stroke(); ctx.textAlign = vertical ? 'right' : 'center';
+        ctx.fillText(text, vertical ? box.left - 9 : pos, vertical ? pos + 4 : box.bottom + 20);
+      }
+    };
+    grid(xr, false, xv); grid(yr, true, yv);
+    points = values.map(pair => ({ ...pair,
+      px: box.left + xr.map(+pair.x.norm_value) * (box.right - box.left),
+      py: box.bottom - yr.map(+pair.y.norm_value) * (box.bottom - box.top),
+    }));
+    for (const point of points) {
+      const active = hover && hover.p === point.p && hover.x === point.x && hover.y === point.y;
+      ctx.beginPath(); ctx.arc(point.px, point.py, active ? 7 : 5, 0, Math.PI * 2);
+      ctx.fillStyle = active ? '#8e7cff' : '#fff'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = '#7564e8'; ctx.stroke();
+    }
+    ctx.fillStyle = '#5f626d'; ctx.font = '12px ' + FONT; ctx.textAlign = 'center';
+    ctx.fillText(label(xMetric) + (xr.logarithmic ? ' · 로그 축' : ''), (box.left + box.right) / 2, h - 15);
+    ctx.save(); ctx.translate(15, (box.top + box.bottom) / 2); ctx.rotate(-Math.PI / 2);
+    ctx.fillText(label(yMetric) + (yr.logarithmic ? ' · 로그 축' : ''), 0, 0); ctx.restore();
+    status.textContent = new Set(values.map(v => v.p.id)).size + '편 · ' + values.length + '개 합성 조건 비교점';
+  }
+  function renderTable() {
+    root.querySelector('[data-o="synth-table"]').innerHTML = pairs().map(point => '<tr><td>'
+      + (point.p.url ? '<a href="' + esc(point.p.url) + '" target="_blank" rel="noopener">' + esc(point.p.title) + '</a>' : esc(point.p.title))
+      + '<br><small>' + esc(point.p.journal || '') + ' · ' + (point.p.year || '연도 미상') + '</small></td>'
+      + '<td>' + (primary(point.p).map(m => formula(esc(m))).join(', ') || '미분류') + '</td>'
+      + '<td>' + fmtValue(point.x) + (point.x.qualifier ? '<br><small>' + esc(point.x.qualifier) + '</small>' : '') + '</td>'
+      + '<td>' + fmtValue(point.y) + (point.y.qualifier ? '<br><small>' + esc(point.y.qualifier) + '</small>' : '') + '</td>'
+      + '<td>' + esc(point.sample || '시료 미기록') + '</td></tr>').join('');
+  }
+  function changeAxes(changed) {
+    xMetric = xSelect.value; yMetric = ySelect.value;
+    if (xMetric === yMetric) {
+      const alternative = metrics.find(key => key !== xMetric);
+      if (changed === 'x') { yMetric = alternative; ySelect.value = alternative; }
+      else { xMetric = alternative; xSelect.value = alternative; }
+    }
+    hover = null; tip.classList.remove('on'); draw(); renderTable();
+  }
+  canvas.addEventListener('pointermove', event => {
+    const rect = canvas.getBoundingClientRect();
+    const x = (event.clientX - rect.left) * state.w / rect.width, y = (event.clientY - rect.top) * state.h / rect.height;
+    let nearest = null, distance = 14;
+    for (const point of points) { const d = Math.hypot(point.px - x, point.py - y); if (d < distance) { nearest = point; distance = d; } }
+    if (nearest !== hover) { hover = nearest; draw(); }
+    if (!nearest) { tip.classList.remove('on'); return; }
+    const rectTip = canvas.getBoundingClientRect();
+    tip.innerHTML = '<b>' + esc(nearest.p.title) + '</b><br>' + esc(data.metrics[xMetric].label) + ': ' + fmtValue(nearest.x)
+      + '<br>' + esc(data.metrics[yMetric].label) + ': ' + fmtValue(nearest.y)
+      + (nearest.sample ? '<br>시료: ' + esc(nearest.sample) : '')
+      + '<br><span style="opacity:.7">' + esc(nearest.p.journal || '') + ' ' + (nearest.p.year || '') + '</span>';
+    tip.style.left = Math.max(8, Math.min(event.clientX - rectTip.left + 12, state.w - 280)) + 'px';
+    tip.style.top = Math.max(8, Math.min(event.clientY - rectTip.top + 12, state.h - 130)) + 'px';
+    tip.style.maxWidth = '280px'; tip.style.whiteSpace = 'normal'; tip.classList.add('on');
+  });
+  canvas.addEventListener('pointerleave', () => { hover = null; tip.classList.remove('on'); draw(); });
+  canvas.addEventListener('click', () => { if (hover && hover.p.url) window.open(hover.p.url, '_blank', 'noopener'); });
+  xSelect.addEventListener('change', () => changeAxes('x'));
+  ySelect.addEventListener('change', () => changeAxes('y'));
+  draw(); renderTable();
+  return () => { hover = null; tip.classList.remove('on'); draw(); renderTable(); };
+}
 
 async function initData(root) {
   const status = root.querySelector('[data-o="status"]');
@@ -142,6 +292,7 @@ async function initData(root) {
       + (m === '전체' || m === '미분류' ? esc(m) : formula(esc(m))) + '</button>').join('');
     let material = '전체';
     let xMetric = xSelect.value, yMetric = ySelect.value;
+    const refreshSynthesis = initSynthesisChart(root, data, focus, () => material);
     const canvas = root.querySelector('canvas');
     const tip = root.querySelector('.tip');
     const { ctx, state } = fitCanvas(canvas, draw);
@@ -331,6 +482,7 @@ async function initData(root) {
       tip.classList.remove('on');
       draw();
       renderTable();
+      refreshSynthesis();
     });
     root.querySelector('[data-o="updated"]').textContent = '데이터 기준: ' + String(data.generated_at || '').slice(0, 10);
     draw();
