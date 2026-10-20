@@ -74,7 +74,7 @@ const MODULES = {
   xrd: './xrd.js?v=20261020i', moire: './moire.js?v=20261020l', 'moire-reconstruction': './moire-reconstruction.js?v=20261020s', spectrum: './spectrum.js',
   mos2: './mos2.js', bands: './bands.js', power: './power.js?v=20261020i', exfo: './exfo.js', cvd: './cvd.js',
   glossary: './glossary.js?v=20261020p', refs: './papers.js?v=20261020e', paperdata: './papers.js?v=20261020e',
-  raman: './raman.js?v=20261020i', 'tem-moire': './tem-moire.js?v=20261020k',
+  raman: './raman.js?v=20261020i', 'tem-moire': './tem-moire.js?v=20261020l',
   hypotaxy: './hypotaxy.js?v=20261020h', 'home-lineup': './home-materials.js?v=20261020materials2',
   lineup: './lineup.js?v=20261020materials2',
 };

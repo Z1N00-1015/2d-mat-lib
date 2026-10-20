@@ -40,9 +40,10 @@ export function init(root) {
     return Math.atan2(Math.sin(t), (1 + d) - Math.cos(t)) * 180 / Math.PI;
   }
   // In this real-space teaching view, colored fringe traces follow the same
-  // moiré-lattice rotation α as the white coincidence sites. Their normal is
+  // moiré-lattice rotation as the white coincidence sites. For the layer
+  // order used here, that real-space rotation is -α. Their normal is
   // used for the intensity modulation; reciprocal Δg vectors are not drawn.
-  function fringeAngle(direction) { return direction.angle + moireOrientationDeg() * Math.PI / 180; }
+  function fringeAngle(direction) { return direction.angle - moireOrientationDeg() * Math.PI / 180; }
   function fringeNormalAngle(direction) { return fringeAngle(direction) - Math.PI / 2; }
   function spotDegree(direction) {
     const degrees = fringeAngle(direction) * 180 / Math.PI;
@@ -64,7 +65,7 @@ export function init(root) {
     out('visibility', isAdf ? ({ 115: '매우 약함', 185: '약함', 285: '뚜렷함', 360: '억제됨' })[camera] : (spot === 'all' ? `RGB 합성 · α ${moireOrientationDeg().toFixed(1)}°` : `${SPOTS[spot].label} · ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel}`));
     out('message', isAdf
       ? `<span class="t">${camera} mm · ${({ 115: '약한 Bragg 신호', 185: '아직 약한 Bragg 신호', 285: '모아레 대비가 가장 뚜렷한 조건', 360: '저각 산란이 우세한 조건' })[camera]}</span><p>이상적 육방 격자에서 계산한 주기는 약 ${Number.isFinite(moirePeriodNm()) ? moirePeriodNm().toFixed(1) : '∞'} nm입니다. 카메라 길이는 표시 대비만 바꿉니다.</p>`
-      : `<span class="t">${spot === 'all' ? `g₁(R) · g₂(G) · g₃(B) 실공간 방향 합성 · α ${moireOrientationDeg().toFixed(1)}°` : `${SPOTS[spot].label} · 실공간 띠 방향 ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel}`}</span><p>논문의 강체 격자 관계 α = atan2(sin θ, 1+δ−cos θ)로 실공간 모아레 격자의 회전을 계산합니다. 사용자가 비교하기 쉽도록 색 띠도 흰 겹침점과 같은 α 방향으로 함께 회전시켰습니다. 이 그림의 g₁/g₂/g₃ 표시는 선택한 방향 계열을 구분하는 실공간 안내선이며, 역공간의 Δgᵢ 벡터 자체를 그린 것은 아닙니다. 국소 굽힘은 포함하지 않습니다.</p>`);
+      : `<span class="t">${spot === 'all' ? `g₁(R) · g₂(G) · g₃(B) 실공간 방향 합성 · |α| ${moireOrientationDeg().toFixed(1)}°` : `${SPOTS[spot].label} · 실공간 띠 방향 ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel}`}</span><p>논문의 강체 격자 관계 |α| = atan2(sin θ, 1+δ−cos θ)로 회전각의 크기를 계산합니다. 이 층 배치에서 흰 겹침점의 실공간 모아레 방향은 −α로 회전하므로, 색 띠도 같은 방향과 부호로 함께 회전시켰습니다. g₁/g₂/g₃는 선택 방향 계열을 구분하는 실공간 안내선이며, 역공간의 Δgᵢ 벡터 자체를 그린 것은 아닙니다. 국소 굽힘은 포함하지 않습니다.</p>`);
     out('caption', 'MoS₂와 WSe₂의 육방 원자 배열을 흑백 명암으로 표현했습니다. 밝기는 서로 다른 층을 구분하고, 흰 halo는 두 층 원자가 가까이 겹치는 위치를 표시합니다.');
     out('hud', `MoS₂ / WSe₂ · δ ${mismatch.toFixed(1)}% · θ ${twist.toFixed(1)}°<br>L ≈ ${Number.isFinite(moirePeriodNm()) ? moirePeriodNm().toFixed(1) + ' nm' : '∞'}`);
     redraw();
