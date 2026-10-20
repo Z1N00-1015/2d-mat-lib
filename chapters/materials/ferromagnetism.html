@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2D 강자성 · 2차원 물질의 이해 · Beyond Silicon</title>
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../../assets/css/book.css">
+<script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
+<script type="module" src="../../assets/js/book.js?v=20261020t"></script>
+</head>
+<body data-root="../../" data-field="materials" data-chapter="ferromagnetism">
+<main class="main">
+<article class="article">
+  <header class="chapter-head">
+    <div class="eyebrow">CHAPTER I · 2D MATERIALS</div>
+    <h1>2D 강자성</h1>
+    <p class="lede">몇 원자층 두께에서도 자성 질서가 유지될 수 있을까요? 자기 이방성, 층간 결합과 합성 조건이 원자층 자석의 안정성을 어떻게 바꾸는지 대표 van der Waals 자성체를 통해 살펴봅니다.</p>
+    <div class="meta"></div>
+  </header>
+
+  <h2><span class="sec">4.1</span>2D에서 강자성 질서</h2>
+  <p><strong>강자성(ferromagnetism)</strong>은 스핀들이 장거리 정렬해 자발 자화(spontaneous magnetization)를 갖는 물성입니다. 이상적인 등방성 2D Heisenberg 모델에서는 열적 요동이 유한 온도의 장거리 자성 질서를 억제합니다(Mermin–Wagner 정리). 실제 2D 자성체에서는 스핀 방향에 따른 에너지 차이인 <strong>자기 이방성(magnetic anisotropy)</strong>, 결정 대칭성과 층간 상호작용이 자성 질서를 안정화할 수 있습니다.</p>
+  <p>자성의 존재와 전이 온도는 두께, 적층 순서, 변형률, 조성, 전하 밀도와 기판·계면에 따라 달라집니다. 층별 자화 방향이 서로 반대인 반강자성 결합도 나타날 수 있으므로, 단층 물성과 다층 물성을 구분해 보아야 합니다.</p>
+
+  <h2><span class="sec">4.2</span>대표 2D 강자성체</h2>
+  <ul>
+    <li><strong>CrI₃:</strong> 단층에서 면외 스핀 방향을 갖는 Ising형 강자성이 관측되었습니다. 이중층에서는 적층에 따라 층 사이 반강자성 결합이 나타나며, 두께에 따른 자성 변화를 비교하기 좋은 사례입니다. <a href="https://www.nature.com/articles/nature22391" target="_blank" rel="noopener">Nature (2017), 단층 CrI₃의 Ising 강자성</a>.</li>
+    <li><strong>Cr₂Ge₂Te₆:</strong> 얇은 층에서 자기 광학 Kerr 효과(magneto-optic Kerr effect, MOKE)를 이용해 자성 전이를 추적한 대표적인 van der Waals 자성체입니다. <a href="https://www.nature.com/articles/nature22060" target="_blank" rel="noopener">Nature (2017), 2D van der Waals 자성</a>.</li>
+    <li><strong>Fe₃GeTe₂:</strong> 금속성 층상 강자성체로, 단층 한계의 자성과 게이팅을 통한 전이 온도 조절이 연구되었습니다. 분자선 에피택시(MBE) 박막 성장도 보고되어 조성·기판·계면 제어의 중요성을 보여줍니다. <a href="https://www.nature.com/articles/s41586-018-0626-9" target="_blank" rel="noopener">Nature (2018), 게이트 조절 Fe₃GeTe₂</a>; <a href="https://www.nature.com/articles/s41699-017-0033-3" target="_blank" rel="noopener">npj 2D Materials and Applications (2017), MBE 박막 성장</a>.</li>
+  </ul>
+
+  <h2><span class="sec">4.3</span>합성·측정과 응용</h2>
+  <p>기계적 박리는 결함이 적은 얇은 자성 플레이크를 얻어 기초 물성 연구에 쓰이며, MBE와 CVD는 기판 위 박막 성장과 소자 집적을 목표로 연구됩니다. 산소·수분에 민감한 할라이드 계열 소재는 시료 준비와 encapsulation 조건이 특히 중요합니다. 성장 온도와 조성은 결정상·결함·자기 이방성을 바꿀 수 있으므로, 합성 조건과 구조 분석을 자성 측정 결과와 함께 기록해야 합니다.</p>
+  <p>측정에는 MOKE, 원편광 자기 이색성(XMCD), 자화 측정과 자기 수송 측정이 쓰입니다. 비정상 홀 효과(anomalous Hall effect)는 전류가 흐르는 박막이나 소자에서 자화 상태를 전기적으로 추적하는 방법입니다. 연구 응용은 스핀트로닉스, 자화 기반 메모리와 자기 광학 소자이며, 실제 작동 온도·스위칭 에너지·재현성은 시료와 소자 구조별로 평가해야 합니다.</p>
+  <p class="note">문헌상의 층수와 전이 온도는 측정·기판·조성 조건에 따른 결과이며, 물질 고유의 보편적 상수로 해석하면 안 됩니다.</p>
+
+  <div class="summary">
+    <h4>📝 정리</h4>
+    <ul>
+      <li>자기 이방성과 층간 결합은 원자층에서 자성 질서를 안정화하는 데 중요하다.</li>
+      <li>CrI₃, Cr₂Ge₂Te₆, Fe₃GeTe₂는 서로 다른 자성·합성 연구를 보여주는 대표 사례다.</li>
+      <li>두께·적층·조성·기판을 합성과 측정의 핵심 조건으로 함께 기록한다.</li>
+    </ul>
+  </div>
+</article>
+</main>
+</body>
+</html>
