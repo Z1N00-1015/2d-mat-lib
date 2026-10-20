@@ -36,7 +36,7 @@ export const FIELDS = [
       { id: 'raman', n: '05', title: '라만 분광법', group: '분광·현미경 분석',
         desc: '비탄성 광산란과 Raman shift를 이해하고 2D 물질의 진동 모드와 층수·변형률 단서를 해석합니다.', labs: ['층수·strain과 라만 피크'] },
       { id: 'tem', n: '06', title: '투과전자현미경(TEM)', group: '분광·현미경 분석',
-        desc: 'TEM·STEM 영상과 전자 회절·분광으로 국소 구조, 결함과 원소 분포를 분석하는 방법을 살펴봅니다.', labs: [] },
+        desc: 'TEM·STEM 영상과 전자 회절·분광으로 국소 구조, 결함과 원소 분포를 분석하는 방법을 살펴봅니다.', labs: ['TEM 모아레 분석'] },
       { id: 'xps', n: '07', title: 'X선 광전자분광법(XPS)', group: '분광·현미경 분석',
         desc: '광전자 결합 에너지로 표면 원소 조성과 화학 상태를 분석하고 스펙트럼 해석의 주의점을 익힙니다.', labs: [] },
       { id: 'afm', n: '08', title: '원자힘현미경(AFM)', group: '분광·현미경 분석',
@@ -73,8 +73,8 @@ const MODULES = {
   crystal: './crystal.js?v=20261020i', lattice2d: './lattice2d.js?v=20261020i', miller: './miller.js?v=20261020i', bragg: './bragg.js',
   xrd: './xrd.js?v=20261020i', moire: './moire.js?v=20261020l', 'moire-reconstruction': './moire-reconstruction.js?v=20261020r', lineup: './lineup.js', spectrum: './spectrum.js',
   mos2: './mos2.js', bands: './bands.js', power: './power.js?v=20261020i', exfo: './exfo.js', cvd: './cvd.js',
-  glossary: './glossary.js?v=20261020n', refs: './papers.js?v=20261020e', paperdata: './papers.js?v=20261020e',
-  raman: './raman.js?v=20261020i',
+  glossary: './glossary.js?v=20261020o', refs: './papers.js?v=20261020e', paperdata: './papers.js?v=20261020e',
+  raman: './raman.js?v=20261020i', 'tem-moire': './tem-moire.js?v=20261020a',
   hypotaxy: './hypotaxy.js?v=20261020h', 'home-lineup': './home-materials.js?v=20261020review1',
 };
 
