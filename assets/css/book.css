@@ -510,7 +510,7 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
 }
 @media (max-width: 760px) {
   .research-history-timeline .tl { grid-template-columns: 1fr; gap: 10px; }
-  .research-history-timeline .timeline-illustration { height: 150px; }
+  .research-history-timeline .timeline-illustration { height: 150px; object-fit: contain; }
   .history-item { grid-template-columns: 72px minmax(0, 1fr); gap: 15px; }
   .history-item:not(:last-child)::before { left: 77px; }
   .history-year { padding-right: 8px; font-size: 10px; }
