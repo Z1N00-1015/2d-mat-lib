@@ -1,6 +1,6 @@
 {
  "schema_version": 3,
- "generated_at": "2026-10-21T14:51:11Z",
+ "generated_at": "2026-10-21T14:54:30Z",
  "notice": "서지정보와 연구실에서 검토 완료한 수치만 포함합니다. 원문 인용과 AI 요약은 포함하지 않습니다.",
  "metrics": {
   "raman_shift": {
@@ -4042,9 +4042,60 @@
    "url": "https://doi.org/10.1002/inf2.12407",
    "research_type": [],
    "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "parameter",
+     "name": "진공층 두께",
+     "canonical_name": "계산 진공층 두께",
+     "category": "geometry",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": ">15 Å",
+     "unit": "Å",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "모델의 면외 방향",
+     "method": "DFT 계산으로 단층 TMD의 구조 안정성 및 전자구조를 평가하고, 금속성·반도체성 TMD를 수직 적층해 MSJ를 구성했다. 격자 불일치 3% 미만의 구조에서 가능한 계면 배열을 에너지 비교로 정하고, Schottky 장벽, FLP 계수, 계면 결합 에너지와 터널링 확률을 평가해 접합을 선별했다. PBE 및 DFT-D3를 사용하고, 반도체 및 이종구조 전자구조에는 HSE06을 사용했다.",
+     "sample": "단층 TMD 계산 모델",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 11,
+      "kind": "text",
+      "label": "Section 4.2 Computational methods"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "격자 불일치",
+     "canonical_name": "접합 격자 불일치",
+     "category": "geometry",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": "<3%",
+     "unit": "%",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "vdW MSJ 구조 생성 조건",
+     "method": "DFT 계산으로 단층 TMD의 구조 안정성 및 전자구조를 평가하고, 금속성·반도체성 TMD를 수직 적층해 MSJ를 구성했다. 격자 불일치 3% 미만의 구조에서 가능한 계면 배열을 에너지 비교로 정하고, Schottky 장벽, FLP 계수, 계면 결합 에너지와 터널링 확률을 평가해 접합을 선별했다. PBE 및 DFT-D3를 사용하고, 반도체 및 이종구조 전자구조에는 HSE06을 사용했다.",
+     "sample": "TMD vdW MSJ 계산 모델",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 11,
+      "kind": "text",
+      "label": "Section 4.1 Structural models"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -6113,10 +6164,235 @@
    "doi": "10.1038/s41928-022-00746-6",
    "url": "https://doi.org/10.1038/s41928-022-00746-6",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "Au",
+    "WSe2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "on/off ratio",
+     "canonical_name": "온/오프 전류비 (on/off ratio)",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": 1000000.0,
+     "value_text": null,
+     "unit": null,
+     "norm_value": 1000000.0,
+     "norm_unit": "",
+     "bound": "",
+     "conditions": "WSe₂ FET; vdW Au contact",
+     "method": "전달 특성 측정",
+     "sample": "WSe₂ FET, vdW Au contact",
+     "materials": [
+      "WSe2",
+      "Au"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "초록"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "mobility",
+     "canonical_name": "전계효과 이동도 (field-effect mobility, μFE)",
+     "category": "electrical_transport",
+     "metric_key": "mobility",
+     "metric_label": "이동도",
+     "qualifier": "전계효과",
+     "value": 155.0,
+     "value_text": null,
+     "unit": "cm² (V s)–1",
+     "norm_value": 155.0,
+     "norm_unit": "cm²/V·s",
+     "bound": "",
+     "conditions": "p-type WSe₂ FET; 선형 이동도",
+     "method": "전달 특성으로부터 선형 이동도 계산",
+     "sample": "WSe₂ FET, vdW Au contact",
+     "materials": [
+      "WSe2",
+      "Au"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "초록"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "mobility",
+     "canonical_name": "전계효과 이동도 (field-effect mobility, μFE)",
+     "category": "electrical_transport",
+     "metric_key": "mobility",
+     "metric_label": "이동도",
+     "qualifier": "전계효과",
+     "value": null,
+     "value_text": "~135",
+     "unit": "cm² (V s)–1",
+     "norm_value": 135.0,
+     "norm_unit": "cm²/V·s",
+     "bound": "≈",
+     "conditions": "WSe₂ FET; vdW Au contact; Fig. 2 측정",
+     "method": "전달 곡선",
+     "sample": "WSe₂ FET, vdW Au contact",
+     "materials": [
+      "WSe2",
+      "Au"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "contact resistance",
+     "canonical_name": "접촉 저항 (contact resistance, Rc)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": null,
+     "value": 2.5,
+     "value_text": null,
+     "unit": "kΩ μm",
+     "norm_value": 2500.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": "WSe₂ FET; back-gate voltage = −50 V",
+     "method": "전송선 측정 (TLM); 본문 표기는 2Rc",
+     "sample": "WSe₂ FET, vdW Au contact",
+     "materials": [
+      "WSe2",
+      "Au"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Contact resistance of WSe₂ with vdW Au contact"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "contact resistance",
+     "canonical_name": "접촉 저항 (contact resistance, Rc)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": null,
+     "value": 1.25,
+     "value_text": null,
+     "unit": "kΩ μm",
+     "norm_value": 1250.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": "초록의 대표 WSe₂ FET 성능",
+     "method": "접촉 저항 측정; 초록 보고",
+     "sample": "WSe₂ FET, vdW Au contact",
+     "materials": [
+      "WSe2",
+      "Au"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "초록"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "hole Schottky barrier height",
+     "canonical_name": "정공 쇼트키 장벽 높이 (hole Schottky barrier height)",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": "정공",
+     "value": 60.0,
+     "value_text": null,
+     "unit": "meV",
+     "norm_value": 60.0,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "5-layer WSe₂/AuvdW; T = 140–350 K; 진공",
+     "method": "thermionic emission 분석",
+     "sample": "5-layer WSe₂ FET, vdW Au contact",
+     "materials": [
+      "WSe2",
+      "Au"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Contact resistance of WSe₂ with vdW Au contact"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "W 4f binding-energy shift",
+     "canonical_name": "XPS 결합 에너지 이동",
+     "category": "chemical",
+     "metric_key": "xps_binding_energy",
+     "metric_label": "XPS 결합 에너지",
+     "qualifier": "W 4f",
+     "value": 0.1,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 0.1,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "직접 Au 접촉; pristine WSe₂ 대비",
+     "method": "X-ray photoelectron spectroscopy (XPS)",
+     "sample": "WSe₂/direct Au contact",
+     "materials": [
+      "WSe2",
+      "Au"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "figure",
+      "label": "Fig. 2d"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "어닐링 온도",
+     "canonical_name": "어닐링 온도",
+     "category": "annealing_temperature",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 150.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "고진공 <10−9 torr; Se 완충층 제거",
+     "method": "기계적 박리 WSe₂/hBN을 SiO₂/고농도 도핑 Si 기판에 적층하고 전자빔 리소그래피로 전극을 패턴화했다. vdW 접촉은 고진공에서 Se 10 nm를 열증착한 뒤 Au를 전자빔 증착하고, 고진공에서 150 °C, 4 h 어닐링하여 Se를 제거했다. 직접 접촉 대조군에는 Se 없이 금속을 증착했다. 전기적 특성, XPS, Raman, HAADF-STEM 및 DFT로 접촉을 분석했다.",
+     "sample": "vdW metal contact",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Methods—Device fabrication"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -9306,10 +9582,393 @@
    "doi": "10.1103/physrevapplied.12.064061",
    "url": "https://doi.org/10.1103/physrevapplied.12.064061",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "BP",
+    "NbS2",
+    "WSe2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "일함수 (work function)",
+     "canonical_name": "일함수 (work function, WF)",
+     "category": "other",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 6.2,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "H-NbS₂ 단층 계산",
+     "method": "DFT 계산",
+     "sample": "H-NbS₂",
+     "materials": [
+      "NbS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "table",
+      "label": "Table I"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "p형 쇼트키 장벽 높이 (p-type Schottky barrier height)",
+     "canonical_name": "정공 쇼트키 장벽 높이 (hole Schottky barrier height, Φp)",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": -0.11,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": -110.0,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "밴드 구조에서 추출; 3R 적층",
+     "method": "투영 밴드 구조 계산",
+     "sample": "NbS₂/WSe₂ (3R)",
+     "materials": [
+      "NbS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "p형 쇼트키 장벽 높이 (p-type Schottky barrier height)",
+     "canonical_name": "정공 쇼트키 장벽 높이 (hole Schottky barrier height, Φp)",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": -0.19,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": -190.0,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "투영 밴드 구조에서 추출",
+     "method": "투영 밴드 구조 계산",
+     "sample": "NbS₂/BP",
+     "materials": [
+      "NbS2",
+      "BP"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "p형 쇼트키 장벽 높이 (p-type Schottky barrier height)",
+     "canonical_name": "정공 쇼트키 장벽 높이 (hole Schottky barrier height, Φp)",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": -0.1,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": -100.0,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "2H 적층; 밴드 구조에서 추출",
+     "method": "투영 밴드 구조 계산",
+     "sample": "NbS₂/WSe₂ (2H)",
+     "materials": [
+      "NbS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "table",
+      "label": "Table II"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "n형 쇼트키 장벽 높이 (n-type Schottky barrier height)",
+     "canonical_name": "전자 쇼트키 장벽 높이 (electron Schottky barrier height, Φn)",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": 1.75,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 1750.0,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "2H 적층; 밴드 구조에서 추출",
+     "method": "투영 밴드 구조 계산",
+     "sample": "NbS₂/WSe₂ (2H)",
+     "materials": [
+      "NbS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "table",
+      "label": "Table II"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "p형 쇼트키 장벽 높이 (p-type Schottky barrier height)",
+     "canonical_name": "정공 쇼트키 장벽 높이 (hole Schottky barrier height, Φp)",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": 0.76,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 760.0,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "비교 계면; 밴드 구조에서 추출",
+     "method": "투영 밴드 구조 계산",
+     "sample": "T-WSe₂/WSe₂",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "table",
+      "label": "Table II"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "n형 쇼트키 장벽 높이 (n-type Schottky barrier height)",
+     "canonical_name": "전자 쇼트키 장벽 높이 (electron Schottky barrier height, Φn)",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": 0.89,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 890.0,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "비교 계면; 밴드 구조에서 추출",
+     "method": "투영 밴드 구조 계산",
+     "sample": "T-WSe₂/WSe₂",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "table",
+      "label": "Table II"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "계면 전위 단계 (interface potential step)",
+     "canonical_name": "계면 전위 단계 (ΔV)",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 0.91,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "쌍극자 수정 Schottky-Mott 분석",
+     "method": "전하 이동 기반 쌍극자 분석",
+     "sample": "NbS₂/WSe₂ (3R)",
+     "materials": [
+      "NbS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "table",
+      "label": "Table II"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "계면 전위 단계 (interface potential step)",
+     "canonical_name": "계면 전위 단계 (ΔV)",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": -0.02,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "쌍극자 수정 Schottky-Mott 분석",
+     "method": "전하 이동 기반 쌍극자 분석",
+     "sample": "T-WSe₂/WSe₂",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "table",
+      "label": "Table II"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "결합 에너지 (binding energy)",
+     "canonical_name": "계면 결합 에너지 면밀도",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": -28.7,
+     "value_text": null,
+     "unit": "meV/Å²",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "DFT 계산",
+     "sample": "NbS₂/WSe₂ (3R)",
+     "materials": [
+      "NbS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "table",
+      "label": "Table II"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "전기장에 따른 접촉 유형 전환",
+     "canonical_name": "외부 전기장 유도 접촉 유형 전환",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": -3.0,
+     "value_text": null,
+     "unit": "V/nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "−3 V/nm",
+     "method": "전기장 의존 밴드 정렬 계산",
+     "sample": "T-WSe₂/WSe₂",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "평면파 에너지 컷오프",
+     "canonical_name": "계산 에너지 컷오프",
+     "category": "other",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 500.0,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "VASP에서 PAW 방법을 사용한 DFT 계산. PBE-GGA 및 HSE06 교환-상관 범함수를 사용하고, 구조 매개변수와 결합 에너지에는 optB86b-vdW를 적용했다. 2D 슬랩에는 20 Å보다 큰 진공 간격을 두고, 평면파 에너지 컷오프는 500 eV로 설정했다. 구조 최적화에서 잔류 힘은 0.01 eV/Å 미만, 총에너지 변화는 10⁻⁵ eV 미만이 되도록 했으며 쌍극자 보정을 적용했다. 계면 밴드 구조, 전하밀도 차이 및 외부 전기장 의존성을 계산했다.",
+     "sample": null,
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "II. Computational Method"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "진공 간격",
+     "canonical_name": "계산 초격자 진공 간격",
+     "category": "geometry",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": ">20 Å",
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "VASP에서 PAW 방법을 사용한 DFT 계산. PBE-GGA 및 HSE06 교환-상관 범함수를 사용하고, 구조 매개변수와 결합 에너지에는 optB86b-vdW를 적용했다. 2D 슬랩에는 20 Å보다 큰 진공 간격을 두고, 평면파 에너지 컷오프는 500 eV로 설정했다. 구조 최적화에서 잔류 힘은 0.01 eV/Å 미만, 총에너지 변화는 10⁻⁵ eV 미만이 되도록 했으며 쌍극자 보정을 적용했다. 계면 밴드 구조, 전하밀도 차이 및 외부 전기장 의존성을 계산했다.",
+     "sample": null,
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "II. Computational Method"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "잔류 힘 수렴 기준",
+     "canonical_name": "구조 최적화 힘 수렴 기준",
+     "category": "other",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 0.01,
+     "value_text": null,
+     "unit": "eV/Å",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "VASP에서 PAW 방법을 사용한 DFT 계산. PBE-GGA 및 HSE06 교환-상관 범함수를 사용하고, 구조 매개변수와 결합 에너지에는 optB86b-vdW를 적용했다. 2D 슬랩에는 20 Å보다 큰 진공 간격을 두고, 평면파 에너지 컷오프는 500 eV로 설정했다. 구조 최적화에서 잔류 힘은 0.01 eV/Å 미만, 총에너지 변화는 10⁻⁵ eV 미만이 되도록 했으며 쌍극자 보정을 적용했다. 계면 밴드 구조, 전하밀도 차이 및 외부 전기장 의존성을 계산했다.",
+     "sample": null,
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "II. Computational Method"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -12743,10 +13402,264 @@
    "doi": null,
    "url": null,
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "Ag",
+    "Au",
+    "MoS2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "contact resistance",
+     "canonical_name": "접촉 저항 (contact resistance, RC)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": null,
+     "value": 3000.0,
+     "value_text": null,
+     "unit": "Ω·μm",
+     "norm_value": 3000.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": "단층 MoS2; In/Au 전극 사례(인용 문헌)",
+     "method": "최근 2D TMD 금속 접촉 문헌을 종합해 계면 결함과 페르미 준위 고정의 원인, vdW 접촉 및 손상 저감 전략, 접촉 저항·쇼트키 장벽 평가법, 기판 환경과 P형 수송을 검토한다. 논문 자체의 신규 합성 또는 소자 제작 실험은 보고하지 않는다.",
+     "sample": "단층 MoS2 / In/Au 접촉(인용 문헌 사례)",
+     "materials": [
+      "MoS2",
+      "Au"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "vdW 접촉 사례"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "mobility",
+     "canonical_name": "이동도 (mobility)",
+     "category": "electrical_transport",
+     "metric_key": "mobility",
+     "metric_label": "이동도",
+     "qualifier": "전계효과",
+     "value": 167.0,
+     "value_text": null,
+     "unit": "cm2 V−1 s−1",
+     "norm_value": 167.0,
+     "norm_unit": "cm²/V·s",
+     "bound": "",
+     "conditions": "단층 MoS2; In/Au 접촉 FET 사례(인용 문헌)",
+     "method": "최근 2D TMD 금속 접촉 문헌을 종합해 계면 결함과 페르미 준위 고정의 원인, vdW 접촉 및 손상 저감 전략, 접촉 저항·쇼트키 장벽 평가법, 기판 환경과 P형 수송을 검토한다. 논문 자체의 신규 합성 또는 소자 제작 실험은 보고하지 않는다.",
+     "sample": "단층 MoS2 / In/Au 접촉 FET(인용 문헌 사례)",
+     "materials": [
+      "MoS2",
+      "Au"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "vdW 접촉 사례"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "pinning factor",
+     "canonical_name": "페르미 준위 고정 계수 (pinning factor, S)",
+     "category": "electrical_transport",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 0.15,
+     "value_text": null,
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "최근 2D TMD 금속 접촉 문헌을 종합해 계면 결함과 페르미 준위 고정의 원인, vdW 접촉 및 손상 저감 전략, 접촉 저항·쇼트키 장벽 평가법, 기판 환경과 P형 수송을 검토한다. 논문 자체의 신규 합성 또는 소자 제작 실험은 보고하지 않는다.",
+     "sample": "다층 MoS2",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "table",
+      "label": "Table 1"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "pinning factor",
+     "canonical_name": "페르미 준위 고정 계수 (pinning factor, S)",
+     "category": "electrical_transport",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 0.11,
+     "value_text": null,
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "최근 2D TMD 금속 접촉 문헌을 종합해 계면 결함과 페르미 준위 고정의 원인, vdW 접촉 및 손상 저감 전략, 접촉 저항·쇼트키 장벽 평가법, 기판 환경과 P형 수송을 검토한다. 논문 자체의 신규 합성 또는 소자 제작 실험은 보고하지 않는다.",
+     "sample": "단층 MoS2",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "table",
+      "label": "Table 1"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "interface states",
+     "canonical_name": "계면 상태 밀도 (interface states)",
+     "category": "chemical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 26.8,
+     "value_text": null,
+     "unit": "1013 eV−1 cm−2",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "표의 단위는 1013 eV−1 cm−2",
+     "method": "최근 2D TMD 금속 접촉 문헌을 종합해 계면 결함과 페르미 준위 고정의 원인, vdW 접촉 및 손상 저감 전략, 접촉 저항·쇼트키 장벽 평가법, 기판 환경과 P형 수송을 검토한다. 논문 자체의 신규 합성 또는 소자 제작 실험은 보고하지 않는다.",
+     "sample": "단층 MoS2",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "table",
+      "label": "Table 1"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "E2g peak splitting",
+     "canonical_name": "Raman 피크 간격 (Raman peak splitting)",
+     "category": "optical",
+     "metric_key": "raman_shift",
+     "metric_label": "Raman 피크 이동·간격",
+     "qualifier": "E2g",
+     "value": 3.8,
+     "value_text": null,
+     "unit": "cm−1",
+     "norm_value": 3.8,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "단층 MoS2 위 금속 증착 사례",
+     "method": "Raman spectroscopy",
+     "sample": "Au / 단층 MoS2(인용 문헌 사례)",
+     "materials": [
+      "MoS2",
+      "Au"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Strain at the interface"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "E2g peak splitting",
+     "canonical_name": "Raman 피크 간격 (Raman peak splitting)",
+     "category": "optical",
+     "metric_key": "raman_shift",
+     "metric_label": "Raman 피크 이동·간격",
+     "qualifier": "E2g",
+     "value": 6.38,
+     "value_text": null,
+     "unit": "cm−1",
+     "norm_value": 6.38,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "단층 MoS2 위 금속 증착 사례",
+     "method": "Raman spectroscopy",
+     "sample": "Ag / 단층 MoS2(인용 문헌 사례)",
+     "materials": [
+      "MoS2",
+      "Ag"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Strain at the interface"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "strain",
+     "canonical_name": "변형률 (strain)",
+     "category": "mechanical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": "~0.84%",
+     "unit": "%",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "단층 MoS2 위 금속 증착; Raman 자료에서 저자들이 추정한 값",
+     "method": "Raman spectroscopy 기반 간접 추정",
+     "sample": "Au / 단층 MoS2(인용 문헌 사례)",
+     "materials": [
+      "MoS2",
+      "Au"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Strain at the interface"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "strain",
+     "canonical_name": "변형률 (strain)",
+     "category": "mechanical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": "~1.0%",
+     "unit": "%",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "단층 MoS2 위 금속 증착; Raman 자료에서 저자들이 추정한 값",
+     "method": "Raman spectroscopy 기반 간접 추정",
+     "sample": "Ag / 단층 MoS2(인용 문헌 사례)",
+     "materials": [
+      "MoS2",
+      "Ag"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Strain at the interface"
+     }
+    }
+   ],
    "device_components": []
   },
   {
