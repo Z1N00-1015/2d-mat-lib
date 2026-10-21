@@ -384,6 +384,16 @@ function initSynthesisConditions(root, data, synthesisFocus, getMaterial) {
     return [evidence.page ? `p. ${evidence.page}` : '', evidence.label || ''].filter(Boolean).join(' · ');
   };
   const reported = value => value.value_text || fmtValue(value) || value.qualifier || '세부 값 미기록';
+  const temperatureOnly = value => value.value_text
+    ? value.value_text.replace(/\s*\([^)]*\)/g, '').trim()
+    : fmtValue(value) || '';
+  const synthesisSentences = values => {
+    const analysis = /\b(?:SEM|AFM|TEM|HRTEM|HR-TEM|DF-TEM|HAADF-STEM|STEM|SAED|Raman|XPS)\b|분석|조사|관찰|측정|characteri[sz]|imaging|analysis|analy[sz]|measur|observ/i;
+    return [...new Set(values.flatMap(value => String(value.method || '').split(/(?<=[.!?。])\s+/)))]
+      .map(sentence => sentence.trim())
+      .filter(sentence => sentence && !analysis.test(sentence))
+      .join(' ');
+  };
   const substanceOnly = value => {
     let text = String(value.value_text || '').trim();
     if (!text) return '';
@@ -411,15 +421,12 @@ function initSynthesisConditions(root, data, synthesisFocus, getMaterial) {
         .map(substanceOnly).filter(Boolean))];
       const temperatureValues = values.filter(v => v.metric_key === 'growth_temperature');
       const methodValue = values.find(v => v.metric_key === 'synthesis_method' && v.value_text);
-      const processNote = values.find(v => v.method)?.method;
+      const processNote = synthesisSentences(values);
       const precursorHtml = precursorValues.length
         ? '<ul>' + precursorValues.map(v => '<li>' + formula(esc(v)) + '</li>').join('') + '</ul>'
         : '<span class="pnone">승인된 전구체 항목 없음</span>';
       const temperatureHtml = temperatureValues.length
-        ? '<ul>' + temperatureValues.map(v => '<li><b>' + esc(reported(v)) + '</b>'
-          + (v.sample ? '<small class="synth-evidence">' + esc(v.sample) + '</small>' : '')
-          + (evidenceLabel(v) ? '<small class="synth-evidence">' + esc(evidenceLabel(v)) + '</small>' : '')
-          + '</li>').join('') + '</ul>'
+        ? '<ul>' + temperatureValues.map(v => '<li>' + esc(temperatureOnly(v)) + '</li>').join('') + '</ul>'
         : '<span class="pnone">승인된 온도 값 없음</span>';
       const methodHtml = methodValue
         ? esc(reported(methodValue))
