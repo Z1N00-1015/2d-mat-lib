@@ -95,26 +95,29 @@ export function drawMini(ctx, w, h, m, t) {
       dot(x + a * 0.4, y + a * 0.4, a * 0.12, m.cols[1]);
     }
   } else if (m.draw === 'packed') {
-    // Conceptual close-packed Sb/O lattice. Its projected motif changes as the viewing direction rotates.
-    const d = a * 0.48, layerH = d * 0.82, tilt = 0.62, azimuth = t * 0.16 + 0.45;
+    // Static perspective view of a close-packed Sb/O slab on a substrate-like plane.
+    const d = a * 0.48, layerH = d * Math.sqrt(2 / 3), tilt = 0.34;
     const atoms = [];
-    for (let k = -2; k <= 2; k++) for (let j = -6; j <= 6; j++) for (let i = -6; i <= 6; i++) {
-      const shift = [0, 0.5, 1][((k % 3) + 3) % 3];
-      const x = d * (i + j * 0.5 + shift), y = d * Math.sqrt(3) * 0.5 * j, z = layerH * k;
-      if (Math.hypot(x, y) > R * 1.35) continue;
-      const ca = Math.cos(azimuth), sa = Math.sin(azimuth);
-      const xr = x * ca - z * sa, zr = x * sa + z * ca;
-      const yr = y * Math.cos(tilt) - zr * Math.sin(tilt), depth = y * Math.sin(tilt) + zr * Math.cos(tilt);
+    const project = (x, y, z) => [(x - y * 0.55) * 0.72, (x + y * 0.85) * tilt - z * 0.9];
+    const layerShift = [[0, 0], [0.5, Math.sqrt(3) / 6], [0, 0]];
+    for (let k = 0; k < 3; k++) for (let j = -3; j <= 3; j++) for (let i = -3; i <= 3; i++) {
+      const [sx, sy] = layerShift[k];
+      const x = d * (i + j * 0.5 + sx), y = d * (j * Math.sqrt(3) * 0.5 + sy), z = layerH * k;
       const species = ((i * 7 + j * 3 + k * 5) % 5 + 5) % 5 < 2 ? 0 : 1;
-      atoms.push({ x: xr, y: yr, z: depth, species, r: d * (species === 0 ? 0.31 : 0.27) });
+      const [px, py] = project(x, y, z);
+      atoms.push({ x, y, z, px, py, species, r: d * (species === 0 ? 0.31 : 0.27) });
     }
-    atoms.sort((p, q) => p.z - q.z);
-    ctx.strokeStyle = 'rgba(220,220,235,.22)'; ctx.lineWidth = Math.max(0.7, d * 0.035);
+    const plane = [[-3.55, -3.55], [3.55, -3.55], [3.55, 3.55], [-3.55, 3.55]]
+      .map(([i, j]) => project(d * (i + j * 0.5), d * j * Math.sqrt(3) * 0.5, -layerH * 0.45));
+    ctx.fillStyle = 'rgba(55,190,177,.20)'; ctx.strokeStyle = 'rgba(107,230,213,.48)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(plane[0][0], plane[0][1]); plane.slice(1).forEach(([x, y]) => ctx.lineTo(x, y)); ctx.closePath(); ctx.fill(); ctx.stroke();
+    atoms.sort((p, q) => (p.x + p.y + p.z) - (q.x + q.y + q.z));
+    ctx.strokeStyle = 'rgba(238,202,180,.42)'; ctx.lineWidth = Math.max(0.7, d * 0.045);
     for (let i = 0; i < atoms.length; i++) for (let j = i + 1; j < atoms.length; j++) {
-      const p = atoms[i], q = atoms[j], dx = p.x - q.x, dy = p.y - q.y;
-      if (dx * dx + dy * dy < d * d * 1.12 && Math.abs(p.z - q.z) < d * 0.72) line(p.x, p.y, q.x, q.y);
+      const p = atoms[i], q = atoms[j], dx = p.x - q.x, dy = p.y - q.y, dz = p.z - q.z;
+      if (dx * dx + dy * dy + dz * dz <= d * d * 1.04) line(p.px, p.py, q.px, q.py);
     }
-    atoms.forEach(p => dot(p.x, p.y, p.r, m.cols[p.species]));
+    atoms.forEach(p => dot(p.px, p.py, p.r, m.cols[p.species]));
   }
   ctx.restore();
   ctx.strokeStyle = 'rgba(255,255,255,.12)'; ctx.lineWidth = 1;
