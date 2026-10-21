@@ -1,6 +1,6 @@
 {
  "schema_version": 3,
- "generated_at": "2026-10-21T14:57:09Z",
+ "generated_at": "2026-10-21T15:00:47Z",
  "notice": "서지정보와 연구실에서 검토 완료한 수치만 포함합니다. 원문 인용과 AI 요약은 포함하지 않습니다.",
  "metrics": {
   "raman_shift": {
@@ -7355,10 +7355,371 @@
    "doi": "10.1021/acsnano.0c08842",
    "url": "https://doi.org/10.1021/acsnano.0c08842",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "Bi2Te3",
+    "GeTe",
+    "Sb2Te3"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "면내 격자 불일치",
+     "canonical_name": "면내 격자 불일치",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 16.8,
+     "value_text": null,
+     "unit": "%",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "격자상수로부터 계산",
+     "sample": "mica/Bi₂Te₃",
+     "materials": [
+      "Bi2Te3"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "면내 격자 불일치",
+     "canonical_name": "면내 격자 불일치",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 4.7,
+     "value_text": null,
+     "unit": "%",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "격자상수로부터 계산",
+     "sample": "Bi₂Te₃/GeTe",
+     "materials": [
+      "Bi2Te3",
+      "GeTe"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "면내 격자 불일치",
+     "canonical_name": "면내 격자 불일치",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 3.0,
+     "value_text": null,
+     "unit": "%",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "격자상수로부터 계산",
+     "sample": "Bi₂Te₃/Sb₂Te₃",
+     "materials": [
+      "Bi2Te3",
+      "Sb2Te3"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "면내 격자 불일치",
+     "canonical_name": "면내 격자 불일치",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": -3.1,
+     "value_text": null,
+     "unit": "%",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "격자상수로부터 계산",
+     "sample": "Sb₂Te₃/Bi₂Te₃",
+     "materials": [
+      "Sb2Te3",
+      "Bi2Te3"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "변형 완화 두께",
+     "canonical_name": "변형 완화 두께",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 2.0,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "Bi₂Te₃ 성장 중; 일반적 관찰",
+     "method": "in situ RHEED",
+     "sample": "mica/Bi₂Te₃",
+     "materials": [
+      "Bi2Te3"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "figure",
+      "label": "Figure 1a"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "깊이 분해능",
+     "canonical_name": "STEM 깊이 분해능",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 4.4,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "300 keV; 수렴 반각 30 mrad",
+     "method": "수렴 보정 STEM depth profiling",
+     "sample": "평면 시료 Bi₂Te₃/Sb₂Te₃",
+     "materials": [
+      "Bi2Te3",
+      "Sb2Te3"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "레이저 반복률",
+     "canonical_name": null,
+     "category": "other",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 1.0,
+     "value_text": null,
+     "unit": "Hz",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "PLD",
+     "method": "펄스 레이저 증착(PLD); muscovite mica 위 Bi₂Te₃ 및 Bi₂Te₃/GeTe 성장, 열산화막 Si 위 Bi₂Te₃/Sb₂Te₃ 및 Sb₂Te₃/Bi₂Te₃ 성장",
+     "sample": null,
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 9,
+      "kind": "text",
+      "label": "Experimental Section—Samples Preparation and Growth"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "압력",
+     "canonical_name": "증착 압력",
+     "category": "pressure",
+     "metric_key": "pressure",
+     "metric_label": "합성 압력",
+     "qualifier": null,
+     "value": 0.12,
+     "value_text": null,
+     "unit": "mbar",
+     "norm_value": 0.09000744,
+     "norm_unit": "Torr",
+     "bound": "",
+     "conditions": "아르곤 분위기에서 증착",
+     "method": "펄스 레이저 증착(PLD); muscovite mica 위 Bi₂Te₃ 및 Bi₂Te₃/GeTe 성장, 열산화막 Si 위 Bi₂Te₃/Sb₂Te₃ 및 Sb₂Te₃/Bi₂Te₃ 성장",
+     "sample": "Bi₂Te₃ 및 GeTe 박막",
+     "materials": [
+      "Bi2Te3",
+      "GeTe"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 9,
+      "kind": "text",
+      "label": "Experimental Section—Samples Preparation and Growth"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "아르곤 유량",
+     "canonical_name": "가스 유량",
+     "category": "gas_flow",
+     "metric_key": "gas_flow",
+     "metric_label": "가스 유량",
+     "qualifier": "Ar",
+     "value": 1.0,
+     "value_text": null,
+     "unit": "sccm",
+     "norm_value": 1.0,
+     "norm_unit": "sccm",
+     "bound": "",
+     "conditions": "증착 중",
+     "method": "펄스 레이저 증착(PLD); muscovite mica 위 Bi₂Te₃ 및 Bi₂Te₃/GeTe 성장, 열산화막 Si 위 Bi₂Te₃/Sb₂Te₃ 및 Sb₂Te₃/Bi₂Te₃ 성장",
+     "sample": "Bi₂Te₃ 및 GeTe 박막",
+     "materials": [
+      "Bi2Te3",
+      "GeTe"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 9,
+      "kind": "text",
+      "label": "Experimental Section—Samples Preparation and Growth"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "레이저 플루언스",
+     "canonical_name": null,
+     "category": "power",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 1.0,
+     "value_text": null,
+     "unit": "J cm−2",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "PLD",
+     "method": "펄스 레이저 증착(PLD); muscovite mica 위 Bi₂Te₃ 및 Bi₂Te₃/GeTe 성장, 열산화막 Si 위 Bi₂Te₃/Sb₂Te₃ 및 Sb₂Te₃/Bi₂Te₃ 성장",
+     "sample": null,
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 9,
+      "kind": "text",
+      "label": "Experimental Section—Samples Preparation and Growth"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "기판 온도",
+     "canonical_name": "성장 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": null,
+     "value": 210.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 210.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "PLD 증착",
+     "method": "펄스 레이저 증착(PLD); muscovite mica 위 Bi₂Te₃ 및 Bi₂Te₃/GeTe 성장, 열산화막 Si 위 Bi₂Te₃/Sb₂Te₃ 및 Sb₂Te₃/Bi₂Te₃ 성장",
+     "sample": "Bi₂Te₃ 및 GeTe 박막",
+     "materials": [
+      "Bi2Te3",
+      "GeTe"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 9,
+      "kind": "text",
+      "label": "Experimental Section—Samples Preparation and Growth"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "전자빔 에너지",
+     "canonical_name": null,
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 300.0,
+     "value_text": null,
+     "unit": "keV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "STEM depth profiling",
+     "method": "수렴 보정 원자분해능 STEM-HAADF에서 defocus를 바꾸어 깊이별 원자상을 획득하고 FFT로 면내 a 격자상수를 산출",
+     "sample": "평면 시료 Bi₂Te₃/Sb₂Te₃",
+     "materials": [
+      "Bi2Te3",
+      "Sb2Te3"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "수렴 반각",
+     "canonical_name": null,
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 30.0,
+     "value_text": null,
+     "unit": "mrad",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "STEM depth profiling",
+     "method": "수렴 보정 원자분해능 STEM-HAADF에서 defocus를 바꾸어 깊이별 원자상을 획득하고 FFT로 면내 a 격자상수를 산출",
+     "sample": "평면 시료 Bi₂Te₃/Sb₂Te₃",
+     "materials": [
+      "Bi2Te3",
+      "Sb2Te3"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -8899,10 +9260,244 @@
    "doi": "10.1109/iedm19574.2021.9720608",
    "url": "https://doi.org/10.1109/iedm19574.2021.9720608",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "Au",
+    "Bi",
+    "Bi0.5Sb0.5",
+    "MoS2",
+    "Sb"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "contact resistance",
+     "canonical_name": "접촉 저항 (contact resistance, Rc)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": null,
+     "value": 0.66,
+     "value_text": null,
+     "unit": "kΩ·μm",
+     "norm_value": 660.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": "Sb–1L MoS₂ 접촉",
+     "method": "CVD 성장 1L MoS₂를 상용 SiNx/Si 기판으로 전사하고 He⁺ 빔 리소그래피로 소스·드레인 접촉을 패터닝했다. Bi 또는 Sb 반금속과 Au 캡을 e-beam 증착 및 lift-off로 형성하고, PMMA 보호막을 입힌 뒤 N₂ 글러브박스에서 하드 베이킹했다. 실온 진공에서 I–V 특성을 측정했다.",
+     "sample": "Sb 접촉 1L MoS₂",
+     "materials": [
+      "MoS2",
+      "Sb"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "Abstract"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "on-state current",
+     "canonical_name": "온전류 (on-state current, ION)",
+     "category": "device_performance",
+     "metric_key": "on_current",
+     "metric_label": "온전류 (Ion)",
+     "qualifier": null,
+     "value": null,
+     "value_text": "exceeding 600 µA/µm",
+     "unit": "µA/µm",
+     "norm_value": 0.6,
+     "norm_unit": "mA/μm",
+     "bound": ">",
+     "conditions": "LCH = 50 nm; VDS = 1 V",
+     "method": "전기적 I–V 측정",
+     "sample": "Sb 접촉 1L MoS₂ FET",
+     "materials": [
+      "MoS2",
+      "Au",
+      "Sb"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "I. Introduction"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "on-state current",
+     "canonical_name": "온전류 (on-state current, ION)",
+     "category": "device_performance",
+     "metric_key": "on_current",
+     "metric_label": "온전류 (Ion)",
+     "qualifier": null,
+     "value": null,
+     "value_text": "~375 μA/μm",
+     "unit": "μA/μm",
+     "norm_value": 0.375,
+     "norm_unit": "mA/μm",
+     "bound": "≈",
+     "conditions": "VDS = 1 V; 300 °C 열처리 후",
+     "method": "전달 특성 측정",
+     "sample": "Sb 접촉 1L MoS₂ FET",
+     "materials": [
+      "MoS2",
+      "Au",
+      "Sb"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "III.B"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "on-state current",
+     "canonical_name": "온전류 (on-state current, ION)",
+     "category": "device_performance",
+     "metric_key": "on_current",
+     "metric_label": "온전류 (Ion)",
+     "qualifier": "정규화 성능",
+     "value": 80.0,
+     "value_text": null,
+     "unit": "%",
+     "norm_value": null,
+     "norm_unit": "mA/μm",
+     "bound": "",
+     "conditions": "300 °C 열처리 후; pristine 대비",
+     "method": "온전류 비교",
+     "sample": "Sb 접촉 1L MoS₂ FET",
+     "materials": [
+      "MoS2",
+      "Au",
+      "Sb"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "III.B"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "on-state current",
+     "canonical_name": "온전류 (on-state current, ION)",
+     "category": "device_performance",
+     "metric_key": "on_current",
+     "metric_label": "온전류 (Ion)",
+     "qualifier": "정규화 성능",
+     "value": 64.0,
+     "value_text": null,
+     "unit": "%",
+     "norm_value": null,
+     "norm_unit": "mA/μm",
+     "bound": "",
+     "conditions": "400 °C 열처리 후; pristine 대비",
+     "method": "온전류 비교",
+     "sample": "Sb 접촉 1L MoS₂ FET",
+     "materials": [
+      "MoS2",
+      "Au",
+      "Sb"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "III.B"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "on/off current ratio",
+     "canonical_name": "온/오프 전류비 (on/off current ratio)",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": null,
+     "value_text": "~10⁷",
+     "unit": null,
+     "norm_value": 10000000.0,
+     "norm_unit": "",
+     "bound": "≈",
+     "conditions": "LCH = 100 nm; VDS = 1 V",
+     "method": "전달 특성 측정",
+     "sample": "Bi 및 Sb 접촉 1L MoS₂ FET",
+     "materials": [
+      "MoS2",
+      "Bi",
+      "Sb"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "III.B"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "melting point",
+     "canonical_name": "융점 (melting point)",
+     "category": "thermal",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 540.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "DFT 기반 합금 특성 예측 및 인용 자료",
+     "sample": "Bi₀.₅Sb₀.₅ 합금",
+     "materials": [
+      "Bi0.5Sb0.5"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "III.C"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "melting point",
+     "canonical_name": "융점 (melting point)",
+     "category": "thermal",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 630.6,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "CVD 성장 1L MoS₂를 상용 SiNx/Si 기판으로 전사하고 He⁺ 빔 리소그래피로 소스·드레인 접촉을 패터닝했다. Bi 또는 Sb 반금속과 Au 캡을 e-beam 증착 및 lift-off로 형성하고, PMMA 보호막을 입힌 뒤 N₂ 글러브박스에서 하드 베이킹했다. 실온 진공에서 I–V 특성을 측정했다.",
+     "sample": "Sb",
+     "materials": [
+      "Sb"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "Abstract"
+     }
+    }
+   ],
    "device_components": []
   },
   {
