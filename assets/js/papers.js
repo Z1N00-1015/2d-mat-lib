@@ -384,6 +384,19 @@ function initSynthesisConditions(root, data, synthesisFocus, getMaterial) {
     return [evidence.page ? `p. ${evidence.page}` : '', evidence.label || ''].filter(Boolean).join(' · ');
   };
   const reported = value => value.value_text || fmtValue(value) || value.qualifier || '세부 값 미기록';
+  const substanceOnly = value => {
+    let text = String(value.value_text || '').trim();
+    if (!text) return '';
+    // Drop parenthetical supplier/purity notes while retaining chemical formulas
+    // such as (C2H5)2Zn and useful precursor abbreviations such as (TDMA-Sn).
+    text = text.replace(/\s*\((?:[^()]*(?:%|≥|≤|Sigma[- ]Aldrich|Merck|Aldrich|purity|순도)[^()]*)\)/gi, '').trim();
+    const abbreviation = text.match(/\(([A-Z][A-Za-z0-9-]{1,14})\)\s*$/);
+    if (abbreviation) text = abbreviation[1];
+    text = text.replace(/\b(?:high[- ]purity|powder|target|pellets?|flakes?)\b/gi, '').trim();
+    text = text.replace(/\s+/g, ' ');
+    if (/^sulph?ur$/i.test(text)) text = 'S';
+    return text;
+  };
 
   function render() {
     const selected = getMaterial();
@@ -394,15 +407,13 @@ function initSynthesisConditions(root, data, synthesisFocus, getMaterial) {
     table.innerHTML = rows.map(p => {
       const targets = synthesisFocus[p.id] || [];
       const values = p.values.filter(v => relevantKeys.has(v.metric_key) && !isContactFormationTemp(p, v));
-      const precursorValues = values.filter(v => ['precursor', 'precursor_film'].includes(v.metric_key));
+      const precursorValues = [...new Set(values.filter(v => v.metric_key === 'precursor')
+        .map(substanceOnly).filter(Boolean))];
       const temperatureValues = values.filter(v => v.metric_key === 'growth_temperature');
       const methodValue = values.find(v => v.metric_key === 'synthesis_method' && v.value_text);
       const processNote = values.find(v => v.method)?.method;
       const precursorHtml = precursorValues.length
-        ? '<ul>' + precursorValues.map(v => '<li><b>' + esc(v.name || v.metric_label || '전구체') + ':</b> '
-          + esc(reported(v)) + (v.qualifier && v.value_text ? ' <small>(' + esc(v.qualifier) + ')</small>' : '')
-          + ((v.sample || evidenceLabel(v)) ? '<small class="synth-evidence">' + esc([v.sample, evidenceLabel(v)].filter(Boolean).join(' · ')) + '</small>' : '')
-          + '</li>').join('') + '</ul>'
+        ? '<ul>' + precursorValues.map(v => '<li>' + formula(esc(v)) + '</li>').join('') + '</ul>'
         : '<span class="pnone">승인된 전구체 항목 없음</span>';
       const temperatureHtml = temperatureValues.length
         ? '<ul>' + temperatureValues.map(v => '<li><b>' + esc(reported(v)) + '</b>'
@@ -420,7 +431,7 @@ function initSynthesisConditions(root, data, synthesisFocus, getMaterial) {
         + (p.url ? '<a href="' + esc(p.url) + '" target="_blank" rel="noopener">' + esc(p.title) + ' ↗</a>' : esc(p.title))
         + '<br><small>' + esc(p.journal || '') + ' · ' + (p.year || '연도 미상') + '</small></td></tr>';
     }).join('');
-    const withPrecursors = rows.filter(p => p.values.some(v => ['precursor', 'precursor_film'].includes(v.metric_key))).length;
+    const withPrecursors = rows.filter(p => p.values.some(v => v.metric_key === 'precursor' && substanceOnly(v))).length;
     const withTemperature = rows.filter(p => p.values.some(v => v.metric_key === 'growth_temperature' && !isContactFormationTemp(p, v))).length;
     status.textContent = `${rows.length}편 · 전구체 기록 ${withPrecursors}편 · 합성 온도 기록 ${withTemperature}편 (공개 DB의 검토 승인 자료 기준)`;
   }
