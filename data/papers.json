@@ -1,6 +1,6 @@
 {
  "schema_version": 3,
- "generated_at": "2026-10-21T14:54:30Z",
+ "generated_at": "2026-10-21T14:57:09Z",
  "notice": "서지정보와 연구실에서 검토 완료한 수치만 포함합니다. 원문 인용과 AI 요약은 포함하지 않습니다.",
  "metrics": {
   "raman_shift": {
@@ -6428,10 +6428,182 @@
    "doi": "10.1109/iedm45625.2022.10019491",
    "url": "https://doi.org/10.1109/iedm45625.2022.10019491",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "MoO",
+    "SiON",
+    "WSe2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "온상태 전류",
+     "canonical_name": "온전류 (on-state current, ION)",
+     "category": "device_performance",
+     "metric_key": "on_current",
+     "metric_label": "온전류 (Ion)",
+     "qualifier": "pFET",
+     "value": 151.0,
+     "value_text": null,
+     "unit": "μA/μm",
+     "norm_value": 0.151,
+     "norm_unit": "mA/μm",
+     "bound": "",
+     "conditions": "VD = -1 V; LCH = 100 nm",
+     "method": "Keysight B1500A parameter analyzer; 진공 I–V 측정",
+     "sample": "단층 WSe₂ pFET (MoOₓ 캡핑)",
+     "materials": [
+      "WSe2",
+      "MoO"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "III.B"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "온상태 전류",
+     "canonical_name": "온전류 (on-state current, ION)",
+     "category": "device_performance",
+     "metric_key": "on_current",
+     "metric_label": "온전류 (Ion)",
+     "qualifier": "nFET",
+     "value": 147.0,
+     "value_text": null,
+     "unit": "μA/μm",
+     "norm_value": 0.147,
+     "norm_unit": "mA/μm",
+     "bound": "",
+     "conditions": "VD = 1 V; LCH = 100 nm",
+     "method": "Keysight B1500A parameter analyzer; 진공 I–V 측정",
+     "sample": "단층 WSe₂ nFET (SiONₓ 캡핑)",
+     "materials": [
+      "WSe2",
+      "SiON"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "III.B"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "접촉 저항",
+     "canonical_name": "접촉 저항 (contact resistance, RC)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": "TLM",
+     "value": 0.75,
+     "value_text": null,
+     "unit": "kΩ·μm",
+     "norm_value": 750.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": "carrier density p2D ~ 8.7 × 10¹² cm⁻²",
+     "method": "transfer-length method (TLM)",
+     "sample": "단층 WSe₂ pFET (MoOₓ 캡핑)",
+     "materials": [
+      "WSe2",
+      "MoO"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "III.C"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "접촉 저항",
+     "canonical_name": "접촉 저항 (contact resistance, RC)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": "YFM",
+     "value": 0.9,
+     "value_text": null,
+     "unit": "kΩ·μm",
+     "norm_value": 900.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": null,
+     "method": "Y-function method (YFM)",
+     "sample": "단층 WSe₂ pFET (MoOₓ 캡핑)",
+     "materials": [
+      "WSe2",
+      "MoO"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "III.C"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "접촉 저항",
+     "canonical_name": "접촉 저항 (contact resistance, RC)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": "YFM",
+     "value": 1.8,
+     "value_text": null,
+     "unit": "kΩ·μm",
+     "norm_value": 1800.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": null,
+     "method": "Y-function method (YFM)",
+     "sample": "단층 WSe₂ nFET (SiONₓ 캡핑)",
+     "materials": [
+      "WSe2",
+      "SiON"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "III.C"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "어닐링 온도",
+     "canonical_name": "어닐링 온도",
+     "category": "annealing_temperature",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 200.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "건식 전사 후 helium-ion-beam lithography로 소스/드레인 전극을 패턴하고, Sb 두께를 달리해 Pt 층과 함께 e-beam 증착 및 lift-off로 접촉 전극을 형성했다. pFET에는 e-beam 증착 MoOₓ, nFET에는 ALD SiONₓ를 캡핑했다. 전기적 I–V는 진공에서 Keysight B1500A로 측정했다.",
+     "sample": "단층 WSe₂ FET",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 3,
+      "kind": "figure",
+      "label": "Fig. 4"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -8148,10 +8320,337 @@
    "doi": "10.1109/iedm19574.2021.9720595",
    "url": "https://doi.org/10.1109/iedm19574.2021.9720595",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "Bi",
+    "MoS2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "접촉저항 (RC)",
+     "canonical_name": "접촉 저항 (contact resistance, RC)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": null,
+     "value": 280.0,
+     "value_text": null,
+     "unit": "Ω·μm",
+     "norm_value": 280.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": "carrier density n ~ 2×10¹³ cm⁻²; TLM 선형 피팅",
+     "method": "transfer length method (TLM)",
+     "sample": "Bi 접촉 상부 게이트 MoS₂ FET",
+     "materials": [
+      "MoS2",
+      "Bi"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "A. RC and SBH Extraction; Fig. 9"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "쇼트키 장벽 높이 (SBH)",
+     "canonical_name": "쇼트키 장벽 높이 (Schottky barrier height, SBH)",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": null,
+     "value_text": "~0 meV",
+     "unit": "meV",
+     "norm_value": 0.0,
+     "norm_unit": "meV",
+     "bound": "≈",
+     "conditions": "저온 전기 수송; Arrhenius 분석의 고온 구간 >225 K; flat-band 조건",
+     "method": "저온 전기 측정 및 Arrhenius plot",
+     "sample": "Bi–MoS₂ 상부 게이트 FET",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "A. RC and SBH Extraction; Fig. 10–12"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "온전류 (ION)",
+     "canonical_name": "온전류 (on-current, ION)",
+     "category": "device_performance",
+     "metric_key": "on_current",
+     "metric_label": "온전류 (Ion)",
+     "qualifier": null,
+     "value": 680.0,
+     "value_text": null,
+     "unit": "μA/μm",
+     "norm_value": 0.68,
+     "norm_unit": "mA/μm",
+     "bound": "",
+     "conditions": "Vtg = 5 V; Vds = 2 V; Lg = 60 nm; T = 300 K",
+     "method": "출력 특성 Ids–Vds",
+     "sample": "60 nm 상부 게이트 MoS₂ FET",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "B. High-Performance MoS2 FET with sub-100nm Lg; Fig. 14"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "온전류 (ION)",
+     "canonical_name": "온전류 (on-current, ION)",
+     "category": "device_performance",
+     "metric_key": "on_current",
+     "metric_label": "온전류 (Ion)",
+     "qualifier": null,
+     "value": 461.0,
+     "value_text": null,
+     "unit": "μA/μm",
+     "norm_value": 0.461,
+     "norm_unit": "mA/μm",
+     "bound": "",
+     "conditions": "Vtg = 5 V; Vds = 1 V; Lg = 60 nm; T = 300 K",
+     "method": "출력 특성 Ids–Vds",
+     "sample": "60 nm 상부 게이트 MoS₂ FET",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "B. High-Performance MoS2 FET with sub-100nm Lg; Fig. 14"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Subthreshold swing (SS)",
+     "canonical_name": "서브스레숄드 스윙 (subthreshold swing, SS)",
+     "category": "device_performance",
+     "metric_key": "subthreshold_swing",
+     "metric_label": "SS",
+     "qualifier": null,
+     "value": 114.0,
+     "value_text": null,
+     "unit": "mV/dec",
+     "norm_value": 114.0,
+     "norm_unit": "mV/dec",
+     "bound": "",
+     "conditions": "Lg = 1 μm; T = 300 K",
+     "method": "전달 특성 Ids–Vtg",
+     "sample": "1 μm 상부 게이트 MoS₂ FET",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "III. Results and Analysis; Fig. 7"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "On/off ratio",
+     "canonical_name": "온/오프 전류비 (on/off ratio)",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": null,
+     "value_text": ">10⁷",
+     "unit": null,
+     "norm_value": 10000000.0,
+     "norm_unit": "",
+     "bound": ">",
+     "conditions": "Lg = 1 μm; T = 300 K",
+     "method": "전달 특성 Ids–Vtg",
+     "sample": "1 μm 상부 게이트 MoS₂ FET",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "III. Results and Analysis; Fig. 7"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Subthreshold swing (SS)",
+     "canonical_name": "서브스레숄드 스윙 (subthreshold swing, SS)",
+     "category": "device_performance",
+     "metric_key": "subthreshold_swing",
+     "metric_label": "SS",
+     "qualifier": null,
+     "value": 120.0,
+     "value_text": null,
+     "unit": "mV/dec",
+     "norm_value": 120.0,
+     "norm_unit": "mV/dec",
+     "bound": "",
+     "conditions": "Lg = 60 nm; T = 300 K",
+     "method": "전달 특성 Ids–Vtg",
+     "sample": "60 nm 상부 게이트 MoS₂ FET",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "B. High-Performance MoS2 FET with sub-100nm Lg; Fig. 13"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "On/off ratio",
+     "canonical_name": "온/오프 전류비 (on/off ratio)",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": null,
+     "value_text": "over 10⁶",
+     "unit": null,
+     "norm_value": 1000000.0,
+     "norm_unit": "",
+     "bound": ">",
+     "conditions": "Lg = 60 nm; T = 300 K",
+     "method": "전달 특성 Ids–Vtg",
+     "sample": "60 nm 상부 게이트 MoS₂ FET",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "B. High-Performance MoS2 FET with sub-100nm Lg"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "이동도 (μ)",
+     "canonical_name": "이동도 (mobility, μ)",
+     "category": "electrical_transport",
+     "metric_key": "mobility",
+     "metric_label": "이동도",
+     "qualifier": "유효",
+     "value": 35.0,
+     "value_text": null,
+     "unit": "cm²/V·s",
+     "norm_value": 35.0,
+     "norm_unit": "cm²/V·s",
+     "bound": "",
+     "conditions": "ION–Lg 모델 피팅에 사용된 값",
+     "method": "ION–Lg 모델 피팅",
+     "sample": "상부 게이트 MoS₂ FET",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "C. Performance Benchmark; Fig. 16"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "온전류 (ION)",
+     "canonical_name": "온전류 (on-current, ION)",
+     "category": "device_performance",
+     "metric_key": "on_current",
+     "metric_label": "온전류 (Ion)",
+     "qualifier": null,
+     "value": null,
+     "value_text": "1333 μA/μm",
+     "unit": "μA/μm",
+     "norm_value": 1.333,
+     "norm_unit": "mA/μm",
+     "bound": "",
+     "conditions": "Lg = 10 nm로 스케일링한 예측",
+     "method": "스케일링 모델 예측",
+     "sample": "10 nm 게이트 길이 예측",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "C. Performance Benchmark"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "합성 방식",
+     "canonical_name": "화학기상증착 (CVD)",
+     "category": "other",
+     "metric_key": "synthesis_method",
+     "metric_label": "합성 방식",
+     "qualifier": null,
+     "value": null,
+     "value_text": "CVD",
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "c-plane sapphire 위 단층 MoS₂ 성장",
+     "method": "c-plane sapphire 위 CVD 성장, MoS₂ 마이크로리본 패터닝, e-beam lithography와 e-beam evaporation을 이용한 게이트·접촉 제작 및 Al 산화",
+     "sample": "대면적 단층 CVD MoS₂",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "II. Device Fabrication and Characterization"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "기판",
+     "canonical_name": "사파이어 기판 (sapphire substrate)",
+     "category": "substrate",
+     "metric_key": "substrate",
+     "metric_label": "기판",
+     "qualifier": null,
+     "value": null,
+     "value_text": "c-plane sapphire",
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "c-plane; 2-inch wafer",
+     "method": "c-plane sapphire 위 CVD 성장, MoS₂ 마이크로리본 패터닝, e-beam lithography와 e-beam evaporation을 이용한 게이트·접촉 제작 및 Al 산화",
+     "sample": "대면적 단층 CVD MoS₂",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "II. Device Fabrication and Characterization"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -8225,10 +8724,154 @@
    "doi": "10.1021/acsnano.1c06676",
    "url": "https://doi.org/10.1021/acsnano.1c06676",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "Au",
+    "WS2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "DFT AA′와 AB′ 적층의 Γ1×1 유래 상태 결합에너지 차이",
+     "canonical_name": "계산 전자 결합 에너지 차이",
+     "category": "optical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "Γ1×1-derived state",
+     "value": 30.0,
+     "value_text": null,
+     "unit": "meV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "bilayer WS₂/Au(111); DFT",
+     "method": "DFT 전자구조 계산",
+     "sample": "bilayer WS₂/Au(111) 계산 구조",
+     "materials": [
+      "WS2",
+      "Au"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "Results and Discussion; Figure 4g"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "2L WS₂/Au DFT 적층 간격",
+     "canonical_name": "층간 거리",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "S−S vertical distance",
+     "value": null,
+     "value_text": "3.1−3.2 Å",
+     "unit": "Å",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "bilayer WS₂/Au(111); AA′/AB′/AB 계산 구조",
+     "method": "DFT 계산 구조 최적화",
+     "sample": "bilayer WS₂/Au(111) 계산 구조",
+     "materials": [
+      "WS2",
+      "Au"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 9,
+      "kind": "text",
+      "label": "Theoretical Procedure—DFT Calculation"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "열처리 온도",
+     "canonical_name": "열처리 온도",
+     "category": "annealing_temperature",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": "300−340 °C",
+     "unit": "°C",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "Ar/H₂ gas flow stream",
+     "method": "벌크 WS₂ 결정 박리를 통해 WS₂/Au 필름을 만들고, PVA 제거·SiO₂/Si 재증착 후 Ar/H₂에서 열처리해 다공성 Au OPEN 구조를 형성했다. 광학현미경과 Raman으로 층수를 확인하고 AFM으로 표면 형태를 분석했다.",
+     "sample": "OPEN WS₂/Au—Au 지지 및 현수 WS₂",
+     "materials": [
+      "WS2",
+      "Au"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Methods—Sample Preparation"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "열처리 시간",
+     "canonical_name": "공정 시간",
+     "category": "process_duration",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": "1−2 h",
+     "unit": "h",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "Ar/H₂ gas flow stream; 열처리",
+     "method": "벌크 WS₂ 결정 박리를 통해 WS₂/Au 필름을 만들고, PVA 제거·SiO₂/Si 재증착 후 Ar/H₂에서 열처리해 다공성 Au OPEN 구조를 형성했다. 광학현미경과 Raman으로 층수를 확인하고 AFM으로 표면 형태를 분석했다.",
+     "sample": "OPEN WS₂/Au—Au 지지 및 현수 WS₂",
+     "materials": [
+      "WS2",
+      "Au"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Methods—Sample Preparation"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "DFT 에너지 컷오프",
+     "canonical_name": "에너지 컷오프",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 500.0,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "VASP DFT",
+     "method": "벌크 WS₂ 결정 박리를 통해 WS₂/Au 필름을 만들고, PVA 제거·SiO₂/Si 재증착 후 Ar/H₂에서 열처리해 다공성 Au OPEN 구조를 형성했다. 광학현미경과 Raman으로 층수를 확인하고 AFM으로 표면 형태를 분석했다.",
+     "sample": "bilayer WS₂/Au(111) 계산 구조",
+     "materials": [
+      "WS2",
+      "Au"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 9,
+      "kind": "text",
+      "label": "Theoretical Procedure—DFT Calculation"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -11581,10 +12224,119 @@
    "doi": "10.1038/nmat4452",
    "url": "https://doi.org/10.1038/nmat4452",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "MoS2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "최소 접촉 저항 (minimum contact resistance)",
+     "canonical_name": "접촉 저항 (contact resistance, RC)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": "최소",
+     "value": 200.0,
+     "value_text": null,
+     "unit": "Ω μm",
+     "norm_value": 200.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": "2H-MoS2 접촉 영역을 금속성 1T상으로 상 공학; 매우 저항이 큰 소자",
+     "method": "인용 문헌의 소자 접촉 저항 측정; 리뷰에 요약",
+     "sample": "상 공학 MoS2 접촉 문헌 사례",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "Experimental review of contact resistances"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "쇼트키 장벽 높이 기울기 (S)",
+     "canonical_name": "쇼트키 장벽 높이 금속 일함수 민감도",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": 0.09,
+     "value_text": null,
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "다층 MoS2, 두께 약 2 nm부터 벌크까지; 서로 다른 금속 문헌값 비교",
+     "method": "문헌의 SBH 및 금속 일함수 비교; 기울기 S = dϕB0/dϕm",
+     "sample": "다층 MoS2/금속 접촉 문헌 자료",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Figure 5 설명 및 본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "전달 길이 (transfer length, LT)",
+     "canonical_name": "전달 길이 (transfer length, LT)",
+     "category": "morphology",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 600.0,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "단층 MoS2; 접촉 아래 시트 저항과 채널 시트 저항이 같다고 가정",
+     "method": "접촉 저항 전달선 분석에 기반한 문헌값",
+     "sample": "단층 MoS2 문헌 사례",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Contact resistance scaling"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "스핀 주입 효율",
+     "canonical_name": "스핀 주입 효율",
+     "category": "other",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 0.5,
+     "value_text": null,
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "스핀 밸브 자기저항 계산에 사용한 가정값; 면외 스핀",
+     "method": "기존 실험·계산 연구의 리뷰; top/edge 접촉 구조, vdW 갭 및 하이브리드화, 전하 주입 메커니즘과 SBH 추출, 전송선 모델, 접촉 저항 문헌 데이터 비교를 종합함. 자체 합성·소자 제작 실험은 보고하지 않음.",
+     "sample": "TMDC 스핀 주입 모델",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 9,
+      "kind": "text",
+      "label": "Spin injection 분석"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -13384,10 +14136,121 @@
    "doi": null,
    "url": null,
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "MoS2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "충전 에너지 (charging energy, Ec)",
+     "canonical_name": "충전 에너지",
+     "category": "device_performance",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 0.9,
+     "value_text": null,
+     "unit": "meV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "0.4 K; 최소 크기 쿨롱 다이아몬드에서 추출",
+     "method": "쿨롱 다이아몬드 분석",
+     "sample": "MoS₂ 표면 게이트 양자점 소자",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Figure 4"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "양자점 총 정전용량 (total capacitance)",
+     "canonical_name": "총 정전용량",
+     "category": "other",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 90.0,
+     "value_text": null,
+     "unit": "aF",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "0.4 K; 충전 에너지로부터 저자 추출",
+     "method": "충전 에너지로부터 추출",
+     "sample": "MoS₂ 표면 게이트 양자점 소자",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Figure 4"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "표면 게이트-양자점 정전용량",
+     "canonical_name": "게이트-양자점 정전용량",
+     "category": "other",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 32.0,
+     "value_text": null,
+     "unit": "aF",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "0.4 K",
+     "method": "쿨롱 다이아몬드 분석",
+     "sample": "MoS₂ 표면 게이트 양자점 소자",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Figure 4"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "게이트 누설 전류",
+     "canonical_name": "게이트 누설 전류",
+     "category": "electrical_transport",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": "less than 2 nA",
+     "unit": "nA",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "0.4 K; 표면 게이트 전압 범위에서 측정; 측정 셋업 누설 포함",
+     "method": "표면 게이트 누설 전류 측정",
+     "sample": "MoS₂ 표면 게이트 양자점 소자",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "Figure 3(d)"
+     }
+    }
+   ],
    "device_components": []
   },
   {
