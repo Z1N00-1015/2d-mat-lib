@@ -20,7 +20,7 @@ export const FIELDS = [
       { id: 'deposition', n: '05', title: '박막 증착', group: '합성',
         desc: 'CVD·PVD·ALD의 증착 원리와 2D 박막 형성에서의 활용 및 차이를 비교합니다.', labs: ['CVD 성장'] },
       { id: 'synthesis', n: '06', title: '2D 물질의 합성', group: '합성',
-        desc: '기계적·액상 박리와 직접 합성 등 2D 소재를 얻는 주요 경로를 살펴봅니다.', labs: ['기계적 박리'] },
+        desc: '기계적·액상 박리와 직접 합성 등 반데르발스 물질을 얻는 주요 경로를 살펴봅니다.', labs: ['기계적 박리'] },
       { id: 'single-crystal-growth', n: '07', title: '단결정 성장', group: '합성',
         desc: '에피택시와 hypotaxy를 중심으로 결정 방위를 제어하는 박막 성장을 살펴봅니다.', labs: ['Hypotaxy'] },
     ],
