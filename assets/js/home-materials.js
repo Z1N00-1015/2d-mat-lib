@@ -1,4 +1,4 @@
-import { MATS, drawMini } from './lineup.js?v=20261021-sbopacked-static';
+import { MATS, drawMini } from './lineup.js?v=20261021-sbo-topview';
 import { fitCanvas } from './util.js';
 
 const HOME_MATERIALS = MATS.filter(material => material.fam === '2d' || material.fam === '0d');

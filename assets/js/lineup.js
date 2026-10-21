@@ -17,8 +17,8 @@ export const MATS = [
   { id: 'sns', fam: '2d', sym: 'SnS', nm: '황화주석(II)', eg: 1.1, egt: '~1.1 eV (벌크 대표값)', grad: ['#ff9f0a', '#64d2ff'], draw: 'pucker', cols: ['#ffad4e', '#64d2dc'],
     kind: '2D 층상 반도체 · 이방성', title: '황화주석(II) (SnS)', desc: 'Sn과 S가 서로 다른 원자종으로 이루어진 층상 반도체입니다. 사방정계의 주름진 층 구조와 강한 in-plane 이방성을 가지며, 얇은 층에서는 강유전 분극과 광전 특성도 연구됩니다.',
     spec: [['밴드갭', '~1.1 eV (벌크 대표값)'], ['구조', '사방정 주름층'], ['특징', '강한 in-plane 이방성'], ['연구', '2D 반도체·강유전']], tags: ['층상 반도체', '이방성 광학', '강유전성'] },
-  { id: 'sbo', fam: '0d', sym: 'Sb₂O₃', nm: '안티모니 트리옥사이드', eg: null, egt: '', cardMetric: '0D 결정', grad: ['#bf9bff', '#ff6b61'], draw: 'packed', cols: ['#c99a78', '#ff5b51'],
-    kind: '0D 결정 · 산화물', title: '안티모니 트리옥사이드 (α-Sb₂O₃)', desc: 'Sb와 O 원자가 조밀하게 배열된 결정입니다. 원자 구조는 관찰 방향에 따라 육각형 모티프나 층상 배열처럼 다르게 투영될 수 있습니다. 표지의 원자 모형은 이 방향 의존적 투영을 보여주는 개념도입니다.',
+  { id: 'sbo', fam: '0d', sym: 'Sb₂O₃', nm: '안티모니 트리옥사이드', eg: null, egt: '', cardMetric: '0D 결정', grad: ['#bf9bff', '#ff6b61'], draw: 'packed', cols: ['#c99a78', '#b17ac5'],
+    kind: '0D 결정 · 산화물', title: '안티모니 트리옥사이드 (α-Sb₂O₃)', desc: 'Sb와 O 원자가 조밀하게 반복 배열된 α-Sb₂O₃ 결정입니다. 표지 그림은 Sb₄O₆ 단위 모티프가 만드는 원자 배열을 위에서 본 개념도이며, 특정 결정면의 정량 좌표를 재현하지 않습니다.',
     spec: [['화학식 단위', 'Sb₄O₆ 케이지'], ['차원성', '0D 분자형 결정'], ['결정상', '입방 α상']], tags: ['0D 케이지', '유전 특성', '분자 결정'] },
   { id: 'sic', fam: 'wbg', sym: 'SiC', nm: '4H-탄화규소', eg: 3.26, egt: '3.26 eV', grad: ['#64d2ff', '#5e5ce6'], draw: 'hexwbg', cols: ['#5e9cff', '#3a3a3c'],
     kind: '광대역 밴드갭(WBG) · 전력', title: '4H-SiC', desc: '실리콘보다 약 8배 높은 절연파괴 전계와 2배 이상의 열전도율을 가집니다. 고온·고전압 환경에서도 안정적이어서 전기차 인버터와 충전 인프라, 태양광 인버터의 표준이 되어가고 있습니다.',
@@ -42,7 +42,7 @@ export function drawMini(ctx, w, h, m, t) {
   const bg = ctx.createRadialGradient(cx, cy, 0, cx, cy, R);
   bg.addColorStop(0, '#2c2c2e'); bg.addColorStop(1, '#111');
   ctx.fillStyle = bg; ctx.fillRect(0, 0, w, h);
-  ctx.translate(cx, cy); ctx.rotate(t * 0.15);
+  ctx.translate(cx, cy); if (m.draw !== 'packed') ctx.rotate(t * 0.15);
   const a = R / 3.2;
   const dot = (x, y, r, c) => { const g = ctx.createRadialGradient(x - r * 0.3, y - r * 0.3, 0, x, y, r); g.addColorStop(0, '#fff'); g.addColorStop(0.25, c); g.addColorStop(1, shade(c)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); };
   const line = (x1, y1, x2, y2) => { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); };
@@ -95,29 +95,28 @@ export function drawMini(ctx, w, h, m, t) {
       dot(x + a * 0.4, y + a * 0.4, a * 0.12, m.cols[1]);
     }
   } else if (m.draw === 'packed') {
-    // Static perspective view of a close-packed Sb/O slab on a substrate-like plane.
-    const d = a * 0.48, layerH = d * Math.sqrt(2 / 3), tilt = 0.34;
-    const atoms = [];
-    const project = (x, y, z) => [(x - y * 0.55) * 0.72, (x + y * 0.85) * tilt - z * 0.9];
-    const layerShift = [[0, 0], [0.5, Math.sqrt(3) / 6], [0, 0]];
-    for (let k = 0; k < 3; k++) for (let j = -3; j <= 3; j++) for (let i = -3; i <= 3; i++) {
-      const [sx, sy] = layerShift[k];
-      const x = d * (i + j * 0.5 + sx), y = d * (j * Math.sqrt(3) * 0.5 + sy), z = layerH * k;
-      const species = ((i * 7 + j * 3 + k * 5) % 5 + 5) % 5 < 2 ? 0 : 1;
-      const [px, py] = project(x, y, z);
-      atoms.push({ x, y, z, px, py, species, r: d * (species === 0 ? 0.31 : 0.27) });
+    // Static, cropped top view inspired by the repeated Sb4O6 motifs in the reference figure.
+    const pitch = a * 1.5, moleculeR = a * 0.48, sbR = a * 0.20, oR = a * 0.18;
+    const sb = [[0, -moleculeR], [moleculeR * 0.86, moleculeR * 0.5], [-moleculeR * 0.86, moleculeR * 0.5], [0, 0]];
+    const oxygen = [[0, -moleculeR * 0.5], [moleculeR * 0.43, -moleculeR * 0.25], [-moleculeR * 0.43, -moleculeR * 0.25], [0, moleculeR * 0.5], [moleculeR * 0.43, moleculeR * 0.25], [-moleculeR * 0.43, moleculeR * 0.25]];
+    const bridges = [[0, 4], [0, 5], [0, 6], [1, 5], [1, 7], [1, 8], [2, 6], [2, 7], [2, 9], [3, 4], [3, 8], [3, 9]];
+    const motifs = [];
+    for (let row = -4; row <= 4; row++) for (let col = -4; col <= 4; col++) {
+      const x = col * pitch + (Math.abs(row) % 2) * pitch * 0.5;
+      const y = row * pitch * Math.sqrt(3) * 0.5;
+      if (Math.hypot(x, y) < R + pitch * 0.8) motifs.push([x, y]);
     }
-    const plane = [[-3.55, -3.55], [3.55, -3.55], [3.55, 3.55], [-3.55, 3.55]]
-      .map(([i, j]) => project(d * (i + j * 0.5), d * j * Math.sqrt(3) * 0.5, -layerH * 0.45));
-    ctx.fillStyle = 'rgba(55,190,177,.20)'; ctx.strokeStyle = 'rgba(107,230,213,.48)'; ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.moveTo(plane[0][0], plane[0][1]); plane.slice(1).forEach(([x, y]) => ctx.lineTo(x, y)); ctx.closePath(); ctx.fill(); ctx.stroke();
-    atoms.sort((p, q) => (p.x + p.y + p.z) - (q.x + q.y + q.z));
-    ctx.strokeStyle = 'rgba(238,202,180,.42)'; ctx.lineWidth = Math.max(0.7, d * 0.045);
-    for (let i = 0; i < atoms.length; i++) for (let j = i + 1; j < atoms.length; j++) {
-      const p = atoms[i], q = atoms[j], dx = p.x - q.x, dy = p.y - q.y, dz = p.z - q.z;
-      if (dx * dx + dy * dy + dz * dz <= d * d * 1.04) line(p.px, p.py, q.px, q.py);
+    ctx.strokeStyle = 'rgba(238,202,180,.48)'; ctx.lineWidth = Math.max(0.8, a * 0.045);
+    for (const [x, y] of motifs) {
+      for (const [from, to] of bridges) {
+        const p = from < 4 ? sb[from] : oxygen[from - 4], q = to < 4 ? sb[to] : oxygen[to - 4];
+        line(x + p[0], y + p[1], x + q[0], y + q[1]);
+      }
     }
-    atoms.forEach(p => dot(p.px, p.py, p.r, m.cols[p.species]));
+    for (const [x, y] of motifs) {
+      oxygen.forEach(([dx, dy]) => dot(x + dx, y + dy, oR, m.cols[1]));
+      sb.forEach(([dx, dy]) => dot(x + dx, y + dy, sbR, m.cols[0]));
+    }
   }
   ctx.restore();
   ctx.strokeStyle = 'rgba(255,255,255,.12)'; ctx.lineWidth = 1;
