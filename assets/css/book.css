@@ -427,8 +427,8 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
 .landscape-card-copy { padding: 14px 16px 11px; }
 .landscape-card-copy h3 { margin: 0 0 4px; color: var(--text); font-size: 16px; }
 .landscape-card-copy p { margin: 0; color: var(--text-2); font-size: 12.5px; line-height: 1.5; }
-.landscape-art { display: block; width: 100%; height: 240px; object-fit: cover; object-position: center; background: #101319; }
-.landscape-card--integration .landscape-art { height: auto; object-fit: contain; object-position: center; }
+.landscape-art { display: block; width: 100%; height: 360px; object-fit: cover; object-position: center; background: #101319; }
+.landscape-card--integration .landscape-art { object-fit: contain; }
 .landscape-figure figcaption { padding: 11px 8px 3px; color: var(--muted); font-size: 12.5px; line-height: 1.55; }
 .home-history .section-heading { margin-bottom: 14px; }
 .home-history .history-timeline { padding: 0 4px; }
@@ -523,6 +523,7 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
   .home-paper-grid, .home-guide-grid { grid-template-columns: 1fr; }
   .landscape-gallery { grid-template-columns: 1fr; }
   .landscape-art { height: min(56vw, 240px); min-height: 170px; }
+  .landscape-card--integration .landscape-art { height: auto; min-height: 0; }
   .home-material-lineup { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .home-material-lineup .home-mat { padding: 10px 7px; }
   .home-material-lineup .home-mat canvas { margin-bottom: 5px; }
