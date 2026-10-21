@@ -509,6 +509,8 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
   .topbar .brand small { display: none; }
 }
 @media (max-width: 760px) {
+  .research-history-timeline .tl { grid-template-columns: 1fr; gap: 10px; }
+  .research-history-timeline .timeline-illustration { height: 150px; }
   .history-item { grid-template-columns: 72px minmax(0, 1fr); gap: 15px; }
   .history-item:not(:last-child)::before { left: 77px; }
   .history-year { padding-right: 8px; font-size: 10px; }
@@ -645,6 +647,11 @@ sub, sup { font-size: .72em; line-height: 0; }
 .tl h5 { margin: 0; font-size: 16px; }
 .tl p { margin: 2px 0 0; font-size: 14.5px; color: var(--text-2); }
 .tl.future::before { border-style: dashed; }
+.research-history-timeline .tl { display: grid; grid-template-columns: minmax(0, 1fr) minmax(170px, 230px); align-items: center; gap: 14px; padding: 12px; border: 1px solid var(--border); border-radius: 13px; background: var(--surface); }
+.research-history-timeline .timeline-copy h5 { margin: 0; font-size: 16px; }
+.research-history-timeline .timeline-copy p { margin: 3px 0 7px; }
+.research-history-timeline .timeline-copy a { color: var(--accent); font-size: 12.5px; font-weight: 650; }
+.research-history-timeline .timeline-illustration { display: block; width: 100%; height: 112px; object-fit: cover; border: 1px solid var(--border); border-radius: 9px; background: var(--surface-2); }
 
 /* related papers (lab DB) */
 .refs { margin: -1rem 0 2.4rem; }
