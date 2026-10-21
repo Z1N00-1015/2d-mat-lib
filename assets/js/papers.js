@@ -373,6 +373,61 @@ function initMaterialTemperatureChart(root, data, synthesisFocus, getMaterial) {
   return () => { hover = null; tip.classList.remove('on'); draw(); };
 }
 
+function initSynthesisConditions(root, data, synthesisFocus, getMaterial) {
+  const status = root.querySelector('[data-o="synthesis-status"]');
+  const table = root.querySelector('[data-o="synthesis-table"]');
+  const papers = data.papers || [];
+  const relevantKeys = new Set([...SYNTHESIS_METRICS, 'precursor', 'synthesis_method']);
+  const evidenceLabel = value => {
+    const evidence = value.evidence;
+    if (!evidence) return '';
+    return [evidence.page ? `p. ${evidence.page}` : '', evidence.label || ''].filter(Boolean).join(' · ');
+  };
+  const reported = value => value.value_text || fmtValue(value) || value.qualifier || '세부 값 미기록';
+
+  function render() {
+    const selected = getMaterial();
+    const rows = papers.filter(p => {
+      const targets = synthesisFocus[p.id] || [];
+      return targets.length && (selected === '전체' || targets.includes(selected));
+    });
+    table.innerHTML = rows.map(p => {
+      const targets = synthesisFocus[p.id] || [];
+      const values = p.values.filter(v => relevantKeys.has(v.metric_key) && !isContactFormationTemp(p, v));
+      const precursorValues = values.filter(v => ['precursor', 'precursor_film'].includes(v.metric_key));
+      const temperatureValues = values.filter(v => v.metric_key === 'growth_temperature');
+      const methodValue = values.find(v => v.metric_key === 'synthesis_method' && v.value_text);
+      const processNote = values.find(v => v.method)?.method;
+      const precursorHtml = precursorValues.length
+        ? '<ul>' + precursorValues.map(v => '<li><b>' + esc(v.name || v.metric_label || '전구체') + ':</b> '
+          + esc(reported(v)) + (v.qualifier && v.value_text ? ' <small>(' + esc(v.qualifier) + ')</small>' : '')
+          + ((v.sample || evidenceLabel(v)) ? '<small class="synth-evidence">' + esc([v.sample, evidenceLabel(v)].filter(Boolean).join(' · ')) + '</small>' : '')
+          + '</li>').join('') + '</ul>'
+        : '<span class="pnone">승인된 전구체 항목 없음</span>';
+      const temperatureHtml = temperatureValues.length
+        ? '<ul>' + temperatureValues.map(v => '<li><b>' + esc(reported(v)) + '</b>'
+          + (v.sample ? '<small class="synth-evidence">' + esc(v.sample) + '</small>' : '')
+          + (evidenceLabel(v) ? '<small class="synth-evidence">' + esc(evidenceLabel(v)) + '</small>' : '')
+          + '</li>').join('') + '</ul>'
+        : '<span class="pnone">승인된 온도 값 없음</span>';
+      const methodHtml = methodValue
+        ? esc(reported(methodValue))
+        : processNote
+          ? '<details><summary>공정 설명 보기</summary><p>' + esc(processNote) + '</p></details>'
+          : '<span class="pnone">공정 정보 미등록</span>';
+      return '<tr><td>' + targets.map(m => '<span class="pill">' + formula(esc(m)) + '</span>').join(' ')
+        + '</td><td>' + precursorHtml + '</td><td>' + temperatureHtml + '</td><td>' + methodHtml + '</td><td>'
+        + (p.url ? '<a href="' + esc(p.url) + '" target="_blank" rel="noopener">' + esc(p.title) + ' ↗</a>' : esc(p.title))
+        + '<br><small>' + esc(p.journal || '') + ' · ' + (p.year || '연도 미상') + '</small></td></tr>';
+    }).join('');
+    const withPrecursors = rows.filter(p => p.values.some(v => ['precursor', 'precursor_film'].includes(v.metric_key))).length;
+    const withTemperature = rows.filter(p => p.values.some(v => v.metric_key === 'growth_temperature' && !isContactFormationTemp(p, v))).length;
+    status.textContent = `${rows.length}편 · 전구체 기록 ${withPrecursors}편 · 합성 온도 기록 ${withTemperature}편 (공개 DB의 검토 승인 자료 기준)`;
+  }
+  render();
+  return render;
+}
+
 async function initData(root) {
   const status = root.querySelector('[data-o="status"]');
   try {
@@ -413,14 +468,14 @@ async function initData(root) {
     const synthesisChoices = ['전체', ...synthesisMaterials, ...(hasUnclassifiedSynthesis ? ['미분류'] : [])];
     synthesisFilter.innerHTML = synthesisChoices.map((m, i) => '<button data-v="' + esc(m) + '"' + (i ? '' : ' class="on"') + '>'
       + (m === '전체' || m === '미분류' ? esc(m) : formula(esc(m))) + '</button>').join('');
-    const refreshSynthesis = initSynthesisChart(root, data, synthesisFocus, () => synthesisMaterial);
+    const refreshSynthesisConditions = initSynthesisConditions(root, data, synthesisFocus, () => synthesisMaterial);
     const refreshMaterialTemperature = initMaterialTemperatureChart(root, data, synthesisFocus, () => synthesisMaterial);
     synthesisFilter.addEventListener('click', event => {
       const button = event.target.closest('button[data-v]');
       if (!button) return;
       synthesisMaterial = button.dataset.v;
       synthesisFilter.querySelectorAll('button').forEach(item => item.classList.toggle('on', item === button));
-      refreshSynthesis(); refreshMaterialTemperature();
+      refreshSynthesisConditions(); refreshMaterialTemperature();
     });
     const canvas = root.querySelector('canvas');
     const tip = root.querySelector('.tip');
