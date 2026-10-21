@@ -17,8 +17,8 @@ export const MATS = [
   { id: 'sns', fam: '2d', sym: 'SnS', nm: '황화주석(II)', eg: 1.1, egt: '~1.1 eV (벌크 대표값)', grad: ['#ff9f0a', '#64d2ff'], draw: 'pucker', cols: ['#ffad4e', '#64d2dc'],
     kind: '2D 층상 반도체 · 이방성', title: '황화주석(II) (SnS)', desc: 'Sn과 S가 서로 다른 원자종으로 이루어진 층상 반도체입니다. 사방정계의 주름진 층 구조와 강한 in-plane 이방성을 가지며, 얇은 층에서는 강유전 분극과 광전 특성도 연구됩니다.',
     spec: [['밴드갭', '~1.1 eV (벌크 대표값)'], ['구조', '사방정 주름층'], ['특징', '강한 in-plane 이방성'], ['연구', '2D 반도체·강유전']], tags: ['층상 반도체', '이방성 광학', '강유전성'] },
-  { id: 'sbo', fam: '0d', sym: 'Sb₂O₃', nm: '안티모니 트리옥사이드', eg: null, egt: '', cardMetric: '0D 분자형 결정', grad: ['#bf9bff', '#ff6b61'], draw: 'cage', cols: ['#a990dd', '#ff745f'],
-    kind: '0D 분자 결정 · 산화물', title: '안티모니 트리옥사이드 (α-Sb₂O₃)', desc: '입방 α상은 개별 Sb₄O₆ 케이지 분자로 이루어진 분자형 결정입니다. 원자층 2D 물질은 아니지만, 0D 무기 케이지 재료의 원자 구조를 비교하기 위해 함께 표시합니다.',
+  { id: 'sbo', fam: '0d', sym: 'Sb₂O₃', nm: '안티모니 트리옥사이드', eg: null, egt: '', cardMetric: '0D 결정', grad: ['#bf9bff', '#ff6b61'], draw: 'packed', cols: ['#c99a78', '#ff5b51'],
+    kind: '0D 결정 · 산화물', title: '안티모니 트리옥사이드 (α-Sb₂O₃)', desc: 'Sb와 O 원자가 조밀하게 배열된 결정입니다. 원자 구조는 관찰 방향에 따라 육각형 모티프나 층상 배열처럼 다르게 투영될 수 있습니다. 표지의 원자 모형은 이 방향 의존적 투영을 보여주는 개념도입니다.',
     spec: [['화학식 단위', 'Sb₄O₆ 케이지'], ['차원성', '0D 분자형 결정'], ['결정상', '입방 α상']], tags: ['0D 케이지', '유전 특성', '분자 결정'] },
   { id: 'sic', fam: 'wbg', sym: 'SiC', nm: '4H-탄화규소', eg: 3.26, egt: '3.26 eV', grad: ['#64d2ff', '#5e5ce6'], draw: 'hexwbg', cols: ['#5e9cff', '#3a3a3c'],
     kind: '광대역 밴드갭(WBG) · 전력', title: '4H-SiC', desc: '실리콘보다 약 8배 높은 절연파괴 전계와 2배 이상의 열전도율을 가집니다. 고온·고전압 환경에서도 안정적이어서 전기차 인버터와 충전 인프라, 태양광 인버터의 표준이 되어가고 있습니다.',
@@ -94,19 +94,27 @@ export function drawMini(ctx, w, h, m, t) {
       dot(x, y, a * 0.16, m.cols[0]);
       dot(x + a * 0.4, y + a * 0.4, a * 0.12, m.cols[1]);
     }
-  } else if (m.draw === 'cage') {
-    const s = a * 0.82;
-    const atoms = [[-s, -s * 0.48, -1], [s, -s * 0.48, 1], [0, s * 0.72, -1], [0, -s * 0.95, 1]];
-    const project = ([x, y, z]) => [x + z * s * 0.42, y - z * s * 0.28];
-    const edges = [[0, 1], [0, 2], [0, 3], [1, 2], [1, 3], [2, 3]];
-    ctx.strokeStyle = 'rgba(220,220,235,.7)'; ctx.lineWidth = Math.max(1, a * 0.07);
-    for (const [i, j] of edges) {
-      const p = project(atoms[i]), q = project(atoms[j]);
-      const o = [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2];
-      line(p[0], p[1], o[0], o[1]); line(o[0], o[1], q[0], q[1]);
-      dot(o[0], o[1], a * 0.16, m.cols[1]);
+  } else if (m.draw === 'packed') {
+    // Conceptual close-packed Sb/O lattice. Its projected motif changes as the viewing direction rotates.
+    const d = a * 0.48, layerH = d * 0.82, tilt = 0.62, azimuth = t * 0.16 + 0.45;
+    const atoms = [];
+    for (let k = -2; k <= 2; k++) for (let j = -6; j <= 6; j++) for (let i = -6; i <= 6; i++) {
+      const shift = [0, 0.5, 1][((k % 3) + 3) % 3];
+      const x = d * (i + j * 0.5 + shift), y = d * Math.sqrt(3) * 0.5 * j, z = layerH * k;
+      if (Math.hypot(x, y) > R * 1.35) continue;
+      const ca = Math.cos(azimuth), sa = Math.sin(azimuth);
+      const xr = x * ca - z * sa, zr = x * sa + z * ca;
+      const yr = y * Math.cos(tilt) - zr * Math.sin(tilt), depth = y * Math.sin(tilt) + zr * Math.cos(tilt);
+      const species = ((i * 7 + j * 3 + k * 5) % 5 + 5) % 5 < 2 ? 0 : 1;
+      atoms.push({ x: xr, y: yr, z: depth, species, r: d * (species === 0 ? 0.31 : 0.27) });
     }
-    atoms.forEach(atom => { const [x, y] = project(atom); dot(x, y, a * 0.2, m.cols[0]); });
+    atoms.sort((p, q) => p.z - q.z);
+    ctx.strokeStyle = 'rgba(220,220,235,.22)'; ctx.lineWidth = Math.max(0.7, d * 0.035);
+    for (let i = 0; i < atoms.length; i++) for (let j = i + 1; j < atoms.length; j++) {
+      const p = atoms[i], q = atoms[j], dx = p.x - q.x, dy = p.y - q.y;
+      if (dx * dx + dy * dy < d * d * 1.12 && Math.abs(p.z - q.z) < d * 0.72) line(p.x, p.y, q.x, q.y);
+    }
+    atoms.forEach(p => dot(p.x, p.y, p.r, m.cols[p.species]));
   }
   ctx.restore();
   ctx.strokeStyle = 'rgba(255,255,255,.12)'; ctx.lineWidth = 1;
