@@ -13,6 +13,7 @@
 - `assets/js/*.js` — 실험 모듈 (three.js, Canvas)
 - `data/papers.json` — 연구실 논문 DB 공개용 데이터
 - `data/paper-focus.json` — 논문별 핵심 소재. 등록 논문이 추가되면 이 파일에 논문 ID와 핵심 소재를 함께 추가합니다. 보조 재료와 기판은 자동으로 핵심 소재에 포함하지 않습니다.
+- `data/paper-synthesis-focus.json` — 합성 비교에 사용할 논문별 합성 대상 소재. 기판·전극·전구체를 제외한 성장 결과물을 별도로 분류합니다.
 
 ### 분야 I. 2차원 물질의 이해
 

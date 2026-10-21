@@ -12,10 +12,18 @@ const loadFocus = () => (focusCache ||= fetch(new URL('../../data/paper-focus.js
   if (!r.ok) throw new Error(`paper-focus.json ${r.status}`);
   return r.json();
 }).catch(() => ({})));
+let synthesisFocusCache = null;
+const loadSynthesisFocus = () => (synthesisFocusCache ||= fetch(new URL('../../data/paper-synthesis-focus.json', import.meta.url)).then(r => {
+  if (!r.ok) throw new Error(`paper-synthesis-focus.json ${r.status}`);
+  return r.json();
+}).catch(() => ({})));
 
 const DEVICE = ['contact_resistance', 'mobility', 'on_off_ratio', 'subthreshold_swing', 'on_current', 'schottky_barrier', 'transconductance'];
 const SYNTH = ['growth_temperature', 'growth_time', 'gas_flow', 'precursor', 'synthesis_method', 'pressure', 'ramp_rate', 'substrate'];
 const hasKey = (p, keys) => p.values.some(v => keys.includes(v.metric_key));
+const isContactFormationTemp = (p, v) => v.metric_key === 'growth_temperature'
+  && /contact|접촉/i.test(p.title + ' ' + (v.method || ''))
+  && /증착|deposition/i.test((v.name || '') + ' ' + (v.method || ''));
 
 // Which papers belong under which lab, and which values to highlight there
 const TOPICS = {
@@ -111,7 +119,7 @@ async function initRefs(root) {
 const CHART_METRICS = ['mobility', 'on_off_ratio', 'on_current', 'subthreshold_swing', 'contact_resistance', 'growth_temperature'];
 const SYNTHESIS_METRICS = ['growth_temperature', 'growth_time', 'gas_flow', 'pressure', 'ramp_rate', 'precursor_film'];
 
-function initSynthesisChart(root, data, focus, getMaterial) {
+function initSynthesisChart(root, data, synthesisFocus, getMaterial) {
   const controls = root.querySelector('[data-synth-controls]');
   const xSelect = root.querySelector('[data-o="synth-axis-x"]');
   const ySelect = root.querySelector('[data-o="synth-axis-y"]');
@@ -136,7 +144,7 @@ function initSynthesisChart(root, data, focus, getMaterial) {
   ySelect.value = metrics.includes('gas_flow') ? 'gas_flow' : metrics.find(key => key !== xSelect.value);
   let xMetric = xSelect.value, yMetric = ySelect.value, points = [], hover = null;
   const { ctx, state } = fitCanvas(canvas, draw);
-  const primary = p => focus[p.id] || [];
+  const primary = p => synthesisFocus[p.id] || [];
 
   function pairs() {
     const material = getMaterial();
@@ -144,8 +152,8 @@ function initSynthesisChart(root, data, focus, getMaterial) {
     for (const p of papers) {
       const core = primary(p);
       if (material !== '전체' && (material === '미분류' ? core.length : !core.includes(material))) continue;
-      const xs = p.values.filter(v => v.metric_key === xMetric && Number.isFinite(+v.norm_value) && +v.norm_value > 0);
-      const ys = p.values.filter(v => v.metric_key === yMetric && Number.isFinite(+v.norm_value) && +v.norm_value > 0);
+      const xs = p.values.filter(v => v.metric_key === xMetric && Number.isFinite(+v.norm_value) && +v.norm_value > 0 && !isContactFormationTemp(p, v));
+      const ys = p.values.filter(v => v.metric_key === yMetric && Number.isFinite(+v.norm_value) && +v.norm_value > 0 && !isContactFormationTemp(p, v));
       for (const x of xs) for (const y of ys) {
         const xsample = String(x.sample || '').trim(), ysample = String(y.sample || '').trim();
         if ((xsample && ysample && xsample === ysample) || (xs.length === 1 && ys.length === 1)) {
@@ -260,7 +268,7 @@ function initSynthesisChart(root, data, focus, getMaterial) {
   return () => { hover = null; tip.classList.remove('on'); draw(); renderTable(); };
 }
 
-function initMaterialTemperatureChart(root, data, focus, getMaterial) {
+function initMaterialTemperatureChart(root, data, synthesisFocus, getMaterial) {
   const canvas = root.querySelector('[data-o="material-temp-canvas"]');
   const tip = root.querySelector('[data-o="material-temp-tip"]');
   const status = root.querySelector('[data-o="material-temp-status"]');
@@ -269,7 +277,7 @@ function initMaterialTemperatureChart(root, data, focus, getMaterial) {
   let points = [], hover = null;
   const { ctx, state } = fitCanvas(canvas, draw);
   const selected = getMaterial;
-  const coreMaterials = p => focus[p.id] || [];
+  const coreMaterials = p => synthesisFocus[p.id] || [];
 
   function records() {
     const result = [];
@@ -279,7 +287,7 @@ function initMaterialTemperatureChart(root, data, focus, getMaterial) {
       for (const v of p.values) {
         if (v.metric_key !== 'growth_temperature' || !Number.isFinite(+v.norm_value) || +v.norm_value <= 0) continue;
         // A temperature recorded during contact-metal deposition is not the 2D material growth temperature.
-        if (/contact|접촉/i.test(p.title + ' ' + (v.name || '')) && /증착|deposition/i.test(v.name || '')) continue;
+        if (isContactFormationTemp(p, v)) continue;
         result.push({ p, v, material: core.length ? core.join(' · ') : '미분류' });
       }
     }
@@ -334,7 +342,7 @@ function initMaterialTemperatureChart(root, data, focus, getMaterial) {
       ctx.lineWidth = 2; ctx.strokeStyle = point.material === '미분류' ? '#858894' : '#7564e8'; ctx.stroke();
     }
     ctx.fillStyle = '#5f626d'; ctx.font = '12px ' + FONT; ctx.textAlign = 'center';
-    ctx.fillText('핵심 소재', (box.left + box.right) / 2, h - 12);
+    ctx.fillText('합성 대상 소재', (box.left + box.right) / 2, h - 12);
     ctx.save(); ctx.translate(15, (box.top + box.bottom) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText('합성 온도 (°C)', 0, 0); ctx.restore();
     status.textContent = `${values.length}개 조건 · ${new Set(values.map(v => v.p.id)).size}편 · ${materials.length}개 소재 분류`;
     table.innerHTML = values.map(({ p, v, material }) => '<tr><td>'
@@ -351,7 +359,7 @@ function initMaterialTemperatureChart(root, data, focus, getMaterial) {
     for (const point of points) { const d = Math.hypot(point.x - x, point.y - y); if (d < distance) { nearest = point; distance = d; } }
     if (nearest !== hover) { hover = nearest; draw(); }
     if (!nearest) { tip.classList.remove('on'); return; }
-    tip.innerHTML = '<b>' + esc(nearest.p.title) + '</b><br>핵심 소재: ' + formula(esc(nearest.material))
+    tip.innerHTML = '<b>' + esc(nearest.p.title) + '</b><br>합성 대상 소재: ' + formula(esc(nearest.material))
       + '<br>합성 온도: ' + fmtValue(nearest.v) + '<br>시료: ' + esc(nearest.v.sample || '미기록')
       + '<br><span style="opacity:.7">' + esc(nearest.p.journal || '') + ' ' + (nearest.p.year || '')
       + (nearest.v.evidence?.page ? ' · p. ' + esc(nearest.v.evidence.page) : '') + '</span>';
@@ -368,7 +376,7 @@ function initMaterialTemperatureChart(root, data, focus, getMaterial) {
 async function initData(root) {
   const status = root.querySelector('[data-o="status"]');
   try {
-    const [data, focus] = await Promise.all([load(), loadFocus()]);
+    const [data, focus, synthesisFocus] = await Promise.all([load(), loadFocus(), loadSynthesisFocus()]);
     const papers = data.papers || [];
     const metrics = CHART_METRICS.filter(key => data.metrics[key]
       && papers.some(p => p.values.some(v => v.metric_key === key && Number.isFinite(+v.norm_value) && +v.norm_value > 0)));
@@ -396,9 +404,24 @@ async function initData(root) {
     filter.innerHTML = choices.map((m, i) => '<button data-v="' + esc(m) + '"' + (i ? '' : ' class="on"') + '>'
       + (m === '전체' || m === '미분류' ? esc(m) : formula(esc(m))) + '</button>').join('');
     let material = '전체';
+    let synthesisMaterial = '전체';
     let xMetric = xSelect.value, yMetric = ySelect.value;
-    const refreshSynthesis = initSynthesisChart(root, data, focus, () => material);
-    const refreshMaterialTemperature = initMaterialTemperatureChart(root, data, focus, () => material);
+    const synthesisMaterials = [...new Set(Object.values(synthesisFocus).flat())].sort((a, b) => a.localeCompare(b));
+    const hasUnclassifiedSynthesis = papers.some(p => !synthesisFocus[p.id]?.length
+      && p.values.some(v => SYNTHESIS_METRICS.includes(v.metric_key)));
+    const synthesisFilter = root.querySelector('.seg[data-k="synth-mat"]');
+    const synthesisChoices = ['전체', ...synthesisMaterials, ...(hasUnclassifiedSynthesis ? ['미분류'] : [])];
+    synthesisFilter.innerHTML = synthesisChoices.map((m, i) => '<button data-v="' + esc(m) + '"' + (i ? '' : ' class="on"') + '>'
+      + (m === '전체' || m === '미분류' ? esc(m) : formula(esc(m))) + '</button>').join('');
+    const refreshSynthesis = initSynthesisChart(root, data, synthesisFocus, () => synthesisMaterial);
+    const refreshMaterialTemperature = initMaterialTemperatureChart(root, data, synthesisFocus, () => synthesisMaterial);
+    synthesisFilter.addEventListener('click', event => {
+      const button = event.target.closest('button[data-v]');
+      if (!button) return;
+      synthesisMaterial = button.dataset.v;
+      synthesisFilter.querySelectorAll('button').forEach(item => item.classList.toggle('on', item === button));
+      refreshSynthesis(); refreshMaterialTemperature();
+    });
     const canvas = root.querySelector('canvas');
     const tip = root.querySelector('.tip');
     const { ctx, state } = fitCanvas(canvas, draw);

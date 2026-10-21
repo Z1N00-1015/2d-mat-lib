@@ -77,7 +77,7 @@ const MODULES = {
   crystal: './crystal.js?v=20261020i', lattice2d: './lattice2d.js?v=20261020i', miller: './miller.js?v=20261020i', bragg: './bragg.js',
   xrd: './xrd.js?v=20261020i', moire: './moire.js?v=20261020l', 'moire-reconstruction': './moire-reconstruction.js?v=20261020s', spectrum: './spectrum.js',
   mos2: './mos2.js', bands: './bands.js', power: './power.js?v=20261020i', exfo: './exfo.js', cvd: './cvd.js',
-  glossary: './glossary.js?v=20261021-materials-structure', refs: './papers.js?v=20261021-material-temperatures', paperdata: './papers.js?v=20261021-material-temperatures',
+  glossary: './glossary.js?v=20261021-materials-structure', refs: './papers.js?v=20261021-synthesis-target-filter', paperdata: './papers.js?v=20261021-synthesis-target-filter',
   raman: './raman.js?v=20261020i', 'tem-moire': './tem-moire.js?v=20261020l',
   hypotaxy: './hypotaxy.js?v=20261020h', 'home-lineup': './home-materials.js?v=20261021-sbo-topview',
   lineup: './lineup.js?v=20261021-sbo-topview',
