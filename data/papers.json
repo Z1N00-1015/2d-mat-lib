@@ -1,6 +1,6 @@
 {
  "schema_version": 3,
- "generated_at": "2026-10-20T15:01:07Z",
+ "generated_at": "2026-10-21T14:51:11Z",
  "notice": "서지정보와 연구실에서 검토 완료한 수치만 포함합니다. 원문 인용과 AI 요약은 포함하지 않습니다.",
  "metrics": {
   "raman_shift": {
@@ -3178,10 +3178,563 @@
    "doi": "10.1038/s41467-023-36715-6",
    "url": "https://doi.org/10.1038/s41467-023-36715-6",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "Ag",
+    "Au",
+    "Co",
+    "MoTe2",
+    "Pd",
+    "Ti",
+    "WSe2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "vdW gap",
+     "canonical_name": "vdW 간격",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 0.3,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "PPC 분해 후 WSe₂/Au 계면",
+     "method": "HRTEM",
+     "sample": "WSe₂/Au",
+     "materials": [
+      "WSe2",
+      "Au"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "figure",
+      "label": "Fig. 2b"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman peak",
+     "canonical_name": "Raman 피크 위치",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "E₁₁g",
+     "value": 250.68,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 250.68,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "vdW 금속 통합 후 WSe₂",
+     "method": "Raman spectroscopy",
+     "sample": "WSe₂",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "Optical measurement"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "on-state current",
+     "canonical_name": "온전류 (Ion)",
+     "category": "device_performance",
+     "metric_key": "on_current",
+     "metric_label": "온전류 (Ion)",
+     "qualifier": null,
+     "value": 0.5,
+     "value_text": null,
+     "unit": "μA μm⁻¹",
+     "norm_value": 0.0005,
+     "norm_unit": "mA/μm",
+     "bound": "",
+     "conditions": "VGS = −60 V; VDS = 1 V; 채널 길이 50 μm",
+     "method": "전기적 I–V 측정",
+     "sample": "WSe₂ vdW 접촉, Pd",
+     "materials": [
+      "WSe2",
+      "Pd"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Electrical performance WSe₂ transistors"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "two-point transconductance (Gm)",
+     "canonical_name": "트랜스컨덕턴스 (gm)",
+     "category": "electrical_transport",
+     "metric_key": "transconductance",
+     "metric_label": "트랜스컨덕턴스 (gm)",
+     "qualifier": "최대",
+     "value": 1.4,
+     "value_text": null,
+     "unit": "μS",
+     "norm_value": null,
+     "norm_unit": "μS/μm",
+     "bound": "",
+     "conditions": "Ids–Vgs transfer curve; Pd 접촉",
+     "method": "Ids–Vgs transfer curve에서 추출",
+     "sample": "WSe₂ vdW 접촉, Pd",
+     "materials": [
+      "WSe2",
+      "Pd"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Electrical performance WSe₂ transistors"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "two-point transconductance (Gm)",
+     "canonical_name": "트랜스컨덕턴스 (gm)",
+     "category": "electrical_transport",
+     "metric_key": "transconductance",
+     "metric_label": "트랜스컨덕턴스 (gm)",
+     "qualifier": null,
+     "value": 0.18,
+     "value_text": null,
+     "unit": "μS",
+     "norm_value": null,
+     "norm_unit": "μS/μm",
+     "bound": "",
+     "conditions": "Ids–Vgs transfer curve; Pd 직접 증착 접촉 대조군",
+     "method": "Ids–Vgs transfer curve에서 추출",
+     "sample": "WSe₂ 증착 접촉, Pd",
+     "materials": [
+      "WSe2",
+      "Pd"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Electrical performance WSe₂ transistors"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "contact resistance (RC)",
+     "canonical_name": "접촉 저항 (Rc)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": null,
+     "value": 5.3,
+     "value_text": null,
+     "unit": "kΩ·μm",
+     "norm_value": 5300.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": "vdW 접촉; transfer length method",
+     "method": "transfer length method",
+     "sample": "WSe₂ vdW 접촉, Pd",
+     "materials": [
+      "WSe2",
+      "Pd"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Contact resistance"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "contact resistance (RC)",
+     "canonical_name": "접촉 저항 (Rc)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": null,
+     "value": 10.2,
+     "value_text": null,
+     "unit": "kΩ·μm",
+     "norm_value": 10200.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": "vdW 접촉; transfer length method",
+     "method": "transfer length method",
+     "sample": "WSe₂ vdW 접촉, Au",
+     "materials": [
+      "WSe2",
+      "Au"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Contact resistance"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "contact resistance (RC)",
+     "canonical_name": "접촉 저항 (Rc)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": null,
+     "value": 27.5,
+     "value_text": null,
+     "unit": "MΩ·μm",
+     "norm_value": 27500000.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": "vdW 접촉; transfer length method",
+     "method": "transfer length method",
+     "sample": "WSe₂ vdW 접촉, Ag",
+     "materials": [
+      "WSe2",
+      "Ag"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Contact resistance"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "contact resistance (RC)",
+     "canonical_name": "접촉 저항 (Rc)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": null,
+     "value": 3.9,
+     "value_text": null,
+     "unit": "MΩ·μm",
+     "norm_value": 3900000.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": "vdW 접촉; transfer length method",
+     "method": "transfer length method",
+     "sample": "WSe₂ vdW 접촉, Ti",
+     "materials": [
+      "WSe2",
+      "Ti"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Contact resistance"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Schottky barrier height (ΦSB)",
+     "canonical_name": "쇼트키 장벽 높이",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": 53.0,
+     "value_text": null,
+     "unit": "meV",
+     "norm_value": 53.0,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "측정 온도 범위 300 K–100 K",
+     "method": "온도 의존 전기 측정",
+     "sample": "WSe₂ vdW 접촉, Co",
+     "materials": [
+      "WSe2",
+      "Co"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Schottky barrier height"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Schottky barrier height (ΦSB)",
+     "canonical_name": "쇼트키 장벽 높이",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": 36.0,
+     "value_text": null,
+     "unit": "meV",
+     "norm_value": 36.0,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "측정 온도 범위 300 K–100 K",
+     "method": "온도 의존 전기 측정",
+     "sample": "WSe₂ vdW 접촉, Pd",
+     "materials": [
+      "WSe2",
+      "Pd"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Schottky barrier height"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "threshold voltage (Vth)",
+     "canonical_name": "문턱 전압 (Vth)",
+     "category": "electrical_transport",
+     "metric_key": "threshold_voltage",
+     "metric_label": "문턱 전압 (Vth)",
+     "qualifier": null,
+     "value": -27.0,
+     "value_text": null,
+     "unit": "V",
+     "norm_value": -27.0,
+     "norm_unit": "V",
+     "bound": "",
+     "conditions": "Pd 접촉; transfer characteristics",
+     "method": "Ids–Vgs transfer curve",
+     "sample": "WSe₂ vdW 접촉, Pd",
+     "materials": [
+      "WSe2",
+      "Pd"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 5,
+      "kind": "figure",
+      "label": "Fig. 4a"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "threshold voltage (Vth)",
+     "canonical_name": "문턱 전압 (Vth)",
+     "category": "electrical_transport",
+     "metric_key": "threshold_voltage",
+     "metric_label": "문턱 전압 (Vth)",
+     "qualifier": null,
+     "value": -41.0,
+     "value_text": null,
+     "unit": "V",
+     "norm_value": -41.0,
+     "norm_unit": "V",
+     "bound": "",
+     "conditions": "Pd 직접 증착 접촉; transfer characteristics",
+     "method": "Ids–Vgs transfer curve",
+     "sample": "WSe₂ 증착 접촉, Pd",
+     "materials": [
+      "WSe2",
+      "Pd"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 5,
+      "kind": "figure",
+      "label": "Fig. 4b"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "WSe₂ 합성 온도",
+     "canonical_name": "성장 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": null,
+     "value": 1170.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 1170.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "Ar 80 sccm; 성장 시간 5 min",
+     "method": "반도체 기판에 PPC 용액을 스핀 코팅하고 금속을 열증착한 뒤, 질소 환경에서 250 °C 열처리하여 PPC를 분해·제거했다. WSe₂ 소자에서는 Si/SiO₂ 백게이트 구조로 전기 특성을 측정하고, SEM·HRTEM·AFM·Raman·PL로 계면 및 채널 상태를 분석했다.",
+     "sample": "WSe₂",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Methods: Preparation of CVD-grown 2D semiconductors"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "Ar 유량",
+     "canonical_name": "가스 유량",
+     "category": "gas_flow",
+     "metric_key": "gas_flow",
+     "metric_label": "가스 유량",
+     "qualifier": "Ar",
+     "value": 80.0,
+     "value_text": null,
+     "unit": "sccm",
+     "norm_value": 80.0,
+     "norm_unit": "sccm",
+     "bound": "",
+     "conditions": "WSe₂ CVD; 1170 °C; 5 min",
+     "method": "반도체 기판에 PPC 용액을 스핀 코팅하고 금속을 열증착한 뒤, 질소 환경에서 250 °C 열처리하여 PPC를 분해·제거했다. WSe₂ 소자에서는 Si/SiO₂ 백게이트 구조로 전기 특성을 측정하고, SEM·HRTEM·AFM·Raman·PL로 계면 및 채널 상태를 분석했다.",
+     "sample": "WSe₂",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Methods: Preparation of CVD-grown 2D semiconductors"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "PPC 분해 열처리 온도",
+     "canonical_name": "열처리 온도",
+     "category": "annealing_temperature",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 250.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "질소 환경",
+     "method": "반도체 기판에 PPC 용액을 스핀 코팅하고 금속을 열증착한 뒤, 질소 환경에서 250 °C 열처리하여 PPC를 분해·제거했다. WSe₂ 소자에서는 Si/SiO₂ 백게이트 구조로 전기 특성을 측정하고, SEM·HRTEM·AFM·Raman·PL로 계면 및 채널 상태를 분석했다.",
+     "sample": "vdW 접촉 제작",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Fabrication processes"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "PPC 분해 시간",
+     "canonical_name": "공정 시간",
+     "category": "process_duration",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 30.0,
+     "value_text": null,
+     "unit": "min",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "250 °C; 질소 환경",
+     "method": "반도체 기판에 PPC 용액을 스핀 코팅하고 금속을 열증착한 뒤, 질소 환경에서 250 °C 열처리하여 PPC를 분해·제거했다. WSe₂ 소자에서는 Si/SiO₂ 백게이트 구조로 전기 특성을 측정하고, SEM·HRTEM·AFM·Raman·PL로 계면 및 채널 상태를 분석했다.",
+     "sample": "vdW 접촉 제작",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Fabrication processes"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "MoTe₂ 텔루륨화 온도",
+     "canonical_name": "성장 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": null,
+     "value": 550.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 550.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "Mo 박막을 Ar 퍼지 후 텔루륨화",
+     "method": "반도체 기판에 PPC 용액을 스핀 코팅하고 금속을 열증착한 뒤, 질소 환경에서 250 °C 열처리하여 PPC를 분해·제거했다. WSe₂ 소자에서는 Si/SiO₂ 백게이트 구조로 전기 특성을 측정하고, SEM·HRTEM·AFM·Raman·PL로 계면 및 채널 상태를 분석했다.",
+     "sample": "MoTe₂ 박막",
+     "materials": [
+      "MoTe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Methods: Preparation of MoTe₂ thin-film"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "IGZO 스퍼터링 출력",
+     "canonical_name": "공정 출력",
+     "category": "power",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 50.0,
+     "value_text": null,
+     "unit": "W",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "RF 마그네트론 스퍼터링; Ar 15 sccm; 압력 0.7 Pa",
+     "method": "반도체 기판에 PPC 용액을 스핀 코팅하고 금속을 열증착한 뒤, 질소 환경에서 250 °C 열처리하여 PPC를 분해·제거했다. WSe₂ 소자에서는 Si/SiO₂ 백게이트 구조로 전기 특성을 측정하고, SEM·HRTEM·AFM·Raman·PL로 계면 및 채널 상태를 분석했다.",
+     "sample": "IGZO",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Methods: Preparation of amorphous IGZO"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "IGZO 증착 Ar 유량",
+     "canonical_name": "가스 유량",
+     "category": "gas_flow",
+     "metric_key": "gas_flow",
+     "metric_label": "가스 유량",
+     "qualifier": "Ar",
+     "value": 15.0,
+     "value_text": null,
+     "unit": "sccm",
+     "norm_value": 15.0,
+     "norm_unit": "sccm",
+     "bound": "",
+     "conditions": "RF 마그네트론 스퍼터링; 50 W; 0.7 Pa",
+     "method": "반도체 기판에 PPC 용액을 스핀 코팅하고 금속을 열증착한 뒤, 질소 환경에서 250 °C 열처리하여 PPC를 분해·제거했다. WSe₂ 소자에서는 Si/SiO₂ 백게이트 구조로 전기 특성을 측정하고, SEM·HRTEM·AFM·Raman·PL로 계면 및 채널 상태를 분석했다.",
+     "sample": "IGZO",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Methods: Preparation of amorphous IGZO"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -3207,10 +3760,218 @@
    "doi": "10.1038/s41467-023-38504-7",
    "url": "https://doi.org/10.1038/s41467-023-38504-7",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "BN",
+    "MoS2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "유효 격자 불일치 (δ)",
+     "canonical_name": "격자 불일치",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 0.5,
+     "value_text": null,
+     "unit": "%",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "MoS₂ 이축 변형 시; δ = (ϵ − ρϵ)/2, ρ = 0.234",
+     "method": "보고된 이축 변형률과 Poisson ratio를 사용한 계산",
+     "sample": "이축 변형 MoS₂/MoS₂ 동종 이중층",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "Heterostrain effects"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "hBN 캡슐화층 두께",
+     "canonical_name": "hBN 캡슐화층 두께",
+     "category": "geometry",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": "5–10 nm",
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "얇은 hBN 캡슐화층",
+     "method": "4D-STEM 브래그 간섭법으로 회절 디스크 중첩 강도를 분석해 층간 변위장을 추출하고, 변위장 기울기에서 국소 회전·팽창·전단 변형을 계산했다.",
+     "sample": "hBN 캡슐화된 모아레 이중층",
+     "materials": [
+      "BN"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Interlayer displacement mapping"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "가속 전압",
+     "canonical_name": "전자현미경 가속 전압",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 80.0,
+     "value_text": null,
+     "unit": "kV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "에너지 필터링 STEM",
+     "method": "4D-STEM 브래그 간섭법으로 회절 디스크 중첩 강도를 분석해 층간 변위장을 추출하고, 변위장 기울기에서 국소 회전·팽창·전단 변형을 계산했다.",
+     "sample": null,
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Methods—Electron microscopy measurements"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "수렴각",
+     "canonical_name": "입사빔 수렴각",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 1.71,
+     "value_text": null,
+     "unit": "mrad",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "4D-STEM 브래그 간섭법으로 회절 디스크 중첩 강도를 분석해 층간 변위장을 추출하고, 변위장 기울기에서 국소 회전·팽창·전단 변형을 계산했다.",
+     "sample": null,
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Methods—Electron microscopy measurements"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "빔 전류",
+     "canonical_name": "전자빔 전류",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": "45–65 pA",
+     "unit": "pA",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "시료에 따라 다름",
+     "method": "4D-STEM 브래그 간섭법으로 회절 디스크 중첩 강도를 분석해 층간 변위장을 추출하고, 변위장 기울기에서 국소 회전·팽창·전단 변형을 계산했다.",
+     "sample": null,
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Methods—Electron microscopy measurements"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "유효 프로브 크기",
+     "canonical_name": "전자빔 프로브 크기",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 1.25,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "full-width at half-maximum",
+     "method": "4D-STEM 브래그 간섭법으로 회절 디스크 중첩 강도를 분석해 층간 변위장을 추출하고, 변위장 기울기에서 국소 회전·팽창·전단 변형을 계산했다.",
+     "sample": null,
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Methods—Electron microscopy measurements"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "회절 패턴 수집 스텝 크기",
+     "canonical_name": "회절 스캔 스텝 크기",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": "0.5 nm 또는 1 nm",
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "각 패턴의 빔 위치 간격",
+     "method": "4D-STEM 브래그 간섭법으로 회절 디스크 중첩 강도를 분석해 층간 변위장을 추출하고, 변위장 기울기에서 국소 회전·팽창·전단 변형을 계산했다.",
+     "sample": null,
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Methods—Electron microscopy measurements"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "회절 패턴 노출 시간",
+     "canonical_name": "회절 패턴 노출 시간",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 13.0,
+     "value_text": null,
+     "unit": "ms",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "여러 카운트 프레임의 합",
+     "method": "4D-STEM 브래그 간섭법으로 회절 디스크 중첩 강도를 분석해 층간 변위장을 추출하고, 변위장 기울기에서 국소 회전·팽창·전단 변형을 계산했다.",
+     "sample": null,
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Methods—Electron microscopy measurements"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -4661,10 +5422,596 @@
    "doi": "10.1007/s12200-022-00041-4",
    "url": "https://doi.org/10.1007/s12200-022-00041-4",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "MoS2",
+    "WSe2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "Raman 피크 위치",
+     "canonical_name": "Raman 피크 위치",
+     "category": "structural",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "E₂g(S-Mo)",
+     "value": 379.0,
+     "value_text": null,
+     "unit": "cm−1",
+     "norm_value": 379.0,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "532 nm 레이저; MoS₂ 단독",
+     "method": "Raman 분광법; WITec alpha-300 공초점 현미경",
+     "sample": "MoS₂",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Fig. 1d 설명"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman 피크 위치",
+     "canonical_name": "Raman 피크 위치",
+     "category": "structural",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "A₁g(S-Mo)",
+     "value": 397.0,
+     "value_text": null,
+     "unit": "cm−1",
+     "norm_value": 397.0,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "532 nm 레이저; MoS₂ 단독",
+     "method": "Raman 분광법; WITec alpha-300 공초점 현미경",
+     "sample": "MoS₂",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Fig. 1d 설명"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman 피크 위치",
+     "canonical_name": "Raman 피크 위치",
+     "category": "structural",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "A₁g(W-Se)",
+     "value": 270.0,
+     "value_text": null,
+     "unit": "cm−1",
+     "norm_value": 270.0,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "532 nm 레이저; MoS₂/WSe₂ 이종구조",
+     "method": "Raman 분광법; WITec alpha-300 공초점 현미경",
+     "sample": "MoS₂/WSe₂",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Fig. 1d 설명"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman 피크 위치",
+     "canonical_name": "Raman 피크 위치",
+     "category": "structural",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "E₂g(S-Mo)",
+     "value": 372.0,
+     "value_text": null,
+     "unit": "cm−1",
+     "norm_value": 372.0,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "532 nm 레이저; MoS₂/WSe₂ 이종구조",
+     "method": "Raman 분광법; WITec alpha-300 공초점 현미경",
+     "sample": "MoS₂/WSe₂",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Fig. 1d 설명"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman 피크 위치",
+     "canonical_name": "Raman 피크 위치",
+     "category": "structural",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "A₁g(S-Mo)",
+     "value": 400.0,
+     "value_text": null,
+     "unit": "cm−1",
+     "norm_value": 400.0,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "532 nm 레이저; MoS₂/WSe₂ 이종구조",
+     "method": "Raman 분광법; WITec alpha-300 공초점 현미경",
+     "sample": "MoS₂/WSe₂",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Fig. 1d 설명"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "광발광 피크 파장",
+     "canonical_name": null,
+     "category": "optical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "MoS₂ A exciton",
+     "value": 680.0,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "정상상태 PL; 532 nm 레이저",
+     "method": "Photoluminescence 분광법",
+     "sample": "MoS₂",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Fig. 1c 설명"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "광발광 피크 파장",
+     "canonical_name": null,
+     "category": "optical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "WSe₂ A exciton",
+     "value": 755.0,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "정상상태 PL; 532 nm 레이저",
+     "method": "Photoluminescence 분광법",
+     "sample": "MoS₂/WSe₂",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Fig. 1c 설명"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "문턱 전압",
+     "canonical_name": "문턱 전압 (threshold voltage, Vth)",
+     "category": "electrical_transport",
+     "metric_key": "threshold_voltage",
+     "metric_label": "문턱 전압 (Vth)",
+     "qualifier": null,
+     "value": -10.0,
+     "value_text": null,
+     "unit": "V",
+     "norm_value": -10.0,
+     "norm_unit": "V",
+     "bound": "",
+     "conditions": "백게이트 FET 전달 특성",
+     "method": "전달 특성 측정",
+     "sample": "MoS₂/WSe₂ FET",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "FET 결과; Fig. 3b"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "On/Off ratio",
+     "canonical_name": "온/오프 전류비 (on/off ratio)",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": null,
+     "value_text": "10⁴",
+     "unit": null,
+     "norm_value": 10000.0,
+     "norm_unit": "",
+     "bound": "",
+     "conditions": "백게이트 FET 전달 특성",
+     "method": "전달 특성 측정",
+     "sample": "MoS₂/WSe₂ FET",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "FET 결과; Fig. 3b"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "mobility",
+     "canonical_name": "이동도 (mobility)",
+     "category": "electrical_transport",
+     "metric_key": "mobility",
+     "metric_label": "이동도",
+     "qualifier": "전계효과",
+     "value": 9.0,
+     "value_text": null,
+     "unit": "cm2/(V·s)",
+     "norm_value": 9.0,
+     "norm_unit": "cm²/V·s",
+     "bound": "",
+     "conditions": "MoS₂/WSe₂ 백게이트 FET; 280 nm SiO₂",
+     "method": "전달 특성에서 transconductance 기반 계산",
+     "sample": "MoS₂/WSe₂ FET",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "FET 결과"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "광응답도 (responsivity, R)",
+     "canonical_name": "광응답도 (responsivity, R)",
+     "category": "optical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "최대",
+     "value": 8.0,
+     "value_text": null,
+     "unit": "A/W",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "P = 0.05 mW/cm²; Vds = 1 V; 면적 = 943.85 μm²; 633 nm 레이저",
+     "method": "광전류 기반 계산",
+     "sample": "MoS₂/WSe₂ 광검출기",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "광검출 결과"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "광응답도 (responsivity, R)",
+     "canonical_name": "광응답도 (responsivity, R)",
+     "category": "optical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "최대",
+     "value": 41.0,
+     "value_text": null,
+     "unit": "A/W",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "Vg = 60 V; 633 nm 레이저",
+     "method": "광전류 기반 계산",
+     "sample": "MoS₂/WSe₂ 광검출기",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "supplement",
+      "label": "Fig. S4b"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "검출도 (detectivity, D*)",
+     "canonical_name": "검출도 (specific detectivity, D*)",
+     "category": "optical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "최대",
+     "value": null,
+     "value_text": "2.93 × 10¹¹ Jones",
+     "unit": "Jones",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "광검출기; dark-current shot-noise 가정",
+     "method": "광응답도 및 암전류로 계산",
+     "sample": "MoS₂/WSe₂ 광검출기",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "광검출 결과; Fig. 4d"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "전류-광세기 피팅 지수",
+     "canonical_name": null,
+     "category": "optical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 0.41,
+     "value_text": null,
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "Iph = aPα; Vg = 20 V",
+     "method": "광전류 대 레이저 출력밀도 피팅",
+     "sample": "MoS₂/WSe₂ 광검출기",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "광검출 결과; Fig. 4c"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "기판",
+     "canonical_name": "SiO₂/Si",
+     "category": "substrate",
+     "metric_key": "substrate",
+     "metric_label": "기판",
+     "qualifier": null,
+     "value": null,
+     "value_text": "SiO₂/Si",
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "MoS₂ 템플릿 증착용",
+     "method": null,
+     "sample": "MoS₂ 템플릿",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "2.1 Synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "Ar 정화 유량",
+     "canonical_name": "아르곤 유량 (Ar flow rate)",
+     "category": "gas_flow",
+     "metric_key": "gas_flow",
+     "metric_label": "가스 유량",
+     "qualifier": "Ar",
+     "value": 80.0,
+     "value_text": null,
+     "unit": "sccm",
+     "norm_value": 80.0,
+     "norm_unit": "sccm",
+     "bound": "",
+     "conditions": "가열 전 시스템 정화, 30 min",
+     "method": null,
+     "sample": "MoS₂ 템플릿 및 WSe₂ 성장",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "2.1 Synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "성장 온도",
+     "canonical_name": "성장 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": "MoS₂ 템플릿",
+     "value": 810.0,
+     "value_text": null,
+     "unit": "℃",
+     "norm_value": 810.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "Ar 60 sccm; 30 min 내 가열; 이후 10 min 유지",
+     "method": null,
+     "sample": "MoS₂ 템플릿",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "2.1 Synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "유지 시간",
+     "canonical_name": "성장 유지 시간",
+     "category": "process_duration",
+     "metric_key": "growth_time",
+     "metric_label": "합성 시간",
+     "qualifier": "MoS₂ 템플릿",
+     "value": 10.0,
+     "value_text": null,
+     "unit": "min",
+     "norm_value": 10.0,
+     "norm_unit": "min",
+     "bound": "",
+     "conditions": "810 ℃에서 유지",
+     "method": null,
+     "sample": "MoS₂ 템플릿",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "2.1 Synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "성장 온도",
+     "canonical_name": "성장 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": "WSe₂ 후속 성장",
+     "value": 1020.0,
+     "value_text": null,
+     "unit": "℃",
+     "norm_value": 1020.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "Ar 60 sccm; 30 min 내 가열; 이후 3 min 유지",
+     "method": null,
+     "sample": "MoS₂/WSe₂ 수직 이종접합",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "2.1 Synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "유지 시간",
+     "canonical_name": "성장 유지 시간",
+     "category": "process_duration",
+     "metric_key": "growth_time",
+     "metric_label": "합성 시간",
+     "qualifier": "WSe₂ 후속 성장",
+     "value": 3.0,
+     "value_text": null,
+     "unit": "min",
+     "norm_value": 3.0,
+     "norm_unit": "min",
+     "bound": "",
+     "conditions": "1020 ℃에서 유지",
+     "method": null,
+     "sample": "MoS₂/WSe₂ 수직 이종접합",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "2.1 Synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "Ar 유량",
+     "canonical_name": "아르곤 유량 (Ar flow rate)",
+     "category": "gas_flow",
+     "metric_key": "gas_flow",
+     "metric_label": "가스 유량",
+     "qualifier": "Ar",
+     "value": 60.0,
+     "value_text": null,
+     "unit": "sccm",
+     "norm_value": 60.0,
+     "norm_unit": "sccm",
+     "bound": "",
+     "conditions": "WSe₂ 후속 성장",
+     "method": null,
+     "sample": "MoS₂/WSe₂ 수직 이종접합",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "2.1 Synthesis"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -4858,10 +6205,154 @@
    "doi": "10.1038/s41563-022-01240-2",
    "url": "https://doi.org/10.1038/s41563-022-01240-2",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "MoS2",
+    "WSe2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "A-exciton energy redshift",
+     "canonical_name": "층내 A 엑시톤 에너지 이동",
+     "category": "optical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "MoS₂",
+     "value": 17.0,
+     "value_text": null,
+     "unit": "meV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "결합 이종구조; 비틀림각 약 5°–30°",
+     "method": "반사율 대비 차이 분광(RCD)",
+     "sample": "MoS₂/WSe₂ coupled heterostructure",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Modification of intralayer exciton states"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "A-exciton energy redshift",
+     "canonical_name": "층내 A 엑시톤 에너지 이동",
+     "category": "optical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "WSe₂",
+     "value": 11.0,
+     "value_text": null,
+     "unit": "meV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "결합 이종구조; 비틀림각 약 5°–30°",
+     "method": "반사율 대비 차이 분광(RCD)",
+     "sample": "MoS₂/WSe₂ coupled heterostructure",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Modification of intralayer exciton states"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "E₂g(M) mode redshift in calculated PPW spectra",
+     "canonical_name": "Raman 포논 피크 이동",
+     "category": "structural",
+     "metric_key": "raman_shift",
+     "metric_label": "Raman 피크 이동·간격",
+     "qualifier": "E₂g(M)",
+     "value": 0.7,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 0.7,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "큰 비틀림각; MoS₂ projected phonon weight 계산",
+     "method": "제일원리 포논 계산 및 projected phonon weight",
+     "sample": "계산된 MoS₂/WSe₂ moiré heterostructure",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "First-principles calculations"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "moiré period",
+     "canonical_name": "모아레 주기",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 6.7,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "비틀림각 1.0°",
+     "method": "전자회절 시료의 모아레 주기",
+     "sample": "1.0° MoS₂/WSe₂ heterostructure",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "Electron diffraction experiments"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "TEM 가속 전압",
+     "canonical_name": "TEM 가속 전압",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 200.0,
+     "value_text": null,
+     "unit": "kV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "SAED 패턴 및 암시야 영상 획득",
+     "method": "박리 단층 MoS₂와 WSe₂를 스탬핑하여 적층했다. Raman 및 RCD 분광으로 진동·엑시톤 응답을 측정하고, SHG 편광 의존성으로 비틀림각을 정했다. 1.0° 시료는 TEM SAED 및 암시야 영상으로 조사했으며, 완화된 격자 모델에 대해 DFT 기반 구조·전자·포논 계산을 수행했다.",
+     "sample": "1.0° TEM 이종구조",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "TEM measurements"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -4926,9 +6417,160 @@
    "url": "https://doi.org/10.1021/acsnano.1c04549",
    "research_type": [],
    "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "parameter",
+     "name": "기판",
+     "canonical_name": "기판",
+     "category": "substrate",
+     "metric_key": "substrate",
+     "metric_label": "기판",
+     "qualifier": null,
+     "value": null,
+     "value_text": "SiO₂/Si(001)",
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "Yb:KGW 기반 초단펄스 레이저와 두 개의 광 파라메트릭 증폭기를 이용한 시간·편광 분해 2차 고조파 이미징 현미경. 편광 선택으로 MoS₂ 또는 WSe₂ 층의 SH 응답을 선택적으로 검출하고, 1.70 eV 및 1.85 eV 펌프 여기에서 펌프-프로브 지연에 따른 응답을 측정했다. 속도 방정식 모델로 전하 이동 시간과 감쇠 수명을 피팅했다.",
+     "sample": "세 시료",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "펌프 광자 에너지",
+     "canonical_name": "펌프 광자 에너지",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 1.85,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "MoS₂ A-엑시톤 공명 여기",
+     "method": "Yb:KGW 기반 초단펄스 레이저와 두 개의 광 파라메트릭 증폭기를 이용한 시간·편광 분해 2차 고조파 이미징 현미경. 편광 선택으로 MoS₂ 또는 WSe₂ 층의 SH 응답을 선택적으로 검출하고, 1.70 eV 및 1.85 eV 펌프 여기에서 펌프-프로브 지연에 따른 응답을 측정했다. 속도 방정식 모델로 전하 이동 시간과 감쇠 수명을 피팅했다.",
+     "sample": "세 시료",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "프로브 광자 에너지",
+     "canonical_name": "프로브 광자 에너지",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 1.55,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "양 재료의 밴드갭보다 낮은 에너지",
+     "method": "Yb:KGW 기반 초단펄스 레이저와 두 개의 광 파라메트릭 증폭기를 이용한 시간·편광 분해 2차 고조파 이미징 현미경. 편광 선택으로 MoS₂ 또는 WSe₂ 층의 SH 응답을 선택적으로 검출하고, 1.70 eV 및 1.85 eV 펌프 여기에서 펌프-프로브 지연에 따른 응답을 측정했다. 속도 방정식 모델로 전하 이동 시간과 감쇠 수명을 피팅했다.",
+     "sample": "세 시료",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Methods"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "펌프 플루언스",
+     "canonical_name": "펌프 플루언스",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 45.0,
+     "value_text": null,
+     "unit": "μJ/cm²",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "1.85 eV 여기; spot diameter 1/e",
+     "method": "Yb:KGW 기반 초단펄스 레이저와 두 개의 광 파라메트릭 증폭기를 이용한 시간·편광 분해 2차 고조파 이미징 현미경. 편광 선택으로 MoS₂ 또는 WSe₂ 층의 SH 응답을 선택적으로 검출하고, 1.70 eV 및 1.85 eV 펌프 여기에서 펌프-프로브 지연에 따른 응답을 측정했다. 속도 방정식 모델로 전하 이동 시간과 감쇠 수명을 피팅했다.",
+     "sample": "세 시료",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Methods"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "펌프 플루언스",
+     "canonical_name": "펌프 플루언스",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 38.0,
+     "value_text": null,
+     "unit": "μJ/cm²",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "1.70 eV 여기; spot diameter 1/e",
+     "method": "Yb:KGW 기반 초단펄스 레이저와 두 개의 광 파라메트릭 증폭기를 이용한 시간·편광 분해 2차 고조파 이미징 현미경. 편광 선택으로 MoS₂ 또는 WSe₂ 층의 SH 응답을 선택적으로 검출하고, 1.70 eV 및 1.85 eV 펌프 여기에서 펌프-프로브 지연에 따른 응답을 측정했다. 속도 방정식 모델로 전하 이동 시간과 감쇠 수명을 피팅했다.",
+     "sample": "세 시료",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Methods"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "프로브 플루언스",
+     "canonical_name": "프로브 플루언스",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 250.0,
+     "value_text": null,
+     "unit": "μJ/cm²",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "Yb:KGW 기반 초단펄스 레이저와 두 개의 광 파라메트릭 증폭기를 이용한 시간·편광 분해 2차 고조파 이미징 현미경. 편광 선택으로 MoS₂ 또는 WSe₂ 층의 SH 응답을 선택적으로 검출하고, 1.70 eV 및 1.85 eV 펌프 여기에서 펌프-프로브 지연에 따른 응답을 측정했다. 속도 방정식 모델로 전하 이동 시간과 감쇠 수명을 피팅했다.",
+     "sample": "세 시료",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Methods"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -4962,10 +6604,255 @@
    "doi": "10.1038/s41928-021-00566-0",
    "url": "https://doi.org/10.1038/s41928-021-00566-0",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "MoS2",
+    "WSe2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "On–Off ratio",
+     "canonical_name": "On/Off 비",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": 26.0,
+     "value_text": null,
+     "unit": null,
+     "norm_value": 26.0,
+     "norm_unit": "",
+     "bound": "",
+     "conditions": "MoS₂ 단층(0.65 nm); vdW 금속 전극",
+     "method": "Ids–Vgs 전달 특성 측정",
+     "sample": "MoS₂ VFET, 단층 채널, vdW 전극",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "On–Off ratio",
+     "canonical_name": "On/Off 비",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": null,
+     "value_text": "~10³",
+     "unit": null,
+     "norm_value": 1000.0,
+     "norm_unit": "",
+     "bound": "≈",
+     "conditions": "MoS₂ 5층(3.60 nm); vdW 금속 전극",
+     "method": "Ids–Vgs 전달 특성 측정",
+     "sample": "MoS₂ VFET, 5층 채널, vdW 전극",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "On–Off ratio",
+     "canonical_name": "On/Off 비",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": "평균",
+     "value": 450.0,
+     "value_text": null,
+     "unit": null,
+     "norm_value": 450.0,
+     "norm_unit": "",
+     "bound": "",
+     "conditions": "95개 다층 소자; 채널 두께 약 3–4 nm; 두 접촉 제작법 비교",
+     "method": "다중 소자 Ids–Vgs 통계",
+     "sample": "MoS₂ VFET, vdW 전극, 다층 채널",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "On–Off ratio",
+     "canonical_name": "On/Off 비",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": "평균",
+     "value": 17.0,
+     "value_text": null,
+     "unit": null,
+     "norm_value": 17.0,
+     "norm_unit": "",
+     "bound": "",
+     "conditions": "단층 MoS₂ 채널; vdW 전극",
+     "method": "다중 소자 통계",
+     "sample": "MoS₂ VFET, 단층 채널, vdW 전극",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "On–Off ratio",
+     "canonical_name": "On/Off 비",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": null,
+     "value_text": "~10",
+     "unit": null,
+     "norm_value": 10.0,
+     "norm_unit": "",
+     "bound": "≈",
+     "conditions": "Vds = 100 mV; 짧은 채널(<5 nm); 직접 증착 전극",
+     "method": "Ids–Vgs 전달 특성 측정",
+     "sample": "MoS₂ VFET, 직접 증착 전극",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "On–Off ratio",
+     "canonical_name": "On/Off 비",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": 758.0,
+     "value_text": null,
+     "unit": null,
+     "norm_value": 758.0,
+     "norm_unit": "",
+     "bound": "",
+     "conditions": "실온; Vds = 0.5 mV; MoS₂ 채널 3.6 nm",
+     "method": "온도의존 Ids–Vgs 측정",
+     "sample": "MoS₂ VFET, vdW 전극, 5층 채널",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "Temperature-dependent measurements and transport mechanism"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "On–Off ratio",
+     "canonical_name": "On/Off 비",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": null,
+     "value_text": ">10⁵",
+     "unit": null,
+     "norm_value": 100000.0,
+     "norm_unit": "",
+     "bound": ">",
+     "conditions": "77 K; Vds = 0.5 mV; MoS₂ 채널 3.6 nm",
+     "method": "온도의존 Ids–Vgs 측정",
+     "sample": "MoS₂ VFET, vdW 전극, 5층 채널",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "Temperature-dependent measurements and transport mechanism"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "On–Off ratio",
+     "canonical_name": "On/Off 비",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": null,
+     "value_text": "over 10³",
+     "unit": null,
+     "norm_value": 1000.0,
+     "norm_unit": "",
+     "bound": ">",
+     "conditions": "실온; 4층 WSe₂ 채널(약 2.6 nm); vdW 전극",
+     "method": "Ids–Vgs 전달 특성 측정",
+     "sample": "WSe₂ VFET, vdW 전극",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "vdW contact as a general integration approach for VFETs"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "HMDS 기능화 온도",
+     "canonical_name": "희생 기판 기능화 온도",
+     "category": "other",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 80.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "밀폐 챔버",
+     "method": "단층 그래핀을 300 nm SiO₂가 있는 고농도 도핑 p++ Si 기판에 기계적 박리하고, 단층 MoS₂를 박리해 건식 전사했다. 희생 Si 웨이퍼에 e-beam lithography와 증착으로 Ag/Au 전극을 제작한 뒤 기계적으로 분리해 이종구조 위에 라미네이션했다. 같은 이종구조에 e-beam lithography 및 고진공 증발로 직접 증착한 Ag/Au 전극을 대조군으로 제작했다.",
+     "sample": "vdW 금속 전극 제작",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Methods: vdW metal electrode integration process"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -5072,10 +6959,893 @@
    "doi": "10.1002/adma.202104935",
    "url": "https://doi.org/10.1002/adma.202104935",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "MoS2",
+    "PSS",
+    "WSe2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "field-effect mobility",
+     "canonical_name": "전계효과 이동도 (field-effect mobility, μFE)",
+     "category": "electrical_transport",
+     "metric_key": "mobility",
+     "metric_label": "이동도",
+     "qualifier": "전계효과",
+     "value": 22.0,
+     "value_text": null,
+     "unit": "cm² V−1 s−1",
+     "norm_value": 22.0,
+     "norm_unit": "cm²/V·s",
+     "bound": "",
+     "conditions": "VD = 1 V; L/W = 7.8/9.0 µm; Ci = 1.1 × 10−4 F m−2",
+     "method": "전달 곡선 기울기 기반 이동도 방정식",
+     "sample": "증발 Au/WSe₂ FET",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "field-effect mobility",
+     "canonical_name": "전계효과 이동도 (field-effect mobility, μFE)",
+     "category": "electrical_transport",
+     "metric_key": "mobility",
+     "metric_label": "이동도",
+     "qualifier": "전계효과",
+     "value": 104.0,
+     "value_text": null,
+     "unit": "cm² V−1 s−1",
+     "norm_value": 104.0,
+     "norm_unit": "cm²/V·s",
+     "bound": "",
+     "conditions": "VD = 1 V; L/W = 7.8/9.0 µm; Ci = 1.1 × 10−4 F m−2",
+     "method": "전달 곡선 기울기 기반 이동도 방정식",
+     "sample": "전사 Au/WSe₂ FET",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "field-effect mobility",
+     "canonical_name": "전계효과 이동도 (field-effect mobility, μFE)",
+     "category": "electrical_transport",
+     "metric_key": "mobility",
+     "metric_label": "이동도",
+     "qualifier": "전계효과",
+     "value": 148.0,
+     "value_text": null,
+     "unit": "cm² V−1 s−1",
+     "norm_value": 148.0,
+     "norm_unit": "cm²/V·s",
+     "bound": "",
+     "conditions": "VD = 1 V; L/W = 7.8/9.0 µm; Ci = 1.1 × 10−4 F m−2",
+     "method": "전달 곡선 기울기 기반 이동도 방정식",
+     "sample": "PEDOT:PSS 처리 전사 Au/WSe₂ FET",
+     "materials": [
+      "PSS",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "on/off current ratio",
+     "canonical_name": "온/오프 전류비 (on/off current ratio)",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": 2800000.0,
+     "value_text": null,
+     "unit": null,
+     "norm_value": 2800000.0,
+     "norm_unit": "",
+     "bound": "",
+     "conditions": null,
+     "method": "전달 특성 곡선에서 추출",
+     "sample": "전사 Au/WSe₂ FET",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "on/off current ratio",
+     "canonical_name": "온/오프 전류비 (on/off current ratio)",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": 23000000.0,
+     "value_text": null,
+     "unit": null,
+     "norm_value": 23000000.0,
+     "norm_unit": "",
+     "bound": "",
+     "conditions": null,
+     "method": "전달 특성 곡선에서 추출",
+     "sample": "PEDOT:PSS 처리 전사 Au/WSe₂ FET",
+     "materials": [
+      "PSS",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "on-current",
+     "canonical_name": "온전류 (on-current)",
+     "category": "device_performance",
+     "metric_key": "on_current",
+     "metric_label": "온전류 (Ion)",
+     "qualifier": null,
+     "value": 4.0,
+     "value_text": null,
+     "unit": "µA µm−1",
+     "norm_value": 0.004,
+     "norm_unit": "mA/μm",
+     "bound": "",
+     "conditions": "VD = −5 V",
+     "method": "출력 특성 곡선",
+     "sample": "증발 Au/WSe₂ FET",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "on-current",
+     "canonical_name": "온전류 (on-current)",
+     "category": "device_performance",
+     "metric_key": "on_current",
+     "metric_label": "온전류 (Ion)",
+     "qualifier": null,
+     "value": 11.0,
+     "value_text": null,
+     "unit": "µA µm−1",
+     "norm_value": 0.011,
+     "norm_unit": "mA/μm",
+     "bound": "",
+     "conditions": "VD = −5 V",
+     "method": "출력 특성 곡선",
+     "sample": "전사 Au/WSe₂ FET",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "on-current",
+     "canonical_name": "온전류 (on-current)",
+     "category": "device_performance",
+     "metric_key": "on_current",
+     "metric_label": "온전류 (Ion)",
+     "qualifier": null,
+     "value": 26.0,
+     "value_text": null,
+     "unit": "µA µm−1",
+     "norm_value": 0.026000000000000002,
+     "norm_unit": "mA/μm",
+     "bound": "",
+     "conditions": "VD = −5 V",
+     "method": "출력 특성 곡선",
+     "sample": "PEDOT:PSS 처리 전사 Au/WSe₂ FET",
+     "materials": [
+      "PSS",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "on-current",
+     "canonical_name": "온전류 (on-current)",
+     "category": "device_performance",
+     "metric_key": "on_current",
+     "metric_label": "온전류 (Ion)",
+     "qualifier": null,
+     "value": 229.0,
+     "value_text": null,
+     "unit": "µA µm−1",
+     "norm_value": 0.229,
+     "norm_unit": "mA/μm",
+     "bound": "",
+     "conditions": "VD = −4 V; 채널 길이 단축",
+     "method": "출력 특성 곡선",
+     "sample": "짧은 채널 WSe₂ FET",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문; Figure S2b 인용"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "threshold voltage",
+     "canonical_name": "문턱 전압 (threshold voltage, VTH)",
+     "category": "electrical_transport",
+     "metric_key": "threshold_voltage",
+     "metric_label": "문턱 전압 (Vth)",
+     "qualifier": null,
+     "value": 3.0,
+     "value_text": null,
+     "unit": "V",
+     "norm_value": 3.0,
+     "norm_unit": "V",
+     "bound": "",
+     "conditions": "전달 특성 곡선",
+     "method": "전달 특성 곡선",
+     "sample": "전사 Au/WSe₂ FET",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "threshold voltage",
+     "canonical_name": "문턱 전압 (threshold voltage, VTH)",
+     "category": "electrical_transport",
+     "metric_key": "threshold_voltage",
+     "metric_label": "문턱 전압 (Vth)",
+     "qualifier": null,
+     "value": 12.0,
+     "value_text": null,
+     "unit": "V",
+     "norm_value": 12.0,
+     "norm_unit": "V",
+     "bound": "",
+     "conditions": "전달 특성 곡선",
+     "method": "전달 특성 곡선",
+     "sample": "PEDOT:PSS 처리 전사 Au/WSe₂ FET",
+     "materials": [
+      "PSS",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "2D hole density",
+     "canonical_name": "2차원 정공 밀도 (2D hole density)",
+     "category": "electrical_transport",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "정공",
+     "value": 216000000000.0,
+     "value_text": null,
+     "unit": "cm−2",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "VG = 0 V",
+     "method": "Ci(VG−VTH)/q 식으로 계산",
+     "sample": "전사 Au/WSe₂ FET",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Calculation of Carrier Density"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "2D hole density",
+     "canonical_name": "2차원 정공 밀도 (2D hole density)",
+     "category": "electrical_transport",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "정공",
+     "value": 863000000000.0,
+     "value_text": null,
+     "unit": "cm−2",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "VG = 0 V",
+     "method": "Ci(VG−VTH)/q 식으로 계산",
+     "sample": "PEDOT:PSS 처리 전사 Au/WSe₂ FET",
+     "materials": [
+      "PSS",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Calculation of Carrier Density"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Fermi level shift",
+     "canonical_name": "페르미 준위 이동 (Fermi level shift)",
+     "category": "electrical_transport",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 50.0,
+     "value_text": null,
+     "unit": "meV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "Kelvin probe force microscopy (KPFM)",
+     "sample": "PEDOT:PSS 처리 WSe₂",
+     "materials": [
+      "PSS",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문; Figure S3 인용"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Se/W atomic ratio",
+     "canonical_name": "Se/W 원자비 (Se/W atomic ratio)",
+     "category": "chemical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 1.94,
+     "value_text": null,
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "X-ray photoelectron spectroscopy (XPS)",
+     "sample": "PEDOT:PSS-treated WSe₂",
+     "materials": [
+      "PSS",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문; Figure 3a"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Schottky barrier height",
+     "canonical_name": "쇼트키 장벽 높이 (Schottky barrier height, ΦSB)",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": 109.0,
+     "value_text": null,
+     "unit": "meV",
+     "norm_value": 109.0,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "flat-band gate voltage; 온도 의존 수송 및 Arrhenius 분석",
+     "method": "가변 온도 수송; Arrhenius plot",
+     "sample": "증발 Au/as-prepared WSe₂ 접촉",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문; Figure 3c"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Schottky barrier height",
+     "canonical_name": "쇼트키 장벽 높이 (Schottky barrier height, ΦSB)",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": 57.0,
+     "value_text": null,
+     "unit": "meV",
+     "norm_value": 57.0,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "flat-band gate voltage; 온도 의존 수송 및 Arrhenius 분석",
+     "method": "가변 온도 수송; Arrhenius plot",
+     "sample": "전사 Au/as-prepared WSe₂ 접촉",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문; Figure 3c"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Schottky barrier height",
+     "canonical_name": "쇼트키 장벽 높이 (Schottky barrier height, ΦSB)",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": 47.0,
+     "value_text": null,
+     "unit": "meV",
+     "norm_value": 47.0,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "flat-band gate voltage; 온도 의존 수송 및 Arrhenius 분석",
+     "method": "가변 온도 수송; Arrhenius plot",
+     "sample": "전사 Au/PEDOT:PSS 처리 WSe₂ 접촉",
+     "materials": [
+      "PSS",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문; Figure 3c"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Schottky barrier width",
+     "canonical_name": "쇼트키 장벽 폭 (Schottky barrier width)",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": 2.73,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "VG/VD = −30/0 V",
+     "method": "장벽 폭 식으로 계산",
+     "sample": "전사 Au/as-prepared WSe₂ 접촉",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Schottky barrier width",
+     "canonical_name": "쇼트키 장벽 폭 (Schottky barrier width)",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": 2.17,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "VG/VD = −30/0 V",
+     "method": "장벽 폭 식으로 계산",
+     "sample": "전사 Au/PEDOT:PSS 처리 WSe₂ 접촉",
+     "materials": [
+      "PSS",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Schottky barrier width",
+     "canonical_name": "쇼트키 장벽 폭 (Schottky barrier width)",
+     "category": "electrical_transport",
+     "metric_key": "schottky_barrier",
+     "metric_label": "쇼트키 장벽",
+     "qualifier": null,
+     "value": 9.04,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": "meV",
+     "bound": "",
+     "conditions": "VG/VD = 0/0 V",
+     "method": "장벽 폭 식으로 계산",
+     "sample": "전사 Au/as-prepared WSe₂ 접촉",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "contact resistance",
+     "canonical_name": "접촉 저항 (contact resistance, Rc)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": null,
+     "value": 86.5,
+     "value_text": null,
+     "unit": "kΩ µm",
+     "norm_value": 86500.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": "VG = −40 V; TLM",
+     "method": "transfer length method (TLM)",
+     "sample": "증발 Au/WSe₂ 접촉",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "본문; Figure 3e"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "contact resistance",
+     "canonical_name": "접촉 저항 (contact resistance, Rc)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": null,
+     "value": 23.0,
+     "value_text": null,
+     "unit": "kΩ µm",
+     "norm_value": 23000.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": "VG = −40 V; TLM",
+     "method": "transfer length method (TLM)",
+     "sample": "전사 Au/WSe₂ 접촉",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "본문; Figure 3e"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "contact resistance",
+     "canonical_name": "접촉 저항 (contact resistance, Rc)",
+     "category": "electrical_transport",
+     "metric_key": "contact_resistance",
+     "metric_label": "접촉 저항 (Rc)",
+     "qualifier": null,
+     "value": 9.0,
+     "value_text": null,
+     "unit": "kΩ µm",
+     "norm_value": 9000.0,
+     "norm_unit": "Ω·μm",
+     "bound": "",
+     "conditions": "VG = −40 V; TLM",
+     "method": "transfer length method (TLM)",
+     "sample": "PEDOT:PSS 처리 전사 Au/WSe₂ 접촉",
+     "materials": [
+      "PSS",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "본문; Figure 3e"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "voltage gain",
+     "canonical_name": "전압 이득 (voltage gain)",
+     "category": "device_performance",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 9.0,
+     "value_text": null,
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "VDD = 4 V",
+     "method": "CMOS 인버터 전압 전달 특성에서 산출",
+     "sample": "as-prepared WSe₂/MoS₂ CMOS inverter",
+     "materials": [
+      "WSe2",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "voltage gain",
+     "canonical_name": "전압 이득 (voltage gain)",
+     "category": "device_performance",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 16.0,
+     "value_text": null,
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "VDD = 4 V",
+     "method": "CMOS 인버터 전압 전달 특성에서 산출",
+     "sample": "PEDOT:PSS-treated WSe₂/MoS₂ CMOS inverter",
+     "materials": [
+      "PSS",
+      "WSe2",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "threshold voltage",
+     "canonical_name": "문턱 전압 (threshold voltage, VTH)",
+     "category": "electrical_transport",
+     "metric_key": "threshold_voltage",
+     "metric_label": "문턱 전압 (Vth)",
+     "qualifier": null,
+     "value": -25.0,
+     "value_text": null,
+     "unit": "V",
+     "norm_value": -25.0,
+     "norm_unit": "V",
+     "bound": "",
+     "conditions": "Pd 전극 WSe₂ FET",
+     "method": "전달 특성 곡선",
+     "sample": "as-prepared evaporated Pd/WSe₂ FET",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "본문; Figure 5d"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "threshold voltage",
+     "canonical_name": "문턱 전압 (threshold voltage, VTH)",
+     "category": "electrical_transport",
+     "metric_key": "threshold_voltage",
+     "metric_label": "문턱 전압 (Vth)",
+     "qualifier": null,
+     "value": -10.0,
+     "value_text": null,
+     "unit": "V",
+     "norm_value": -10.0,
+     "norm_unit": "V",
+     "bound": "",
+     "conditions": "Pd 전극 WSe₂ FET",
+     "method": "전달 특성 곡선",
+     "sample": "PEDOT:PSS-treated evaporated Pd/WSe₂ FET",
+     "materials": [
+      "PSS",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "본문; Figure 5d"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "성장 온도",
+     "canonical_name": "성장 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": null,
+     "value": 1100.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 1100.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "WSe₂ thermal CVD",
+     "method": "CVD 성장 WSe₂를 이용해 증발 Au 접촉, 전사 Au 접촉, 전사 Au+PEDOT:PSS 처리 접촉 상태를 비교했다. PEDOT:PSS 용액에 10–15분 담근 뒤 탈이온수에서 30분 세척하고 질소로 건조했다. 전기 특성, 전계효과 이동도, On/Off 비, 문턱 전압, 정공 밀도, 접촉 저항 및 쇼트키 장벽 특성을 평가했다.",
+     "sample": "CVD-grown WSe₂",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "Experimental Section: Material Preparation"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "성장 시간",
+     "canonical_name": "성장 시간",
+     "category": "process_duration",
+     "metric_key": "growth_time",
+     "metric_label": "합성 시간",
+     "qualifier": null,
+     "value": 5.0,
+     "value_text": null,
+     "unit": "min",
+     "norm_value": 5.0,
+     "norm_unit": "min",
+     "bound": "",
+     "conditions": "WSe₂ thermal CVD",
+     "method": "CVD 성장 WSe₂를 이용해 증발 Au 접촉, 전사 Au 접촉, 전사 Au+PEDOT:PSS 처리 접촉 상태를 비교했다. PEDOT:PSS 용액에 10–15분 담근 뒤 탈이온수에서 30분 세척하고 질소로 건조했다. 전기 특성, 전계효과 이동도, On/Off 비, 문턱 전압, 정공 밀도, 접촉 저항 및 쇼트키 장벽 특성을 평가했다.",
+     "sample": "CVD-grown WSe₂",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "Experimental Section: Material Preparation"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "가스 유량",
+     "canonical_name": "가스 유량",
+     "category": "gas_flow",
+     "metric_key": "gas_flow",
+     "metric_label": "가스 유량",
+     "qualifier": "Ar",
+     "value": 300.0,
+     "value_text": null,
+     "unit": "sccm",
+     "norm_value": 300.0,
+     "norm_unit": "sccm",
+     "bound": "",
+     "conditions": "고순도 Ar; WSe₂ thermal CVD",
+     "method": "CVD 성장 WSe₂를 이용해 증발 Au 접촉, 전사 Au 접촉, 전사 Au+PEDOT:PSS 처리 접촉 상태를 비교했다. PEDOT:PSS 용액에 10–15분 담근 뒤 탈이온수에서 30분 세척하고 질소로 건조했다. 전기 특성, 전계효과 이동도, On/Off 비, 문턱 전압, 정공 밀도, 접촉 저항 및 쇼트키 장벽 특성을 평가했다.",
+     "sample": "CVD-grown WSe₂",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "Experimental Section: Material Preparation"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "어닐링 온도",
+     "canonical_name": "어닐링 온도",
+     "category": "annealing_temperature",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 200.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "진공, 무가스 유량",
+     "method": "CVD 성장 WSe₂를 이용해 증발 Au 접촉, 전사 Au 접촉, 전사 Au+PEDOT:PSS 처리 접촉 상태를 비교했다. PEDOT:PSS 용액에 10–15분 담근 뒤 탈이온수에서 30분 세척하고 질소로 건조했다. 전기 특성, 전계효과 이동도, On/Off 비, 문턱 전압, 정공 밀도, 접촉 저항 및 쇼트키 장벽 특성을 평가했다.",
+     "sample": "WSe₂ FET",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Fabrication Process of Metal Electrodes"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -5299,10 +8069,320 @@
    "doi": "10.1038/s41563-020-0670-3",
    "url": "https://doi.org/10.1038/s41563-020-0670-3",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "WS2",
+    "WSe2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "모아레 퍼텐셜",
+     "canonical_name": "모아레 퍼텐셜 깊이",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "60°",
+     "value": 0.124,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "TAM 수송 결과를 thermionic model로 피팅; 시료 평균",
+     "method": "Transient absorption microscopy (TAM) 및 thermionic model 피팅",
+     "sample": "60° WS₂–WSe₂",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "Modelling of exciton transport"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "모아레 퍼텐셜",
+     "canonical_name": "모아레 퍼텐셜 깊이",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "0°",
+     "value": 0.159,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "TAM 수송 결과를 thermionic model로 피팅; 시료 평균",
+     "method": "Transient absorption microscopy (TAM) 및 thermionic model 피팅",
+     "sample": "0° WS₂–WSe₂",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "Modelling of exciton transport"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "자유 층간 엑시톤 확산계수",
+     "canonical_name": "확산계수",
+     "category": "other",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 5.4,
+     "value_text": null,
+     "unit": "cm² s⁻¹",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "실온; 모아레 퍼텐셜이 없다고 가정한 모델의 D₀",
+     "method": "TAM 수송 데이터의 thermionic model 피팅",
+     "sample": "WS₂–WSe₂ 층간 엑시톤",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "수송 퍼텐셜 해석"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "K–Q와 K–K 전이의 평균 에너지 차이 (ΔE K–Q)",
+     "canonical_name": "K–Q–K–K 전이 에너지 차이",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "0°",
+     "value": 88.0,
+     "value_text": null,
+     "unit": "meV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "전체 모아레 패턴에 대해 평균; DFT 계산",
+     "method": "DFT 제일원리 계산",
+     "sample": "0° WS₂–WSe₂",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "First-principles calculations"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "K–Q와 K–K 전이의 평균 에너지 차이 (ΔE K–Q)",
+     "canonical_name": "K–Q–K–K 전이 에너지 차이",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "60°",
+     "value": 62.0,
+     "value_text": null,
+     "unit": "meV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "전체 모아레 패턴에 대해 평균; DFT 계산",
+     "method": "DFT 제일원리 계산",
+     "sample": "60° WS₂–WSe₂",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "First-principles calculations"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "1L-WS₂ 층간내 엑시톤 확산계수",
+     "canonical_name": "확산계수",
+     "category": "other",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 0.15,
+     "value_text": null,
+     "unit": "cm² s⁻¹",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "295 K",
+     "method": "TAM; 선형 함수 피팅",
+     "sample": "1L-WS₂ 하부층",
+     "materials": [
+      "WS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 12,
+      "kind": "figure",
+      "label": "Extended Data Fig. 4"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "1L-WS₂ 층간내 엑시톤 확산계수",
+     "canonical_name": "확산계수",
+     "category": "other",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 0.44,
+     "value_text": null,
+     "unit": "cm² s⁻¹",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "78 K",
+     "method": "TAM; 선형 함수 피팅",
+     "sample": "1L-WS₂ 하부층",
+     "materials": [
+      "WS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 12,
+      "kind": "figure",
+      "label": "Extended Data Fig. 4"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "WS₂ 성장 온도",
+     "canonical_name": "성장 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": null,
+     "value": 1050.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 1050.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "WS₂ 단층 성장, 10 min 유지",
+     "method": "수정된 2단계 화학기상증착(CVD)으로 WS₂ 단층을 Si/SiO₂에 성장한 뒤 그 위에 WSe₂ 단층을 수직 성장했다. STEM으로 모아레 패턴을 관찰하고, Raman 및 second harmonic generation spectroscopy로 이종구조와 적층 방향을 확인했다.",
+     "sample": "WS₂–WSe₂ 이종이중층",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Methods—Sample fabrication"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "WS₂ 성장 시간",
+     "canonical_name": "성장 시간",
+     "category": "process_duration",
+     "metric_key": "growth_time",
+     "metric_label": "합성 시간",
+     "qualifier": null,
+     "value": 10.0,
+     "value_text": null,
+     "unit": "min",
+     "norm_value": 10.0,
+     "norm_unit": "min",
+     "bound": "",
+     "conditions": "WS₂ 성장 온도 1,050 °C",
+     "method": "수정된 2단계 화학기상증착(CVD)으로 WS₂ 단층을 Si/SiO₂에 성장한 뒤 그 위에 WSe₂ 단층을 수직 성장했다. STEM으로 모아레 패턴을 관찰하고, Raman 및 second harmonic generation spectroscopy로 이종구조와 적층 방향을 확인했다.",
+     "sample": "WS₂–WSe₂ 이종이중층",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Methods—Sample fabrication"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "WSe₂ 성장 온도",
+     "canonical_name": "성장 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": null,
+     "value": 1000.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 1000.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "WS₂ 위에 WSe₂ 수직 성장; H₂/Ar 운반 기체(H₂ 5%)",
+     "method": "수정된 2단계 화학기상증착(CVD)으로 WS₂ 단층을 Si/SiO₂에 성장한 뒤 그 위에 WSe₂ 단층을 수직 성장했다. STEM으로 모아레 패턴을 관찰하고, Raman 및 second harmonic generation spectroscopy로 이종구조와 적층 방향을 확인했다.",
+     "sample": "WS₂–WSe₂ 이종이중층",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Methods—Sample fabrication"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "초기 Ar 세정 유량",
+     "canonical_name": "가스 유량",
+     "category": "gas_flow",
+     "metric_key": "gas_flow",
+     "metric_label": "가스 유량",
+     "qualifier": "Ar",
+     "value": 400.0,
+     "value_text": null,
+     "unit": "sccm",
+     "norm_value": 400.0,
+     "norm_unit": "sccm",
+     "bound": "",
+     "conditions": "고순도 Ar로 시스템을 15 min 세정",
+     "method": "수정된 2단계 화학기상증착(CVD)으로 WS₂ 단층을 Si/SiO₂에 성장한 뒤 그 위에 WSe₂ 단층을 수직 성장했다. STEM으로 모아레 패턴을 관찰하고, Raman 및 second harmonic generation spectroscopy로 이종구조와 적층 방향을 확인했다.",
+     "sample": "WS₂–WSe₂ 이종이중층",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "Methods—Sample fabrication"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -5447,10 +8527,737 @@
    "doi": "10.1016/j.nanoen.2019.02.032",
    "url": "https://doi.org/10.1016/j.nanoen.2019.02.032",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "MoS2",
+    "Sb2Te3"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "Sb₂Te₃ 두께",
+     "canonical_name": "막 두께",
+     "category": "morphology",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 8.2,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "AFM",
+     "method": "AFM",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Results and discussion; Fig. 1(f–g)"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "MoS₂ 두께",
+     "canonical_name": "막 두께",
+     "category": "morphology",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 0.8,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "AFM",
+     "method": "AFM",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Results and discussion; Fig. 1(f–g)"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "격자 불일치",
+     "canonical_name": "격자 불일치",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 25.0,
+     "value_text": null,
+     "unit": "%",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "STEM/SAED 분석에 근거한 저자 보고",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Results and discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman shift",
+     "canonical_name": "라만 피크 위치 (Raman peak position)",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "A¹₁g (Sb₂Te₃)",
+     "value": 70.3,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 70.3,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": null,
+     "method": "Raman spectroscopy",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Results and discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman shift",
+     "canonical_name": "라만 피크 위치 (Raman peak position)",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "E²g (Sb₂Te₃)",
+     "value": 112.4,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 112.4,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": null,
+     "method": "Raman spectroscopy",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Results and discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman shift",
+     "canonical_name": "라만 피크 위치 (Raman peak position)",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "A²₁g (Sb₂Te₃)",
+     "value": 165.7,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 165.7,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": null,
+     "method": "Raman spectroscopy",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Results and discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman shift",
+     "canonical_name": "라만 피크 위치 (Raman peak position)",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "E¹₂g (MoS₂)",
+     "value": 385.0,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 385.0,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": null,
+     "method": "Raman spectroscopy",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Results and discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman shift",
+     "canonical_name": "라만 피크 위치 (Raman peak position)",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "A₁g (MoS₂)",
+     "value": 405.0,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 405.0,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": null,
+     "method": "Raman spectroscopy",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Results and discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "PL 피크 파장",
+     "canonical_name": "광발광 피크 파장",
+     "category": "optical",
+     "metric_key": "pl_peak",
+     "metric_label": "PL 피크",
+     "qualifier": null,
+     "value": 675.0,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": 1.8368,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": null,
+     "method": "Photoluminescence (PL) spectroscopy",
+     "sample": "MoS₂ 단독 영역",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Results and discussion; Fig. 3(c,g)"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "홀 이동도",
+     "canonical_name": "이동도 (mobility)",
+     "category": "electrical_transport",
+     "metric_key": "mobility",
+     "metric_label": "이동도",
+     "qualifier": "Hall이 아닌 홀 수송",
+     "value": 150.0,
+     "value_text": null,
+     "unit": "cm²/V·s",
+     "norm_value": 150.0,
+     "norm_unit": "cm²/V·s",
+     "bound": "",
+     "conditions": "Sb₂Te₃ 기반 FET",
+     "method": "FET 전기 수송 측정",
+     "sample": "Sb₂Te₃ 기반 FET",
+     "materials": [
+      "Sb2Te3"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "Results and discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "On/Off ratio",
+     "canonical_name": "온/오프 비 (On/Off ratio)",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": 1.6,
+     "value_text": null,
+     "unit": null,
+     "norm_value": 1.6,
+     "norm_unit": "",
+     "bound": "",
+     "conditions": "Sb₂Te₃ 기반 FET",
+     "method": "FET transfer 특성 측정",
+     "sample": "Sb₂Te₃ 기반 FET",
+     "materials": [
+      "Sb2Te3"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "Results and discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "field-effect charge carrier mobility",
+     "canonical_name": "전계효과 이동도 (field-effect mobility, μFE)",
+     "category": "electrical_transport",
+     "metric_key": "mobility",
+     "metric_label": "이동도",
+     "qualifier": "전계효과",
+     "value": 29.0,
+     "value_text": null,
+     "unit": "cm²/V·s",
+     "norm_value": 29.0,
+     "norm_unit": "cm²/V·s",
+     "bound": "",
+     "conditions": "MoS₂ 단층 FET",
+     "method": "FET transfer 특성 측정",
+     "sample": "MoS₂ 기반 FET",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "Results and discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "On/Off ratio",
+     "canonical_name": "온/오프 비 (On/Off ratio)",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": null,
+     "value_text": "up to 10⁷",
+     "unit": null,
+     "norm_value": 10000000.0,
+     "norm_unit": "",
+     "bound": "",
+     "conditions": "MoS₂ 기반 FET; Vg sweep −60 V부터 +60 V",
+     "method": "FET transfer 특성 측정",
+     "sample": "MoS₂ 기반 FET",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "Results and discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "ideality factor",
+     "canonical_name": "이상 계수 (ideality factor)",
+     "category": "device_performance",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 1.4,
+     "value_text": null,
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "Vg = 0",
+     "method": "Shockley 다이오드 방정식 피팅",
+     "sample": "Sb₂Te₃/MoS₂ p–n 접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "Results and discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "maximum generated electrical power (PEL.max)",
+     "canonical_name": "최대 생성 전력",
+     "category": "device_performance",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "최대",
+     "value": 0.76,
+     "value_text": null,
+     "unit": "nW",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "입사 광 세기 30.7 mW/cm²",
+     "method": "PEL = IdsVds로 계산",
+     "sample": "Sb₂Te₃/MoS₂ 광전지 소자",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Results and discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "광응답도 (photoresponsivity)",
+     "canonical_name": "광응답도 (responsivity)",
+     "category": "optical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 130.0,
+     "value_text": null,
+     "unit": "A/W",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "광 파워 밀도 0.6 mW/cm²",
+     "method": "광전류 기반 광응답도 계산",
+     "sample": "Sb₂Te₃/MoS₂ 광검출기",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Results and discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "광응답도 (photoresponsivity)",
+     "canonical_name": "광응답도 (responsivity)",
+     "category": "optical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 330.0,
+     "value_text": null,
+     "unit": "A/W",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "드레인 바이어스 −1 V",
+     "method": "광전류 기반 광응답도 계산",
+     "sample": "Sb₂Te₃/MoS₂ 광검출기",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Results and discussion"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "기판",
+     "canonical_name": "기판 (substrate)",
+     "category": "substrate",
+     "metric_key": "substrate",
+     "metric_label": "기판",
+     "qualifier": null,
+     "value": null,
+     "value_text": "SiO₂/Si",
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "1단계 MoS₂ 성장",
+     "method": "1단계: MoO₃ 및 S 분말을 사용해 SiO₂/Si 위에 단결정 MoS₂ 단층을 성장. 2단계: MoS₂가 성장된 SiO₂/Si 기판 위에 Sb₂Te₃ 분말을 사용해 Sb₂Te₃를 수직 에피택시 성장. 각 단계는 별도 관상로에서 수행했다.",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "4.1 Materials synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "퍼지 시간",
+     "canonical_name": "공정 시간",
+     "category": "process_duration",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 30.0,
+     "value_text": null,
+     "unit": "min",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "1단계 MoS₂ 성장 전; 고순도 Ar 80 sccm",
+     "method": "1단계: MoO₃ 및 S 분말을 사용해 SiO₂/Si 위에 단결정 MoS₂ 단층을 성장. 2단계: MoS₂가 성장된 SiO₂/Si 기판 위에 Sb₂Te₃ 분말을 사용해 Sb₂Te₃를 수직 에피택시 성장. 각 단계는 별도 관상로에서 수행했다.",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "4.1 Materials synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "성장 온도",
+     "canonical_name": "성장 온도 (growth temperature)",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": "Zone 1",
+     "value": 800.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 800.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "1단계 MoS₂ 성장",
+     "method": "1단계: MoO₃ 및 S 분말을 사용해 SiO₂/Si 위에 단결정 MoS₂ 단층을 성장. 2단계: MoS₂가 성장된 SiO₂/Si 기판 위에 Sb₂Te₃ 분말을 사용해 Sb₂Te₃를 수직 에피택시 성장. 각 단계는 별도 관상로에서 수행했다.",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "4.1 Materials synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "성장 시간",
+     "canonical_name": "성장 시간 (growth time)",
+     "category": "process_duration",
+     "metric_key": "growth_time",
+     "metric_label": "합성 시간",
+     "qualifier": null,
+     "value": 10.0,
+     "value_text": null,
+     "unit": "min",
+     "norm_value": 10.0,
+     "norm_unit": "min",
+     "bound": "",
+     "conditions": "1단계 MoS₂ 성장",
+     "method": "1단계: MoO₃ 및 S 분말을 사용해 SiO₂/Si 위에 단결정 MoS₂ 단층을 성장. 2단계: MoS₂가 성장된 SiO₂/Si 기판 위에 Sb₂Te₃ 분말을 사용해 Sb₂Te₃를 수직 에피택시 성장. 각 단계는 별도 관상로에서 수행했다.",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "4.1 Materials synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "가스 유량",
+     "canonical_name": "가스 유량 (gas flow)",
+     "category": "gas_flow",
+     "metric_key": "gas_flow",
+     "metric_label": "가스 유량",
+     "qualifier": "Ar",
+     "value": 80.0,
+     "value_text": null,
+     "unit": "sccm",
+     "norm_value": 80.0,
+     "norm_unit": "sccm",
+     "bound": "",
+     "conditions": "1단계 MoS₂ 성장 전 퍼지",
+     "method": "1단계: MoO₃ 및 S 분말을 사용해 SiO₂/Si 위에 단결정 MoS₂ 단층을 성장. 2단계: MoS₂가 성장된 SiO₂/Si 기판 위에 Sb₂Te₃ 분말을 사용해 Sb₂Te₃를 수직 에피택시 성장. 각 단계는 별도 관상로에서 수행했다.",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "4.1 Materials synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "성장 온도",
+     "canonical_name": "성장 온도 (growth temperature)",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": null,
+     "value": 600.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 600.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "2단계 Sb₂Te₃ 성장",
+     "method": "1단계: MoO₃ 및 S 분말을 사용해 SiO₂/Si 위에 단결정 MoS₂ 단층을 성장. 2단계: MoS₂가 성장된 SiO₂/Si 기판 위에 Sb₂Te₃ 분말을 사용해 Sb₂Te₃를 수직 에피택시 성장. 각 단계는 별도 관상로에서 수행했다.",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "4.1 Materials synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "성장 시간",
+     "canonical_name": "성장 시간 (growth time)",
+     "category": "process_duration",
+     "metric_key": "growth_time",
+     "metric_label": "합성 시간",
+     "qualifier": null,
+     "value": 5.0,
+     "value_text": null,
+     "unit": "min",
+     "norm_value": 5.0,
+     "norm_unit": "min",
+     "bound": "",
+     "conditions": "2단계 Sb₂Te₃ 성장",
+     "method": "1단계: MoO₃ 및 S 분말을 사용해 SiO₂/Si 위에 단결정 MoS₂ 단층을 성장. 2단계: MoS₂가 성장된 SiO₂/Si 기판 위에 Sb₂Te₃ 분말을 사용해 Sb₂Te₃를 수직 에피택시 성장. 각 단계는 별도 관상로에서 수행했다.",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "4.1 Materials synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "가스 유량",
+     "canonical_name": "가스 유량 (gas flow)",
+     "category": "gas_flow",
+     "metric_key": "gas_flow",
+     "metric_label": "가스 유량",
+     "qualifier": "Ar",
+     "value": 40.0,
+     "value_text": null,
+     "unit": "sccm",
+     "norm_value": 40.0,
+     "norm_unit": "sccm",
+     "bound": "",
+     "conditions": "2단계 Sb₂Te₃ 성장 중",
+     "method": "1단계: MoO₃ 및 S 분말을 사용해 SiO₂/Si 위에 단결정 MoS₂ 단층을 성장. 2단계: MoS₂가 성장된 SiO₂/Si 기판 위에 Sb₂Te₃ 분말을 사용해 Sb₂Te₃를 수직 에피택시 성장. 각 단계는 별도 관상로에서 수행했다.",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "4.1 Materials synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "성장 압력",
+     "canonical_name": "성장 압력 (growth pressure)",
+     "category": "pressure",
+     "metric_key": "pressure",
+     "metric_label": "합성 압력",
+     "qualifier": null,
+     "value": 10.0,
+     "value_text": null,
+     "unit": "Torr",
+     "norm_value": 10.0,
+     "norm_unit": "Torr",
+     "bound": "",
+     "conditions": "2단계 Sb₂Te₃ 성장 중",
+     "method": "1단계: MoO₃ 및 S 분말을 사용해 SiO₂/Si 위에 단결정 MoS₂ 단층을 성장. 2단계: MoS₂가 성장된 SiO₂/Si 기판 위에 Sb₂Te₃ 분말을 사용해 Sb₂Te₃를 수직 에피택시 성장. 각 단계는 별도 관상로에서 수행했다.",
+     "sample": "Sb₂Te₃/MoS₂ 수직 p–n 이종접합",
+     "materials": [
+      "Sb2Te3",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "4.1 Materials synthesis"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -5847,10 +9654,351 @@
    "doi": "10.1038/nature25155",
    "url": "https://doi.org/10.1038/nature25155",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "MoS2",
+    "MoSe2",
+    "WS2",
+    "WSe2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "Photoluminescence peak",
+     "canonical_name": "광발광 피크 에너지",
+     "category": "optical",
+     "metric_key": "pl_peak",
+     "metric_label": "PL 피크",
+     "qualifier": null,
+     "value": 1.52,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 1.52,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "MoSe₂ 도메인; 측정 위치별",
+     "method": "공초점 현미경 기반 Raman 분광계의 광발광 분광 및 맵핑",
+     "sample": "MoSe₂–WSe₂ 측면 이종구조의 MoSe₂ 도메인",
+     "materials": [
+      "MoSe2",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "Figure 1f 설명 본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Photoluminescence peak",
+     "canonical_name": "광발광 피크 에너지",
+     "category": "optical",
+     "metric_key": "pl_peak",
+     "metric_label": "PL 피크",
+     "qualifier": null,
+     "value": 1.6,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 1.6,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "WSe₂ 도메인; 측정 위치별",
+     "method": "공초점 현미경 기반 Raman 분광계의 광발광 분광 및 맵핑",
+     "sample": "MoSe₂–WSe₂ 측면 이종구조의 WSe₂ 도메인",
+     "materials": [
+      "MoSe2",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "Figure 1f 설명 본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Photoluminescence peak",
+     "canonical_name": "광발광 피크 에너지",
+     "category": "optical",
+     "metric_key": "pl_peak",
+     "metric_label": "PL 피크",
+     "qualifier": null,
+     "value": 1.84,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 1.84,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "MoS₂ 도메인",
+     "method": "광발광 분광 및 맵핑",
+     "sample": "MoS₂–WS₂ 측면 이종구조의 MoS₂ 도메인",
+     "materials": [
+      "MoS2",
+      "WS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Figure 2d 및 본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Photoluminescence peak",
+     "canonical_name": "광발광 피크 에너지",
+     "category": "optical",
+     "metric_key": "pl_peak",
+     "metric_label": "PL 피크",
+     "qualifier": null,
+     "value": 1.97,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 1.97,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "WS₂ 도메인",
+     "method": "광발광 분광 및 맵핑",
+     "sample": "MoS₂–WS₂ 측면 이종구조의 WS₂ 도메인",
+     "materials": [
+      "MoS2",
+      "WS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Figure 2d 및 본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman phonon mode position",
+     "canonical_name": "Raman 피크 위치",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "A₁g",
+     "value": 240.0,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 240.0,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "MoSe₂ 도메인; 단층",
+     "method": "Raman 분광",
+     "sample": "MoSe₂–WSe₂ 측면 이종구조의 MoSe₂ 도메인",
+     "materials": [
+      "MoSe2",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "Figure 1e"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman phonon mode position",
+     "canonical_name": "Raman 피크 위치",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "A₁g",
+     "value": 250.0,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 250.0,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "WSe₂ 도메인; 단층",
+     "method": "Raman 분광",
+     "sample": "MoSe₂–WSe₂ 측면 이종구조의 WSe₂ 도메인",
+     "materials": [
+      "MoSe2",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "Figure 1e"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman phonon mode position",
+     "canonical_name": "Raman 피크 위치",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "E₂g",
+     "value": 384.0,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 384.0,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "MoS₂ 도메인; 단층",
+     "method": "Raman 분광",
+     "sample": "MoS₂–WS₂ 측면 이종구조의 MoS₂ 도메인",
+     "materials": [
+      "MoS2",
+      "WS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Figure 2c"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman phonon mode position",
+     "canonical_name": "Raman 피크 위치",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "A₁g",
+     "value": 405.0,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 405.0,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "MoS₂ 도메인; 단층",
+     "method": "Raman 분광",
+     "sample": "MoS₂–WS₂ 측면 이종구조의 MoS₂ 도메인",
+     "materials": [
+      "MoS2",
+      "WS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Figure 2c"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman phonon mode position",
+     "canonical_name": "Raman 피크 위치",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "E₁²g",
+     "value": 355.0,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 355.0,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "WS₂ 도메인",
+     "method": "Raman 분광",
+     "sample": "MoS₂–WS₂ 측면 이종구조의 WS₂ 도메인",
+     "materials": [
+      "MoS2",
+      "WS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Figure 2c"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman phonon mode position",
+     "canonical_name": "Raman 피크 위치",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "A₁g",
+     "value": 418.0,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 418.0,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "WS₂ 도메인",
+     "method": "Raman 분광",
+     "sample": "MoS₂–WS₂ 측면 이종구조의 WS₂ 도메인",
+     "materials": [
+      "MoS2",
+      "WS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Figure 2c"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "ON/OFF current ratio",
+     "canonical_name": "온/오프 전류비",
+     "category": "device_performance",
+     "metric_key": "on_off_ratio",
+     "metric_label": "On/Off 비",
+     "qualifier": null,
+     "value": null,
+     "value_text": "10⁵–10⁶",
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": "",
+     "bound": "",
+     "conditions": "도메인별; 문턱 게이트 전압이 비교적 낮다고 보고",
+     "method": "Ids–Vbg 전기 특성 측정",
+     "sample": "MoSe₂, WSe₂, MoS₂ 및 WS₂ 도메인",
+     "materials": [
+      "MoSe2",
+      "WSe2",
+      "MoS2",
+      "WS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "승온 시간",
+     "canonical_name": "공정 시간",
+     "category": "process_duration",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 50.0,
+     "value_text": null,
+     "unit": "min",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "로 온도를 1,060 °C까지 승온; N₂ 유량 유지",
+     "method": "대기압 화학기상증착 시스템에서 수증기 보조 열증발(water-assisted thermal evaporation)을 수행했다. MoX₂와 WX₂ 분말을 한 알루미나 보트에 2:1 비율로 나란히 놓고, N₂+H₂O(g)와 Ar+5% H₂를 교대로 전환해 Mo-rich/W-rich 도메인을 순차 성장했다. Si/300 nm SiO₂ 기판을 전처리한 뒤 전구체보다 하류의 온도 구역에 배치했다. 성장 종료 시 보트와 기판을 냉각 구역으로 이동하고 Ar+5% H₂를 흘려 실온까지 냉각했다.",
+     "sample": "성장 공정",
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Methods—Synthesis"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -5875,10 +10023,179 @@
    "doi": "10.1038/s41467-018-03869-7",
    "url": "https://doi.org/10.1038/s41467-018-03869-7",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "MoSe2",
+    "WSe2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "parameter",
+     "name": "성장 온도",
+     "canonical_name": "성장 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": null,
+     "value": 880.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 880.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "CVD 성장",
+     "method": "사파이어 기판 위에서 one-pot CVD 직접 성장. 편광분해 SHG로 적층 방향을 확인하고 ADF-STEM 및 선택영역 전자회절로 원자 배열과 장거리 적층 질서를 확인했다.",
+     "sample": "WSe₂/MoSe₂ hBL",
+     "materials": [
+      "WSe2",
+      "MoSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Methods—Material synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "성장 압력",
+     "canonical_name": "성장 압력",
+     "category": "pressure",
+     "metric_key": "pressure",
+     "metric_label": "합성 압력",
+     "qualifier": null,
+     "value": null,
+     "value_text": "5–40 Torr",
+     "unit": "Torr",
+     "norm_value": null,
+     "norm_unit": "Torr",
+     "bound": "",
+     "conditions": "저압 CVD 성장",
+     "method": "사파이어 기판 위에서 one-pot CVD 직접 성장. 편광분해 SHG로 적층 방향을 확인하고 ADF-STEM 및 선택영역 전자회절로 원자 배열과 장거리 적층 질서를 확인했다.",
+     "sample": "WSe₂/MoSe₂ hBL",
+     "materials": [
+      "WSe2",
+      "MoSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Methods—Material synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "Ar 유량",
+     "canonical_name": "가스 유량",
+     "category": "gas_flow",
+     "metric_key": "gas_flow",
+     "metric_label": "가스 유량",
+     "qualifier": "Ar",
+     "value": 60.0,
+     "value_text": null,
+     "unit": "sccm",
+     "norm_value": 60.0,
+     "norm_unit": "sccm",
+     "bound": "",
+     "conditions": "Ar/H₂ 동시 공급; 성장 중",
+     "method": "사파이어 기판 위에서 one-pot CVD 직접 성장. 편광분해 SHG로 적층 방향을 확인하고 ADF-STEM 및 선택영역 전자회절로 원자 배열과 장거리 적층 질서를 확인했다.",
+     "sample": "WSe₂/MoSe₂ hBL",
+     "materials": [
+      "WSe2",
+      "MoSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Methods—Material synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "H₂ 유량",
+     "canonical_name": "가스 유량",
+     "category": "gas_flow",
+     "metric_key": "gas_flow",
+     "metric_label": "가스 유량",
+     "qualifier": "H₂",
+     "value": 6.0,
+     "value_text": null,
+     "unit": "sccm",
+     "norm_value": 6.0,
+     "norm_unit": "sccm",
+     "bound": "",
+     "conditions": "Ar/H₂ 동시 공급; 성장 중",
+     "method": "사파이어 기판 위에서 one-pot CVD 직접 성장. 편광분해 SHG로 적층 방향을 확인하고 ADF-STEM 및 선택영역 전자회절로 원자 배열과 장거리 적층 질서를 확인했다.",
+     "sample": "WSe₂/MoSe₂ hBL",
+     "materials": [
+      "WSe2",
+      "MoSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Methods—Material synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "기판",
+     "canonical_name": "기판",
+     "category": "substrate",
+     "metric_key": "substrate",
+     "metric_label": "기판",
+     "qualifier": null,
+     "value": null,
+     "value_text": "sapphire",
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "성장 기판",
+     "method": "사파이어 기판 위에서 one-pot CVD 직접 성장. 편광분해 SHG로 적층 방향을 확인하고 ADF-STEM 및 선택영역 전자회절로 원자 배열과 장거리 적층 질서를 확인했다.",
+     "sample": "WSe₂/MoSe₂ hBL",
+     "materials": [
+      "WSe2",
+      "MoSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Methods—Material synthesis"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "SHG 기본파 파장",
+     "canonical_name": "SHG 기본파 파장",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 880.0,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "SHG 측정",
+     "method": "사파이어 기판 위에서 one-pot CVD 직접 성장. 편광분해 SHG로 적층 방향을 확인하고 ADF-STEM 및 선택영역 전자회절로 원자 배열과 장거리 적층 질서를 확인했다.",
+     "sample": null,
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Methods—Optical measurements"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -5992,10 +10309,204 @@
    "doi": "10.1021/acs.nanolett.7b02513",
    "url": "https://doi.org/10.1021/acs.nanolett.7b02513",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "MoS2",
+    "WS2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "Direct excitonic emission energy",
+     "canonical_name": "직접 엑시톤 발광 에너지 (direct excitonic emission energy)",
+     "category": "optical",
+     "metric_key": "pl_peak",
+     "metric_label": "PL 피크",
+     "qualifier": null,
+     "value": 1.824,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 1.824,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "개별 단층; 무변형 기준 특성",
+     "method": "광발광(PL) 분광법",
+     "sample": "MoS₂ monolayer",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Direct excitonic emission energy",
+     "canonical_name": "직접 엑시톤 발광 에너지 (direct excitonic emission energy)",
+     "category": "optical",
+     "metric_key": "pl_peak",
+     "metric_label": "PL 피크",
+     "qualifier": null,
+     "value": 1.968,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 1.968,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "개별 단층; 무변형 기준 특성",
+     "method": "광발광(PL) 분광법",
+     "sample": "WS₂ monolayer",
+     "materials": [
+      "WS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman peak position",
+     "canonical_name": "Raman 피크 위치 (Raman peak position)",
+     "category": "structural",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "E¹₂g, MoS₂",
+     "value": 382.8,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 382.8,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "개별 MoS₂ 단층",
+     "method": "Raman 분광법",
+     "sample": "MoS₂ monolayer",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman peak position",
+     "canonical_name": "Raman 피크 위치 (Raman peak position)",
+     "category": "structural",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "A₁g, MoS₂",
+     "value": 402.7,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 402.7,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "개별 MoS₂ 단층",
+     "method": "Raman 분광법",
+     "sample": "MoS₂ monolayer",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman peak position",
+     "canonical_name": "Raman 피크 위치 (Raman peak position)",
+     "category": "structural",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "2LA/E¹₂g, WS₂",
+     "value": 349.0,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 349.0,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "개별 WS₂ 단층",
+     "method": "Raman 분광법",
+     "sample": "WS₂ monolayer",
+     "materials": [
+      "WS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman peak position",
+     "canonical_name": "Raman 피크 위치 (Raman peak position)",
+     "category": "structural",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "A₁g, WS₂",
+     "value": 417.0,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 417.0,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "개별 WS₂ 단층",
+     "method": "Raman 분광법",
+     "sample": "WS₂ monolayer",
+     "materials": [
+      "WS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "기판",
+     "canonical_name": "기판 (substrate)",
+     "category": "substrate",
+     "metric_key": "substrate",
+     "metric_label": "기판",
+     "qualifier": null,
+     "value": null,
+     "value_text": "300 nm SiO₂/Si",
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "WS₂를 MoS₂ 위에 성장",
+     "method": "MoS₂ 단층 위에 WS₂를 직접 성장하는 one-step CVD 에피택셜 성장. 광학 이미지, AFM, Raman 및 PL로 이중층 형성과 단층 특성을 확인했다.",
+     "sample": "CVD-grown MoS₂/WS₂ heterobilayer",
+     "materials": [
+      "MoS2",
+      "WS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "본문"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -6067,10 +10578,151 @@
    "doi": "10.1021/acsami.6b00275",
    "url": "https://doi.org/10.1021/acsami.6b00275",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "HV",
+    "MoS2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "Mo 3d5/2 binding energy",
+     "canonical_name": "XPS 결합 에너지",
+     "category": "chemical",
+     "metric_key": "xps_binding_energy",
+     "metric_label": "XPS 결합 에너지",
+     "qualifier": "Mo 3d5/2",
+     "value": 229.7,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 229.7,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "freshly exfoliated MoS₂; binding energies referenced to S 2p3/2 at 162.5 eV",
+     "method": "X-ray photoelectron spectroscopy (XPS)",
+     "sample": "Initial MoS₂",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "S 2p1/2 binding energy",
+     "canonical_name": "XPS 결합 에너지",
+     "category": "chemical",
+     "metric_key": "xps_binding_energy",
+     "metric_label": "XPS 결합 에너지",
+     "qualifier": "S 2p1/2",
+     "value": 163.7,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 163.7,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "freshly exfoliated MoS₂; binding energies referenced to S 2p3/2 at 162.5 eV",
+     "method": "X-ray photoelectron spectroscopy (XPS)",
+     "sample": "Initial MoS₂",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Ti 2p spectral feature binding energy",
+     "canonical_name": "XPS 결합 에너지",
+     "category": "chemical",
+     "metric_key": "xps_binding_energy",
+     "metric_label": "XPS 결합 에너지",
+     "qualifier": "Ti 2p; TiO₂",
+     "value": 459.0,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 459.0,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "HV Ti deposition",
+     "method": "X-ray photoelectron spectroscopy (XPS)",
+     "sample": "HV-Ti/MoS₂",
+     "materials": [
+      "MoS2",
+      "HV"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "증착 챔버 기저 압력",
+     "canonical_name": "증착 압력",
+     "category": "pressure",
+     "metric_key": "pressure",
+     "metric_label": "합성 압력",
+     "qualifier": null,
+     "value": 3e-06,
+     "value_text": null,
+     "unit": "mbar",
+     "norm_value": 2.250186e-06,
+     "norm_unit": "Torr",
+     "bound": "",
+     "conditions": "HV ex situ",
+     "method": "지질학적 벌크 MoS₂를 기계적 박리한 뒤, HV에서는 Temescal BJD-1800 e-beam evaporator를 이용해 ex situ 증착하고, UHV에서는 금속 밀봉 다중 증착·분석 시스템에서 in situ e-beam 증착했다. Ti 증착 후 monochromated XPS로 Mo 3d, S 2s/S 2p 및 Ti 2p 코어 준위를 분석했다.",
+     "sample": "HV-Ti/MoS₂",
+     "materials": [
+      "MoS2",
+      "HV"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Experimental Procedures"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "증착 압력",
+     "canonical_name": "증착 압력",
+     "category": "pressure",
+     "metric_key": "pressure",
+     "metric_label": "합성 압력",
+     "qualifier": null,
+     "value": 3e-09,
+     "value_text": null,
+     "unit": "mbar",
+     "norm_value": 2.250186e-09,
+     "norm_unit": "Torr",
+     "bound": "",
+     "conditions": "UHV in situ",
+     "method": "지질학적 벌크 MoS₂를 기계적 박리한 뒤, HV에서는 Temescal BJD-1800 e-beam evaporator를 이용해 ex situ 증착하고, UHV에서는 금속 밀봉 다중 증착·분석 시스템에서 in situ e-beam 증착했다. Ti 증착 후 monochromated XPS로 Mo 3d, S 2s/S 2p 및 Ti 2p 코어 준위를 분석했다.",
+     "sample": "UHV-Ti/MoS₂",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Experimental Procedures"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -6117,10 +10769,142 @@
    "doi": "10.1134/s1063774515060218",
    "url": "https://doi.org/10.1134/s1063774515060218",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "Au"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "나노결정 크기",
+     "canonical_name": "금 나노결정 크기",
+     "category": "morphology",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": "100–120 nm",
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "낮은 성장 온도; 계단 가장자리를 따라 배열; 온도·성장률은 초록에서 특정되지 않음",
+     "method": "AFM",
+     "sample": null,
+     "materials": [],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "Abstract"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "기판 어닐링 온도",
+     "canonical_name": "어닐링 온도",
+     "category": "annealing_temperature",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 1400.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "사파이어 기판 준비",
+     "method": "사파이어 판을 화학적·기계적으로 연마하고 1400°C에서 1시간 어닐링했다. 준비한 기판을 회전 펌프와 터보분자 펌프로 배기한 진공 챔버에 넣고 유도가열로 가열한 뒤 금을 증기상으로 증착했다. AFM과 전자 회절로 표면 형상 및 금의 결정 배향을 분석했다.",
+     "sample": null,
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "Experimental"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "기판 어닐링 시간",
+     "canonical_name": "어닐링 시간",
+     "category": "process_duration",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 1.0,
+     "value_text": null,
+     "unit": "h",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "1400°C에서 어닐링",
+     "method": "사파이어 판을 화학적·기계적으로 연마하고 1400°C에서 1시간 어닐링했다. 준비한 기판을 회전 펌프와 터보분자 펌프로 배기한 진공 챔버에 넣고 유도가열로 가열한 뒤 금을 증기상으로 증착했다. AFM과 전자 회절로 표면 형상 및 금의 결정 배향을 분석했다.",
+     "sample": null,
+     "materials": [],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "Experimental"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "기판 성장 온도",
+     "canonical_name": "성장 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": null,
+     "value": 300.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 300.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "금 증착; sample label별 조건 참조",
+     "method": "사파이어 판을 화학적·기계적으로 연마하고 1400°C에서 1시간 어닐링했다. 준비한 기판을 회전 펌프와 터보분자 펌프로 배기한 진공 챔버에 넣고 유도가열로 가열한 뒤 금을 증기상으로 증착했다. AFM과 전자 회절로 표면 형상 및 금의 결정 배향을 분석했다.",
+     "sample": "Au/(0001) sapphire, 300°C, 0.09 Å/s",
+     "materials": [
+      "Au"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Results and Discussion; Fig. 2a"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "기판 성장 온도",
+     "canonical_name": "성장 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": null,
+     "value": 500.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 500.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "금 증착; sample label별 조건 참조",
+     "method": "사파이어 판을 화학적·기계적으로 연마하고 1400°C에서 1시간 어닐링했다. 준비한 기판을 회전 펌프와 터보분자 펌프로 배기한 진공 챔버에 넣고 유도가열로 가열한 뒤 금을 증기상으로 증착했다. AFM과 전자 회절로 표면 형상 및 금의 결정 배향을 분석했다.",
+     "sample": "Au/(0001) sapphire, 500°C, 0.09 Å/s",
+     "materials": [
+      "Au"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Results and Discussion; Fig. 3"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -6195,10 +10979,544 @@
    "doi": "10.1038/nmat4091",
    "url": "https://doi.org/10.1038/nmat4091",
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "MoS2",
+    "WS2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "전이금속 원소 상호확산 폭",
+     "canonical_name": "계면 상호확산 폭",
+     "category": "chemical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "armchair 방향",
+     "value": null,
+     "value_text": "1–3 unit cells",
+     "unit": "unit cells",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "면내 접합 계면",
+     "method": "STEM Z-contrast imaging 및 원자 구조 분석",
+     "sample": "WS₂/MoS₂ 면내 접합",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "In-plane heterostructure"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman peak position",
+     "canonical_name": "Raman 피크 위치",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "E′ (MoS₂)",
+     "value": 383.9,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 383.9,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "MoS₂ 단층 영역",
+     "method": "Raman spectroscopy",
+     "sample": "WS₂/MoS₂ 수직 이중층의 MoS₂ 단층 영역",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "수직 이중층 Raman 결과"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman peak position",
+     "canonical_name": "Raman 피크 위치",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "A₁′ (MoS₂)",
+     "value": 405.3,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 405.3,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "MoS₂ 단층 영역",
+     "method": "Raman spectroscopy",
+     "sample": "WS₂/MoS₂ 수직 이중층의 MoS₂ 단층 영역",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "수직 이중층 Raman 결과"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman peak position",
+     "canonical_name": "Raman 피크 위치",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "A₁′ (WS₂)",
+     "value": 418.5,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 418.5,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "수직 이중층 영역",
+     "method": "Raman spectroscopy",
+     "sample": "WS₂/MoS₂ 수직 이중층",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "수직 이중층 Raman 결과"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "Raman peak position",
+     "canonical_name": "Raman 피크 위치",
+     "category": "optical",
+     "metric_key": "raman_peak",
+     "metric_label": "Raman 피크 위치",
+     "qualifier": "2LA(M) 및 E′ (WS₂)",
+     "value": 356.8,
+     "value_text": null,
+     "unit": "cm⁻¹",
+     "norm_value": 356.8,
+     "norm_unit": "cm⁻¹",
+     "bound": "",
+     "conditions": "수직 이중층 영역",
+     "method": "Raman spectroscopy",
+     "sample": "WS₂/MoS₂ 수직 이중층",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "수직 이중층 Raman 결과"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "광발광 피크 파장",
+     "canonical_name": "광발광 피크 파장",
+     "category": "optical",
+     "metric_key": "pl_peak",
+     "metric_label": "PL 피크",
+     "qualifier": "MoS₂ 직접 여기자 전이",
+     "value": 680.0,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": 1.8232941176470587,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "MoS₂ 단층 영역",
+     "method": "photoluminescence (PL) spectroscopy",
+     "sample": "WS₂/MoS₂ 수직 이중층의 MoS₂ 단층 영역",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "수직 이중층 PL 결과"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "광발광 피크 에너지",
+     "canonical_name": "광발광 피크 에너지",
+     "category": "optical",
+     "metric_key": "pl_peak",
+     "metric_label": "PL 피크",
+     "qualifier": "층간 여기자 전이",
+     "value": 1.42,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 1.42,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "수직 이중층 영역; 875 nm 피크에 대응",
+     "method": "photoluminescence (PL) spectroscopy",
+     "sample": "WS₂/MoS₂ 수직 이중층",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "수직 이중층 PL 결과"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "광발광 피크 파장",
+     "canonical_name": "광발광 피크 파장",
+     "category": "optical",
+     "metric_key": "pl_peak",
+     "metric_label": "PL 피크",
+     "qualifier": "WS₂ 단층 직접 여기자 전이",
+     "value": 630.0,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": 1.968,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "수직 이중층 영역",
+     "method": "photoluminescence (PL) spectroscopy",
+     "sample": "WS₂/MoS₂ 수직 이중층",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "수직 이중층 PL 결과"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "계면 PL 강화 배수",
+     "canonical_name": "광발광 강화 배수",
+     "category": "optical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 40.0,
+     "value_text": null,
+     "unit": "times",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "면내 계면 대 pristine MoS₂ 또는 WS₂ 영역 비교",
+     "method": "PL microscope imaging",
+     "sample": "WS₂/MoS₂ 면내 접합",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "계면 PL 강화"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "계면 PL 강화 폭 (FWHM)",
+     "canonical_name": "광발광 공간 폭",
+     "category": "optical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 250.0,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "면내 계면을 따른 국소 PL 강화",
+     "method": "PL microscope imaging",
+     "sample": "WS₂/MoS₂ 면내 접합",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 7,
+      "kind": "text",
+      "label": "계면 PL 강화"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "광발광 피크 파장",
+     "canonical_name": "광발광 피크 파장",
+     "category": "optical",
+     "metric_key": "pl_peak",
+     "metric_label": "PL 피크",
+     "qualifier": "계면 발광",
+     "value": 650.0,
+     "value_text": null,
+     "unit": "nm",
+     "norm_value": 1.9074461538461538,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "면내 접합 계면",
+     "method": "photoluminescence (PL) spectroscopy",
+     "sample": "WS₂/MoS₂ 면내 접합",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 7,
+      "kind": "figure",
+      "label": "Figure 5d"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "광발전 개방 회로 전압",
+     "canonical_name": "개방 회로 전압",
+     "category": "device_performance",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 0.12,
+     "value_text": null,
+     "unit": "V",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "면내 p–n 접합; 조명 하",
+     "method": "I–V photovoltaic measurement",
+     "sample": "WS₂/MoS₂ 면내 접합",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 8,
+      "kind": "text",
+      "label": "면내 접합 광전지 결과"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "평균 이동도",
+     "canonical_name": "전계효과 이동도 (field-effect mobility, μFE)",
+     "category": "electrical_transport",
+     "metric_key": "mobility",
+     "metric_label": "이동도",
+     "qualifier": "전계효과; 평균",
+     "value": 4.5,
+     "value_text": null,
+     "unit": "cm² V⁻¹ s⁻¹",
+     "norm_value": 4.5,
+     "norm_unit": "cm²/V·s",
+     "bound": "",
+     "conditions": "단층 MoS₂ 대조 시료",
+     "method": "FET measurement; 문헌 인용 대조값",
+     "sample": "MoS₂ 단층 대조군",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "FET 결과"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "이동도",
+     "canonical_name": "전계효과 이동도 (field-effect mobility, μFE)",
+     "category": "electrical_transport",
+     "metric_key": "mobility",
+     "metric_label": "이동도",
+     "qualifier": "전계효과",
+     "value": 5.7,
+     "value_text": null,
+     "unit": "cm² V⁻¹ s⁻¹",
+     "norm_value": 5.7,
+     "norm_unit": "cm²/V·s",
+     "bound": "",
+     "conditions": "MoS₂ bilayer 대조 시료",
+     "method": "FET measurement; 대조값",
+     "sample": "MoS₂ bilayer 대조군",
+     "materials": [
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "FET 결과"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "이동도",
+     "canonical_name": "전계효과 이동도 (field-effect mobility, μFE)",
+     "category": "electrical_transport",
+     "metric_key": "mobility",
+     "metric_label": "이동도",
+     "qualifier": "전계효과",
+     "value": 0.51,
+     "value_text": null,
+     "unit": "cm² V⁻¹ s⁻¹",
+     "norm_value": 0.51,
+     "norm_unit": "cm²/V·s",
+     "bound": "",
+     "conditions": "기계적 전사 WS₂/MoS₂ bilayer 대조 시료",
+     "method": "FET measurement; 대조값",
+     "sample": "기계적 전사 WS₂/MoS₂ bilayer 대조군",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "FET 결과"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "기판 성장 온도",
+     "canonical_name": "성장 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": null,
+     "value": 850.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 850.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "수직 적층 WS₂/MoS₂ 성장",
+     "method": "단일 단계 기상 성장(CVD/증기상 성장); MoO₃ 분말로 MoS₂ 성장, W와 Te 혼합 분말로 WS₂ 성장, 상류 저온 영역의 황 분말 및 Ar 사용. 약 850 °C에서 수직 적층, 약 650 °C에서 면내 접합이 우세하도록 성장 온도를 조절했다.",
+     "sample": "WS₂/MoS₂ 수직 이중층",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Synthesis and morphology"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "기판 성장 온도",
+     "canonical_name": "성장 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": null,
+     "value": 650.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 650.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "면내 WS₂/MoS₂ 이종접합 성장",
+     "method": "단일 단계 기상 성장(CVD/증기상 성장); MoO₃ 분말로 MoS₂ 성장, W와 Te 혼합 분말로 WS₂ 성장, 상류 저온 영역의 황 분말 및 Ar 사용. 약 850 °C에서 수직 적층, 약 650 °C에서 면내 접합이 우세하도록 성장 온도를 조절했다.",
+     "sample": "WS₂/MoS₂ 면내 접합",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Synthesis and morphology"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "전구체",
+     "canonical_name": "전구체",
+     "category": "precursor",
+     "metric_key": "precursor",
+     "metric_label": "전구체",
+     "qualifier": "파우더",
+     "value": null,
+     "value_text": "MoO₃ powder",
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "MoS₂ 성장용",
+     "method": "단일 단계 기상 성장(CVD/증기상 성장); MoO₃ 분말로 MoS₂ 성장, W와 Te 혼합 분말로 WS₂ 성장, 상류 저온 영역의 황 분말 및 Ar 사용. 약 850 °C에서 수직 적층, 약 650 °C에서 면내 접합이 우세하도록 성장 온도를 조절했다.",
+     "sample": "WS₂/MoS₂ 수직·면내 구조",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Synthesis and morphology"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "전구체",
+     "canonical_name": "전구체",
+     "category": "precursor",
+     "metric_key": "precursor",
+     "metric_label": "전구체",
+     "qualifier": "파우더",
+     "value": null,
+     "value_text": "sulphur powder",
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "상류 저온 영역에 배치; 황 증기 공급원",
+     "method": "단일 단계 기상 성장(CVD/증기상 성장); MoO₃ 분말로 MoS₂ 성장, W와 Te 혼합 분말로 WS₂ 성장, 상류 저온 영역의 황 분말 및 Ar 사용. 약 850 °C에서 수직 적층, 약 650 °C에서 면내 접합이 우세하도록 성장 온도를 조절했다.",
+     "sample": "WS₂/MoS₂ 수직·면내 구조",
+     "materials": [
+      "WS2",
+      "MoS2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "Synthesis and morphology"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -7441,10 +12759,378 @@
    "doi": null,
    "url": null,
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "MoS2",
+    "WSe2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "local bandgap modulation amplitude",
+     "canonical_name": "국소 밴드갭 변조 진폭",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 0.15,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "Moiré 주기에 따른 X-Y 방향 주기 변조",
+     "method": "STS 및 DFT 비교",
+     "sample": "회전 정렬 MoS₂/WSe₂ 이종 이중층",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Results and Discussion"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "기판",
+     "canonical_name": "열분해 흑연 기판 (HOPG)",
+     "category": "substrate",
+     "metric_key": "substrate",
+     "metric_label": "기판",
+     "qualifier": null,
+     "value": null,
+     "value_text": "HOPG",
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "WSe₂ 성장 단계",
+     "method": "두 단계 CVD 성장으로 HOPG 위에 단층 WSe₂를 먼저 성장하고, 별도 공정으로 그 위에 단층 MoS₂를 수직 적층 성장했다. STM으로 표면 Moiré 구조를 관찰하고 ADF-STEM으로 국소 원자 배열과 R stacking을 분석했다.",
+     "sample": "회전 정렬 MoS₂/WSe₂ 이종 이중층",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Materials and Methods"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "Ar flow",
+     "canonical_name": "아르곤 유량",
+     "category": "gas_flow",
+     "metric_key": "gas_flow",
+     "metric_label": "가스 유량",
+     "qualifier": "Ar",
+     "value": 90.0,
+     "value_text": null,
+     "unit": "sccm",
+     "norm_value": 90.0,
+     "norm_unit": "sccm",
+     "bound": "",
+     "conditions": "WSe₂ 성장",
+     "method": "두 단계 CVD 성장으로 HOPG 위에 단층 WSe₂를 먼저 성장하고, 별도 공정으로 그 위에 단층 MoS₂를 수직 적층 성장했다. STM으로 표면 Moiré 구조를 관찰하고 ADF-STEM으로 국소 원자 배열과 R stacking을 분석했다.",
+     "sample": "회전 정렬 MoS₂/WSe₂ 이종 이중층",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Materials and Methods"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "H₂ flow",
+     "canonical_name": "수소 유량",
+     "category": "gas_flow",
+     "metric_key": "gas_flow",
+     "metric_label": "가스 유량",
+     "qualifier": "H₂",
+     "value": 6.0,
+     "value_text": null,
+     "unit": "sccm",
+     "norm_value": 6.0,
+     "norm_unit": "sccm",
+     "bound": "",
+     "conditions": "WSe₂ 성장",
+     "method": "두 단계 CVD 성장으로 HOPG 위에 단층 WSe₂를 먼저 성장하고, 별도 공정으로 그 위에 단층 MoS₂를 수직 적층 성장했다. STM으로 표면 Moiré 구조를 관찰하고 ADF-STEM으로 국소 원자 배열과 R stacking을 분석했다.",
+     "sample": "회전 정렬 MoS₂/WSe₂ 이종 이중층",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Materials and Methods"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "chamber pressure",
+     "canonical_name": "챔버 압력",
+     "category": "pressure",
+     "metric_key": "pressure",
+     "metric_label": "합성 압력",
+     "qualifier": null,
+     "value": 20.0,
+     "value_text": null,
+     "unit": "torr",
+     "norm_value": 20.0,
+     "norm_unit": "Torr",
+     "bound": "",
+     "conditions": "WSe₂ 성장",
+     "method": "두 단계 CVD 성장으로 HOPG 위에 단층 WSe₂를 먼저 성장하고, 별도 공정으로 그 위에 단층 MoS₂를 수직 적층 성장했다. STM으로 표면 Moiré 구조를 관찰하고 ADF-STEM으로 국소 원자 배열과 R stacking을 분석했다.",
+     "sample": "회전 정렬 MoS₂/WSe₂ 이종 이중층",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Materials and Methods"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "WO₃ source temperature",
+     "canonical_name": "삼산화텅스텐 공급원 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": null,
+     "value": 935.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 935.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "WSe₂ 성장",
+     "method": "두 단계 CVD 성장으로 HOPG 위에 단층 WSe₂를 먼저 성장하고, 별도 공정으로 그 위에 단층 MoS₂를 수직 적층 성장했다. STM으로 표면 Moiré 구조를 관찰하고 ADF-STEM으로 국소 원자 배열과 R stacking을 분석했다.",
+     "sample": "회전 정렬 MoS₂/WSe₂ 이종 이중층",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Materials and Methods"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "WSe₂ growth duration",
+     "canonical_name": "성장 시간",
+     "category": "process_duration",
+     "metric_key": "growth_time",
+     "metric_label": "합성 시간",
+     "qualifier": null,
+     "value": 15.0,
+     "value_text": null,
+     "unit": "min",
+     "norm_value": 15.0,
+     "norm_unit": "min",
+     "bound": "",
+     "conditions": "성장 온도 도달 후 유지",
+     "method": "두 단계 CVD 성장으로 HOPG 위에 단층 WSe₂를 먼저 성장하고, 별도 공정으로 그 위에 단층 MoS₂를 수직 적층 성장했다. STM으로 표면 Moiré 구조를 관찰하고 ADF-STEM으로 국소 원자 배열과 R stacking을 분석했다.",
+     "sample": "회전 정렬 MoS₂/WSe₂ 이종 이중층",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Materials and Methods"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "Ar gas flow",
+     "canonical_name": "아르곤 유량",
+     "category": "gas_flow",
+     "metric_key": "gas_flow",
+     "metric_label": "가스 유량",
+     "qualifier": "Ar",
+     "value": 70.0,
+     "value_text": null,
+     "unit": "sccm",
+     "norm_value": 70.0,
+     "norm_unit": "sccm",
+     "bound": "",
+     "conditions": "MoS₂ 성장",
+     "method": "두 단계 CVD 성장으로 HOPG 위에 단층 WSe₂를 먼저 성장하고, 별도 공정으로 그 위에 단층 MoS₂를 수직 적층 성장했다. STM으로 표면 Moiré 구조를 관찰하고 ADF-STEM으로 국소 원자 배열과 R stacking을 분석했다.",
+     "sample": "회전 정렬 MoS₂/WSe₂ 이종 이중층",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Materials and Methods"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "chamber pressure",
+     "canonical_name": "챔버 압력",
+     "category": "pressure",
+     "metric_key": "pressure",
+     "metric_label": "합성 압력",
+     "qualifier": null,
+     "value": 40.0,
+     "value_text": null,
+     "unit": "torr",
+     "norm_value": 40.0,
+     "norm_unit": "Torr",
+     "bound": "",
+     "conditions": "MoS₂ 성장",
+     "method": "두 단계 CVD 성장으로 HOPG 위에 단층 WSe₂를 먼저 성장하고, 별도 공정으로 그 위에 단층 MoS₂를 수직 적층 성장했다. STM으로 표면 Moiré 구조를 관찰하고 ADF-STEM으로 국소 원자 배열과 R stacking을 분석했다.",
+     "sample": "회전 정렬 MoS₂/WSe₂ 이종 이중층",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Materials and Methods"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "MoO₃ source temperature",
+     "canonical_name": "삼산화몰리브덴 공급원 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": null,
+     "value": 755.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 755.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "MoS₂ 성장",
+     "method": "두 단계 CVD 성장으로 HOPG 위에 단층 WSe₂를 먼저 성장하고, 별도 공정으로 그 위에 단층 MoS₂를 수직 적층 성장했다. STM으로 표면 Moiré 구조를 관찰하고 ADF-STEM으로 국소 원자 배열과 R stacking을 분석했다.",
+     "sample": "회전 정렬 MoS₂/WSe₂ 이종 이중층",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Materials and Methods"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "MoS₂ synthesis duration",
+     "canonical_name": "성장 시간",
+     "category": "process_duration",
+     "metric_key": "growth_time",
+     "metric_label": "합성 시간",
+     "qualifier": null,
+     "value": 15.0,
+     "value_text": null,
+     "unit": "min",
+     "norm_value": 15.0,
+     "norm_unit": "min",
+     "bound": "",
+     "conditions": "MoS₂ 성장",
+     "method": "두 단계 CVD 성장으로 HOPG 위에 단층 WSe₂를 먼저 성장하고, 별도 공정으로 그 위에 단층 MoS₂를 수직 적층 성장했다. STM으로 표면 Moiré 구조를 관찰하고 ADF-STEM으로 국소 원자 배열과 R stacking을 분석했다.",
+     "sample": "회전 정렬 MoS₂/WSe₂ 이종 이중층",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "Materials and Methods"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "STM/STS measurement temperature",
+     "canonical_name": "STM/STS 측정 온도",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 77.0,
+     "value_text": null,
+     "unit": "K",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "초고진공",
+     "method": "두 단계 CVD 성장으로 HOPG 위에 단층 WSe₂를 먼저 성장하고, 별도 공정으로 그 위에 단층 MoS₂를 수직 적층 성장했다. STM으로 표면 Moiré 구조를 관찰하고 ADF-STEM으로 국소 원자 배열과 R stacking을 분석했다.",
+     "sample": "회전 정렬 MoS₂/WSe₂ 이종 이중층",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Materials and Methods: STM and STS"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "ADF-STEM acceleration voltage",
+     "canonical_name": "ADF-STEM 가속 전압",
+     "category": "characterization_setting",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 200.0,
+     "value_text": null,
+     "unit": "kV",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "probe-corrected Titan ChemiSTEM",
+     "method": "두 단계 CVD 성장으로 HOPG 위에 단층 WSe₂를 먼저 성장하고, 별도 공정으로 그 위에 단층 MoS₂를 수직 적층 성장했다. STM으로 표면 Moiré 구조를 관찰하고 ADF-STEM으로 국소 원자 배열과 R stacking을 분석했다.",
+     "sample": "회전 정렬 MoS₂/WSe₂ 이종 이중층",
+     "materials": [
+      "MoS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 6,
+      "kind": "text",
+      "label": "Materials and Methods: ADF-STEM characterization and image simulation"
+     }
+    }
+   ],
    "device_components": []
   },
   {
@@ -8513,10 +14199,321 @@
    "doi": null,
    "url": null,
    "research_type": [],
-   "materials": [],
-   "has_verified_data": false,
-   "approval": null,
-   "values": [],
+   "materials": [
+    "SiO2",
+    "WS2",
+    "WSe2"
+   ],
+   "has_verified_data": true,
+   "approval": "ai_consensus",
+   "values": [
+    {
+     "kind": "measurement",
+     "name": "격자 불일치",
+     "canonical_name": "격자 불일치",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": 4.0,
+     "value_text": null,
+     "unit": "%",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "WS₂/WSe₂ 이종 계면",
+     "method": "회절 분석",
+     "sample": "WS₂/WSe₂ 단층 초격자",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 1,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "격자 불일치 평행 방향 (d//)",
+     "canonical_name": "계면 평행 격자 불일치",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "계면 평행",
+     "value": 0.0,
+     "value_text": null,
+     "unit": "%",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "결맞은 초격자",
+     "method": "SAED",
+     "sample": "WS₂/WSe₂ 단층 초격자",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "격자 회전 표준편차",
+     "canonical_name": "격자 회전 표준편차",
+     "category": "structural",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": "표준편차",
+     "value": 1.0,
+     "value_text": null,
+     "unit": "mrad",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "EMPAD 격자 방향 지도",
+     "method": "EMPAD",
+     "sample": "WS₂/WSe₂ 단층 초격자",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "내재 WS₂ 광발광 피크 에너지",
+     "canonical_name": "광발광 피크 에너지",
+     "category": "optical",
+     "metric_key": "pl_peak",
+     "metric_label": "PL 피크",
+     "qualifier": "WS₂ 내재 피크",
+     "value": 1.97,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 1.97,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "내재 WS₂ 단층",
+     "method": "광발광 분광(PL)",
+     "sample": "내재 WS₂ 단층",
+     "materials": [
+      "WS2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "내재 WSe₂ 광발광 피크 에너지",
+     "canonical_name": "광발광 피크 에너지",
+     "category": "optical",
+     "metric_key": "pl_peak",
+     "metric_label": "PL 피크",
+     "qualifier": "WSe₂ 내재 피크",
+     "value": 1.61,
+     "value_text": null,
+     "unit": "eV",
+     "norm_value": 1.61,
+     "norm_unit": "eV",
+     "bound": "",
+     "conditions": "내재 WSe₂ 단층",
+     "method": "광발광 분광(PL)",
+     "sample": "내재 WSe₂ 단층",
+     "materials": [
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "리플 파장",
+     "canonical_name": "리플 파장",
+     "category": "morphology",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": "near 30 nm",
+     "unit": "nm",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "dWSe₂ 20–320 nm 범위의 초격자",
+     "method": "AFM",
+     "sample": "WS₂/WSe₂ 단층 초격자",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "평탄 상태와 리플 상태 사이 활성화 에너지",
+     "canonical_name": "에너지 장벽",
+     "category": "mechanical",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": "10 to 20 meV per WSe₂",
+     "unit": "meV/WSe₂",
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "계산; WSe₂당",
+     "method": "탄성 에너지 모델 및 all-atom 양자역학적 vdW 에너지 모델",
+     "sample": "WSe₂/SiO₂ 계산 모델",
+     "materials": [
+      "WSe2",
+      "SiO2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "measurement",
+     "name": "p-n 다이오드 정류비",
+     "canonical_name": "정류비",
+     "category": "device_performance",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": ">10⁶",
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "세부 측정 조건 본문 미보고",
+     "method": "전기적 소자 측정",
+     "sample": "WS₂/WSe₂ 이종구조 p-n 다이오드",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "measured",
+     "evidence": {
+      "page": 3,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "기판 성장 온도",
+     "canonical_name": "성장 온도",
+     "category": "growth_temperature",
+     "metric_key": "growth_temperature",
+     "metric_label": "합성 온도",
+     "qualifier": null,
+     "value": 600.0,
+     "value_text": null,
+     "unit": "°C",
+     "norm_value": 600.0,
+     "norm_unit": "°C",
+     "bound": "",
+     "conditions": "성장 후 실온까지 냉각",
+     "method": "변조 금속유기 화학기상증착(MOCVD); 전구체 농도와 칼코젠 전구체 전환 시점을 제어하고 조성 전환 중 성장 환경을 일정하게 유지",
+     "sample": "WS₂/WSe₂ 단층 초격자",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 5,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "성장 속도",
+     "canonical_name": "성장 속도",
+     "category": "other",
+     "metric_key": null,
+     "metric_label": null,
+     "qualifier": null,
+     "value": null,
+     "value_text": "20–60 nm/min",
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": "열역학적 평형에 가까운 조건",
+     "method": "변조 금속유기 화학기상증착(MOCVD); 전구체 농도와 칼코젠 전구체 전환 시점을 제어하고 조성 전환 중 성장 환경을 일정하게 유지",
+     "sample": "WS₂/WSe₂ 단층 초격자",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 2,
+      "kind": "text",
+      "label": "본문"
+     }
+    },
+    {
+     "kind": "parameter",
+     "name": "성장 기판",
+     "canonical_name": "기판",
+     "category": "substrate",
+     "metric_key": "substrate",
+     "metric_label": "기판",
+     "qualifier": null,
+     "value": null,
+     "value_text": "SiO₂",
+     "unit": null,
+     "norm_value": null,
+     "norm_unit": null,
+     "bound": "",
+     "conditions": null,
+     "method": "변조 금속유기 화학기상증착(MOCVD); 전구체 농도와 칼코젠 전구체 전환 시점을 제어하고 조성 전환 중 성장 환경을 일정하게 유지",
+     "sample": "WS₂/WSe₂ 단층 초격자",
+     "materials": [
+      "WS2",
+      "WSe2"
+     ],
+     "value_origin": "author_reported",
+     "evidence": {
+      "page": 4,
+      "kind": "text",
+      "label": "본문"
+     }
+    }
+   ],
    "device_components": []
   },
   {
