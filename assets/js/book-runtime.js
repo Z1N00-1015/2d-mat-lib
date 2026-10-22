@@ -55,8 +55,8 @@ export const FIELDS = [
         desc: '에너지 밴드, 직접·간접 밴드갭, 2D 물질의 층수 효과와 광학 응답을 살펴봅니다.', labs: ['밴드갭과 빛', 'MoS₂ 층 수', '디랙 원뿔'] },
       { id: 'materials', n: '02', title: '2D·광대역 반도체와 응용', group: '물질과 응용',
         desc: '2D 반도체와 SiC·GaN·Ga₂O₃ 등 광대역 반도체의 특성 및 전력 소자 응용을 비교합니다.', labs: ['물질 라인업', '전력 반도체 비교'] },
-      { id: 'devices', n: '03', title: 'FET와 차세대 트랜지스터', group: '소자 응용',
-        desc: 'MOSFET의 게이트 제어와 2D 채널을 익히고 FeS-FET·NCFET의 기본 아이디어를 소개합니다.', labs: ['양자 터널링', '단채널 MOSFET'] },
+      { id: 'devices', n: '03', title: 'FET와 차세대 소자 응용', group: '소자 응용',
+        desc: 'MOSFET의 게이트 제어와 2D 채널을 익히고 FeS-FET·NCFET, 이종구조 기반 소자 응용을 살펴봅니다.', labs: ['양자 터널링', '단채널 MOSFET'] },
     ],
   },
   {

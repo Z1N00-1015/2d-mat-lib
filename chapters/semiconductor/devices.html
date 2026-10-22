@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FET와 차세대 트랜지스터 · 반도체 물리와 소자 응용 · Beyond Silicon</title>
+<title>FET와 차세대 소자 응용 · 반도체 물리와 소자 응용 · Beyond Silicon</title>
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css?v=20261020-temmoire2">
@@ -15,8 +15,8 @@
 <article class="article">
   <header class="chapter-head">
     <div class="eyebrow">CHAPTER III · DEVICE APPLICATIONS</div>
-    <h1>FET와 차세대 트랜지스터</h1>
-    <p class="lede">기본 MOSFET의 게이트 제어 원리와 2D 채널의 장점을 확인한 뒤, 강유전체와 음의 정전용량을 이용해 낮은 전압 동작을 노리는 차세대 FET의 아이디어를 간단히 살펴봅니다.</p>
+    <h1>FET와 차세대 소자 응용</h1>
+    <p class="lede">기본 MOSFET의 게이트 제어와 2D 채널을 살펴보고, 강유전체·음의 정전용량·반데르발스 이종구조를 이용한 소자 아이디어로 확장합니다.</p>
     <div class="meta"></div>
   </header>
 
@@ -96,6 +96,15 @@
   </div>
   <div class="callout fact"><span class="t">세 구조를 구분하기</span><p>FeFET는 강유전체 절연층을 게이트 적층에 넣고, FeS-FET는 강유전체 반도체를 채널로 사용합니다. NCFET는 강유전체의 음의 정전용량 응답을 이용한 내부 전압 증폭을 연구합니다. 구조와 목표가 서로 다릅니다.</p></div>
   <p class="note">더 읽을 자료: <a href="https://www.nature.com/articles/s41928-019-0338-7" target="_blank" rel="noopener">2D 강유전체 반도체 채널을 사용한 FeS-FET 연구</a>, <a href="https://www.nature.com/articles/s41928-020-00492-7" target="_blank" rel="noopener">FeFET 기술 전망</a>, <a href="https://www.nature.com/articles/s41524-022-00738-2" target="_blank" rel="noopener">강유전체 음의 정전용량 FET의 물리</a>.</p>
+
+  <h2 id="vdw-devices"><span class="sec">3.6</span>반데르발스 이종구조 기반 소자</h2>
+  <p>앞 장에서 본 밴드 정렬과 층간 결합은 소자 구조를 설계하는 재료 물리의 출발점입니다. 전류의 방향과 제어 방법에 따라 광전자 소자, 수직 터널링 소자, 이종 접촉 등으로 이어집니다. 아래는 대표적인 연구 방향이며, 성능은 특정 소재 조합과 계면 품질에 따라 달라집니다. 이종구조의 적층 방식과 계면 물성은 <a href="../materials/moire.html#vdw-integration">이종구조와 모아레 연구 장</a>에서 확인할 수 있습니다.</p>
+  <div class="cards">
+    <div class="card"><div class="ico">✦</div><h5>광검출기와 발광 소자</h5><p>밴드 정렬이 층간 전하 이동을 유도하거나 전자와 정공을 서로 다른 층에 가둡니다. 층간 엑시톤과 광응답을 이용한 광검출·발광 구조가 연구되고 있습니다.</p></div>
+    <div class="card"><div class="ico">⇣</div><h5>터널 트랜지스터와 공명 터널 다이오드</h5><p>원자층 반도체와 얇은 절연 장벽을 수직으로 쌓아 터널 전류를 제어합니다. 층간 밴드 정렬과 장벽 두께가 전류 특성을 좌우합니다.</p></div>
+    <div class="card"><div class="ico">🔌</div><h5>이종 접촉과 혼합 차원 소자</h5><p>금속·반도체·나노와이어 등 서로 다른 차원의 재료를 접촉부와 게이트에 조합해 접촉 특성이나 수직 집적을 설계합니다. 재료 표면과 공정에 따른 계면 결함은 계속 해결해야 할 과제입니다.</p></div>
+  </div>
+  <p class="note">이종구조 소자 개념과 연구 사례는 <a href="https://doi.org/10.1038/nature12385" target="_blank" rel="noopener">Geim &amp; Grigorieva, Nature (2013)</a> 및 <a href="https://doi.org/10.1126/science.aac9439" target="_blank" rel="noopener">Novoselov et al., Science (2016)</a>에서 확인할 수 있습니다. 소자 아이디어, 실험 시연, 공정 호환성을 확보한 구현은 서로 다른 단계로 구분해야 합니다.</p>
 </article>
 </main>
 </body>
