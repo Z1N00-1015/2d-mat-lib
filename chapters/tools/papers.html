@@ -6,9 +6,9 @@
 <title>논문 데이터 · 도구 · Beyond Silicon</title>
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../../assets/css/book.css?v=20261021-paper-axes">
+<link rel="stylesheet" href="../../assets/css/book.css?v=20261022-paper-search">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book-runtime.js?v=20261021-synthesis-text-only"></script>
+<script type="module" src="../../assets/js/book-runtime.js?v=20261022-paper-search"></script>
 </head>
 <body data-root="../../" data-field="tools" data-chapter="papers">
 <main class="main">
@@ -16,57 +16,24 @@
   <header class="chapter-head">
     <div class="eyebrow">TOOLS · RESEARCH DATA</div>
     <h1>논문 데이터</h1>
-    <p class="lede">연구자가 원문과 대조해 검토한 주요 지표를 논문별로 비교합니다.</p>
+    <p class="lede">연구실 라이브러리에 저장된 논문을 제목·저자·소재와 검토 데이터로 찾아봅니다.</p>
     <div class="meta"></div>
   </header>
 
-  <div id="lab-papers" data-module="paperdata">
-    <h2><span class="sec">1.1</span>논문별 수치 비교</h2>
-    <p>가로축과 세로축에서 비교할 지표를 선택하세요. 가능한 경우 시료명이 같은 값끼리 연결하고, 각 지표가 논문마다 하나씩만 있으면 논문 단위로 비교합니다. 점을 누르면 논문 원문이 열립니다.</p>
-    <p class="hint">지표와 시료의 보고 방식이 논문마다 달라, 축 조합에 따라 표시되는 논문 수가 달라집니다. 점이 없으면 데이터가 삭제된 것이 아니라, 선택한 두 지표를 함께 비교할 조건이 없을 수 있습니다.</p>
-    <div class="lab-tools"><strong>핵심 소재</strong><div class="seg" data-k="mat"></div></div>
-    <div class="paper-axis-controls">
-      <label>가로축<select data-o="axis-x"></select></label>
-      <label>세로축<select data-o="axis-y"></select></label>
+  <div id="paper-library-search" data-module="papersearch">
+    <h2><span class="sec">1.1</span>논문 검색</h2>
+    <p>검색어를 입력하면 저장된 논문 가운데 일치하는 항목을 찾아줍니다. 제목, 저자, 저널, 연도, DOI, 소재와 공개된 검토 데이터에서 검색합니다.</p>
+    <p class="hint">검색 대상은 공개용 논문 데이터입니다. 논문 PDF 전문은 이 사이트에 공개되거나 검색되지 않습니다.</p>
+    <div class="paper-search-box">
+      <label for="paper-library-query">논문 라이브러리 검색</label>
+      <div class="paper-search-row">
+        <input id="paper-library-query" data-paper-search type="search" autocomplete="off" placeholder="예: MoS₂, hypotaxy, Jinwoo Kim, DOI">
+        <button class="paper-search-clear" data-paper-clear type="button" hidden>지우기</button>
+      </div>
+      <p class="paper-search-status" data-paper-status aria-live="polite"></p>
     </div>
-    <section class="lab">
-      <div class="lab-head"><span class="badge">LAB 1-1</span><h4>논문별 지표 산점도</h4><span class="sub">점을 누르면 논문 페이지가 열립니다</span></div>
-      <div class="lab-body">
-        <div class="stage light paper-scatter-stage"><canvas></canvas><div class="tip"></div></div>
-        <p class="hint" data-o="status"></p>
-        <p class="hint" data-o="updated"></p>
-        <details class="vtable">
-          <summary>비교 데이터 표 보기</summary>
-          <div class="table-wrap"><table class="gloss-table"><thead><tr><th>논문</th><th>핵심 소재</th><th>가로축 값</th><th>세로축 값</th><th>시료</th></tr></thead><tbody data-o="table"></tbody></table></div>
-        </details>
-      </div>
-    </section>
-
-    <h2><span class="sec">1.2</span>합성 조건 비교</h2>
-    <p>소재별로 논문에 보고된 전구체와 성장 온도를 나란히 확인합니다. 전구체나 온도가 구조화되어 승인되지 않은 항목은 임의로 추정하지 않고 미등록으로 표시합니다.</p>
-    <div class="lab-tools"><strong>합성 대상 소재</strong><div class="seg" data-k="synth-mat"></div></div>
-    <p class="hint">합성 소재 필터는 논문 DB의 성장 대상 분류를 사용하며, 기판·전극·전구체를 합성 소재로 세지 않습니다.</p>
-    <section class="lab">
-      <div class="lab-head"><span class="badge">DB</span><h4>소재별 전구체와 합성 온도</h4><span class="sub">소재를 선택하면 해당 논문만 표시됩니다</span></div>
-      <div class="lab-body">
-        <p class="hint" data-o="synthesis-status"></p>
-        <div class="table-wrap"><table class="gloss-table"><thead><tr><th>합성 대상</th><th>사용 물질</th><th>합성 온도</th><th>합성 방식·공정</th><th>논문·출처</th></tr></thead><tbody data-o="synthesis-table"></tbody></table></div>
-      </div>
-    </section>
-
-    <h2><span class="sec">1.3</span>합성 대상 소재별 온도</h2>
-    <p>각 논문에서 보고한 성장·합성 온도를 합성 대상 소재별 점으로 표시합니다. 위의 합성 대상 소재 필터와 연동되며, 전극 접촉 형성처럼 소재 성장과 무관한 증착 온도는 제외합니다. 아직 소재 분류가 연결되지 않은 조건은 ‘미분류’로 표시합니다.</p>
-    <section class="lab">
-      <div class="lab-head"><span class="badge">LAB 1-3</span><h4>합성 소재별 합성 온도</h4><span class="sub">점마다 논문의 보고 조건 하나를 나타냅니다</span></div>
-      <div class="lab-body">
-        <div class="stage light paper-scatter-stage"><canvas data-o="material-temp-canvas"></canvas><div class="tip" data-o="material-temp-tip"></div></div>
-        <p class="hint" data-o="material-temp-status"></p>
-        <details class="vtable">
-          <summary>소재별 합성 온도 데이터 보기</summary>
-          <div class="table-wrap"><table class="gloss-table"><thead><tr><th>논문</th><th>합성 대상 소재</th><th>합성 온도</th><th>시료</th><th>근거 위치</th></tr></thead><tbody data-o="material-temp-table"></tbody></table></div>
-        </details>
-      </div>
-    </section>
+    <p class="paper-search-updated" data-paper-updated></p>
+    <div class="paper-search-list" data-paper-results aria-live="polite"></div>
   </div>
 </article>
 </main>

@@ -533,6 +533,9 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
   .discovery-head { align-items: start; flex-direction: column; }
   .discovery-head h2, .section-heading h2 { font-size: 22px; }
   .home-search { padding: 12px; }
+  .paper-search-box { padding: 12px; }
+  .paper-search-card { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 13px; }
+  .paper-search-record { justify-self: start; }
   .all-topics > summary, .site-help > summary { padding: 13px 14px; }
   .all-topics #fields { padding: 12px; }
   .material-family-grid { grid-template-columns: 1fr; }
@@ -688,11 +691,26 @@ sub, sup { font-size: .72em; line-height: 0; }
 .kpi .v { font-family: var(--mono); font-size: 26px; font-weight: 800; letter-spacing: -.02em; }
 .kpi .k { font-size: 13px; color: var(--muted); }
 .vtable summary { cursor: pointer; font-size: 14px; color: var(--accent); }
-.paper-axis-controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 14px 0; }
-.paper-axis-controls label { display: grid; gap: 6px; color: var(--text-2); font-size: 13px; font-weight: 700; }
-.paper-axis-controls select { width: 100%; min-height: 42px; padding: 8px 12px; border: 1px solid var(--border-2); border-radius: 10px; background: var(--surface); color: var(--text); font: inherit; font-weight: 400; }
-.paper-scatter-stage { height: 460px; }
-.paper-scatter-stage canvas { touch-action: manipulation; cursor: crosshair; }
+.paper-search-box { margin: 18px 0 8px; padding: 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); }
+.paper-search-box > label { display: block; margin-bottom: 7px; color: var(--text-2); font-size: 14px; font-weight: 750; }
+.paper-search-row { display: flex; gap: 8px; }
+.paper-search-row input { width: 100%; min-width: 0; padding: 11px 13px; border: 1px solid var(--border-2); border-radius: 10px; background: var(--bg); color: var(--text); font: inherit; font-size: 15px; outline: none; }
+.paper-search-row input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.paper-search-clear { flex: none; padding: 8px 14px; border: 1px solid var(--border-2); border-radius: 10px; background: var(--surface-2); color: var(--text-2); font: inherit; font-size: 13px; cursor: pointer; }
+.paper-search-status, .paper-search-updated { margin: 8px 0 0; color: var(--muted); font-size: 12.5px; }
+.paper-search-updated { text-align: right; }
+.paper-search-list { display: grid; gap: 10px; margin-top: 12px; }
+.paper-search-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 16px; min-width: 0; padding: 16px 18px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+.paper-search-card-main { min-width: 0; }
+.paper-search-meta { color: var(--teal); font-size: 12px; font-weight: 700; }
+.paper-search-card h3 { margin: 4px 0; font-size: 16px; line-height: 1.45; overflow-wrap: anywhere; }
+.paper-search-card h3 a { color: var(--text); }
+.paper-search-card h3 a:hover { color: var(--accent); }
+.paper-search-authors { margin: 0; color: var(--muted); font-size: 12.5px; }
+.paper-search-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+.paper-search-tags span { padding: 1px 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface-2); color: var(--text-2); font-size: 11.5px; }
+.paper-search-record { color: var(--text-2); font-size: 12px; white-space: nowrap; }
+.paper-search-empty { padding: 24px 16px; border: 1px dashed var(--border-2); border-radius: 14px; color: var(--muted); text-align: center; }
 
 /* glossary */
 .gloss-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 12px; }
@@ -727,8 +745,6 @@ table.gloss-table .empty { text-align: center; color: var(--muted); padding: 30p
 @media (max-width: 900px) {
   .lab-row2 { grid-template-columns: 1fr; }
   .kpis { grid-template-columns: 1fr 1fr; }
-  .paper-axis-controls { grid-template-columns: 1fr; }
-  .paper-scatter-stage { height: 380px; }
   .device-search-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .field-head { grid-template-columns: 1fr; }
 }
