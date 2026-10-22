@@ -22,7 +22,7 @@
 
   <h2><span class="sec">1.1</span>에너지 밴드와 밴드갭</h2>
   <p>고립된 원자의 전자는 불연속적인 에너지 준위를 가집니다. 원자들이 결정을 이루면 이웃 원자의 오비탈이 겹치면서 준위가 넓어져 연속적인 <strong>에너지 밴드(energy band)</strong>가 됩니다. 전자로 채워진 가장 높은 밴드를 <strong>가전자대(valence band)</strong>, 그 위의 빈 밴드를 <strong>전도대(conduction band)</strong>라 하고, 그 사이의 금지된 에너지 폭이 <strong>밴드갭(band gap, E<sub>g</sub>)</strong>입니다.</p>
-  <p>반도체는 밴드갭보다 큰 에너지의 광자만 흡수하는데, 이를 기초 흡수(fundamental absorption)라 합니다. 반대로 전도대의 전자가 가전자대의 정공과 재결합하면 밴드갭에 해당하는 에너지의 빛을 방출합니다. 광자 에너지와 파장의 관계는 다음과 같습니다.</p>
+  <p>밴드 간 기초 흡수(fundamental absorption)는 광자가 전자를 가전자대에서 전도대로 들뜨게 할 수 있는 허용된 전이 에너지에서 시작합니다. 다만 실제 광학 스펙트럼의 흡수·발광 피크가 전자와 정공을 각각 독립 입자로 본 단일입자 밴드갭과 항상 같지는 않습니다. 특히 원자층에서는 전자와 정공 사이의 쿨롱 인력이 강해 엑시톤(exciton)이 형성되고, 엑시톤 광학 전이는 단일입자 밴드갭보다 낮은 에너지에 나타날 수 있습니다. 간접 전이에는 보통 포논도 관여합니다. 광자 에너지와 파장의 관계는 다음과 같습니다.</p>
   <div class="eq"><i>E</i> = <i>hc</i> / λ &nbsp;&nbsp;⟹&nbsp;&nbsp; λ (nm) ≈ 1240 / <i>E</i> (eV)</div>
 
   <section class="lab" id="lab-spectrum" data-module="spectrum">
@@ -47,10 +47,10 @@
   <p>광자는 운동량이 매우 작기 때문에, 간접 밴드갭 반도체에서 전자가 빛을 내며 전이하려면 운동량을 보충해 줄 포논(phonon)이 함께 관여해야 합니다. 이 2차 과정은 확률이 낮아 발광 효율이 떨어집니다. 실리콘이 LED에 쓰이지 않는 이유입니다.</p>
 
   <h3>MoS₂: 층 수에 따른 전이</h3>
-  <p>벌크 MoS₂는 약 1.2 eV의 간접 밴드갭을 가집니다(Γ점 가전자대 → Λ점 부근 전도대). 층 수가 줄면 층간 상호작용에 민감한 Γ점 가전자대가 크게 낮아지는 반면, Mo의 d 오비탈이 주성분인 K점의 상태는 거의 변하지 않습니다. 그 결과 단층에서는 K점의 직접 전이(약 1.9 eV)가 가장 작은 밴드갭이 되어, 광발광(photoluminescence, PL) 세기가 수천 배 증가합니다(Mak et al., PRL 2010; Splendiani et al., Nano Lett. 2010).</p>
+  <p>벌크 MoS₂는 약 1.2 eV의 간접 밴드갭을 가집니다(Γ점 가전자대 → Λ점 부근 전도대). 층 수가 줄면 층간 상호작용에 민감한 Γ점 가전자대가 크게 낮아지는 반면, Mo의 d 오비탈이 주성분인 K점의 상태는 상대적으로 덜 변합니다. 그 결과 단층에서는 K점의 직접 전이가 최저 에너지 전이가 되며, 약 1.9 eV는 대표적인 광학 전이·발광 에너지이지 단일입자 밴드갭과 동일한 값으로 취급해서는 안 됩니다. 이 직접천이형 전자구조 변화와 엑시톤 광학 응답이 단층의 강한 광발광에 기여합니다(Mak et al., PRL 2010; Splendiani et al., Nano Lett. 2010).</p>
 
   <section class="lab" id="lab-mos2" data-module="mos2">
-    <div class="lab-head"><span class="badge">LAB 1-2</span><h4>MoS₂ 층 수와 밴드갭</h4><span class="sub">층 수를 바꾸며 가장 작은 전이를 찾아보세요</span></div>
+    <div class="lab-head"><span class="badge">LAB 1-2</span><h4>MoS₂ 층 수와 최저 전이</h4><span class="sub">층 수를 바꾸며 가장 낮은 에너지 전이를 찾아보세요</span></div>
     <div class="lab-body">
       <div class="lab-row2">
         <div class="stage light h-360"><canvas data-c="band"></canvas><div class="hud">밴드 구조 (개략도) · Γ – Λ – K</div></div>
@@ -59,12 +59,12 @@
           <div class="stage light h-120"><canvas data-c="stack"></canvas></div>
           <label class="slider"><div class="row"><span>층 수</span><b data-o="N">1 층</b></div><input type="range" data-k="N" min="1" max="6" step="1" value="1"></label>
           <div class="readout" style="margin-top:0">
-            <div><div class="k">기본 밴드갭 E<sub>g</sub></div><div class="v" data-o="eg">—</div></div>
+            <div><div class="k">최저 밴드 전이 ΔE</div><div class="v" data-o="eg">—</div></div>
             <div><div class="k">밴드갭 유형</div><div class="v" data-o="type">—</div></div>
           </div>
         </div>
       </div>
-      <p class="hint">층 수 슬라이더의 마지막 값은 벌크입니다. 값은 문헌의 대표값을 이용한 개략도입니다.</p>
+      <p class="hint">층 수 슬라이더의 마지막 값은 벌크입니다. 개략도의 전이 에너지는 문헌 대표값이며, 엑시톤 결합에너지를 분리해 계산하지 않습니다. 광학 피크를 단일입자 밴드갭과 동일시하지 마세요.</p>
     </div>
   </section>
   <div class="refs" data-module="refs" data-topic="mos2"></div>

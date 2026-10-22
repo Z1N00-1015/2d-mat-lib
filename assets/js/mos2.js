@@ -1,4 +1,4 @@
-// MoS2: layer-dependent band gap (indirect → direct) and photoluminescence
+// MoS2: layer-dependent lowest transition (indirect → direct) and photoluminescence
 import { fitCanvas, animate, range, outs, wavelengthToRGB, arrow, FONT, MONO } from './util.js';
 
 // Representative values (eV), referenced to VB maximum at K = 0
@@ -72,11 +72,11 @@ export function init(root) {
       arrow(ctx, X(indCB[0]), Y(indCB[1]) + 4, X(0) + 4, Y(cur.EvG) - 4, '#ff9f0a', 2, 9);
       ctx.setLineDash([]);
       ctx.fillStyle = '#ff9f0a'; ctx.font = `600 12px ${MONO}`;
-      ctx.fillText(`간접 ${g.ind.toFixed(2)} eV`, X(0.18), Y((indCB[1] + cur.EvG) / 2) - 6);
+      ctx.fillText(`간접 전이 ${g.ind.toFixed(2)} eV`, X(0.18), Y((indCB[1] + cur.EvG) / 2) - 6);
       ctx.globalAlpha = g.isDirect ? 1 : 0.35;
       arrow(ctx, X(1) - 10, Y(cur.Ed) + 4, X(1) - 10, Y(0) - 4, '#30d158', 3, 10);
       ctx.fillStyle = '#30d158'; ctx.textAlign = 'right';
-      ctx.fillText(`직접 ${cur.Ed.toFixed(2)} eV`, X(1) - 18, Y(cur.Ed / 2));
+      ctx.fillText(`직접 전이 ${cur.Ed.toFixed(2)} eV`, X(1) - 18, Y(cur.Ed / 2));
       ctx.globalAlpha = 1;
       // photon glow when direct
       if (g.isDirect) {
@@ -115,7 +115,7 @@ export function init(root) {
       for (const E of [1.4, 1.6, 1.8, 2.0]) ctx.fillText(`${E} eV`, X(E), h - 8);
       ctx.textAlign = 'right'; ctx.fillStyle = '#1d1d1f'; ctx.font = `600 12px ${MONO}`;
       ctx.fillText(`상대 PL 세기 ×${cur.pl.toFixed(3)}`, w - pad.r, pad.t - 12);
-      if (N > 1) { ctx.fillStyle = '#ff9f0a'; ctx.textAlign = 'center'; ctx.font = `11px ${FONT}`; ctx.fillText('간접 피크 (I)', X(g.ind), Y(0.08) - 4); }
+      if (N > 1) { ctx.fillStyle = '#ff9f0a'; ctx.textAlign = 'center'; ctx.font = `11px ${FONT}`; ctx.fillText('간접 전이 (I)', X(g.ind), Y(0.08) - 4); }
     }
     // ---- side view stack
     {
