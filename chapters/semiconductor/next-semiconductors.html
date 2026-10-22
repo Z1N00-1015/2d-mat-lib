@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>차세대 반도체 · 2차원 물질 응용 · Beyond Silicon</title>
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../../assets/css/book.css?v=20261020-temmoire2">
+<script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
+<script type="module" src="../../assets/js/book-runtime.js?v=20261022-applications-beginner"></script>
+</head>
+<body data-root="../../" data-field="applications" data-chapter="next-semiconductors">
+<main class="main"><article class="article">
+  <header class="chapter-head">
+    <div class="eyebrow">CHAPTER IV · NEXT-GENERATION SEMICONDUCTORS</div>
+    <h1>차세대 반도체</h1>
+    <p class="lede">트랜지스터를 작게 만드는 것만으로는 더 빠르고 효율적인 칩을 만들기 어려워지고 있습니다. 2D 소재를 칩 안의 배선·절연막·메모리·전력 전달에 함께 쓰려는 최신 연구 방향을 쉬운 그림으로 정리합니다.</p>
+    <div class="meta"></div>
+  </header>
+
+  <h2><span class="sec">4.9</span>왜 트랜지스터 바깥을 바꿀까?</h2>
+  <p>칩 안에는 계산하는 트랜지스터뿐 아니라, 트랜지스터끼리 신호와 전력을 주고받게 하는 가느다란 금속 배선이 촘촘히 놓입니다. 선폭이 작아질수록 구리 배선의 저항이 빠르게 증가하고, 가까운 배선 사이의 기생 정전용량도 신호 지연과 전력 소모를 키웁니다. 배선의 열과 장기 신뢰성도 문제가 됩니다.</p>
+  <p>반도체 공정의 앞부분은 트랜지스터를 만들고, 뒷부분(back-end-of-line, BEOL)은 금속 배선과 층간 절연막을 형성합니다. 최근에는 전력 배선을 웨이퍼 뒷면으로 옮기는 후면 전력 공급망(backside power-delivery network, BSPDN)도 연구됩니다. 목표는 전력 공급 경로를 짧게 하고 앞면 배선 공간을 확보하는 것입니다.</p>
+
+  <h2><span class="sec">4.10</span>2D 소재는 칩의 어느 부분에 들어갈까?</h2>
+  <div class="cards">
+    <div class="card"><div class="ico">〰️</div><h5>더 가는 배선과 보호층</h5><p>도핑 그래핀은 매우 가는 배선 후보입니다. 원자층 그래핀이나 h-BN·일부 전이금속 칼코젠화물은 금속 원자가 절연막으로 확산하는 것을 막는 라이너·배리어 후보로 연구됩니다. 실제 성능은 도핑, 접촉, 막의 연속성과 공정 온도에 달려 있습니다.</p></div>
+    <div class="card"><div class="ico">▧</div><h5>층간 절연막과 방열</h5><p>칩 층 사이를 채우는 절연막은 배선 사이 전기 간섭을 줄여야 합니다. 낮은 유전율은 기생 정전용량을 줄이고, 높은 열전도도는 발생한 열을 빼는 데 유리합니다. 다공성 저유전율 막은 약해지기 쉬워, 낮은 유전율·강도·방열을 함께 맞추는 것이 과제입니다.</p></div>
+    <div class="card"><div class="ico">▤</div><h5>BEOL 메모리와 선택 소자</h5><p>이미 만들어진 회로 위에 저온으로 트랜지스터와 메모리를 더 쌓으면 회로 면적을 효율적으로 쓸 수 있습니다. 2D 소자는 SRAM, 임베디드 DRAM, 비휘발성 메모리의 접근·선택 트랜지스터 후보입니다. 누설을 낮출 가능성이 있지만 읽기 전류와 소자 간 편차를 함께 해결해야 합니다.</p></div>
+    <div class="card"><div class="ico">⬆</div><h5>웨이퍼 후면의 전력 스위치</h5><p>후면 전력망에 스위치를 두면 앞면의 신호 배선 공간을 아끼고 전력 경로를 줄일 수 있습니다. 얇은 TMD 트랜지스터는 낮은 열 예산에서 제작할 가능성이 있어 후보로 거론됩니다. 후면 공정은 앞면 소자에 열·기계적 손상을 주지 않도록 온도 한계가 더 엄격합니다.</p></div>
+  </div>
+
+  <h2><span class="sec">4.11</span>장점은 가능성, 핵심은 제조 통합</h2>
+  <p>제공된 2026년 리뷰는 2D 물질이 원자 수준의 얇은 두께, 짧은 채널에서의 게이트 제어, 일부 재료의 전기·열 수송 특성을 바탕으로 BEOL과 웨이퍼 후면 응용에 기회를 줄 수 있다고 정리합니다. 소재별로 역할은 다릅니다. 그래핀은 전도층, h-BN은 절연·보호층, MoS₂·WS₂ 같은 반도체는 트랜지스터 채널 후보로 주로 논의됩니다.</p>
+  <p>여기서 중요한 구분은 <strong>가능성의 벤치마크가 곧 상용 공정이라는 뜻은 아니라는 점</strong>입니다. 리뷰의 비교에는 실험값과 시뮬레이션이 함께 쓰이며, 서로 다른 두께·도핑·구조를 동일한 조건으로 맞추기 어렵습니다. 특정 소재가 모든 선폭에서 구리보다 낫다고 일반화하기보다, 해당 논문의 구조와 비교 기준을 살펴야 합니다.</p>
+
+  <h2><span class="sec">4.12</span>앞으로 풀어야 할 문제</h2>
+  <div class="cards">
+    <div class="card"><div class="ico">🌡</div><h5>낮은 공정 온도</h5><p>BEOL은 아래층 회로를 손상시키지 않도록 제한된 열 예산 안에서 형성해야 합니다. 웨이퍼 후면은 더 낮은 온도가 요구될 수 있어, 낮은 온도에서도 좋은 결정성과 균일성을 얻는 성장이 필요합니다.</p></div>
+    <div class="card"><div class="ico">🧩</div><h5>계면 접착과 연속막</h5><p>원자층 막이 끊김 없이 깊은 홈과 좁은 배선에 덮여야 하고, 금속·절연막에 잘 붙어야 합니다. 작은 핀홀이나 주름도 배리어 성능과 수명을 떨어뜨릴 수 있습니다.</p></div>
+    <div class="card"><div class="ico">📐</div><h5>열·전기·기계 특성의 균형</h5><p>배선은 전기가 잘 통해야 하고, 절연막은 정전용량을 낮추면서 단단하고 열을 전달해야 합니다. 한 특성을 개선하면 다른 특성이 나빠질 수 있어 용도별 최적화가 필요합니다.</p></div>
+    <div class="card"><div class="ico">🏭</div><h5>공정 표준과 수율</h5><p>웨이퍼마다 같은 조성·두께·결함 밀도를 얻고, 기존 CMOS 공정과의 오염·식각·접합 호환성을 입증해야 합니다. 설계 도구, 신뢰성 규격과 충분한 수율 데이터도 아직 필요한 기반입니다.</p></div>
+  </div>
+  <div class="callout fact"><span class="t">한 줄로 정리</span><p>차세대 반도체에서 2D 소재의 역할은 ‘더 작은 채널’에 그치지 않습니다. 배선의 저항과 지연, 절연막의 방열, 회로층과 후면 전력망의 집적을 개선할 후보지만, 균일한 대면적 제조와 공정 호환성·수명을 입증해야 실제 칩에 들어갈 수 있습니다.</p></div>
+  <h2><span class="sec">4.13</span>광대역 반도체: 전력 소자의 또 다른 방향</h2>
+  <p>차세대 반도체 연구가 모두 2D 소재를 뜻하지는 않습니다. SiC·GaN·Ga₂O₃ 같은 광대역 밴드갭(wide-bandgap, WBG) 반도체는 높은 전압과 온도를 견디는 전력 변환용 소자를 목표로 합니다. 반면 여기서 다룬 2D 소재 리뷰의 중심은 배선·절연막·메모리·저온 집적입니다. 두 연구 방향은 서로 다른 병목을 겨냥합니다.</p>
+  <p>전력 소자의 대표 비교 지표인 Baliga 성능지수(Baliga's figure of merit, BFOM)는 절연파괴 전계의 세제곱과 유전율·이동도에 비례합니다. 이는 재료의 잠재력을 보는 기준이며, 실제 적용에는 열 관리·기판 크기·가격·도핑과 패키징도 중요합니다.</p>
+  <section class="lab" id="lab-power" data-module="power">
+    <div class="lab-head"><span class="badge">LAB 4-2</span><h4>전력 반도체의 물성 비교</h4><span class="sub">축을 바꿔 재료 지표를 비교해 보세요</span></div>
+    <div class="lab-body">
+      <div class="lab-tools"><div class="seg" data-k="metric"><button class="on" data-v="bfom">BFOM</button><button data-v="ec">절연파괴 전계</button><button data-v="k">열전도율</button><button data-v="mu">전자 이동도</button></div></div>
+      <div class="lab-row2"><div class="stage h-360"><canvas data-c="scatter"></canvas><div class="tip" data-o="tip"></div></div><div class="stage h-360"><canvas data-c="bars"></canvas></div></div>
+    </div>
+  </section>
+  <p class="note">참고: <a href="https://doi.org/10.1038/s41565-026-02274-2" target="_blank" rel="noopener">Wang et al., “Two-dimensional materials for advanced back-end-of-line and wafer backside technologies”, Nature Nanotechnology (2026)</a>.</p>
+</article></main>
+</body>
+</html>
