@@ -700,6 +700,11 @@ sub, sup { font-size: .72em; line-height: 0; }
 .paper-search-status, .paper-search-updated { margin: 8px 0 0; color: var(--muted); font-size: 12.5px; }
 .paper-search-updated { text-align: right; }
 .paper-search-list { display: grid; gap: 10px; margin-top: 12px; }
+.paper-search-list[hidden] { display: none; }
+.paper-keywords { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 16px; }
+.paper-keywords-label { width: 100%; margin-bottom: 1px; color: var(--text-2); font-size: 12px; font-weight: 750; }
+.paper-keywords button { padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface-2); color: var(--text-2); font: inherit; font-size: 12.5px; cursor: pointer; transition: border-color .15s, color .15s, background .15s; }
+.paper-keywords button:hover, .paper-keywords button:focus-visible { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); outline: none; }
 .paper-search-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 16px; min-width: 0; padding: 16px 18px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
 .paper-search-card-main { min-width: 0; }
 .paper-search-meta { color: var(--teal); font-size: 12px; font-weight: 700; }

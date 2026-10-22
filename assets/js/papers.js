@@ -143,6 +143,7 @@ async function initSearch(root) {
   const clear = root.querySelector('[data-paper-clear]');
   const status = root.querySelector('[data-paper-status]');
   const results = root.querySelector('[data-paper-results]');
+  const keywords = [...root.querySelectorAll('[data-paper-keyword]')];
   try {
     const [data, focus] = await Promise.all([load(), loadFocus()]);
     const papers = [...(data.papers || [])].sort((a, b) =>
@@ -153,9 +154,14 @@ async function initSearch(root) {
       const terms = normalized(input.value).split(/\s+/).filter(Boolean);
       const matches = indexed.filter(item => terms.every(term => item.text.includes(term)));
       status.textContent = terms.length
-        ? `${matches.length}편 검색됨 · 전체 ${papers.length}편`
-        : `전체 ${papers.length}편 · 제목, 저자, 소재, DOI, 검토 데이터에서 검색`;
+        ? `${matches.length}편 검색됨`
+        : `논문 ${papers.length}편이 저장되어 있습니다. 대표 키워드를 누르거나 검색어를 입력하세요.`;
       clear.hidden = !input.value;
+      results.hidden = !terms.length;
+      if (!terms.length) {
+        results.replaceChildren();
+        return;
+      }
       results.innerHTML = matches.length
         ? matches.map(({ paper }) => searchCard(paper, focus)).join('')
         : '<div class="paper-search-empty">일치하는 논문이 없습니다. 다른 제목·소재·저자명으로 검색해 보세요.</div>';
@@ -163,7 +169,11 @@ async function initSearch(root) {
 
     input.addEventListener('input', render);
     clear.addEventListener('click', () => { input.value = ''; render(); input.focus(); });
-    root.querySelector('[data-paper-updated]').textContent = `공개 데이터 기준일: ${String(data.generated_at || '').slice(0, 10)}`;
+    keywords.forEach(button => button.addEventListener('click', () => {
+      input.value = button.dataset.paperKeyword;
+      render();
+      input.focus();
+    }));
     render();
   } catch (e) {
     status.textContent = '논문 데이터를 불러오지 못했습니다.';
