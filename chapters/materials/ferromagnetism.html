@@ -3,38 +3,54 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>2D 강자성 · 2차원 물질의 이해 · Beyond Silicon</title>
+<title>2D 자성 · 2차원 물질의 이해 · Beyond Silicon</title>
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css?v=20261020-temmoire2">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book-runtime.js?v=20261021-vdw-terminology"></script>
+<script type="module" src="../../assets/js/book-runtime.js?v=20261022-2d-magnetism"></script>
 </head>
 <body data-root="../../" data-field="materials" data-chapter="ferromagnetism">
 <main class="main">
 <article class="article">
   <header class="chapter-head">
     <div class="eyebrow">CHAPTER I · 2D MATERIALS</div>
-    <h1>2D 강자성</h1>
-    <p class="lede">몇 원자층 두께에서도 자성 질서가 유지될 수 있을까요? 자기 이방성, 층간 결합과 합성 조건이 원자층 자석의 안정성을 어떻게 바꾸는지 대표 van der Waals 자성체를 통해 살펴봅니다.</p>
+    <h1>2D 자성</h1>
+    <p class="lede">원자층에서 스핀은 어떻게 정렬하고, 그 질서를 어떻게 읽고 조절할까요? 강자성과 반강자성의 대표 소재부터 층수·대칭성·계면이 만드는 스핀 수송과 응용까지 살펴봅니다.</p>
     <div class="meta"></div>
   </header>
 
-  <h2><span class="sec">3.1</span>2D에서 강자성 질서</h2>
-  <p><strong>강자성(ferromagnetism)</strong>은 스핀들이 장거리 정렬해 자발 자화(spontaneous magnetization)를 갖는 물성입니다. 이상적인 등방성 2D Heisenberg 모델에서는 열적 요동이 유한 온도의 장거리 자성 질서를 억제합니다(Mermin–Wagner 정리). 실제 2D 자성체에서는 스핀 방향에 따른 에너지 차이인 <strong>자기 이방성(magnetic anisotropy)</strong>, 결정 대칭성과 층간 상호작용이 자성 질서를 안정화할 수 있습니다.</p>
-  <p>자성의 존재와 전이 온도는 두께, 적층 순서, 변형률, 조성, 전하 밀도와 기판·계면에 따라 달라집니다. 층별 자화 방향이 서로 반대인 반강자성 결합도 나타날 수 있으므로, 단층 물성과 다층 물성을 구분해 보아야 합니다.</p>
+  <h2><span class="sec">3.1</span>왜 2D 자성이 흥미로운가</h2>
+  <p><strong>강자성(ferromagnetism)</strong>에서는 스핀들이 대체로 같은 방향으로 정렬해 순자화(net magnetization)를 만들고, <strong>반강자성(antiferromagnetism)</strong>에서는 이웃한 스핀들이 반대 방향으로 정렬해 이상적으로는 순자화가 상쇄됩니다. 자성 반데르발스(van der Waals, vdW) 결정은 층을 한 장씩 분리하거나 서로 다른 층을 조합할 수 있어, 두께·적층·계면이 자성에 미치는 영향을 원자층 수준에서 살펴볼 수 있습니다. 자성층과 비자성층을 조합해 스핀 필터, 터널 접합, 스핀 수송 구조를 설계할 수 있다는 점도 큰 장점입니다.</p>
+  <p>열적 요동이 큰 2D 한계는 기본 물리도 선명하게 드러냅니다. <strong>Mermin–Wagner 정리</strong>에 따르면 이상적인 단거리 상호작용의 등방성 2D Heisenberg 모델은 유한 온도에서 장거리 자성 질서를 갖지 않습니다. 실제 결정에서는 스핀–궤도 결합과 결정 대칭성에서 비롯된 <strong>자기 이방성(magnetic anisotropy)</strong>, 교환 상호작용의 방향 의존성, 기판·층간 결합 등이 스핀 요동을 바꾸고 질서 형성을 돕습니다. 따라서 층수를 바꾸면 자성의 종류나 안정 온도가 달라질 수 있습니다.</p>
 
-  <h2><span class="sec">3.2</span>대표 2D 강자성체</h2>
+  <h2><span class="sec">3.2</span>강자성과 반강자성 소재</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>소재 예</th><th>대표 자성</th><th>연구 포인트</th></tr></thead>
+    <tbody>
+      <tr><td>CrI₃</td><td>단층 강자성, 층간 반강자성 결합</td><td>층수와 적층에 따라 자성 배열이 바뀌며, 이중층의 스핀 필터링·터널 자기저항 연구에 쓰입니다.</td></tr>
+      <tr><td>Cr₂Ge₂Te₆, Cr₂Si₂Te₆</td><td>반도체성 강자성</td><td>자기 광학 신호로 얇은 층의 자화를 읽고, 전기장·전하 도핑으로 전이 특성을 조절하는 연구가 진행됐습니다.</td></tr>
+      <tr><td>Fe₃GeTe₂ 및 FeₓGeTe₂ 계열</td><td>금속성 강자성</td><td>전도 전자와 자성이 결합한 금속 자석으로, 전기적 자화 판독과 스핀–궤도 토크 소자 연구에 적합합니다.</td></tr>
+      <tr><td>FePS₃, MnPS₃, NiPS₃ 및 MPX₃</td><td>층상 반강자성</td><td>전이금속과 S/Se 조합에 따라 스핀 배열·대칭성이 달라집니다. FePS₃ 단층의 지그재그 반강자성 질서는 라만 분광으로 조사됐습니다.</td></tr>
+      <tr><td>MnBi₂Te₄</td><td>층간 반강자성</td><td>자기 질서와 위상 전자 상태가 함께 나타나는 층상 재료 계열로 연구됩니다.</td></tr>
+    </tbody>
+  </table></div>
+  <p>이 목록은 대표적인 계열이지 모든 층수와 시료에서 유지되는 단일한 상(phase)의 목록은 아닙니다. 예를 들어 CrI₃ 단층은 강자성 질서를 보이지만, 다층에서는 층간 반강자성 결합이 나타날 수 있습니다. 반강자성의 순자화는 작아도 두 스핀 부격자의 방향을 나타내는 <strong>네엘 벡터(Néel vector)</strong>가 자성 질서를 표현하며, 층수·대칭성·외부 자극에 따라 측정 가능한 광학·수송 응답이 달라집니다.</p>
+
+  <h2><span class="sec">3.3</span>어떻게 읽고 조절하는가</h2>
+  <p>자기 광학 Kerr 효과(magneto-optic Kerr effect, MOKE)와 자기 원편광 이색성(magnetic circular dichroism, MCD)은 반사광·흡수의 편광 변화를 통해 얇은 시료의 자화와 전이를 추적합니다. 라만 분광은 자성 전이에 따른 진동 모드와 마그논(magnon, 집단적인 스핀파 여기) 신호를 볼 수 있으며, FePS₃에서는 반강자성 질서가 형성되며 저에너지 신호가 갈라지는 현상이 보고됐습니다. 소자에서는 터널 전도도, 터널 자기저항(tunnelling magnetoresistance, TMR), 비정상 홀 효과(anomalous Hall effect) 등 자기 수송 측정이 자성 상태를 전기적으로 읽는 데 쓰입니다.</p>
+  <p>자기장은 스핀 배열을 바꿀 수 있고, 전기장·게이팅은 전하 밀도와 층간 에너지 차이를 조절합니다. 변형률, 압력, 적층 순서와 인접층의 스핀–궤도 결합도 교환 상호작용이나 대칭성을 바꿀 수 있습니다. 특히 반전 대칭이 깨진 계면에서는 전류가 스핀–궤도 토크(spin–orbit torque, SOT)를 만들어 자성 상태를 제어할 수 있습니다. 반강자성에서는 순자화 대신 네엘 벡터에 작용하는 토크를 이용해 상태를 전환·판독하는 방법이 연구되고 있습니다.</p>
+
+  <h2><span class="sec">3.4</span>스핀트로닉스 응용</h2>
+  <p>대표적인 소자 방향은 두 자성층의 상대 방향을 정보로 저장하고 저항 차이로 읽는 자기 터널 접합, 반데르발스 자성층을 통과하는 스핀 의존 터널링·스핀 필터, 전류로 자성을 쓰는 스핀–궤도 토크 메모리입니다. CrI₃ 기반 터널 접합에서는 층간 자성 배열에 따른 전도도 차이가 관찰됐고, 반강자성 상태는 순자화가 작아 외부 자기장 간섭을 줄일 수 있는 정보 저장 후보로 주목받습니다. 2D 자석과 WTe₂ 같은 스핀–궤도 결합층의 이종구조는 효율적인 전류 구동 전환을 위한 연구 플랫폼입니다.</p>
+  <p>마그논 기반 스핀 수송, 자기 상태를 이용한 광학 소자, 스커미온(skyrmion)과 위상 수송도 확장되는 연구 주제입니다. 이 중 일부는 특정 재료·소자에서 시연됐고, 고밀도·저전력 메모리나 실온 작동 같은 목표는 계속 해결해야 할 연구 과제입니다. 실제 응용성은 작동 온도, 쓰기 전류와 에너지, 상태 판독의 크기, 소자 간 편차 및 소재 안정성을 함께 평가해야 합니다.</p>
+
+  <p class="note">자성 전이 온도와 스핀 배열은 두께·결함·기판·조성·측정 방식에 따라 달라집니다. 리뷰의 소재 사례를 비교할 때도 시료 조건과 자성 측정 근거를 함께 확인하세요.</p>
+  <h2><span class="sec">참고</span>더 읽을 리뷰</h2>
   <ul>
-    <li><strong>CrI₃:</strong> 단층에서 면외 스핀 방향을 갖는 Ising형 강자성이 관측되었습니다. 이중층에서는 적층에 따라 층 사이 반강자성 결합이 나타나며, 두께에 따른 자성 변화를 비교하기 좋은 사례입니다. <a href="https://www.nature.com/articles/nature22391" target="_blank" rel="noopener">Nature (2017), 단층 CrI₃의 Ising 강자성</a>.</li>
-    <li><strong>Cr₂Ge₂Te₆:</strong> 얇은 층에서 자기 광학 Kerr 효과(magneto-optic Kerr effect, MOKE)를 이용해 자성 전이를 추적한 대표적인 van der Waals 자성체입니다. <a href="https://www.nature.com/articles/nature22060" target="_blank" rel="noopener">Nature (2017), 2D van der Waals 자성</a>.</li>
-    <li><strong>Fe₃GeTe₂:</strong> 금속성 층상 강자성체로, 단층 한계의 자성과 게이팅을 통한 전이 온도 조절이 연구되었습니다. 분자선 에피택시(MBE) 박막 성장도 보고되어 조성·기판·계면 제어의 중요성을 보여줍니다. <a href="https://www.nature.com/articles/s41586-018-0626-9" target="_blank" rel="noopener">Nature (2018), 게이트 조절 Fe₃GeTe₂</a>; <a href="https://www.nature.com/articles/s41699-017-0033-3" target="_blank" rel="noopener">npj 2D Materials and Applications (2017), MBE 박막 성장</a>.</li>
+    <li>Burch, Mandrus &amp; Park, <a href="https://doi.org/10.1038/s41586-018-0631-z" target="_blank" rel="noopener"><em>Magnetism in two-dimensional van der Waals materials</em>, Nature (2018)</a>.</li>
+    <li>Kurebayashi et al., <a href="https://doi.org/10.1038/s42254-021-00403-5" target="_blank" rel="noopener"><em>Magnetism, symmetry and spin transport in van der Waals layered systems</em>, Nature Reviews Physics (2022)</a>.</li>
   </ul>
-
-  <h2><span class="sec">3.3</span>합성·측정과 응용</h2>
-  <p>기계적 박리는 결함이 적은 얇은 자성 플레이크를 얻어 기초 물성 연구에 쓰이며, MBE와 CVD는 기판 위 박막 성장과 소자 집적을 목표로 연구됩니다. 산소·수분에 민감한 할라이드 계열 소재는 시료 준비와 encapsulation 조건이 특히 중요합니다. 성장 온도와 조성은 결정상·결함·자기 이방성을 바꿀 수 있으므로, 합성 조건과 구조 분석을 자성 측정 결과와 함께 기록해야 합니다.</p>
-  <p>측정에는 MOKE, 원편광 자기 이색성(XMCD), 자화 측정과 자기 수송 측정이 쓰입니다. 비정상 홀 효과(anomalous Hall effect)는 전류가 흐르는 박막이나 소자에서 자화 상태를 전기적으로 추적하는 방법입니다. 연구 응용은 스핀트로닉스, 자화 기반 메모리와 자기 광학 소자이며, 실제 작동 온도·스위칭 에너지·재현성은 시료와 소자 구조별로 평가해야 합니다.</p>
-  <p class="note">문헌상의 층수와 전이 온도는 측정·기판·조성 조건에 따른 결과이며, 물질 고유의 보편적 상수로 해석하면 안 됩니다.</p>
 </article>
 </main>
 </body>
