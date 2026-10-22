@@ -10,7 +10,7 @@ const REFERENCE_LATTICE_NM = 0.3316;
 
 export function init(root) {
   const canvas = root.querySelector('canvas');
-  let mode = 'adf', camera = 285, mismatch = 3.96, twist = 0.9, zoom = 1, spot = 'g1';
+  let mode = 'adf', camera = 285, mismatch = 3.96, twist = 0.9, zoom = 1, overlapBrightness = 1, overlapSize = 1, spot = 'g1';
   const out = outs(root);
   const { ctx, state } = fitCanvas(canvas, draw);
   const cameraPanel = root.querySelector('[data-o="camera-panel"]');
@@ -22,6 +22,8 @@ export function init(root) {
   range(root, 'mismatch', value => { mismatch = value; update(); });
   range(root, 'twist', value => { twist = value; update(); });
   range(root, 'zoom', value => { zoom = value; update(); });
+  range(root, 'overlap-brightness', value => { overlapBrightness = value / 100; update(); });
+  range(root, 'overlap-size', value => { overlapSize = value / 100; update(); });
 
   function contrast() {
     // Ordinal approximation of the camera-length contrast reported in the paper.
@@ -60,6 +62,8 @@ export function init(root) {
     out('mismatch', `${mismatch.toFixed(1)}%`);
     out('twist', `${twist.toFixed(1)}°`);
     out('zoom', `${zoom.toFixed(1)}×`);
+    out('overlap-brightness', `${Math.round(overlapBrightness * 100)}%`);
+    out('overlap-size', `${Math.round(overlapSize * 100)}%`);
     out('period', Number.isFinite(moirePeriodNm()) ? `${moirePeriodNm().toFixed(1)} nm` : '∞');
     out('visibility-key', isAdf ? '논문에서 보고한 모아레 대비' : '실공간 방향');
     out('visibility', isAdf ? ({ 115: '매우 약함', 185: '약함', 285: '뚜렷함', 360: '억제됨' })[camera] : (spot === 'all' ? `RGB 합성 · α ${moireOrientationDeg().toFixed(1)}°` : `${SPOTS[spot].label} · ${spotDegree(SPOTS[spot]).toFixed(1)}° · ${SPOTS[spot].channel}`));
@@ -155,13 +159,13 @@ export function init(root) {
     paintLayer(upper, 0.35 + level * 0.54, true);
     const sites = coincidenceSites(lower, upper);
     for (const site of sites) {
-      const glow = ctx.createRadialGradient(site.x, site.y, 0.5, site.x, site.y, 10 + level * 7);
-      glow.addColorStop(0, `rgba(255,255,255,${0.78 * level})`);
-      glow.addColorStop(0.22, `rgba(255,255,255,${0.48 * level})`);
+      const glow = ctx.createRadialGradient(site.x, site.y, 0.5 * overlapSize, site.x, site.y, (10 + level * 7) * overlapSize);
+      glow.addColorStop(0, `rgba(255,255,255,${Math.min(1, 0.78 * level * overlapBrightness)})`);
+      glow.addColorStop(0.22, `rgba(255,255,255,${Math.min(1, 0.48 * level * overlapBrightness)})`);
       glow.addColorStop(1, 'rgba(255,255,255,0)');
-      ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(site.x, site.y, 17, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = `rgba(255,255,255,${0.82 * level})`;
-      ctx.beginPath(); ctx.arc(site.x, site.y, 2, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(site.x, site.y, 17 * overlapSize, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = `rgba(255,255,255,${Math.min(1, 0.82 * level * overlapBrightness)})`;
+      ctx.beginPath(); ctx.arc(site.x, site.y, 2 * overlapSize, 0, Math.PI * 2); ctx.fill();
     }
     // Keep the selected-reflection signature visible over the actual projected atomic rows.
     if (mode === 'df') drawDfFringes(w, h);

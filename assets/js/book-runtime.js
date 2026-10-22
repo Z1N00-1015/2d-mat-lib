@@ -86,7 +86,7 @@ const MODULES = {
   xrd: './xrd.js?v=20261020i', moire: './moire.js?v=20261020l', 'moire-reconstruction': './moire-reconstruction.js?v=20261020s', spectrum: './spectrum.js?v=20261023-remove-wbg',
   mos2: './mos2.js', bands: './bands.js', exfo: './exfo.js', cvd: './cvd.js',
   glossary: './glossary.js?v=20261022-applications-beginner', refs: './papers.js?v=20261022-paper-keywords', papersearch: './papers.js?v=20261022-paper-keywords',
-  raman: './raman.js?v=20261020i', 'tem-moire': './tem-moire.js?v=20261020l',
+  raman: './raman.js?v=20261020i', 'tem-moire': './tem-moire.js?v=20261023-overlap-controls',
   hypotaxy: './hypotaxy.js?v=20261020h', 'home-lineup': './home-materials.js?v=20261021-sbo-topview',
   lineup: './lineup.js?v=20261023-2d-only',
 };
