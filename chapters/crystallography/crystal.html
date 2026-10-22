@@ -20,7 +20,7 @@
     <div class="meta"></div>
   </header>
 
-  <h2><span class="sec">1.1</span>격자와 기저</h2>
+  <h2><span class="sec">1.7</span>격자와 기저</h2>
   <p><strong>결정(crystal)</strong>은 원자 또는 원자 무리가 3차원 공간에서 주기적으로 반복된 고체입니다. 이 주기성은 두 요소로 분리해 기술합니다.</p>
   <ul>
     <li><strong>브라베 격자(Bravais lattice)</strong>: 병진 대칭만으로 정의되는 무한한 점의 배열. 모든 격자점 R은 기본 병진 벡터 a₁, a₂, a₃의 정수 조합으로 표현됩니다.</li>
@@ -29,7 +29,7 @@
   <div class="eq">결정 구조 = 브라베 격자 + 기저, &nbsp;&nbsp; <i>R</i> = <i>n</i>₁<i>a</i>₁ + <i>n</i>₂<i>a</i>₂ + <i>n</i>₃<i>a</i>₃<span class="where">n₁, n₂, n₃: 정수 · a₁, a₂, a₃: 기본 병진 벡터(primitive translation vectors)</span></div>
   <p>병진 반복으로 결정 전체를 빈틈없이 채우는 공간 단위를 <strong>단위격자(unit cell)</strong>라 하고, 그중 격자점을 정확히 하나만 포함하는 가장 작은 격자를 <strong>원시 단위격자(primitive cell)</strong>라 합니다. 실리콘처럼 대칭을 드러내기 위해 격자점을 여러 개 포함하는 더 큰 격자를 쓰기도 하는데, 이를 관용 단위격자(conventional cell)라 합니다.</p>
 
-  <h2><span class="sec">1.2</span>반도체의 대표 결정 구조</h2>
+  <h2><span class="sec">1.8</span>반도체의 대표 결정 구조</h2>
   <p>같은 원소나 조성이라도 원자 배열이 다르면 성질이 완전히 달라집니다. 아래 표는 이 책에서 다루는 물질들의 결정 구조입니다.</p>
   <div class="table-wrap">
     <table>
@@ -48,7 +48,7 @@
   <p>다이아몬드 구조는 FCC 브라베 격자에 (0,0,0)과 (¼,¼,¼)의 두 원자 기저를 놓은 것이고, 같은 배열에서 두 자리에 서로 다른 원소가 들어가면 섬아연광(zincblende) 구조가 됩니다(GaAs). 우르차이트는 육방 격자에서 정사면체 결합을 이루는 구조로, 반전 대칭이 없어 큰 자발 분극을 가집니다.</p>
 
   <section class="lab" id="lab-crystal" data-module="crystal">
-    <div class="lab-head"><span class="badge">LAB 1-1</span><h4>3D 결정 구조 뷰어</h4><span class="sub">드래그로 회전, 휠로 확대</span></div>
+    <div class="lab-head"><span class="badge">LAB 1-2</span><h4>3D 결정 구조 뷰어</h4><span class="sub">드래그로 회전, 휠로 확대</span></div>
     <div class="lab-body">
       <div class="lab-tools">
         <div class="seg" data-k="struct">
@@ -79,7 +79,7 @@
 
   <div class="callout note"><span class="t">관찰해 볼 것</span><p>① Si에서 한 원자가 정확히 네 개의 이웃과 결합하는지 확인하세요. ② 4H-SiC를 옆에서 보면 c축 방향으로 네 층 주기의 지그재그 적층이 보입니다. ③ MoS₂의 층 수를 늘리면 두 번째 층이 첫 번째 층과 180° 회전된 2H 적층으로 쌓입니다.</p></div>
 
-  <h2><span class="sec">1.3</span>2차원 브라베 격자</h2>
+  <h2><span class="sec">1.9</span>2차원 브라베 격자</h2>
   <p>2D 물질을 다루기 위해 먼저 2차원 격자를 분류해 봅시다. 두 기본 병진 벡터 a₁, a₂의 길이 비 |a₂|/|a₁|와 사잇각 γ의 조합에 따라, 2차원 브라베 격자는 다음 다섯 종류뿐입니다.</p>
   <div class="table-wrap">
     <table>
@@ -95,13 +95,13 @@
   </div>
   <p>격자점 하나에서 이웃 격자점들까지의 수직 이등분선으로 둘러싸인 영역을 <strong>Wigner–Seitz cell</strong>이라 합니다. 격자의 대칭을 그대로 갖는 특별한 원시 단위격자입니다.</p>
 
-  <h2><span class="sec">1.4</span>역격자와 브릴루앙 영역</h2>
+  <h2><span class="sec">1.10</span>역격자와 브릴루앙 영역</h2>
   <p>결정 속 파동(X선, 전자, 포논)을 다룰 때는 실공간의 격자 대신 파수 공간의 격자를 쓰는 것이 편리합니다. 실공간 기본 병진 벡터 aᵢ에 대해 다음을 만족하는 벡터 bⱼ로 생성되는 격자를 <strong>역격자(reciprocal lattice)</strong>라 합니다.</p>
   <div class="eq"><i>a</i><sub>i</sub> · <i>b</i><sub>j</sub> = 2π δ<sub>ij</sub> &nbsp;&nbsp;⟹&nbsp;&nbsp; <i>b</i>₁ = 2π (<i>a</i>₂ × ẑ) / [<i>a</i>₁ · (<i>a</i>₂ × ẑ)]<span class="where">2차원의 경우. 실공간에서 길이가 길어지면 역공간에서는 짧아집니다.</span></div>
-  <p>역격자의 Wigner–Seitz cell을 <strong>제1 브릴루앙 영역(first Brillouin zone)</strong>이라 합니다. 결정 내 전자의 상태는 이 영역 안의 파수 k만으로 모두 기술할 수 있기 때문에, 밴드 구조는 브릴루앙 영역의 고대칭점(Γ, M, K 등)을 잇는 경로를 따라 그립니다. 육방 격자의 브릴루앙 영역은 육각형이고, 그 꼭짓점 K와 K′가 그래핀의 디랙 원뿔이 위치하는 곳입니다(제3장).</p>
+  <p>역격자의 Wigner–Seitz cell을 <strong>제1 브릴루앙 영역(first Brillouin zone)</strong>이라 합니다. 결정 내 전자의 상태는 이 영역 안의 파수 k만으로 모두 기술할 수 있기 때문에, 밴드 구조는 브릴루앙 영역의 고대칭점(Γ, M, K 등)을 잇는 경로를 따라 그립니다. 육방 격자의 브릴루앙 영역은 육각형이고, 그 꼭짓점 K와 K′가 그래핀의 디랙 원뿔이 위치하는 곳입니다. 이어지는 반도체 물리 페이지에서 밴드 구조를 살펴봅니다.</p>
 
   <section class="lab" id="lab-bravais" data-module="lattice2d">
-    <div class="lab-head"><span class="badge">LAB 1-2</span><h4>2D 브라베 격자와 역격자</h4><span class="sub">길이 비와 사잇각을 바꿔 보세요</span></div>
+    <div class="lab-head"><span class="badge">LAB 1-3</span><h4>2D 브라베 격자와 역격자</h4><span class="sub">길이 비와 사잇각을 바꿔 보세요</span></div>
     <div class="lab-body">
       <div class="lab-tools">
         <div class="seg" data-k="preset"><button data-v="square">정사각</button><button class="on" data-v="hex">육방</button><button data-v="rect">직사각</button><button data-v="crect">중심 직사각</button><button data-v="obl">Oblique</button></div>
