@@ -63,7 +63,7 @@ export const FIELDS = [
         desc: '원자층 채널이 트랜지스터 축소에 주는 이점과 실제 구현을 가로막는 재료·접촉·측정 과제를 살펴봅니다.', labs: ['물질 라인업'] },
       { id: 'devices', dir: 'semiconductor', n: '05', title: '차세대 전자소자', group: '반도체 소자 응용',
         desc: '메모리·광전자·터널 소자와 FeS-FET 등, 채널과 적층 구조를 바꾸어 기능을 확장하는 연구를 살펴봅니다.', labs: [] },
-      { id: 'next-semiconductors', dir: 'semiconductor', n: '06', title: '차세대 반도체', group: '반도체 소자 응용',
+      { id: 'next-semiconductors', dir: 'semiconductor', n: '06', title: '차세대 반도체 공정', group: '반도체 소자 응용',
         desc: '2D 소재를 칩 배선·절연막·저온 집적 소자에 활용하려는 방향과 제조 과제를 소개합니다.', labs: [] },
     ],
   },
