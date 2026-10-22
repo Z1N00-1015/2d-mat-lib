@@ -1,6 +1,6 @@
 {
  "schema_version": 3,
- "generated_at": "2026-10-22T13:04:44Z",
+ "generated_at": "2026-10-22T15:39:46Z",
  "notice": "서지정보와 연구실에서 검토 완료한 수치만 포함합니다. 원문 인용과 AI 요약은 포함하지 않습니다.",
  "metrics": {
   "raman_shift": {
@@ -95,6 +95,11 @@
   },
   "growth_temperature": {
    "label": "합성 온도",
+   "unit": "°C",
+   "view": "synthesis"
+  },
+  "source_temperature": {
+   "label": "원료(공급원) 온도",
    "unit": "°C",
    "view": "synthesis"
   },
@@ -20296,8 +20301,8 @@
      "name": "몰리브데넘 전구체 유지 온도",
      "canonical_name": "전구체 공급부 온도",
      "category": "other",
-     "metric_key": "precursor",
-     "metric_label": "전구체",
+     "metric_key": null,
+     "metric_label": null,
      "qualifier": null,
      "value": 60.0,
      "value_text": null,
@@ -20685,6 +20690,9 @@
      "width_value": null,
      "width_text": null,
      "width_unit": null,
+     "deposition_method": null,
+     "deposition_detail": null,
+     "device_structure": null,
      "sample": "ZnSe/MoSe₂/ZnSe MDH on GaAs (111)B",
      "evidence": {
       "page": 2,
@@ -20706,6 +20714,9 @@
      "width_value": null,
      "width_text": null,
      "width_unit": null,
+     "deposition_method": null,
+     "deposition_detail": null,
+     "device_structure": null,
      "sample": "ZnSe/MoSe₂/ZnSe MDH on GaAs (111)B",
      "evidence": {
       "page": 2,
@@ -20727,6 +20738,9 @@
      "width_value": null,
      "width_text": null,
      "width_unit": null,
+     "deposition_method": null,
+     "deposition_detail": null,
+     "device_structure": null,
      "sample": "ZnSe/MoSe₂/ZnSe MDH on GaAs (111)B",
      "evidence": {
       "page": 2,
@@ -20748,6 +20762,9 @@
      "width_value": null,
      "width_text": null,
      "width_unit": null,
+     "deposition_method": null,
+     "deposition_detail": null,
+     "device_structure": null,
      "sample": "ZnSe/MoSe₂/ZnSe MDH on GaAs (111)B",
      "evidence": {
       "page": 2,
