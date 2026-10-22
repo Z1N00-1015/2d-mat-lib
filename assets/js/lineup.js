@@ -20,18 +20,6 @@ export const MATS = [
   { id: 'sbo', fam: '0d', sym: 'Sb₂O₃', nm: '안티모니 트리옥사이드', eg: null, egt: '', cardMetric: '0D 결정', grad: ['#bf9bff', '#ff6b61'], draw: 'packed', cols: ['#c99a78', '#b17ac5'],
     kind: '0D 결정 · 산화물', title: '안티모니 트리옥사이드 (α-Sb₂O₃)', desc: 'Sb와 O 원자가 조밀하게 반복 배열된 α-Sb₂O₃ 결정입니다. 표지 그림은 Sb₄O₆ 단위 모티프가 만드는 원자 배열을 위에서 본 개념도이며, 특정 결정면의 정량 좌표를 재현하지 않습니다.',
     spec: [['화학식 단위', 'Sb₄O₆ 케이지'], ['차원성', '0D 분자형 결정'], ['결정상', '입방 α상']], tags: ['0D 케이지', '유전 특성', '분자 결정'] },
-  { id: 'sic', fam: 'wbg', sym: 'SiC', nm: '4H-탄화규소', eg: 3.26, egt: '3.26 eV', grad: ['#64d2ff', '#5e5ce6'], draw: 'hexwbg', cols: ['#5e9cff', '#3a3a3c'],
-    kind: '광대역 밴드갭(WBG) · 전력', title: '4H-SiC', desc: '실리콘보다 약 8배 높은 절연파괴 전계와 2배 이상의 열전도율을 가집니다. 고온·고전압 환경에서도 안정적이어서 전기차 인버터와 충전 인프라, 태양광 인버터의 표준이 되어가고 있습니다.',
-    spec: [['밴드갭', '3.26 eV'], ['절연파괴', '2.5 MV/cm'], ['열전도율', '~370 W/m·K'], ['웨이퍼', '6–8 인치']], tags: ['EV 인버터', '고속 충전', '태양광', '철도'] },
-  { id: 'gan', fam: 'wbg', sym: 'GaN', nm: '질화갈륨', eg: 3.4, egt: '3.4 eV', grad: ['#2997ff', '#bf5af2'], draw: 'hexwbg', cols: ['#30d158', '#64d2ff'],
-    kind: '광대역 밴드갭(WBG) · 광·RF·전력', title: 'GaN', desc: '청색·백색 LED를 가능하게 한 물질. AlGaN/GaN 이종접합의 2DEG로 만든 HEMT는 높은 주파수와 효율을 동시에 달성해 고속 충전기, 데이터센터 전원, 5G·레이더 RF 증폭기에 쓰입니다.',
-    spec: [['밴드갭', '3.4 eV (직접)'], ['2DEG 이동도', '~2000 cm²/V·s'], ['절연파괴', '3.3 MV/cm'], ['구조', '우르차이트']], tags: ['LED', 'HEMT', '고속 충전기', '5G RF'] },
-  { id: 'gao', fam: 'wbg', sym: 'Ga₂O₃', nm: '베타 산화갈륨', eg: 4.85, egt: '4.85 eV', grad: ['#ff9f0a', '#ffd60a'], draw: 'mono', cols: ['#30d158', '#ff375f'],
-    kind: '초광대역 밴드갭 (UWBG)', title: 'β-Ga₂O₃', desc: '4.8 eV의 밴드갭과 약 8 MV/cm의 절연파괴 전계로 SiC·GaN을 넘어서는 이론 성능. 용융 성장법으로 대구경 기판을 저렴하게 만들 수 있지만, 낮은 열전도율과 p형 도핑의 어려움이 과제입니다.',
-    spec: [['밴드갭', '4.85 eV'], ['절연파괴', '~8 MV/cm'], ['열전도율', '~10–27 W/m·K'], ['결정계', '단사정']], tags: ['초고전압 소자', '태양광 맹(solar-blind) UV 검출', '저가 기판'] },
-  { id: 'dia', fam: 'wbg', sym: 'C', nm: '다이아몬드', eg: 5.47, egt: '5.47 eV', grad: ['#ffffff', '#64d2ff'], draw: 'diamond', cols: ['#e5f4ff', '#64d2ff'],
-    kind: '초광대역 밴드갭 · 궁극의 반도체', title: '다이아몬드', desc: '가장 높은 열전도율(>2000 W/m·K)와 10 MV/cm의 절연파괴 전계를 가진 ‘궁극의 반도체’. 대면적 단결정 기판과 n형 도핑이 어렵지만, NV 센터는 양자 센서로 이미 활용되고 있습니다.',
-    spec: [['밴드갭', '5.47 eV'], ['절연파괴', '~10 MV/cm'], ['열전도율', '>2000 W/m·K'], ['BFOM (Si=1)', '>20,000']], tags: ['고출력 RF', '방열 기판', 'NV 양자 센서', '방사선 검출'] },
 ];
 
 export function drawMini(ctx, w, h, m, t) {
@@ -47,7 +35,7 @@ export function drawMini(ctx, w, h, m, t) {
   const dot = (x, y, r, c) => { const g = ctx.createRadialGradient(x - r * 0.3, y - r * 0.3, 0, x, y, r); g.addColorStop(0, '#fff'); g.addColorStop(0.25, c); g.addColorStop(1, shade(c)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); };
   const line = (x1, y1, x2, y2) => { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); };
   ctx.strokeStyle = 'rgba(255,255,255,.28)'; ctx.lineWidth = 1.5;
-  if (m.draw === 'honey' || m.draw === 'tmd' || m.draw === 'honey3' || m.draw === 'hexwbg') {
+  if (m.draw === 'honey' || m.draw === 'tmd' || m.draw === 'honey3') {
     const a1 = [a, 0], a2 = [a / 2, a * Math.sqrt(3) / 2];
     const at = [];
     for (let i = -5; i <= 5; i++) for (let j = -5; j <= 5; j++) {
@@ -83,16 +71,6 @@ export function drawMini(ctx, w, h, m, t) {
       ctx.beginPath(); ctx.moveTo(x, y - s); ctx.lineTo(x + s, y); ctx.lineTo(x, y + s); ctx.lineTo(x - s, y); ctx.closePath(); ctx.fill(); ctx.stroke();
       dot(x, y, a * 0.16, m.cols[0]);
       dot(x + s, y, a * 0.11, m.cols[1]);
-    }
-  } else if (m.draw === 'diamond') {
-    for (let i = -6; i <= 6; i++) for (let j = -6; j <= 6; j++) {
-      const x = i * a * 0.8, y = j * a * 0.8;
-      if ((i + j) % 2 === 0) {
-        line(x, y, x + a * 0.4, y + a * 0.4); line(x, y, x - a * 0.4, y - a * 0.4);
-        line(x, y, x + a * 0.4, y - a * 0.4); line(x, y, x - a * 0.4, y + a * 0.4);
-      }
-      dot(x, y, a * 0.16, m.cols[0]);
-      dot(x + a * 0.4, y + a * 0.4, a * 0.12, m.cols[1]);
     }
   } else if (m.draw === 'packed') {
     // Static, cropped top view inspired by the repeated Sb4O6 motifs in the reference figure.

@@ -9,12 +9,7 @@ const MATS = [
   { n: 'WSe₂ 단층', e: 1.65, c: '#30d158' },
   { n: 'CsPbI₃', e: 1.73, c: '#ff375f' },
   { n: 'MoS₂ 단층', e: 1.88, c: '#bf5af2' },
-  { n: '4H-SiC', e: 3.26, c: '#5e9cff' },
-  { n: 'GaN', e: 3.4, c: '#2997ff' },
-  { n: 'β-Ga₂O₃', e: 4.85, c: '#ff9f0a' },
-  { n: '다이아몬드', e: 5.47, c: '#8e8e93' },
   { n: 'h-BN', e: 6.0, c: '#ffd60a' },
-  { n: 'AlN', e: 6.2, c: '#ff6482' },
 ];
 const EMAX = 7;
 

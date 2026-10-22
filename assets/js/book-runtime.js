@@ -64,7 +64,7 @@ export const FIELDS = [
       { id: 'devices', dir: 'semiconductor', n: '05', title: '차세대 전자소자', group: '반도체 소자 응용',
         desc: '메모리·광전자·터널 소자와 FeS-FET 등, 채널과 적층 구조를 바꾸어 기능을 확장하는 연구를 살펴봅니다.', labs: [] },
       { id: 'next-semiconductors', dir: 'semiconductor', n: '06', title: '차세대 반도체', group: '반도체 소자 응용',
-        desc: '2D 소재를 칩 배선·절연막·후면 전력망·저온 집적 소자에 활용하려는 방향과 제조 과제를 소개합니다.', labs: ['전력 반도체의 물성 비교'] },
+        desc: '2D 소재를 칩 배선·절연막·저온 집적 소자에 활용하려는 방향과 제조 과제를 소개합니다.', labs: [] },
     ],
   },
   {
@@ -83,12 +83,12 @@ export const FIELDS = [
 const MODULES = {
   hero: './hero.js', stack: './stack.js', tunneling: './tunneling.js', fet: './fet.js',
   crystal: './crystal.js?v=20261020i', lattice2d: './lattice2d.js?v=20261020i', miller: './miller.js?v=20261020i', bragg: './bragg.js',
-  xrd: './xrd.js?v=20261020i', moire: './moire.js?v=20261020l', 'moire-reconstruction': './moire-reconstruction.js?v=20261020s', spectrum: './spectrum.js',
-  mos2: './mos2.js', bands: './bands.js', power: './power.js?v=20261020i', exfo: './exfo.js', cvd: './cvd.js',
+  xrd: './xrd.js?v=20261020i', moire: './moire.js?v=20261020l', 'moire-reconstruction': './moire-reconstruction.js?v=20261020s', spectrum: './spectrum.js?v=20261023-remove-wbg',
+  mos2: './mos2.js', bands: './bands.js', exfo: './exfo.js', cvd: './cvd.js',
   glossary: './glossary.js?v=20261022-applications-beginner', refs: './papers.js?v=20261022-paper-keywords', papersearch: './papers.js?v=20261022-paper-keywords',
   raman: './raman.js?v=20261020i', 'tem-moire': './tem-moire.js?v=20261020l',
   hypotaxy: './hypotaxy.js?v=20261020h', 'home-lineup': './home-materials.js?v=20261021-sbo-topview',
-  lineup: './lineup.js?v=20261021-sbo-topview',
+  lineup: './lineup.js?v=20261023-2d-only',
 };
 
 const LOGO = '<svg class="brand-logo" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bslg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a6cf0"/><stop offset="1" stop-color="#1fb3a3"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="8" fill="url(#bslg)"/><g fill="none" stroke="#fff" stroke-width="1.6" stroke-opacity=".9"><path d="M16 7.5l7.4 4.25v8.5L16 24.5l-7.4-4.25v-8.5z"/></g><circle cx="16" cy="16" r="2.6" fill="#fff"/></svg>';
