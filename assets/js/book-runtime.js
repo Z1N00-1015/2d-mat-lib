@@ -1,66 +1,72 @@
 // Beyond Silicon site runtime: field/page manifest, layout, theme, and lazy lab loading.
-// To add a new field (분야): append an entry to FIELDS and put its pages in chapters/<field id>/.
+// To add a new field (분야): append an entry to FIELDS; chapter.dir can point to an existing page folder.
 
 export const BRAND = { name: 'Beyond Silicon', sub: '2D 물질 연구 길라잡이' };
 export const PAPER_LIBRARY_URL = 'https://lab-paper-library-z1n00-1015.onrender.com';
 
 export const FIELDS = [
   {
-    id: 'materials', n: 'I', title: '2차원 물질의 이해', en: 'UNDERSTANDING 2D MATERIALS',
-    desc: '원자층 물질의 특징과 결정 구조, 대표 계열, 합성법과 주요 연구 분야를 살펴봅니다.',
+    id: 'materials', n: 'I', title: '2차원 물질 소개', en: 'INTRODUCTION TO 2D MATERIALS',
+    desc: '2D 물질의 세계에서 출발해 결정 구조와 격자, 결정면과 밀러 지수까지 이어서 살펴봅니다.',
     chapters: [
       { id: 'intro', n: '01', title: '2차원 물질의 세계', group: '개요',
         desc: '원자층 물질의 결합과 구조, 실리콘 이후의 연구가 주목받는 이유를 간단히 훑어봅니다.', labs: ['흑연에서 그래핀으로'] },
-      { id: 'ferroelectric', n: '02', title: '2D 강유전성', group: '물성',
-        desc: '면내·면외 분극과 층간 sliding 강유전성의 원리, 대표 소재와 측정·소자 응용을 살펴봅니다.', labs: [] },
-      { id: 'ferromagnetism', n: '03', title: '2D 자성', group: '물성',
-        desc: '강자성과 반강자성의 원리, 대표 반데르발스 자성체, 스핀 수송과 소자 응용을 살펴봅니다.', labs: [] },
-      { id: 'moire', n: '04', title: '이종구조와 모아레 연구', group: '물성',
-        desc: '반데르발스 이종구조, 비틀림 각도, 모아레 초격자와 트위스트로닉스를 살펴봅니다.', labs: ['모아레 주기', '원자 재구성'] },
-      { id: 'deposition', n: '05', title: '박막 증착', group: '합성',
+      { id: 'crystal', dir: 'crystallography', n: '02', title: '결정 구조와 격자', group: '개요',
+        desc: '브라베 격자, 기저, 단위격자, 역격자와 브릴루앙 영역을 학습합니다.', labs: ['3D 결정 구조 뷰어', '2D 브라베 격자·역격자'] },
+      { id: 'diffraction', dir: 'crystallography', n: '03', title: '결정면과 밀러 지수', group: '개요',
+        desc: '결정면을 밀러 지수로 나타내고 면간 거리와 결정 방향의 관계를 살펴봅니다.', labs: ['밀러 지수'] },
+    ],
+  },
+  {
+    id: 'synthesis', n: 'II', title: '2차원 물질 합성', en: 'SYNTHESIS OF 2D MATERIALS',
+    desc: '박리와 박막 증착부터 에피택시·하이포택시 기반 단결정 성장까지 소재를 만드는 방법을 살펴봅니다.',
+    chapters: [
+      { id: 'deposition', dir: 'materials', n: '01', title: '박막 증착', group: '합성 방법',
         desc: 'CVD·PVD·ALD의 증착 원리와 2D 박막 형성에서의 활용 및 차이를 비교합니다.', labs: ['CVD 성장'] },
-      { id: 'synthesis', n: '06', title: '2D 물질의 합성', group: '합성',
+      { id: 'synthesis', dir: 'materials', n: '02', title: '2D 물질의 합성', group: '합성 방법',
         desc: '기계적·액상 박리와 직접 합성 등 반데르발스 물질을 얻는 주요 경로를 살펴봅니다.', labs: ['기계적 박리'] },
-      { id: 'single-crystal-growth', n: '07', title: '단결정 성장', group: '합성',
+      { id: 'single-crystal-growth', dir: 'materials', n: '03', title: '단결정 성장', group: '단결정 성장',
         desc: '에피택시와 hypotaxy를 중심으로 결정 방위를 제어하는 박막 성장을 살펴봅니다.', labs: ['Hypotaxy'] },
     ],
   },
   {
-    id: 'crystallography', n: 'II', title: '결정학과 분석 방법', en: 'CRYSTALLOGRAPHY & CHARACTERIZATION',
-    desc: '결정 격자와 회절의 원리를 익히고, XRD·Raman·TEM·XPS·AFM 등 재료 분석법이 알려 주는 정보를 비교합니다.',
+    id: 'analysis', n: 'III', title: '2차원 물질 분석', en: 'CHARACTERIZATION OF 2D MATERIALS',
+    desc: 'XRD·Raman·TEM·XPS·AFM 등 분석법이 결정 구조와 물성에 대해 알려 주는 정보를 살펴봅니다.',
     chapters: [
-      { id: 'crystal', n: '01', title: '결정 구조와 격자', group: '결정학 기초',
-        desc: '브라베 격자, 기저, 단위격자, 역격자와 브릴루앙 영역을 학습합니다.', labs: ['3D 결정 구조 뷰어', '2D 브라베 격자·역격자'] },
-      { id: 'diffraction', n: '02', title: '결정면과 밀러 지수', group: '결정학 기초',
-        desc: '결정면을 밀러 지수로 나타내고 면간 거리와 결정 방향의 관계를 살펴봅니다.', labs: ['밀러 지수'] },
-      { id: 'characterization', n: '03', title: '2D 물질 분석법', group: '분광·현미경 분석',
+      { id: 'characterization', dir: 'crystallography', n: '01', title: '2D 물질 분석법', group: '분석 개요',
         desc: 'XRD·Raman·TEM·XPS·AFM의 측정 원리와 각 방법으로 확인할 수 있는 물성을 개괄합니다.', labs: [] },
-      { id: 'xrd', n: '04', title: 'X선 회절(XRD)', group: '분광·현미경 분석',
+      { id: 'xrd', dir: 'crystallography', n: '02', title: 'X선 회절(XRD)', group: '분광·현미경 분석',
         desc: '브래그 회절, 회절 피크와 분말 XRD 패턴을 통해 결정상·격자 정보를 분석합니다.', labs: ['브래그 반사', '분말 XRD'] },
-      { id: 'raman', n: '05', title: '라만 분광법', group: '분광·현미경 분석',
+      { id: 'raman', dir: 'crystallography', n: '03', title: '라만 분광법', group: '분광·현미경 분석',
         desc: '비탄성 광산란과 Raman shift를 이해하고 2D 물질의 진동 모드와 층수·변형률 단서를 해석합니다.', labs: ['층수·strain과 라만 피크'] },
-      { id: 'tem', n: '06', title: '투과전자현미경(TEM)', group: '분광·현미경 분석',
+      { id: 'tem', dir: 'crystallography', n: '04', title: '투과전자현미경(TEM)', group: '분광·현미경 분석',
         desc: 'TEM·STEM 영상과 전자 회절·분광으로 국소 구조, 결함과 원소 분포를 분석하는 방법을 살펴봅니다.', labs: ['TEM 모아레 분석'] },
-      { id: 'xps', n: '07', title: 'X선 광전자분광법(XPS)', group: '분광·현미경 분석',
+      { id: 'xps', dir: 'crystallography', n: '05', title: 'X선 광전자분광법(XPS)', group: '분광·현미경 분석',
         desc: '광전자 결합 에너지로 표면 원소 조성과 화학 상태를 분석하고 스펙트럼 해석의 주의점을 익힙니다.', labs: [] },
-      { id: 'afm', n: '08', title: '원자힘현미경(AFM)', group: '분광·현미경 분석',
+      { id: 'afm', dir: 'crystallography', n: '06', title: '원자힘현미경(AFM)', group: '분광·현미경 분석',
         desc: '탐침과 표면 사이의 힘으로 높이·거칠기를 측정하고 2D 플레이크 두께를 해석합니다.', labs: [] },
     ],
   },
   {
-    id: 'semiconductor', n: 'III', title: '반도체 물리와 소자 응용', en: 'SEMICONDUCTOR PHYSICS & DEVICES',
-    desc: '에너지 밴드와 밴드갭에서 출발해 FET와 강유전체·음의 정전용량을 이용하는 차세대 소자로 나아갑니다.',
+    id: 'applications', n: 'IV', title: '2차원 물질 응용', en: 'PROPERTIES & DEVICE APPLICATIONS',
+    desc: '강유전·자성·이종구조의 기능성부터 반도체 물리, FET와 차세대 소자 응용까지 살펴봅니다.',
     chapters: [
-      { id: 'bands', n: '01', title: '반도체 물리와 밴드갭', group: '전자 구조',
+      { id: 'ferroelectric', dir: 'materials', n: '01', title: '2D 강유전성', group: '기능성 물성',
+        desc: '면내·면외 분극과 층간 sliding 강유전성의 원리, 대표 소재와 측정·소자 응용을 살펴봅니다.', labs: [] },
+      { id: 'ferromagnetism', dir: 'materials', n: '02', title: '2D 자성', group: '기능성 물성',
+        desc: '강자성과 반강자성의 원리, 대표 반데르발스 자성체, 스핀 수송과 소자 응용을 살펴봅니다.', labs: [] },
+      { id: 'moire', dir: 'materials', n: '03', title: '이종구조와 모아레 연구', group: '기능성 물성',
+        desc: '반데르발스 이종구조, 비틀림 각도, 모아레 초격자와 트위스트로닉스를 살펴봅니다.', labs: ['모아레 주기', '원자 재구성'] },
+      { id: 'bands', dir: 'semiconductor', n: '04', title: '반도체 물리와 밴드갭', group: '반도체 물리',
         desc: '에너지 밴드, 직접·간접 밴드갭, 2D 물질의 층수 효과와 광학 응답을 살펴봅니다.', labs: ['밴드갭과 빛', 'MoS₂ 층 수', '디랙 원뿔'] },
-      { id: 'materials', n: '02', title: '2D·광대역 반도체와 응용', group: '물질과 응용',
+      { id: 'materials', dir: 'semiconductor', n: '05', title: '2D·광대역 반도체와 응용', group: '반도체 소자 응용',
         desc: '2D 반도체와 SiC·GaN·Ga₂O₃ 등 광대역 반도체의 특성 및 전력 소자 응용을 비교합니다.', labs: ['물질 라인업', '전력 반도체 비교'] },
-      { id: 'devices', n: '03', title: 'FET와 차세대 소자 응용', group: '소자 응용',
+      { id: 'devices', dir: 'semiconductor', n: '06', title: 'FET와 차세대 소자 응용', group: '반도체 소자 응용',
         desc: 'MOSFET의 게이트 제어와 2D 채널을 익히고 FeS-FET·NCFET, 이종구조 기반 소자 응용을 살펴봅니다.', labs: ['양자 터널링', '단채널 MOSFET'] },
     ],
   },
   {
-    id: 'tools', n: 'IV', title: '도구', en: 'TOOLS',
+    id: 'tools', n: 'V', title: '도구', en: 'TOOLS',
     desc: '논문 데이터와 주요 용어를 살펴보고 연구실 논문 분석실로 이동합니다.',
     chapters: [
       { id: 'papers', n: '01', title: '논문 데이터', group: '연구 자료',
@@ -104,7 +110,7 @@ export function isDark() {
   return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
 
-export const chapterUrl = (root, field, ch) => `${root}chapters/${field.id}/${ch.id}.html`;
+export const chapterUrl = (root, field, ch) => `${root}chapters/${ch.dir || field.id}/${ch.id}.html`;
 
 function buildLayout() {
   const body = document.body;
