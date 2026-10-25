@@ -22,14 +22,14 @@ fieldRoot.innerHTML = FIELDS.map(f => {
   const labs = f.chapters.reduce((s, c) => s + c.labs.length, 0);
   const cards = f.chapters.map(c => {
     return `<a class="toc-card" href="${chapterUrl('./', f, c)}">
-      <span class="n">${c.n === '··' ? '부록' : 'LESSON ' + c.n}</span>
+      <span class="n">${c.n === '··' ? '부록' : `${f.n} · ${c.n}`}</span>
       <h3>${esc(c.title)}</h3><p>${esc(c.desc)}</p>
       ${c.labs.length ? `<div class="labs">${c.labs.map(l => `<span>${esc(l)}</span>`).join('')}</div>` : ''}
     </a>`;
   }).join('');
   return `<section class="field" id="field-${f.id}">
     <div class="field-head"><div><div class="en">FIELD ${f.n} · ${esc(f.en)}</div><h3>${esc(f.title)}</h3><p>${esc(f.desc)}</p></div>
-      <div class="field-meta"><span class="chip">📖 ${f.chapters.length}개 소단원</span><span class="chip">🧪 인터랙티브 ${labs}개</span></div></div>
+      <div class="field-meta"><span class="chip">📖 ${f.chapters.length}개 페이지</span><span class="chip">🧪 인터랙티브 ${labs}개</span></div></div>
     <div class="field-body"><div class="toc-grid">${cards}</div>${(f.links || []).map(link => `<a class="btn" href="${esc(link.url)}" target="_blank" rel="noopener">${esc(link.title)} ↗</a>`).join('')}</div>
   </section>`;
 }).join('');

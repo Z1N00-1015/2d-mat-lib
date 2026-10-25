@@ -404,8 +404,9 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
 .home-materials .section-heading { max-width: 860px; }
 .home-material-lineup { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 980px; margin: 16px auto 0; }
 .home-material-lineup.lineup { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.home-material-lineup .home-mat { cursor: default; padding: 14px; }
+.home-material-lineup .home-mat { cursor: pointer; padding: 14px; color: var(--text); text-decoration: none; }
 .home-material-lineup .home-mat:hover { transform: none; border-color: var(--border); }
+.home-material-lineup .home-mat:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 .home-material-lineup .home-mat canvas { display: block; max-width: 190px; margin: 0 auto 9px; }
 .home-material-kind { margin-top: 7px; color: var(--muted); font-size: 11px; line-height: 1.4; }
 .home-material-note { max-width: 980px; margin: 12px auto 0; color: var(--muted); font-size: 12px; }
@@ -427,6 +428,9 @@ td.num, th.num { text-align: right; font-family: var(--mono); }
 .landscape-card-copy { padding: 14px 16px 11px; }
 .landscape-card-copy h3 { margin: 0 0 4px; color: var(--text); font-size: 16px; }
 .landscape-card-copy p { margin: 0; color: var(--text-2); font-size: 12.5px; line-height: 1.5; }
+.landscape-link { display: inline-block; margin: 0 14px 13px; color: var(--accent); font-size: 12px; font-weight: 700; text-decoration: none; }
+.landscape-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.landscape-links { display: flex; flex-wrap: wrap; gap: 0 6px; }
 .landscape-art { display: block; width: 100%; height: 360px; object-fit: cover; object-position: center; background: #101319; }
 .landscape-card--integration .landscape-art { object-fit: contain; }
 .landscape-figure figcaption { padding: 11px 8px 3px; color: var(--muted); font-size: 12.5px; line-height: 1.55; }
@@ -669,6 +673,19 @@ sub, sup { font-size: .72em; line-height: 0; }
 .refs-tag { font-family: var(--mono); font-size: 11.5px; font-weight: 700; color: #fff; background: var(--teal); border-radius: 6px; padding: 2px 8px; }
 .refs-row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(260px, 300px); gap: 12px; overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x mandatory; }
 .refs-row .pcard { scroll-snap-align: start; }
+.review-status { display: inline-flex; align-self: flex-start; width: fit-content; padding: 3px 7px; border: 1px solid var(--border); border-radius: 6px; color: var(--text-2); font-size: 11px; line-height: 1.35; }
+.review-status.human { border-color: color-mix(in srgb, #43b895 48%, var(--border)); color: #49bd98; }
+.review-status.ai { border-color: color-mix(in srgb, #e6ad4d 48%, var(--border)); color: #d7a34a; }
+.review-status.unknown { color: var(--muted); }
+.paper-record-details, .related-paper-list { border-top: 1px solid var(--border); padding-top: 8px; }
+.paper-record-details summary, .related-paper-list summary { color: var(--accent); font-size: 12px; cursor: pointer; }
+.paper-record-details ul, .related-paper-list ol { margin: 8px 0 0; padding-left: 20px; }
+.paper-record-details li, .related-paper-list li { margin: 0 0 8px; color: var(--text-2); font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.paper-record-details li small { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
+.related-paper-list { margin-top: 12px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.data-provenance-note { padding: 12px 14px; border-left: 3px solid var(--accent); border-radius: 5px; background: var(--surface-2); color: var(--text-2); font-size: 13px; line-height: 1.6; }
+.glossary-body-link { margin-top: 4px; font-size: 12px; }
+.glossary-body-link a { color: var(--accent); }
 .pcard { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
 .pcard h4 { margin: 0; font-size: 15px; line-height: 1.4; }
 .pmeta { font-size: 12px; font-weight: 700; color: var(--teal); }

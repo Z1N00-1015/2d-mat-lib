@@ -25,6 +25,7 @@ const TERMS = [
   ['결정학', '적층 도메인', 'stacking domain', '모아레 구조에서 국소 원자 적층이 거의 일정한 영역. twisted bilayer graphene의 작은 비틀림각에서는 AB·BA 영역이 넓어진다.'],
   ['결정학', '도메인 벽', 'domain wall, soliton', '서로 다른 stacking domains 사이를 잇는 좁은 전이 영역.'],
   ['결정학', '에피택시', 'epitaxy', '기판의 결정 방위를 따라 단결정 박막을 성장시키는 것.'],
+  ['결정학', '하이포택시', 'hypotaxy', '결정 방위를 전달하는 template 층 아래에서 결정성 박막을 성장시키는 접근. 그래핀 나노구멍을 통로로 이용한 TMD 성장법 등이 보고되었다.'],
   ['분석법', '라만 분광법', 'Raman spectroscopy', '빛의 비탄성 산란으로 격자 진동을 측정하는 분광법. 2D 물질의 층수, 변형률, 결함과 전하 상태를 조사할 때 활용한다.'],
   ['분석법', '라만 이동', 'Raman shift', '입사광과 라만 산란광 사이의 에너지 차이를 파수(cm⁻¹)로 나타낸 값. 물질의 진동 에너지에 대응한다.'],
   ['분석법', '포논', 'phonon', '결정 격자의 집단 진동을 양자화해 기술하는 준입자. 라만 분광법은 라만 활성 포논 모드를 측정할 수 있다.'],
@@ -116,12 +117,33 @@ const TERMS = [
   ['소자', '저유전율 절연막', 'low-k dielectric', '유전율이 낮아 인접 배선 사이의 기생 정전용량을 줄이는 절연 재료. 기계적 강도와 열전달을 함께 확보해야 한다.'],
 ];
 
+const TERM_LINKS = {
+  'crystal structure': ['../crystallography/crystal.html', '결정 구조 본문'],
+  'Miller indices': ['../crystallography/diffraction.html', '밀러 지수 본문'],
+  "Bragg's law": ['../crystallography/xrd.html', 'XRD 본문'],
+  'Raman spectroscopy': ['../crystallography/raman.html', 'Raman 본문'],
+  'transmission electron microscopy, TEM': ['../crystallography/tem.html', 'TEM 본문'],
+  'X-ray diffraction, XRD': ['../crystallography/xrd.html', 'XRD 본문'],
+  'X-ray photoelectron spectroscopy, XPS': ['../crystallography/xps.html', 'XPS 본문'],
+  'atomic force microscopy, AFM': ['../crystallography/afm.html', 'AFM 본문'],
+  'moiré superlattice': ['../materials/moire.html', '이종구조와 모아레 본문'],
+  'epitaxy': ['../materials/single-crystal-growth.html', '단결정 성장 본문'],
+  'hypotaxy': ['../materials/single-crystal-growth.html', '단결정 성장 본문'],
+  'energy band': ['../semiconductor/bands.html', '반도체 밴드 본문'],
+  'band gap, E_g': ['../semiconductor/bands.html', '반도체 밴드 본문'],
+  'ferroelectricity': ['../materials/ferroelectric.html', '강유전성 본문'],
+  'ferromagnetism': ['../materials/ferromagnetism.html', '2D 자성 본문'],
+};
+const termId = en => `term-${en.toLowerCase().replace(/[^a-z0-9]+/g, '-') .replace(/^-|-$/g, '')}`;
+
 export function init(root) {
   const input = root.querySelector('input[type=search]');
   const chips = root.querySelector('.seg');
   const body = root.querySelector('tbody');
   const count = root.querySelector('[data-o="count"]');
+  const params = new URLSearchParams(location.search);
   let cat = '전체';
+  input.value = params.get('q') || '';
   const cats = ['전체', ...new Set(TERMS.map(t => t[0]))];
   chips.innerHTML = cats.map(c => `<button data-v="${c}"${c === cat ? ' class="on"' : ''}>${c}</button>`).join('');
   chips.addEventListener('click', e => {
@@ -135,10 +157,15 @@ export function init(root) {
     const q = input.value.trim().toLowerCase();
     const rows = TERMS.filter(([c, ko, en, d]) =>
       (cat === '전체' || c === cat) && (!q || (ko + en + d).toLowerCase().includes(q)));
-    body.innerHTML = rows.map(([c, ko, en, d]) =>
-      `<tr><td><b>${ko}</b><div class="en">${en}</div></td><td>${d}</td><td class="cat">${c}</td></tr>`).join('')
+    body.innerHTML = rows.map(([c, ko, en, d]) => {
+      const link = TERM_LINKS[en];
+      const id = termId(en);
+      return `<tr id="${id}"><td><b>${ko}</b><div class="en">${en}</div></td><td>${d}${link ? `<div class="glossary-body-link"><a href="${link[0]}">${link[1]} ↗</a></div>` : ''}</td><td class="cat">${c}</td></tr>`;
+    }).join('')
       || '<tr><td colspan="3" class="empty">검색 결과가 없습니다.</td></tr>';
     count.textContent = `${rows.length}개 용어`;
   }
   render();
+  const targetId = decodeURIComponent(location.hash.slice(1));
+  if (targetId.startsWith('term-')) requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView({ block: 'center' }));
 }
