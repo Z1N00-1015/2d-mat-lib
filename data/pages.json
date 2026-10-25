@@ -1,0 +1,180 @@
+{
+  "pages": [
+    {
+      "path": "chapters/materials/intro.html",
+      "title": "2차원 물질의 세계",
+      "chapter": "I. 2차원 물질 소개",
+      "section": "1.1.1–1.1.6",
+      "last_reviewed": "2026-10-25",
+      "level": "입문"
+    },
+    {
+      "path": "chapters/crystallography/crystal.html",
+      "title": "결정 구조와 격자",
+      "chapter": "I. 2차원 물질 소개",
+      "section": "1.2.1–1.2.4",
+      "last_reviewed": "2026-10-23",
+      "level": "입문"
+    },
+    {
+      "path": "chapters/crystallography/diffraction.html",
+      "title": "결정면과 밀러 지수",
+      "chapter": "I. 2차원 물질 소개",
+      "section": "1.3.1–1.3.2",
+      "last_reviewed": "2026-10-23",
+      "level": "입문"
+    },
+    {
+      "path": "chapters/semiconductor/bands.html",
+      "title": "반도체 물리와 밴드갭",
+      "chapter": "I. 2차원 물질 소개",
+      "section": "1.4.1–1.4.3",
+      "last_reviewed": "2026-10-23",
+      "level": "입문"
+    },
+    {
+      "path": "chapters/materials/deposition.html",
+      "title": "박막 증착",
+      "chapter": "II. 2차원 물질 합성",
+      "section": "2.1.1–2.1.4",
+      "last_reviewed": "2026-10-25",
+      "level": "입문"
+    },
+    {
+      "path": "chapters/materials/synthesis.html",
+      "title": "2D 물질의 합성",
+      "chapter": "II. 2차원 물질 합성",
+      "section": "2.2.1–2.2.4",
+      "last_reviewed": "2026-10-25",
+      "level": "입문"
+    },
+    {
+      "path": "chapters/materials/single-crystal-growth.html",
+      "title": "단결정 성장",
+      "chapter": "II. 2차원 물질 합성",
+      "section": "2.3.1–2.3.2",
+      "last_reviewed": "2026-10-25",
+      "level": "심화"
+    },
+    {
+      "path": "chapters/crystallography/characterization.html",
+      "title": "2D 물질 분석법",
+      "chapter": "III. 2차원 물질 분석",
+      "section": "3.1.1–3.1.3",
+      "last_reviewed": "2026-10-23",
+      "level": "입문"
+    },
+    {
+      "path": "chapters/crystallography/xrd.html",
+      "title": "X선 회절(XRD)",
+      "chapter": "III. 2차원 물질 분석",
+      "section": "3.2.1–3.2.4",
+      "last_reviewed": "2026-10-25",
+      "level": "입문"
+    },
+    {
+      "path": "chapters/crystallography/raman.html",
+      "title": "라만 분광법",
+      "chapter": "III. 2차원 물질 분석",
+      "section": "3.3.1–3.3.4",
+      "last_reviewed": "2026-10-25",
+      "level": "심화"
+    },
+    {
+      "path": "chapters/crystallography/tem.html",
+      "title": "투과전자현미경(TEM)",
+      "chapter": "III. 2차원 물질 분석",
+      "section": "3.4.1–3.4.5",
+      "last_reviewed": "2026-10-25",
+      "level": "심화"
+    },
+    {
+      "path": "chapters/crystallography/xps.html",
+      "title": "X선 광전자분광법(XPS)",
+      "chapter": "III. 2차원 물질 분석",
+      "section": "3.5.1–3.5.4",
+      "last_reviewed": "2026-10-25",
+      "level": "심화"
+    },
+    {
+      "path": "chapters/crystallography/afm.html",
+      "title": "원자힘현미경(AFM)",
+      "chapter": "III. 2차원 물질 분석",
+      "section": "3.6.1–3.6.3",
+      "last_reviewed": "2026-10-25",
+      "level": "심화"
+    },
+    {
+      "path": "chapters/materials/ferroelectric.html",
+      "title": "2D 강유전성",
+      "chapter": "IV. 2차원 물질 응용",
+      "section": "4.1.1–4.1.5",
+      "last_reviewed": "2026-10-25",
+      "level": "입문"
+    },
+    {
+      "path": "chapters/materials/ferromagnetism.html",
+      "title": "2D 자성",
+      "chapter": "IV. 2차원 물질 응용",
+      "section": "4.2.1–4.2.4",
+      "last_reviewed": "2026-10-25",
+      "level": "입문"
+    },
+    {
+      "path": "chapters/materials/moire.html",
+      "title": "이종구조와 모아레 연구",
+      "chapter": "IV. 2차원 물질 응용",
+      "section": "4.3.1–4.3.9",
+      "last_reviewed": "2026-10-25",
+      "level": "심화"
+    },
+    {
+      "path": "chapters/semiconductor/materials.html",
+      "title": "2D 반도체와 FET",
+      "chapter": "IV. 2차원 물질 응용",
+      "section": "4.4.1–4.4.5",
+      "last_reviewed": "2026-10-25",
+      "level": "입문"
+    },
+    {
+      "path": "chapters/semiconductor/devices.html",
+      "title": "차세대 전자소자",
+      "chapter": "IV. 2차원 물질 응용",
+      "section": "4.5.1–4.5.3",
+      "last_reviewed": "2026-10-25",
+      "level": "심화"
+    },
+    {
+      "path": "chapters/semiconductor/next-semiconductors.html",
+      "title": "차세대 반도체 공정",
+      "chapter": "IV. 2차원 물질 응용",
+      "section": "4.6.1–4.6.4",
+      "last_reviewed": "2026-10-25",
+      "level": "심화"
+    },
+    {
+      "path": "chapters/tools/papers.html",
+      "title": "논문 데이터",
+      "chapter": "V. 도구",
+      "section": "5.1.1",
+      "last_reviewed": "2026-10-25",
+      "level": "입문"
+    },
+    {
+      "path": "chapters/tools/glossary.html",
+      "title": "용어 사전",
+      "chapter": "V. 도구",
+      "section": null,
+      "last_reviewed": "2026-10-25",
+      "level": "입문"
+    },
+    {
+      "path": "chapters/tools/changelog.html",
+      "title": "변경 이력",
+      "chapter": "V. 도구",
+      "section": null,
+      "last_reviewed": "2026-10-26",
+      "level": "입문"
+    }
+  ]
+}

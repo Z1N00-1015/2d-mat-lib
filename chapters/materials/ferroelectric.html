@@ -6,9 +6,9 @@
 <title>2D 강유전성 · 2차원 물질 응용 · Beyond Silicon</title>
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../../assets/css/book.css?v=20261020-temmoire2">
+<link rel="stylesheet" href="../../assets/css/book.css?v=20261025-metadata-log">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book-runtime.js?v=20261023-nextprocess"></script>
+<script type="module" src="../../assets/js/book-runtime.js?v=20261025-metadata-log"></script>
 </head>
 <body data-root="../../" data-field="applications" data-chapter="ferroelectric">
 <main class="main">
@@ -20,11 +20,11 @@
     <div class="meta"></div>
   </header>
 
-  <h2><span class="sec">4.1</span>강유전성: 전기적 방향을 기억하다</h2>
+  <h2><span class="sec">4.1.1</span>강유전성: 전기적 방향을 기억하다</h2>
   <p><strong>강유전성(ferroelectricity)</strong>은 물질 안에 저절로 생긴 전기 분극(polarization)의 방향을 전기장으로 바꿀 수 있는 성질입니다. 원자 안의 양전하와 음전하 중심이 조금 어긋나면 작은 전기 쌍극자(dipole)가 생깁니다. 많은 쌍극자가 같은 방향으로 정렬하면 물질 전체에 순 분극이 생기고, 전기장을 제거한 뒤에도 그 방향이 남을 수 있습니다. 이 남은 분극을 잔류 분극(remanent polarization)이라 합니다.</p>
   <p>전기장을 한쪽 방향으로 걸면 분극이 한 상태로, 반대 방향으로 걸면 다른 상태로 바뀝니다. 두 상태를 각각 0과 1로 읽을 수 있기 때문에 강유전체는 전원을 꺼도 정보를 유지하는 재료로 연구되어 왔습니다. 단, 전기 측정에서 되풀이 곡선이 보인다는 사실만으로 강유전성을 확정할 수는 없습니다. 전하가 결함에 붙잡히는 현상도 비슷한 신호를 만들 수 있어 구조·현미경·전기 측정을 함께 비교합니다.</p>
 
-  <h2><span class="sec">4.2</span>왜 원자층 강유전성이 흥미로운가?</h2>
+  <h2><span class="sec">4.1.2</span>왜 원자층 강유전성이 흥미로운가?</h2>
   <p>전통적인 강유전체는 보통 산화물 결정으로 만듭니다. 이런 박막을 아주 얇게 줄이면 표면의 분극 전하를 충분히 가려주지 못해, 분극을 흐트러뜨리는 탈분극장(depolarization field)이 커질 수 있습니다. 그래서 두께를 줄일수록 강유전 상태를 안정적으로 유지하기가 어려워집니다.</p>
   <p>일부 층상 반데르발스(van der Waals, vdW) 물질은 층 안의 결합은 강하고 층 사이는 약해, 얇은 층을 분리하고 깨끗한 계면으로 다시 쌓을 수 있습니다. 덕분에 몇 원자층 또는 단층 한계에서 분극을 연구하고, 반도체 채널이나 다른 기능성 층과 결합하기 좋습니다. 이것이 모든 2D 물질이 강유전체라는 뜻은 아닙니다. 실제 안정성은 물질의 결정상, 층수, 전극·기판, 결함과 측정 조건에 따라 달라집니다.</p>
   <div class="table-wrap"><table>
@@ -36,7 +36,7 @@
     </tbody>
   </table></div>
 
-  <h2><span class="sec">4.3</span>분극 방향과 대표 소재</h2>
+  <h2><span class="sec">4.1.3</span>분극 방향과 대표 소재</h2>
   <p>분극이 층 안을 향하면 면내(in-plane, IP), 층에 수직이면 면외(out-of-plane, OOP) 분극이라고 합니다. 이는 분극의 <em>방향</em>을 가리키는 말입니다. 원자 위치가 층 안에서 움직여 분극이 생기기도 하고, 두 층을 옆으로 조금 미끄러뜨려 적층 대칭을 바꾸면서 분극을 만들기도 합니다.</p>
   <div class="table-wrap"><table>
     <thead><tr><th>소재 예</th><th>무엇이 흥미로운가?</th><th>분극·기작의 예</th></tr></thead>
@@ -49,11 +49,11 @@
   </table></div>
   <div class="callout note"><span class="t">방향과 전환 방법은 다른 분류입니다</span><p>IP/OOP는 분극이 향하는 방향이고, sliding은 두 층의 상대 이동으로 분극을 바꾸는 방법입니다. 따라서 sliding으로 면외 분극을 전환하는 재료처럼 두 설명이 동시에 적용될 수 있습니다.</p></div>
 
-  <h2><span class="sec">4.4</span>어떻게 확인하고 조절할까?</h2>
+  <h2><span class="sec">4.1.4</span>어떻게 확인하고 조절할까?</h2>
   <p>압전 응답력 현미경(piezoresponse force microscopy, PFM)은 뾰족한 탐침으로 표면에 작은 교류 전압을 걸고, 시료가 미세하게 늘고 줄어드는 응답을 읽어 분극 영역(domain)을 그립니다. 탐침으로 한 지점에 전압을 가해 분극을 바꾼 뒤, 그 상태가 남는지도 확인할 수 있습니다. 다만 PFM 신호 하나만으로 결론을 내리지 않고, 전기적 전환과 원자 구조 측정, 대조 실험을 함께 살핍니다.</p>
   <p>분극은 전기장으로 직접 바꿀 수 있고, 층수·기계적 변형(strain)·층간 적층·계면도 분극의 방향과 안정성에 영향을 줍니다. 연구자는 이 손잡이들을 이용해 분극 상태를 정하고, 그에 따라 전자와 빛이 어떻게 달라지는지 측정합니다.</p>
 
-  <h2><span class="sec">4.5</span>기억 소자와 광전자 응용</h2>
+  <h2><span class="sec">4.1.5</span>기억 소자와 광전자 응용</h2>
   <div class="cards">
     <div class="card"><div class="ico">💾</div><h5>비휘발성 메모리</h5><p>전기장을 끈 뒤에도 남은 분극을 정보로 저장합니다. α-In₂Se₃ 기반 FeS-FET는 채널 자체의 분극으로 전류 상태를 조절하는 예입니다.</p></div>
     <div class="card"><div class="ico">🔀</div><h5>트랜지스터·터널 접합</h5><p>FeFET는 게이트의 강유전체가 채널을 조절하고, FeS-FET는 강유전체 반도체 자체가 채널이 됩니다. 터널 접합은 분극 방향에 따라 전류가 달라집니다.</p></div>

@@ -75,6 +75,8 @@ export const FIELDS = [
         desc: '연구실 논문 라이브러리에 저장된 논문을 검색합니다.', labs: ['논문 검색'] },
       { id: 'glossary', n: '02', title: '용어 사전', group: '참고 도구',
         desc: '2D 물질과 반도체 분야의 핵심 용어를 표준 표기와 영문으로 찾아봅니다.', labs: [] },
+      { id: 'changelog', n: '03', title: '변경 이력', group: '참고 도구',
+        desc: '페이지별 최근 수정 내용과 새로 연결된 DOI를 확인합니다.', labs: [] },
     ],
     links: [{ title: '논문 분석실 · 로그인', url: PAPER_LIBRARY_URL }],
   },
@@ -190,6 +192,7 @@ function buildLayout() {
   if (ch && meta && !meta.children.length) {
     meta.innerHTML = ch.labs.length ? `<span class="chip">🧪 인터랙티브 ${ch.labs.length}개</span>` : '';
   }
+  loadPageReviewMeta(root, field, ch, meta);
 
   // in-page section TOC
   const sub = document.getElementById('subtoc');
@@ -226,8 +229,31 @@ function buildLayout() {
   if (art) {
     const f = document.createElement('footer');
     f.className = 'site-foot';
-    f.innerHTML = `${BRAND.name} · ${BRAND.sub} — 시뮬레이션은 교육용 단순화 모델이며, 수치는 문헌의 대표값입니다.`;
+    const accessed = new Date();
+    const accessDate = `${accessed.getFullYear()}-${String(accessed.getMonth() + 1).padStart(2, '0')}-${String(accessed.getDate()).padStart(2, '0')}`;
+    f.innerHTML = `<p><strong>Author:</strong> [Author name]</p><details class="site-citation"><summary>How to cite</summary><p>Beyond Silicon: A Live &amp; Interactive Review of 2D Materials. <a data-citation-url></a> (accessed <time datetime="${accessDate}">${accessDate}</time>).</p></details><p class="footer-note">시뮬레이션은 교육용 단순화 모델이며, 수치는 문헌의 대표값입니다.</p>`;
+    const citeUrl = f.querySelector('[data-citation-url]');
+    citeUrl.href = `${location.origin}${location.pathname}`;
+    citeUrl.textContent = citeUrl.href;
     art.appendChild(f);
+  }
+}
+
+async function loadPageReviewMeta(root, field, chapter, meta) {
+  if (!field || !chapter || !meta) return;
+  try {
+    const response = await fetch(`${root}data/pages.json`);
+    if (!response.ok) throw new Error(`pages.json: ${response.status}`);
+    const { pages = [] } = await response.json();
+    const path = `chapters/${chapter.dir || field.id}/${chapter.id}.html`;
+    const page = pages.find(item => item.path === path);
+    if (!page || meta.querySelector('.page-review-meta')) return;
+    const status = document.createElement('span');
+    status.className = 'page-review-meta';
+    status.textContent = `Last reviewed: ${page.last_reviewed} · ${page.level}`;
+    meta.prepend(status);
+  } catch (error) {
+    console.warn('[page metadata]', error);
   }
 }
 

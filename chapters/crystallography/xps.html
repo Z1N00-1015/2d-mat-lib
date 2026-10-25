@@ -5,9 +5,9 @@
 <title>X선 광전자분광법(XPS) · 2차원 물질 분석 · Beyond Silicon</title>
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../../assets/css/book.css?v=20261020-temmoire2">
+<link rel="stylesheet" href="../../assets/css/book.css?v=20261025-metadata-log">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book-runtime.js?v=20261023-nextprocess"></script>
+<script type="module" src="../../assets/js/book-runtime.js?v=20261025-metadata-log"></script>
 </head>
 <body data-root="../../" data-field="analysis" data-chapter="xps">
 <main class="main"><article class="article">
@@ -18,12 +18,12 @@
     <div class="meta"></div>
   </header>
 
-  <h2><span class="sec">3.17</span>광전자에서 결합 에너지를 구한다</h2>
+  <h2><span class="sec">3.5.1</span>광전자에서 결합 에너지를 구한다</h2>
   <p>광전 효과에 따라 X선 광자가 전자를 방출시키면, 분석기는 방출 전자의 운동 에너지(E<sub>K</sub>)를 측정합니다. 광자 에너지(hν)와 분석기 일함수(φ<sub>analyzer</sub>)를 고려해 결합 에너지(E<sub>B</sub>)를 계산합니다.</p>
   <div class="eq">E<sub>B</sub> = hν − E<sub>K</sub> − φ<sub>analyzer</sub></div>
   <p>원소마다 고유한 핵심 준위(core level)가 있어 스펙트럼의 피크 위치로 원소를 확인할 수 있습니다. 결합 환경과 산화 상태가 달라지면 결합 에너지가 이동할 수 있는데, 이를 화학적 이동(chemical shift)이라 합니다. 스핀-궤도 상호작용으로 여러 성분으로 갈라지는 피크 쌍도 원소와 화학 상태를 구별하는 단서입니다.</p>
 
-  <h2><span class="sec">3.18</span>스펙트럼에서 읽을 정보</h2>
+  <h2><span class="sec">3.5.2</span>스펙트럼에서 읽을 정보</h2>
   <div class="table-wrap"><table>
     <thead><tr><th>측정</th><th>얻는 정보</th><th>해석할 때 확인할 점</th></tr></thead>
     <tbody>
@@ -34,7 +34,7 @@
   </table></div>
   <p>예를 들어 MoS₂에서는 Mo와 S의 핵심 준위를 함께 살펴 화학 상태나 산화를 조사할 수 있습니다. 피크 분해는 물리적으로 타당한 선 모양과 성분 수를 사용해야 하며, 원하는 조성에 맞춰 임의로 피크를 추가하지 않습니다. 상대 원자 비율은 표면 민감도와 보정 방법에 따른 추정값으로 해석합니다.</p>
 
-  <h2><span class="sec">3.19</span>측정과 해석의 흐름</h2>
+  <h2><span class="sec">3.5.3</span>측정과 해석의 흐름</h2>
   <ol>
     <li>시료 표면을 오염시키지 않도록 준비하고, 고진공에서 survey spectrum을 측정해 주요 원소를 확인합니다.</li>
     <li>관심 원소의 좁은 범위 스펙트럼을 수집하고 에너지 축, 배경과 피크 성분을 검토합니다.</li>
@@ -42,7 +42,7 @@
   </ol>
   <div class="callout tip"><span class="t">시료 대전과 에너지 보정</span><p>절연성 시료나 불균일한 표면은 광전자 방출 중 전하가 축적되어 피크가 이동하거나 넓어질 수 있습니다. 에너지 기준을 어떻게 정했는지 기록하고, 보정 방법에 따라 화학 상태 결론이 달라지지 않는지 확인하세요.</p></div>
 
-  <h2><span class="sec">3.20</span>표면 민감도와 한계</h2>
+  <h2><span class="sec">3.5.4</span>표면 민감도와 한계</h2>
   <p>XPS에서 검출되는 광전자는 고체 내부를 지나며 비탄성 산란을 할 수 있어, 신호는 보통 표면 근처에서 더 강합니다. 따라서 표면 흡착물이나 산화층을 분석하는 데 유리하지만 벌크 전체 조성을 그대로 나타내지는 않습니다. 표면 세척이나 이온 스퍼터링은 오염 제거에 쓰일 수 있으나 화학 상태와 조성을 바꿀 수 있으므로 처리 전후를 구분해야 합니다.</p>
   <p>XPS는 표면 화학 상태를, Raman은 진동 상태를, TEM-EDS/EELS는 작은 영역의 구조와 원소 분포를 보완합니다. 각 기법이 조사하는 깊이와 영역이 다르므로 결과를 직접 같은 양으로 취급하지 말고 측정 범위를 함께 비교하세요.</p>
   <div class="refs"><h3>더 읽을 자료</h3><ul>

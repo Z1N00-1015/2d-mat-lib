@@ -1,5 +1,11 @@
 # 작업 인계 기록
 
+## 2026-10-26 · codex
+- 변경: `data/pages.json`에 탐색 가능한 장별 제목·분야·현재 절 범위·난이도와 작업 전 Git 수정일을 기록하고, 공통 런타임에서 `Last reviewed: 날짜 · 난이도`를 표시. 표지에 최근 업데이트 5건과 전체 목차를 추가하고, `data/changelog.json` 및 변경 이력 페이지를 만들었으며 새 DOI 링크를 포함. 장 푸터에는 저자명 placeholder와 페이지 URL·접속일이 있는 How to cite 블록을 추가.
+- 확인: 로컬 웹서버에서 표지, 변경 이력, TEM 페이지 렌더링 확인. 22개 메타데이터 경로와 날짜·난이도, 두 JSON 파싱, JS 모듈 구문, `git diff --check` 확인. 모바일 폭은 900px/560px 반응형 규칙으로 최근 업데이트·목차를 재배치.
+- 변경: 사용자가 승인한 `분야.페이지.절` 체계로 20개 콘텐츠 페이지의 절 표기와 `data/pages.json` 범위를 함께 갱신. 자동 생성 앵커(`s1` 등)는 유지해 페이지 내부 링크를 보존.
+- 남은 일: 본문 과학 내용은 수정하지 않음. `last_reviewed`는 cache-busting HTML 변경 전 Git 기록에서 가져온 내용 검토 기준일로 보존.
+
 ## 2026-10-25 · codex
 - 변경: 표지 소개를 “Beyond Silicon / A Live & Interactive Review of 2D Materials / Continuously updated. Interactively explored. Connected by research.”로 수정하고 페이지 제목·검색 설명도 Living Review에 맞춤.
 - 확인: `git diff --check` 통과. 기존 표지 콘텐츠와 인터랙티브 구성은 유지.
