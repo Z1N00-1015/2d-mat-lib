@@ -77,6 +77,8 @@ export const FIELDS = [
         desc: '2D 물질과 반도체 분야의 핵심 용어를 표준 표기와 영문으로 찾아봅니다.', labs: [] },
       { id: 'changelog', n: '03', title: '변경 이력', group: '참고 도구',
         desc: '페이지별 최근 수정 내용과 새로 연결된 DOI를 확인합니다.', labs: [] },
+      { id: 'benchmarks', n: '04', title: '소자·합성 벤치마크', group: '참고 도구',
+        desc: '문헌에 보고된 2D 소재 소자 성능과 합성 조건을 출처와 함께 비교합니다.', labs: [] },
     ],
     links: [{ title: '논문 분석실 · 로그인', url: PAPER_LIBRARY_URL }],
   },

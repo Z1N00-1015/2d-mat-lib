@@ -175,6 +175,14 @@
       "section": null,
       "last_reviewed": "2026-10-26",
       "level": "입문"
+    },
+    {
+      "path": "chapters/tools/benchmarks.html",
+      "title": "소자·합성 벤치마크",
+      "chapter": "V. 도구",
+      "section": "5.4.1–5.4.3",
+      "last_reviewed": "2026-10-26",
+      "level": "입문"
     }
   ]
 }
