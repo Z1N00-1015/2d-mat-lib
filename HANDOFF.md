@@ -1,6 +1,11 @@
 # 작업 인계 기록
 
 ## 2026-10-25 · codex
+- 변경: 표지 소개를 “Beyond Silicon / A Live & Interactive Review of 2D Materials / Continuously updated. Interactively explored. Connected by research.”로 수정하고 페이지 제목·검색 설명도 Living Review에 맞춤.
+- 확인: `git diff --check` 통과. 기존 표지 콘텐츠와 인터랙티브 구성은 유지.
+- 남은 일: 커밋 및 원격 `main` 푸시.
+
+## 2026-10-25 · codex
 - 변경: 분야 I–V의 절 번호를 분야별 연속 체계로 정리하고, 표지 소재·연구 분야 카드에 본문 링크를 추가. 용어 사전에 본문 역링크와 검색어 URL 연결을 넣음. 논문 패널은 주제별 최신 5편을 먼저 보이고 나머지를 접힌 목록으로 제공하며, 논문 단위 검토 상태, 수치별 시료·조건·원문 페이지, 소자 구성요소 근거를 펼쳐 볼 수 있게 개선. 논문 원본 JSON은 변경하지 않음.
 - 대표 Living Review 사례: 단결정 성장 장을 연구 배경·에피택시 접근·하이포택시 주요 결과·열린 질문 흐름으로 보강하고 대표 문헌 4편 및 검토 완료 DB의 합성 조건 기록과 연결. 2015년 Kang 논문은 SiO₂ 위 직접 성장으로 바로잡고, 사파이어 step-epitaxy는 2021년 Li 논문에 연결.
 - 확인: 로컬 표지, 단결정 성장, 용어 사전의 `epitaxy` 검색·역링크, 논문 검색과 펼친 기록을 확인. JS 구문 검사, HTML 24개 파일의 로컬 href/src 검사, `git diff --check` 통과. 기존 CVD/Raman/TEM/Moiré 인터랙티브 코드는 수정하지 않음.
