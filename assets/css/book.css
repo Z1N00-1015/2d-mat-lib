@@ -247,6 +247,47 @@ figcaption b { color: var(--text-2); }
 .process-figure svg .accent-line { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 .process-figure svg .label { fill: var(--text-2); font: 11px var(--font); }
 .process-figure svg .tiny-label { fill: var(--muted); font: 9px var(--font); }
+/* diagram figure: 장마다 넣은 대표 모식도·그래프(인라인 SVG). 색은 모두 CSS 변수라 라이트/다크를 따른다. */
+.diagram-figure { margin: 1.6rem 0 2rem; }
+.diagram-figure .fig-body { padding: 14px 16px 10px; }
+.diagram-figure svg { display: block; width: 100%; height: auto; max-width: 720px; margin: 0 auto; overflow: visible; }
+.diagram-figure figcaption { text-align: left; line-height: 1.6; }
+.diagram-figure svg .substrate, .process-figure svg .substrate { fill: var(--surface-2); stroke: var(--border-2); }
+.diagram-figure svg .atom, .process-figure svg .atom { fill: var(--accent); }
+.diagram-figure svg .atom-alt, .process-figure svg .atom-alt { fill: var(--teal); }
+.diagram-figure svg .atom-3, .process-figure svg .atom-3 { fill: var(--amber); }
+.diagram-figure svg .atom-4, .process-figure svg .atom-4 { fill: var(--rose); }
+.diagram-figure svg .soft, .process-figure svg .soft { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.2; }
+.diagram-figure svg .panel, .process-figure svg .panel { fill: var(--surface-2); stroke: var(--border); }
+.diagram-figure svg .slab, .process-figure svg .slab { fill: var(--surface-2); stroke: var(--border-2); stroke-width: 1.2; }
+.diagram-figure svg .line, .process-figure svg .line { fill: none; stroke: var(--text-2); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.diagram-figure svg .thin, .process-figure svg .thin { fill: none; stroke: var(--border-2); stroke-width: 1.2; }
+.diagram-figure svg .dash, .process-figure svg .dash { fill: none; stroke: var(--muted); stroke-width: 1.3; stroke-dasharray: 4 4; }
+.diagram-figure svg .accent-line, .process-figure svg .accent-line { fill: none; stroke: var(--accent); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.diagram-figure svg .teal-line, .process-figure svg .teal-line { fill: none; stroke: var(--teal); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.diagram-figure svg .amber-line, .process-figure svg .amber-line { fill: none; stroke: var(--amber); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.diagram-figure svg .rose-line, .process-figure svg .rose-line { fill: none; stroke: var(--rose); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.diagram-figure svg .axis { fill: none; stroke: var(--fig-axis); stroke-width: 1.4; }
+.diagram-figure svg .grid { fill: none; stroke: var(--fig-grid); stroke-width: 1; }
+.diagram-figure svg .area { fill: var(--accent-soft); opacity: .7; }
+.diagram-figure svg .arrowhead, .process-figure svg .arrowhead { fill: var(--text-2); }
+.diagram-figure svg .arrowhead-accent, .process-figure svg .arrowhead-accent { fill: var(--accent); }
+.diagram-figure svg .arrowhead-teal, .process-figure svg .arrowhead-teal { fill: var(--teal); }
+.diagram-figure svg .arrowhead-amber, .process-figure svg .arrowhead-amber { fill: var(--amber); }
+.diagram-figure svg .arrowhead-rose, .process-figure svg .arrowhead-rose { fill: var(--rose); }
+.diagram-figure svg .label { fill: var(--text-2); font: 12.5px var(--font); }
+.diagram-figure svg .label-strong { fill: var(--text); font: 600 13px var(--font); }
+.diagram-figure svg .tiny-label { fill: var(--muted); font: 11px var(--font); }
+.diagram-figure svg .accent-label { fill: var(--accent); font: 600 12.5px var(--font); }
+.diagram-figure svg .teal-label { fill: var(--teal); font: 600 12.5px var(--font); }
+.diagram-figure svg .amber-label { fill: var(--amber); font: 600 12.5px var(--font); }
+.diagram-figure svg .rose-label { fill: var(--rose); font: 600 12.5px var(--font); }
+.diagram-figure svg .math { fill: var(--text-2); font: italic 13px var(--font); }
+.process-figure svg .accent-label { fill: var(--accent); font: 600 9.5px var(--font); }
+.process-figure svg .teal-label { fill: var(--teal); font: 600 9.5px var(--font); }
+.process-figure svg .rose-label { fill: var(--rose); font: 600 9.5px var(--font); }
+.process-figure svg .amber-label { fill: var(--amber); font: 600 9.5px var(--font); }
+.process-figure svg .label-strong { fill: var(--text); font: 600 10px var(--font); }
 @media (max-width: 700px) { .process-grid { grid-template-columns: 1fr; } .process-card { display: grid; grid-template-columns: minmax(120px, 38%) 1fr; grid-template-rows: auto 1fr; align-items: center; } .process-card h3 { grid-column: 2; grid-row: 1; padding: 12px 12px 0; } .process-card svg { grid-column: 1; grid-row: 1 / span 2; padding: 8px; } .process-card p { grid-column: 2; grid-row: 2; padding: 4px 12px 12px; } }
 .growth-reference-frame { overflow: hidden; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); padding: 10px; }
 .growth-reference-frame img { display: block; width: 100%; height: auto; border-radius: 10px; filter: saturate(.88) contrast(1.04); }
@@ -679,8 +720,8 @@ sub, sup { font-size: .72em; line-height: 0; }
 .lab .callout { margin: 0; padding: 12px 14px; font-size: 14px; }
 .callout.hot { border-color: color-mix(in srgb, var(--amber) 60%, var(--border)); background: color-mix(in srgb, var(--amber) 10%, var(--surface)); }
 .swatch { height: 40px; border-radius: 10px; border: 1px solid var(--border); }
-.tip { position: absolute; pointer-events: none; background: rgba(28,29,34,.94); color: #fff; font-size: 12px; padding: 7px 10px; border-radius: 9px; line-height: 1.5; white-space: nowrap; opacity: 0; transition: opacity .12s; z-index: 5; }
-.tip.on { opacity: 1; }
+.tip:not(.callout) { position: absolute; pointer-events: none; background: rgba(28,29,34,.94); color: #fff; font-size: 12px; padding: 7px 10px; border-radius: 9px; line-height: 1.5; white-space: nowrap; opacity: 0; transition: opacity .12s; z-index: 5; }
+.tip.on:not(.callout) { opacity: 1; }
 .btn-block { width: 100%; }
 
 /* Miller index stepper */
