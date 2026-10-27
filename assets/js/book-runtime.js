@@ -272,5 +272,10 @@ function loadModules() {
   document.querySelectorAll('[data-module]').forEach(el => io.observe(el));
 }
 
-buildLayout();
-loadModules();
+// 다른 모듈이 버전 문자열이 다른 주소(?v=...)로 이 파일을 import하면 모듈이 두 번 실행될 수 있다.
+// 그때 사이드바·상단 바가 겹쳐 생기지 않도록 화면 구성은 한 번만 한다.
+if (!window.__bookRuntimeReady) {
+  window.__bookRuntimeReady = true;
+  buildLayout();
+  loadModules();
+}
