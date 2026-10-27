@@ -6,7 +6,7 @@
 <title>2차원 물질의 세계 · 2차원 물질 소개 · Beyond Silicon</title>
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../../assets/css/book.css?v=20261026-diagrams">
+<link rel="stylesheet" href="../../assets/css/book.css?v=20261027-gapmap">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
 <script type="module" src="../../assets/js/book-runtime.js?v=20261026-benchmarks"></script>
 </head>
@@ -56,22 +56,23 @@
       <p>밴드갭이 없는 물질부터 넓은 밴드갭 절연체까지, 대표 구조를 한눈에 비교합니다.</p>
     </div>
     <figure class="gap-map-figure">
-      <div class="gap-axis-title">밴드갭 E<sub>g</sub> (eV)</div>
-      <div class="gap-map-axis">
-        <span>대표 소재</span><div class="gap-axis"><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div><span>면내 격자상수 a</span>
+      <div class="gap-head-row" aria-hidden="true"><span>소재</span><div class="gap-scale"><span style="--x:0%">0</span><span style="--x:16.67%">1</span><span style="--x:33.33%">2</span><span style="--x:50%">3</span><span style="--x:66.67%">4</span><span style="--x:83.33%">5</span><span style="--x:100%">6</span></div><span>격자상수 a</span></div>
+      <div class="gap-group zero"><div class="gap-group-title">밴드갭 없음 · 반금속·금속상</div>
+        <div class="gap-row zero"><div class="gap-name"><b>Graphene</b><small>반금속</small></div><div class="gap-track"><span class="gap-dot" style="--x:0%"></span><span class="gap-val" style="--x:0%">E<sub>g</sub> ≈ 0</span></div><span class="lattice">2.460 Å</span></div>
+        <div class="gap-row zero"><div class="gap-name"><b>1T-MoS₂</b><small>금속상</small></div><div class="gap-track"><span class="gap-dot" style="--x:0%"></span><span class="gap-val" style="--x:0%">E<sub>g</sub> ≈ 0</span></div><span class="lattice">3.190 Å</span></div>
+        <div class="gap-row zero"><div class="gap-name"><b>1T-TaSe₂</b><small>금속상</small></div><div class="gap-track"><span class="gap-dot" style="--x:0%"></span><span class="gap-val" style="--x:0%">E<sub>g</sub> ≈ 0</span></div><span class="lattice">3.473 Å</span></div>
       </div>
-      <div class="gap-map-rows">
-        <div class="gap-row zero"><b>Graphene</b><div class="gap-track"><span class="gap-zero-dot"></span><small>반금속 · Eg ≈ 0</small></div><span class="lattice">2.460 Å</span></div>
-        <div class="gap-row zero"><b>1T-MoS₂</b><div class="gap-track"><span class="gap-zero-dot"></span><small>금속상 · Eg ≈ 0</small></div><span class="lattice">3.190 Å</span></div>
-        <div class="gap-row zero"><b>1T-TaSe₂</b><div class="gap-track"><span class="gap-zero-dot"></span><small>금속상 · Eg ≈ 0</small></div><span class="lattice">3.473 Å</span></div>
-        <div class="gap-row tmd"><b>2H-MoSe₂</b><div class="gap-track"><span class="gap-range" style="--from:18.3%;--to:27.7%"></span><small>bulk → 단층 · 약 1.1–1.66</small></div><span class="lattice">3.288 Å</span></div>
-        <div class="gap-row tmd"><b>2H-WSe₂</b><div class="gap-track"><span class="gap-range" style="--from:20%;--to:29%"></span><small>bulk → 단층 · 약 1.2–1.74</small></div><span class="lattice">3.282 Å</span></div>
-        <div class="gap-row tmd"><b>2H-MoS₂</b><div class="gap-track"><span class="gap-range" style="--from:20%;--to:31.8%"></span><small>bulk → 단층 · 약 1.2–1.91</small></div><span class="lattice">3.160 Å</span></div>
-        <div class="gap-row tmd"><b>2H-WS₂</b><div class="gap-track"><span class="gap-range" style="--from:21.7%;--to:34%"></span><small>bulk → 단층 · 약 1.3–2.04</small></div><span class="lattice">3.153 Å</span></div>
-        <div class="gap-row insulator"><b>h-BN</b><div class="gap-track"><span class="gap-point" style="--point:100%"></span><small>절연체 · 약 6.0</small></div><span class="lattice">2.505 Å</span></div>
+      <div class="gap-group tmd"><div class="gap-group-title">반도체 · 2H-TMD <span>bulk 간접 밴드갭 → 단층 광학 전이</span></div>
+        <div class="gap-row tmd"><div class="gap-name"><b>2H-MoSe₂</b><small>반도체</small></div><div class="gap-track"><span class="gap-range" style="--from:18.33%;--to:27.67%"></span><span class="gap-val" style="--x:27.67%">1.1 → 1.66 eV</span></div><span class="lattice">3.288 Å</span></div>
+        <div class="gap-row tmd"><div class="gap-name"><b>2H-WSe₂</b><small>반도체</small></div><div class="gap-track"><span class="gap-range" style="--from:20.00%;--to:29.00%"></span><span class="gap-val" style="--x:29.00%">1.2 → 1.74 eV</span></div><span class="lattice">3.282 Å</span></div>
+        <div class="gap-row tmd"><div class="gap-name"><b>2H-MoS₂</b><small>반도체</small></div><div class="gap-track"><span class="gap-range" style="--from:20.00%;--to:31.83%"></span><span class="gap-val" style="--x:31.83%">1.2 → 1.91 eV</span></div><span class="lattice">3.160 Å</span></div>
+        <div class="gap-row tmd"><div class="gap-name"><b>2H-WS₂</b><small>반도체</small></div><div class="gap-track"><span class="gap-range" style="--from:21.67%;--to:34.00%"></span><span class="gap-val" style="--x:34.00%">1.3 → 2.04 eV</span></div><span class="lattice">3.153 Å</span></div>
+      </div>
+      <div class="gap-group insulator"><div class="gap-group-title">절연체</div>
+        <div class="gap-row insulator"><div class="gap-name"><b>h-BN</b><small>절연체</small></div><div class="gap-track"><span class="gap-dot big" style="--x:100%"></span><span class="gap-val end" style="--x:100%">약 6.0 eV</span></div><span class="lattice">2.505 Å</span></div>
       </div>
       <figcaption>
-        <span class="gap-legend"><i class="legend-zero"></i> 밴드갭 없음·금속성 <i class="legend-range"></i> 두께에 따른 대표 범위 <i class="legend-point"></i> 큰 밴드갭</span>
+        <span class="gap-legend"><span><i class="legend-zero"></i>밴드갭 없음·금속성</span><span><i class="legend-range"></i>bulk → 단층 대표 범위</span><span><i class="legend-point"></i>큰 밴드갭 절연체</span></span>
         <p>2H-TMD의 범위는 bulk 간접 밴드갭에서 단층의 대표 광학 전이 에너지까지를 단순화해 표시했습니다. 서로 다른 시료 환경과 측정법에서 얻은 값이므로 정밀한 일대일 성능 비교가 아닌 대표 규모입니다. 격자상수는 육방정 면내 격자의 a 값이며, 물질·상·온도·변형률에 따라 달라질 수 있습니다.</p>
         <div class="gap-sources">참고: <a href="https://doi.org/10.1038/s41699-020-00162-4" target="_blank" rel="noopener">Chaves et al., 2D 소재 밴드갭 리뷰 (2020)</a> · <a href="https://doi.org/10.1103/PhysRevB.89.075409" target="_blank" rel="noopener">2H-TMD 격자상수</a> · <a href="https://link.aps.org/accepted/10.1103/PhysRevB.97.205104" target="_blank" rel="noopener">graphene·h-BN 격자상수</a> · <a href="https://doi.org/10.1002/ange.201710512" target="_blank" rel="noopener">1T-MoS₂ 구조</a> · <a href="https://doi.org/10.1524/zkri.216.1.45.18999" target="_blank" rel="noopener">1T-TaSe₂ 구조</a></div>
       </figcaption>
