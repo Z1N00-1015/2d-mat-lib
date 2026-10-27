@@ -155,14 +155,23 @@ export function init(root) {
     render();
   });
   input.addEventListener('input', render);
+  // 위키 문서가 있는 용어에는 문서 링크를 붙인다(색인은 배포 때 tools/build_wiki.py가 만든다).
+  const siteRoot = document.body.dataset.root || '../../';
+  let wiki = {};
+  fetch(`${siteRoot}data/wiki-index.json`).then(r => (r.ok ? r.json() : { entries: [] })).then(({ entries = [] }) => {
+    entries.forEach(e => { wiki[e.en] = `${siteRoot}${e.url}`; wiki[e.title] = wiki[e.title] || `${siteRoot}${e.url}`; });
+    render();
+  }).catch(() => {});
   function render() {
     const q = input.value.trim().toLowerCase();
     const rows = TERMS.filter(([c, ko, en, d]) =>
       (cat === '전체' || c === cat) && (!q || (ko + en + d).toLowerCase().includes(q)));
     body.innerHTML = rows.map(([c, ko, en, d]) => {
       const link = TERM_LINKS[en];
+      const doc = wiki[en] || wiki[ko];
       const id = termId(en);
-      return `<tr id="${id}"><td><b>${ko}</b><div class="en">${en}</div></td><td>${d}${link ? `<div class="glossary-body-link"><a href="${link[0]}">${link[1]} ↗</a></div>` : ''}</td><td class="cat">${c}</td></tr>`;
+      const extra = [link ? `<a href="${link[0]}">${link[1]} ↗</a>` : '', doc ? `<a href="${doc}">위키 문서 ↗</a>` : ''].filter(Boolean).join(' · ');
+      return `<tr id="${id}"><td><b>${ko}</b><div class="en">${en}</div></td><td>${d}${extra ? `<div class="glossary-body-link">${extra}</div>` : ''}</td><td class="cat">${c}</td></tr>`;
     }).join('')
       || '<tr><td colspan="3" class="empty">검색 결과가 없습니다.</td></tr>';
     count.textContent = `${rows.length}개 용어`;

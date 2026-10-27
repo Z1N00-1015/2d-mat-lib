@@ -80,6 +80,18 @@ export const FIELDS = [
     ],
     links: [{ title: '논문 분석실 · 로그인', url: PAPER_LIBRARY_URL }],
   },
+  {
+    id: 'wiki', n: 'VI', title: '위키', en: 'WIKI',
+    desc: '개념·물질·공정·분석법을 문서 하나에 하나씩 정리하고 서로 연결한 위키입니다.',
+    chapters: [
+      { id: 'index', dir: 'wiki', n: '00', title: '전체 문서', group: '위키',
+        desc: '분류별 문서 목록과 검색, 아직 없는 문서를 확인합니다.', labs: [] },
+      { id: 'mos2', dir: 'wiki', n: '01', title: 'MoS₂', group: '대표 문서',
+        desc: '대표 2D 반도체 MoS₂의 구조·밴드갭·합성·소자.', labs: [] },
+      { id: 'chemical-vapor-deposition-cvd', dir: 'wiki', n: '02', title: '화학 기상 증착', group: '대표 문서',
+        desc: '분말 CVD와 MOCVD를 포함한 CVD의 원리.', labs: [] },
+    ],
+  },
 ];
 
 const MODULES = {
@@ -87,10 +99,10 @@ const MODULES = {
   crystal: './crystal.js?v=20261020i', lattice2d: './lattice2d.js?v=20261020i', miller: './miller.js?v=20261020i', bragg: './bragg.js',
   xrd: './xrd.js?v=20261020i', moire: './moire.js?v=20261020l', 'moire-reconstruction': './moire-reconstruction.js?v=20261020s', spectrum: './spectrum.js?v=20261023-remove-wbg',
   mos2: './mos2.js', bands: './bands.js', exfo: './exfo.js', cvd: './cvd.js',
-  glossary: './glossary.js?v=20261025-crosslinks', refs: './papers.js?v=20261025-review-curation', papersearch: './papers.js?v=20261025-review-curation',
+  glossary: './glossary.js?v=20261027-wiki', refs: './papers.js?v=20261025-review-curation', papersearch: './papers.js?v=20261025-review-curation',
   raman: './raman.js?v=20261020i', 'tem-moire': './tem-moire.js?v=20261023-overlap-controls',
   hypotaxy: './hypotaxy.js?v=20261020h', 'home-lineup': './home-materials.js?v=20261025-card-links',
-  lineup: './lineup.js?v=20261023-2d-only',
+  lineup: './lineup.js?v=20261023-2d-only', 'wiki-index': './wiki-index.js?v=20261027-wiki',
 };
 
 const LOGO = '<svg class="brand-logo" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bslg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a6cf0"/><stop offset="1" stop-color="#1fb3a3"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="8" fill="url(#bslg)"/><g fill="none" stroke="#fff" stroke-width="1.6" stroke-opacity=".9"><path d="M16 7.5l7.4 4.25v8.5L16 24.5l-7.4-4.25v-8.5z"/></g><circle cx="16" cy="16" r="2.6" fill="#fff"/></svg>';

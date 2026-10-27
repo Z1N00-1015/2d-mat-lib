@@ -1,6 +1,11 @@
 # 작업 인계 기록
 
 ## 2026-10-27 · claude
+- 변경: 위키 1단계. `tools/build_wiki.py`(표준 라이브러리) 추가: `wiki/*.md` → `chapters/wiki/<slug>.html`·`index.html`, `data/wiki-index.json`. 기능: front matter(title/en/aliases/category/status/reviewed/summary/related/chapter/sources/info), 마크다운 부분 집합, `[[링크]]`·빨간 링크·역링크, 본문 장 자동 연결(2회 이상 언급, 최대 6개), 정보 상자, ‘GitHub에서 고치기’ 링크, 분류별 목록·검색(`wiki-index` 모듈). 용어 사전 117개를 초안 문서로 시드(hypotaxy 중복 1개 병합), MoS₂(새 문서)·CVD·MOCVD·하이포택시 본문 작성. FIELDS에 ‘VI. 위키’, 용어 사전 행에 ‘위키 문서 ↗’ 링크, 위키 CSS, `deploy.yml`에 빌드 단계, `.gitignore`에 결과물, `wiki/README.md`, AGENTS.md 규칙 갱신. 버전 `20261027-wiki`.
+- 확인: 빌드 117개·빨간 링크 0, 위키 목록·문서(라이트/다크/모바일)·용어 사전 링크 133개, 콘솔 오류 없음.
+- 남은 일(2단계): 장 본문 용어 자동 링크, 표지 검색에 위키 포함, 물질 문서 확충(그래핀·WS₂ 등), 초안 문서 내용 채우기와 검토.
+
+## 2026-10-27 · claude
 - 수정: 단결정 성장 2.2.1 그림 캡션이 대화체(‘제공해주신 그림의 … 표현했습니다’)로 공개되어 있던 것을 그림 설명으로 바꾸고 번호(그림 2.2.1)와 aria-label 정리.
 - 남은 일: `epitaxy-hypotaxy-reference.jpg`는 논문 그림(Moon et al. 2025 계열로 보임)을 바탕으로 한 이미지로 보여 출처·사용 허가 확인 필요. 확인 전에는 출처를 캡션에 단정해 적지 않음.
 

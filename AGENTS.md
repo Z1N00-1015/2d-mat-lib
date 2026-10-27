@@ -3,7 +3,7 @@
 ## 프로젝트
 - Beyond Silicon: 2D 물질, 결정학·분석법, 반도체 물리와 소자 응용의 연구 분야를 소개하는 정적 웹사이트.
 - 사용자는 프로그래밍 초보자다. 변경 내용과 확인 방법을 쉬운 한국어로 설명한다.
-- 빌드 과정 없는 순수 HTML/CSS/JS. 외부 라이브러리는 `assets/vendor/`의 three.js와 Pretendard 웹폰트(CDN)뿐이다. 새 의존성을 함부로 추가하지 않는다.
+- 장 페이지는 빌드 과정 없는 순수 HTML/CSS/JS다. 위키 문서만 `tools/build_wiki.py`(파이썬 표준 라이브러리만 사용)로 만든다. 외부 라이브러리는 `assets/vendor/`의 three.js와 Pretendard 웹폰트(CDN)뿐이다. 새 의존성을 함부로 추가하지 않는다.
 
 ## 구조
 - `index.html`: 표지(전체 분야 목록). `assets/js/hub.js`가 `FIELDS`로 그린다.
@@ -11,6 +11,7 @@
 - `chapters/<분야 id>/<장 id>.html`: 장 페이지. `<body data-root="../../" data-field="…" data-chapter="…">`.
 - `assets/css/book.css`: 디자인 시스템(SemiBook 계열). 색은 CSS 변수만 쓰고 라이트/다크를 모두 확인한다.
 - `assets/js/<실험>.js`: 실험 모듈. `export function init(root)` 하나를 내보내고, 페이지의 `data-module="이름"` 요소가 화면 근처에 오면 실행된다.
+- `wiki/*.md`: 위키 문서 원본(마크다운 + 맨 위 `---` 항목). 형식은 `wiki/README.md`. `python3 tools/build_wiki.py`가 `chapters/wiki/*.html`과 `data/wiki-index.json`을 만들며, 이 결과물은 커밋하지 않고(.gitignore) 배포 때 GitHub Actions가 다시 만든다.
 - `data/papers.json`: 연구실 논문 DB(비공개 저장소 `lab-paper-library`의 `public_export.py`)가 만든 공개용 데이터. 직접 고치지 말고 다시 내보낸다. `data/paper-focus.json`은 논문별 핵심 소재를 정리하는 사이트 전용 수동 관리 파일이다.
 
 ## 작성 규칙
@@ -18,11 +19,13 @@
 - 분야 페이지 형식: `chapter-head`(eyebrow·h1·lede·빈 `.meta`) → `h2`(`<span class="sec">1.1</span>`) 절 → `section.lab`(`LAB 장-번호`) → `.summary`.
 - 새 장을 만들면 `FIELDS`의 해당 분야 `chapters`에 추가한다(표지·사이드바·이전/다음 장이 자동 생성됨).
 - 새 실험 모듈을 만들면 `book-runtime.js`의 `MODULES`에 등록한다.
+- 위키 문서: 모든 사실·수치에 `sources`를 달고, 사람이 원문과 대조한 문서만 `status: 검토됨`으로 바꾼다. 문서끼리는 `[[문서 제목]]`으로 잇는다. 새 용어를 `glossary.js`에 넣으면 같은 이름의 위키 문서도 만들어 둔다.
+- 런타임 캐시 버전(`book-runtime.js?v=`)을 올릴 때는 모든 HTML과 `site-updates.js`·`hub.js`·`home-search.js`의 import 버전을 함께 바꾼다(다르면 모듈이 두 번 실행되어 사이드바가 겹친다).
 - 시뮬레이션은 교육용 단순화 모델임을 본문이나 힌트에 밝힌다. 수치는 문헌 대표값을 쓰고 출처가 분명하지 않은 값을 만들지 않는다.
 - 공개 사이트이므로 논문 원문 인용, 미공개 연구 데이터, 개인 정보, API 키를 넣지 않는다.
 
 ## 확인과 배포
-- 확인: 저장소 폴더에서 `python3 -m http.server 8000` 후 http://localhost:8000 에서 바꾼 페이지를 열고, 브라우저 콘솔 오류가 없는지와 라이트/다크·모바일 폭을 확인한다.
+- 확인: 저장소 폴더에서 `python3 tools/build_wiki.py`(위키를 바꿨거나 처음 받았을 때)와 `python3 -m http.server 8000` 후 http://localhost:8000 에서 바꾼 페이지를 열고, 브라우저 콘솔 오류가 없는지와 라이트/다크·모바일 폭을 확인한다.
 - 배포: `main`에 푸시하면 GitHub Actions(`.github/workflows/deploy.yml`)가 `gh-pages` 브랜치로 자동 배포한다. `gh-pages`에 직접 푸시하지 않는다.
 
 ## Claude·Codex 협업 규칙

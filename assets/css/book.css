@@ -984,3 +984,38 @@ table.gloss-table .empty { text-align: center; color: var(--muted); padding: 30p
 .tl-art .lb.inv { stroke: none; fill: var(--surface); }
 .tl-art .spin-h, .tl-art .pol-h { fill: var(--rose); stroke: none !important; }
 .tl-art .thin-l { stroke: var(--border-2); stroke-width: 1.2; stroke-dasharray: 3 3; }
+
+/* ── 위키 문서 (tools/build_wiki.py가 만드는 chapters/wiki/) ── */
+.wiki-head .wiki-en { margin: 2px 0 6px; color: var(--muted); font: 600 13px var(--mono); }
+.wiki-head .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.wiki-status { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+.wiki-status.is-draft { background: color-mix(in srgb, var(--amber) 16%, transparent); color: var(--amber); }
+.wiki-status.is-reviewed { background: color-mix(in srgb, var(--teal) 16%, transparent); color: var(--teal); }
+.wiki-edit { margin-left: auto; color: var(--muted); font-size: 12.5px; }
+.wiki-edit:hover { color: var(--accent); }
+.wiki-link { color: var(--accent); text-decoration: none; border-bottom: 1px dashed color-mix(in srgb, var(--accent) 45%, transparent); }
+.wiki-link:hover { border-bottom-style: solid; }
+.wiki-missing { color: var(--rose); border-bottom: 1px dotted var(--rose); cursor: help; }
+.wiki-infobox { float: right; width: min(300px, 42%); margin: 4px 0 18px 22px; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--surface); font-size: 13.5px; }
+.wiki-infobox-title { padding: 10px 14px; background: color-mix(in srgb, var(--accent) 12%, var(--surface)); color: var(--text); font-weight: 800; text-align: center; }
+.wiki-infobox table { width: 100%; border-collapse: collapse; }
+.wiki-infobox th, .wiki-infobox td { padding: 8px 12px; border-top: 1px solid var(--border); text-align: left; vertical-align: top; }
+.wiki-infobox th { width: 40%; color: var(--muted); font-weight: 600; }
+.wiki-article h2 { clear: none; }
+.wiki-links { list-style: none; padding: 0; display: grid; gap: 6px; }
+.wiki-links small { color: var(--muted); }
+.wiki-sources { font-size: 14px; }
+.wiki-cat-nav { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; }
+.wiki-cat-nav a { padding: 4px 11px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text-2); font-size: 13px; text-decoration: none; }
+.wiki-cat-nav a:hover { border-color: var(--accent); color: var(--accent); }
+.wiki-cat-nav small { color: var(--muted); }
+.wiki-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.wiki-list li { padding: 11px 13px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.wiki-list li[hidden], .wiki-cat[hidden] { display: none; }
+.wiki-list a { text-decoration: none; color: var(--text); }
+.wiki-list a:hover b { color: var(--accent); }
+.wiki-list .wiki-en { display: block; color: var(--muted); font: 500 11.5px var(--mono); }
+.wiki-list p { margin: 6px 0 0; color: var(--text-2); font-size: 13px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.wiki-list .wiki-status { margin-top: 6px; }
+.wiki-missing-list { display: flex; flex-wrap: wrap; gap: 6px 14px; list-style: none; padding: 0; }
+@media (max-width: 700px) { .wiki-infobox { float: none; width: 100%; margin: 4px 0 18px; } .wiki-edit { margin-left: 0; } }
