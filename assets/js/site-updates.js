@@ -1,4 +1,4 @@
-import { FIELDS, chapterUrl } from './book-runtime.js?v=20261027-synthesis';
+import { FIELDS, chapterUrl } from './book-runtime.js?v=20261027-cvd';
 
 const root = document.body.dataset.root || './';
 const escapeText = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));

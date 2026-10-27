@@ -1,6 +1,11 @@
 # 작업 인계 기록
 
 ## 2026-10-27 · claude
+- 변경: 사용자 요청으로 `synthesis.html` 제목을 ‘합성 경로’로 바꾸고, 기계적 박리(2.1.2) 다음에 CVD를 합침: 2.1.3 CVD 원리(성장 3단계 그림, 분말 CVD·MOCVD 비교 표), 2.1.4 분말 전구체 CVD(MoO₃·S, 2구역 반응로 그림, CVD LAB), 2.1.5 MOCVD(새 장치 그림, Kang 2015: Mo(CO)₆·W(CO)₆·(C₂H₅)₂S, 550 °C, 4인치), 2.1.6 목표에 맞는 경로. PVD·ALD 절과 CVD/PVD/ALD 비교 표·그림 삭제. `deposition.html`은 `synthesis.html#cvd`로 넘겨 주는 안내 페이지로 바꿈(옛 링크 보존). 단결정 성장 2.3→2.2로 번호 변경, 링크 갱신. FIELDS·pages.json·changelog 갱신, 용어 사전에 MOCVD·질량 유량 제어기 추가. 런타임 버전 `20261027-cvd`(HTML과 site-updates/hub/home-search import 함께).
+- 확인: 라이트/다크 스크린샷, 사이드바 1개·분야 목록 ‘01 합성 경로, 02 단결정 성장’, deposition.html 이동 확인, 콘솔 오류 없음.
+- 남은 일: 용어 사전의 PVD·ALD 항목은 남겨 둠.
+
+## 2026-10-27 · claude
 - 수정: 표지·변경 이력 페이지에서 사이드바 분야 펼치기가 안 되던 문제. HTML이 `book-runtime.js?v=A`를, `site-updates.js`가 `book-runtime.js?v=B`를 불러 모듈이 두 번 실행되며 사이드바·상단 바가 겹쳐 생겼음(직전 커밋에서 HTML 쪽 버전만 올린 것이 원인). `book-runtime.js`에 한 번만 화면을 구성하는 가드(`window.__bookRuntimeReady`)를 넣고, `site-updates.js`·`hub.js`·`home-search.js`의 import 버전을 `20261027-synthesis`로 맞춤.
 - 주의: 앞으로 런타임 캐시 버전을 올릴 때는 HTML과 이 세 JS 파일의 import 버전을 함께 바꿀 것.
 
