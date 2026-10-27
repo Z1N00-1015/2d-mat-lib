@@ -1,6 +1,9 @@
 # 작업 인계 기록
 
 ## 2026-10-27 · claude
+- 변경: 합성 경로 2.1.1에서 ‘상향식 · 전환·황화·셀렌화’ 표 행과 ‘전구체 막 전환’ 그림 카드 삭제(그림은 2칸, `.process-grid-2` 추가). MOCVD 모식도(그림 2.1.5)의 기판을 반응 구역 가운데 1개로 줄이고 캡션에 한 문장 추가. CSS 버전 `20261027-synth2`.
+
+## 2026-10-27 · claude
 - 변경: 사용자 요청으로 `synthesis.html` 제목을 ‘합성 경로’로 바꾸고, 기계적 박리(2.1.2) 다음에 CVD를 합침: 2.1.3 CVD 원리(성장 3단계 그림, 분말 CVD·MOCVD 비교 표), 2.1.4 분말 전구체 CVD(MoO₃·S, 2구역 반응로 그림, CVD LAB), 2.1.5 MOCVD(새 장치 그림, Kang 2015: Mo(CO)₆·W(CO)₆·(C₂H₅)₂S, 550 °C, 4인치), 2.1.6 목표에 맞는 경로. PVD·ALD 절과 CVD/PVD/ALD 비교 표·그림 삭제. `deposition.html`은 `synthesis.html#cvd`로 넘겨 주는 안내 페이지로 바꿈(옛 링크 보존). 단결정 성장 2.3→2.2로 번호 변경, 링크 갱신. FIELDS·pages.json·changelog 갱신, 용어 사전에 MOCVD·질량 유량 제어기 추가. 런타임 버전 `20261027-cvd`(HTML과 site-updates/hub/home-search import 함께).
 - 확인: 라이트/다크 스크린샷, 사이드바 1개·분야 목록 ‘01 합성 경로, 02 단결정 성장’, deposition.html 이동 확인, 콘솔 오류 없음.
 - 남은 일: 용어 사전의 PVD·ALD 항목은 남겨 둠.
