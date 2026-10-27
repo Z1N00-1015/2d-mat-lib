@@ -912,8 +912,8 @@ table.gloss-table .empty { text-align: center; color: var(--muted); padding: 30p
   .gap-map-head > p { margin-top: 7px; }
 }
 @media (max-width: 600px) {
-  .gap-chart-title { display: flex; justify-content: space-between; align-items: baseline; }
-  .gap-chart-title::after { content: "옆으로 밀어 보기 →"; color: var(--muted); font-size: 11px; font-weight: 500; }
+  .gap-chart-title { display: flex; align-items: baseline; gap: 2px; }
+  .gap-chart-title::after { margin-left: auto; content: "옆으로 밀어 보기 →"; color: var(--muted); font-size: 11px; font-weight: 500; }
 }
 @media (max-width: 420px) {
   .gap-map { padding: 14px 11px; }
