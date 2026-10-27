@@ -3,36 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>2D 물질의 합성 · 2차원 물질 합성 · Beyond Silicon</title>
+<title>합성 경로와 기계적 박리 · 2차원 물질 합성 · Beyond Silicon</title>
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../../assets/css/book.css?v=20261027-tlart">
 <script type="importmap">{ "imports": { "three": "../../assets/vendor/three.module.min.js", "three/addons/OrbitControls.js": "../../assets/vendor/OrbitControls.js" } }</script>
-<script type="module" src="../../assets/js/book-runtime.js?v=20261026-benchmarks"></script>
+<script type="module" src="../../assets/js/book-runtime.js?v=20261027-synthesis"></script>
 </head>
 <body data-root="../../" data-field="synthesis" data-chapter="synthesis">
 <main class="main"><article class="article">
   <header class="chapter-head">
     <div class="eyebrow">CHAPTER II · SYNTHESIS</div>
-    <h1>2D 물질의 합성</h1>
-    <p class="lede">2D 물질은 벌크 결정에서 원자층을 분리하거나, 기판 위에서 원자·분자 전구체를 반응시켜 얻습니다. 연구 목적과 필요한 면적·결정 품질에 따라 합성 경로를 선택합니다.</p>
+    <h1>합성 경로와 기계적 박리</h1>
+    <p class="lede">2D 물질은 벌크 결정에서 원자층을 떼어 내거나(하향식), 기판 위에서 전구체를 반응시켜 성장시켜(상향식) 얻습니다. 두 경로를 비교하고, 가장 기본적인 하향식 방법인 기계적 박리와 목표에 맞는 경로를 고르는 기준을 살펴봅니다.</p>
     <div class="meta"></div>
   </header>
-  <h2><span class="sec">2.2.1</span>하향식과 상향식 합성</h2>
-  <p><strong>하향식(top-down)</strong>은 이미 존재하는 층상 결정을 얇게 분리하는 방법이고, <strong>상향식(bottom-up)</strong>은 원자·분자 전구체를 조립해 결정과 박막을 성장시키는 방법입니다. 박막 증착과 단결정 성장은 다음 페이지에서 따로 설명합니다.</p>
+  <h2><span class="sec">2.1.1</span>하향식과 상향식 합성</h2>
+  <p><strong>하향식(top-down)</strong>은 이미 존재하는 층상 결정을 얇게 분리하는 방법이고, <strong>상향식(bottom-up)</strong>은 원자·분자 전구체를 조립해 결정과 박막을 성장시키는 방법입니다. 이 장은 두 경로를 비교하고 대표적인 하향식 방법인 기계적 박리를 다룹니다. 상향식 성장은 다음 장 <a href="deposition.html">박막 증착</a>과 그다음 장 <a href="single-crystal-growth.html">단결정 성장</a>에서 자세히 설명합니다.</p>
   <div class="table-wrap"><table>
     <thead><tr><th>경로</th><th>대표 방법</th><th>특징</th><th>주요 활용</th></tr></thead>
     <tbody>
       <tr><td>하향식</td><td>기계적 박리</td><td>결함이 적은 작은 플레이크</td><td>기초 물성·소자 연구</td></tr>
-      <tr><td>하향식</td><td>액상 박리·이온 삽입</td><td>분산액·대량 생산에 유리하나 크기와 품질 분포가 넓음</td><td>잉크·복합재·전극</td></tr>
       <tr><td>상향식</td><td>전구체 반응·박막 증착</td><td>기판 위에서 조성·두께·성장을 제어</td><td>연속 박막·집적 소자</td></tr>
       <tr><td>상향식</td><td>전환·황화·셀렌화</td><td>전구체 막을 반응시켜 2D 화합물로 변환</td><td>칼코겐화물 박막</td></tr>
     </tbody>
   </table></div>
-  <figure class="process-figure" aria-label="2D 물질의 대표적인 박리 방법">
+  <figure class="process-figure" aria-label="하향식과 상향식의 대표 경로">
     <div class="process-grid">
       <section class="process-card">
-        <h3>기계적 박리</h3>
+        <h3>하향식 · 기계적 박리</h3>
         <svg viewBox="0 0 220 140" role="img" aria-labelledby="mech-fig-title mech-fig-desc"><title id="mech-fig-title">기계적 박리 모식도</title><desc id="mech-fig-desc">테이프가 층상 결정의 위쪽 층을 떼어내고 얇은 플레이크를 기판에 옮깁니다.</desc>
           <path class="substrate" d="M35 108h150v12H35z"/><path class="atom-alt" d="M55 96h110v5H55zm0-9h110v5H55zm0-9h110v5H55z"/><path class="accent-line" d="M65 28h90l-13 23H78z"/><path class="line" d="M110 54v20m-6-7 6 7 6-7"/>
           <path class="atom" d="M75 77h70v5H75z"/><text class="tiny-label" x="110" y="22" text-anchor="middle">접착 테이프</text><text class="tiny-label" x="110" y="135" text-anchor="middle">기판에 플레이크 전사</text>
@@ -40,26 +39,21 @@
         <p>층간 결합을 기계적으로 떼어 얇은 플레이크를 얻습니다.</p>
       </section>
       <section class="process-card">
-        <h3>액상 박리</h3>
-        <svg viewBox="0 0 220 140" role="img" aria-labelledby="liquid-fig-title liquid-fig-desc"><title id="liquid-fig-title">액상 박리 모식도</title><desc id="liquid-fig-desc">용매 속 층상 결정에 초음파나 전단력을 가해 얇은 플레이크 분산액을 만듭니다.</desc>
-          <path class="line" d="M60 31h100l-9 79H69z"/><path class="vapor" d="M67 65h86l-6 42H73z"/><path class="atom-alt" d="M82 91l28-5m-18 15 29-6m4-18 23-5" stroke="var(--accent-2)" stroke-width="5" stroke-linecap="round"/><circle class="atom" cx="90" cy="76" r="4"/><circle class="atom" cx="135" cy="94" r="4"/><path class="accent-line" d="M87 45q23-16 46 0m-46 0q23 16 46 0"/>
-          <text class="tiny-label" x="110" y="25" text-anchor="middle">용매 + 초음파/전단</text><text class="tiny-label" x="110" y="130" text-anchor="middle">플레이크 분산액</text>
+        <h3>상향식 · 기판 위 성장</h3>
+        <svg viewBox="0 0 220 140" role="img" aria-labelledby="syn-cvd-fig-title syn-cvd-fig-desc"><title id="syn-cvd-fig-title">CVD 기체 반응 모식도</title><desc id="syn-cvd-fig-desc">기체 전구체가 가열된 기판 표면에 도달해 반응하고 결정 도메인을 형성합니다.</desc>
+          <path class="substrate" d="M25 111h170v12H25z"/><path class="line" d="M37 104h146"/><path class="accent-line" d="M65 33v36m45-42v42m45-36v36"/><path class="line" d="M59 62l6 8 6-8m33-3 6 8 6-8m33 3 6 8 6-8"/>
+          <circle class="vapor" cx="65" cy="27" r="8"/><circle class="vapor" cx="110" cy="22" r="8"/><circle class="vapor" cx="155" cy="27" r="8"/>
+          <path class="atom" d="M74 103l9-16 9 16zM98 103l9-16 9 16zM122 103l9-16 9 16zM146 103l9-16 9 16z"/>
+          <text class="tiny-label" x="110" y="16" text-anchor="middle">기체 전구체</text><text class="tiny-label" x="110" y="136" text-anchor="middle">가열된 기판</text>
         </svg>
-        <p>용매 안에서 박리해 플레이크 잉크나 분산액으로 활용합니다.</p>
+        <p>기체 전구체가 기판 표면에서 반응해 핵과 결정 도메인이 자랍니다(CVD 등).</p>
       </section>
-      <section class="process-card">
-        <h3>이온 삽입 후 박리</h3>
-        <svg viewBox="0 0 220 140" role="img" aria-labelledby="ion-fig-title ion-fig-desc"><title id="ion-fig-title">이온 삽입 박리 모식도</title><desc id="ion-fig-desc">이온이 층 사이로 들어가 간격을 벌리고, 후속 처리로 층이 분리됩니다.</desc>
-          <path class="atom-alt" d="M45 43h130v6H45zm0 25h130v6H45zm0 25h130v6H45z"/><circle class="atom" cx="75" cy="59" r="7"/><circle class="atom" cx="110" cy="59" r="7"/><circle class="atom" cx="145" cy="59" r="7"/><path class="accent-line" d="M110 22v24m-7-8 7 8 7-8"/><path class="line" d="M110 84v25m-7-8 7 8 7-8"/>
-          <text class="tiny-label" x="110" y="16" text-anchor="middle">이온 삽입</text><text class="tiny-label" x="110" y="130" text-anchor="middle">층간 거리 증가 · 분리</text>
-        </svg>
-        <p>층 사이에 이온을 넣어 결합을 약화한 뒤 분리합니다.</p>
-      </section>
+      <section class="process-card"><h3>상향식 · 전구체 막 전환</h3><svg viewBox="0 0 220 140" role="img" aria-label="전구체 막을 황화해 MoS2로 바꾸는 모식도"><defs><marker id="f-syn-sulf-arrowhead" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead" d="M0 0L10 5L0 10z"/></marker><marker id="f-syn-sulf-arrowhead-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead-accent" d="M0 0L10 5L0 10z"/></marker><marker id="f-syn-sulf-arrowhead-teal" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead-teal" d="M0 0L10 5L0 10z"/></marker><marker id="f-syn-sulf-arrowhead-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead-amber" d="M0 0L10 5L0 10z"/></marker><marker id="f-syn-sulf-arrowhead-rose" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead-rose" d="M0 0L10 5L0 10z"/></marker></defs><rect class="substrate" x="14" y="96" width="78" height="12" rx="2"/><rect class="atom-3" x="14" y="88" width="78" height="8" rx="2"/><text class="tiny-label" x="53.0" y="80.0" text-anchor="middle">금속(산화물) 막</text><text class="tiny-label" x="53.0" y="124.0" text-anchor="middle">PVD로 증착</text><path class="accent-line" d="M98.0 92.0L124.0 92.0" marker-end="url(#f-syn-sulf-arrowhead-accent)"/><text class="tiny-label" x="111.0" y="64.0" text-anchor="middle">S 증기</text><circle class="atom-3" cx="100" cy="72" r="2.6"/><circle class="atom-3" cx="114" cy="70" r="2.6"/><circle class="atom-3" cx="124" cy="76" r="2.6"/><rect class="substrate" x="130" y="96" width="78" height="12" rx="2"/><circle class="atom" cx="135.0" cy="90" r="2.8"/><circle class="atom-3" cx="143.5" cy="90" r="2.8"/><circle class="atom" cx="152.0" cy="90" r="2.8"/><circle class="atom-3" cx="160.5" cy="90" r="2.8"/><circle class="atom" cx="169.0" cy="90" r="2.8"/><circle class="atom-3" cx="177.5" cy="90" r="2.8"/><circle class="atom" cx="186.0" cy="90" r="2.8"/><circle class="atom-3" cx="194.5" cy="90" r="2.8"/><circle class="atom" cx="203.0" cy="90" r="2.8"/><circle class="atom" cx="135.0" cy="82" r="2.8"/><circle class="atom-3" cx="143.5" cy="82" r="2.8"/><circle class="atom" cx="152.0" cy="82" r="2.8"/><circle class="atom-3" cx="160.5" cy="82" r="2.8"/><circle class="atom" cx="169.0" cy="82" r="2.8"/><circle class="atom-3" cx="177.5" cy="82" r="2.8"/><circle class="atom" cx="186.0" cy="82" r="2.8"/><circle class="atom-3" cx="194.5" cy="82" r="2.8"/><circle class="atom" cx="203.0" cy="82" r="2.8"/><text class="tiny-label" x="169.0" y="70.0" text-anchor="middle">MoS₂ 층</text><text class="tiny-label" x="169.0" y="124.0" text-anchor="middle">황화 반응</text></svg><p>먼저 쌓은 금속·산화물 막을 황·셀레늄과 반응시켜 2D 화합물로 바꿉니다.</p></section>
     </div>
-    <figcaption><b>박리 경로 개념도.</b> 플레이크 크기·층수·결함은 공정과 소재에 따라 달라집니다.</figcaption>
+    <figcaption><b>그림 2.1.1</b> 하향식과 상향식의 대표 경로. 기계적 박리는 이 장에서, 기판 위 성장과 전구체 막 전환은 다음 장에서 자세히 다룹니다.</figcaption>
   </figure>
 
-  <h2><span class="sec">2.2.2</span>기계적 박리</h2>
+  <h2><span class="sec">2.1.2</span>기계적 박리</h2>
   <p><strong>기계적 박리(mechanical exfoliation)</strong>는 접착 테이프를 흑연 같은 층상 결정에 붙였다 떼기를 반복해 점점 얇은 조각을 얻는 방법입니다. 마지막으로 테이프를 기판에 눌러 조각을 옮기면, 그중 일부가 단층으로 남습니다.</p>
   <p>두께 약 285 nm의 SiO₂로 덮인 실리콘 기판에서는 얇은 플레이크를 광학 현미경으로 구별할 수 있습니다. 산화막 계면에서 반사된 빛이 간섭하고, 그래핀 한 층이 얹히면 광경로가 바뀌어 반사 색의 대비가 생깁니다. 2004년 그래핀의 분리와 확인에도 이 방법이 쓰였습니다.</p>
 
@@ -82,16 +76,12 @@
     </div>
   </section>
 
-  <h2><span class="sec">2.2.3</span>액상 박리와 화학적 박리</h2>
-  <p>액상 박리(liquid-phase exfoliation)는 용매 안에서 초음파나 전단력을 이용해 층상 결정을 얇은 조각으로 나눕니다. 큰 면적의 플레이크를 분산액 형태로 얻어 잉크와 복합재를 만들기 쉽지만, 플레이크의 크기·층수·결함 분포를 함께 평가해야 합니다.</p>
-  <p>이온 삽입(intercalation)은 층 사이에 이온이나 분자를 넣어 층간 결합을 약화한 뒤 박리하는 방식입니다. 삽입종과 반응 조건에 따라 조성이나 결정상이 달라질 수 있어, 합성 후 세척과 구조 분석이 중요합니다.</p>
-
-  <h2><span class="sec">2.2.4</span>목표에 맞는 합성 경로</h2>
+  <h2><span class="sec">2.1.3</span>목표에 맞는 합성 경로</h2>
   <p>고품질의 작은 플레이크에서 기본 물성을 확인할 때는 기계적 박리가 편리하고, 넓은 기판에 연속막을 만들거나 소자 집적을 목표로 할 때는 상향식 성장과 박막 증착이 중요합니다. 결정립계와 방위까지 제어한 박막이 필요하면 <a href="single-crystal-growth.html">단결정 성장</a>에서 다루는 에피택시와 hypotaxy를 고려할 수 있습니다.</p>
-  <p><a href="deposition.html">박막 증착: CVD·PVD·ALD</a> 페이지에서 각 공정의 원리와 반데르발스 물질 성장 사례를 비교합니다.</p>
+  <p>다음 장 <a href="deposition.html">박막 증착: CVD·PVD·ALD</a>에서 상향식 공정의 원리와 반데르발스 물질 성장 사례를 비교합니다.</p>
   <figure class="diagram-figure" aria-label="합성 경로별 면적과 결정 품질의 정성 지도">
-    <div class="fig-body"><svg viewBox="0 0 620 270" role="img" aria-labelledby="f-route-t f-route-d"><title id="f-route-t">목표에 맞는 합성 경로 고르기</title><desc id="f-route-d">기계적 박리는 작지만 품질이 높고, 액상 박리는 양이 많지만 균일성이 낮으며, CVD 성장과 에피택시는 넓은 면적의 연속막을 목표로 합니다.</desc><defs><marker id="f-route-arrowhead" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead" d="M0 0L10 5L0 10z"/></marker><marker id="f-route-arrowhead-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead-accent" d="M0 0L10 5L0 10z"/></marker><marker id="f-route-arrowhead-teal" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead-teal" d="M0 0L10 5L0 10z"/></marker><marker id="f-route-arrowhead-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead-amber" d="M0 0L10 5L0 10z"/></marker><marker id="f-route-arrowhead-rose" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead-rose" d="M0 0L10 5L0 10z"/></marker></defs><path class="axis" d="M80 230H600M80 230V34"/><path class="axis" d="M580.0 230.0L608.0 230.0" marker-end="url(#f-route-arrowhead)"/><path class="axis" d="M80.0 54.0L80.0 26.0" marker-end="url(#f-route-arrowhead)"/><text class="label" x="340.0" y="254.0" text-anchor="middle">얻을 수 있는 면적·양 (작은 플레이크 → 웨이퍼 규모)</text><text class="label" x="30.0" y="132.0" text-anchor="middle" transform="rotate(-90 30 132.0)">결정 품질·균일성</text><ellipse class="atom" cx="150" cy="70" rx="62" ry="28" style="opacity:.16"/><ellipse class="thin" cx="150" cy="70" rx="62" ry="28"/><text class="label-strong" x="150.0" y="68.0" text-anchor="middle">기계적 박리</text><text class="tiny-label" x="150.0" y="84.0" text-anchor="middle">기본 물성 확인</text><ellipse class="atom-3" cx="330" cy="190" rx="96" ry="26" style="opacity:.16"/><ellipse class="thin" cx="330" cy="190" rx="96" ry="26"/><text class="label-strong" x="330.0" y="188.0" text-anchor="middle">액상·이온 삽입 박리</text><text class="tiny-label" x="330.0" y="204.0" text-anchor="middle">잉크·복합재</text><ellipse class="atom-alt" cx="420" cy="112" rx="92" ry="32" style="opacity:.16"/><ellipse class="thin" cx="420" cy="112" rx="92" ry="32"/><text class="label-strong" x="420.0" y="110.0" text-anchor="middle">CVD·MOCVD 성장</text><text class="tiny-label" x="420.0" y="126.0" text-anchor="middle">연속막·소자 집적</text><ellipse class="atom-4" cx="520" cy="62" rx="70" ry="26" style="opacity:.16"/><ellipse class="thin" cx="520" cy="62" rx="70" ry="26"/><text class="label-strong" x="520.0" y="60.0" text-anchor="middle">에피택시·단결정 성장</text><text class="tiny-label" x="520.0" y="76.0" text-anchor="middle">방위 정렬 박막</text></svg></div>
-    <figcaption><b>그림 2.2.4</b> 합성 경로를 고르는 정성 지도. 같은 방법이라도 물질과 공정 조건에 따라 품질과 면적이 크게 달라질 수 있습니다.</figcaption>
+    <div class="fig-body"><svg viewBox="0 0 620 270" role="img" aria-labelledby="f-route-t f-route-d"><title id="f-route-t">목표에 맞는 합성 경로 고르기</title><desc id="f-route-d">기계적 박리는 작지만 품질이 높고, CVD 성장과 에피택시는 넓은 면적의 연속막을 목표로 하며 에피택시는 방위까지 정렬합니다.</desc><defs><marker id="f-route-arrowhead" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead" d="M0 0L10 5L0 10z"/></marker><marker id="f-route-arrowhead-accent" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead-accent" d="M0 0L10 5L0 10z"/></marker><marker id="f-route-arrowhead-teal" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead-teal" d="M0 0L10 5L0 10z"/></marker><marker id="f-route-arrowhead-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead-amber" d="M0 0L10 5L0 10z"/></marker><marker id="f-route-arrowhead-rose" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrowhead-rose" d="M0 0L10 5L0 10z"/></marker></defs><path class="axis" d="M80 230H600M80 230V34"/><path class="axis" d="M580.0 230.0L608.0 230.0" marker-end="url(#f-route-arrowhead)"/><path class="axis" d="M80.0 54.0L80.0 26.0" marker-end="url(#f-route-arrowhead)"/><text class="label" x="340.0" y="254.0" text-anchor="middle">얻을 수 있는 면적·양 (작은 플레이크 → 웨이퍼 규모)</text><text class="label" x="30.0" y="132.0" text-anchor="middle" transform="rotate(-90 30 132.0)">결정 품질·균일성</text><ellipse class="atom" cx="150" cy="70" rx="62" ry="28" style="opacity:.16"/><ellipse class="thin" cx="150" cy="70" rx="62" ry="28"/><text class="label-strong" x="150.0" y="68.0" text-anchor="middle">기계적 박리</text><text class="tiny-label" x="150.0" y="84.0" text-anchor="middle">기본 물성 확인</text><ellipse class="atom-alt" cx="420" cy="112" rx="92" ry="32" style="opacity:.16"/><ellipse class="thin" cx="420" cy="112" rx="92" ry="32"/><text class="label-strong" x="420.0" y="110.0" text-anchor="middle">CVD·MOCVD 성장</text><text class="tiny-label" x="420.0" y="126.0" text-anchor="middle">연속막·소자 집적</text><ellipse class="atom-4" cx="520" cy="62" rx="70" ry="26" style="opacity:.16"/><ellipse class="thin" cx="520" cy="62" rx="70" ry="26"/><text class="label-strong" x="520.0" y="60.0" text-anchor="middle">에피택시·단결정 성장</text><text class="tiny-label" x="520.0" y="76.0" text-anchor="middle">방위 정렬 박막</text></svg></div>
+    <figcaption><b>그림 2.1.3</b> 합성 경로를 고르는 정성 지도. 같은 방법이라도 물질과 공정 조건에 따라 품질과 면적이 크게 달라질 수 있습니다.</figcaption>
   </figure>
 
 </article></main>

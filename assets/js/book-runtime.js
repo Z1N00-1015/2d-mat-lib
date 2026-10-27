@@ -21,12 +21,12 @@ export const FIELDS = [
   },
   {
     id: 'synthesis', n: 'II', title: '2차원 물질 합성', en: 'SYNTHESIS OF 2D MATERIALS',
-    desc: '박리와 박막 증착부터 에피택시·하이포택시 기반 단결정 성장까지 소재를 만드는 방법을 살펴봅니다.',
+    desc: '합성 경로와 기계적 박리에서 시작해 박막 증착, 에피택시·하이포택시 기반 단결정 성장까지 소재를 만드는 방법을 살펴봅니다.',
     chapters: [
-      { id: 'deposition', dir: 'materials', n: '01', title: '박막 증착', group: '합성',
+      { id: 'synthesis', dir: 'materials', n: '01', title: '합성 경로와 기계적 박리', group: '합성',
+        desc: '하향식·상향식 경로를 비교하고 기계적 박리와 목표에 맞는 합성 경로 선택을 살펴봅니다.', labs: ['기계적 박리'] },
+      { id: 'deposition', dir: 'materials', n: '02', title: '박막 증착: CVD·PVD·ALD', group: '합성',
         desc: 'CVD·PVD·ALD의 증착 원리와 2D 박막 형성에서의 활용 및 차이를 비교합니다.', labs: ['CVD 성장'] },
-      { id: 'synthesis', dir: 'materials', n: '02', title: '2D 물질의 합성', group: '합성',
-        desc: '기계적·액상 박리와 직접 합성 등 반데르발스 물질을 얻는 주요 경로를 살펴봅니다.', labs: ['기계적 박리'] },
       { id: 'single-crystal-growth', dir: 'materials', n: '03', title: '단결정 성장', group: '합성',
         desc: '에피택시와 hypotaxy를 중심으로 결정 방위를 제어하는 박막 성장을 살펴봅니다.', labs: ['Hypotaxy'] },
     ],

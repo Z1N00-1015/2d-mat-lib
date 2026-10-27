@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "date": "2026-10-27",
+      "page": "II. 2차원 물질 합성 · 장 재구성",
+      "url": "./chapters/materials/synthesis.html",
+      "summary": "합성 분야를 ‘합성 경로와 기계적 박리(2.1) → 박막 증착: CVD·PVD·ALD(2.2) → 단결정 성장(2.3)’ 순서로 재구성하고, 액상 박리·이온 삽입 내용을 정리했습니다. 증착 장에는 CVD 반응로·성장 단계·PVD·ALD 사이클 모식도를 더했습니다.",
+      "added_dois": []
+    },
+    {
       "date": "2026-10-26",
       "page": "전체 장 · 대표 모식도와 그래프",
       "url": "./index.html",
