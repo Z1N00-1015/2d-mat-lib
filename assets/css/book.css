@@ -762,7 +762,7 @@ sub, sup { font-size: .72em; line-height: 0; }
 .tl h5 { margin: 0; font-size: 16px; }
 .tl p { margin: 2px 0 0; font-size: 14.5px; color: var(--text-2); }
 .tl.future::before { border-style: dashed; }
-.research-history-timeline .tl { display: grid; grid-template-columns: minmax(0, 1fr) minmax(170px, 230px); align-items: center; gap: 14px; padding: 12px; border: 1px solid var(--border); border-radius: 13px; background: var(--surface); }
+.research-history-timeline .tl { display: grid; grid-template-columns: minmax(0, 1fr) minmax(200px, 300px); align-items: center; gap: 14px; padding: 12px; border: 1px solid var(--border); border-radius: 13px; background: var(--surface); }
 .research-history-timeline .timeline-copy h5 { margin: 0; font-size: 16px; }
 .research-history-timeline .timeline-copy p { margin: 3px 0 7px; }
 .research-history-timeline .timeline-copy a { color: var(--accent); font-size: 12.5px; font-weight: 650; }
@@ -943,3 +943,43 @@ table.gloss-table .empty { text-align: center; color: var(--muted); padding: 30p
   .device-search-controls { grid-template-columns: 1fr; }
   table.gloss-table .cat { display: none; }
 }
+
+/* 1.1.4 시간표 원자모델 일러스트(인라인 SVG). 잘리지 않도록 viewBox 전체를 맞춰 보여 준다. */
+.research-history-timeline .tl-art { height: auto; aspect-ratio: 2 / 1; padding: 0; overflow: hidden; }
+.research-history-timeline .tl-art svg { display: block; width: 100%; height: 100%; }
+.tl-art .bd { stroke: var(--border-2); stroke-width: 1.6; }
+.tl-art .hl { fill: #fff; opacity: .38; pointer-events: none; }
+.tl-art circle:not(.hl) { stroke: color-mix(in srgb, var(--text) 25%, transparent); stroke-width: .8; }
+.tl-art .c { fill: color-mix(in srgb, var(--text-2) 75%, var(--surface)); }
+.tl-art .c2 { fill: var(--accent); }
+.tl-art .mo { fill: var(--accent); }
+.tl-art .w { fill: var(--blue); }
+.tl-art .s { fill: var(--amber); }
+.tl-art .se { fill: var(--teal); }
+.tl-art .b { fill: var(--rose); }
+.tl-art .n { fill: var(--blue); }
+.tl-art .cr { fill: var(--accent); }
+.tl-art .i { fill: color-mix(in srgb, var(--amber) 80%, var(--rose)); }
+.tl-art .cu { fill: var(--rose); }
+.tl-art .in { fill: var(--accent); }
+.tl-art .dim { opacity: .45; }
+.tl-art .mo-dot, .tl-art .grain { stroke: none !important; }
+.tl-art .slab { fill: var(--surface); stroke: var(--border-2); stroke-width: 1.2; }
+.tl-art .gate, .tl-art .gate-k { fill: color-mix(in srgb, var(--text-2) 55%, var(--surface)); stroke: none; }
+.tl-art .contact { fill: color-mix(in srgb, var(--amber) 35%, var(--surface)); stroke: var(--border-2); }
+.tl-art .wafer { fill: var(--border-2); }
+.tl-art .wafer-top { fill: var(--surface); stroke: var(--border-2); stroke-width: 1.4; }
+.tl-art .zoom { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
+.tl-art .zoom-pt { fill: none; stroke: var(--accent); stroke-width: 2; }
+.tl-art .thin { fill: none; stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 3 3; }
+.tl-art .wire { fill: none; stroke: var(--teal); stroke-width: 3; stroke-linejoin: round; }
+.tl-art .via { stroke: var(--teal); stroke-width: 5; stroke-linecap: round; opacity: .8; }
+.tl-art .wave { fill: none; stroke: var(--rose); stroke-width: 3; stroke-linecap: round; }
+.tl-art .spin { stroke: var(--rose); stroke-width: 2.6; stroke-linecap: round; marker-end: none; }
+.tl-art .pol { stroke: var(--rose); stroke-width: 4; stroke-linecap: round; }
+.tl-art .thin-arrow { stroke-width: 2.6; stroke-dasharray: 5 4; }
+.tl-art .lb { fill: var(--text-2); font: 600 13px var(--font); paint-order: stroke; stroke: var(--surface-2); stroke-width: 4px; stroke-linejoin: round; }
+.tl-art .lb.strong { fill: var(--text); font-weight: 700; font-size: 14px; }
+.tl-art .lb.inv { stroke: none; fill: var(--surface); }
+.tl-art .spin-h, .tl-art .pol-h { fill: var(--rose); stroke: none !important; }
+.tl-art .thin-l { stroke: var(--border-2); stroke-width: 1.2; stroke-dasharray: 3 3; }
