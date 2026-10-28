@@ -288,4 +288,9 @@ if (!window.__bookRuntimeReady) {
   window.__bookRuntimeReady = true;
   buildLayout();
   loadModules();
+  // 장 본문의 용어에 위키 문서 링크를 붙인다(위키·도구 페이지와 표지는 제외).
+  const field = document.body.dataset.field;
+  if (field && !['wiki', 'tools'].includes(field)) {
+    import('./wiki-autolink.js?v=20261028-autolink').then(m => m.init(document.body.dataset.root || './')).catch(() => {});
+  }
 }

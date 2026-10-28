@@ -1,5 +1,9 @@
 # 작업 인계 기록
 
+## 2026-10-28 · claude
+- 변경: 장 본문 용어 → 위키 자동 링크(`assets/js/wiki-autolink.js`, 런타임이 위키·도구·표지를 뺀 장 페이지에서 불러옴). `data/wiki-index.json`의 제목·영문·별칭으로 찾아 문서마다 첫 등장 1회만, 페이지당 최대 60개 링크. 두 글자 용어는 오인 방지를 위해 제외, 앞 글자가 한글·영숫자면 제외(조사는 허용), 제목·실험(LAB)·그림 SVG·각주·표 머리글·코드 등은 건너뜀. 점선 밑줄 스타일(`.wiki-auto`), 마우스를 올리면 요약 표시. 버전 `20261028-autolink`.
+- 확인: 장 8곳에서 링크 8–24개 생성, 용어 사전 페이지는 제외, 콘솔 오류 없음.
+
 ## 2026-10-27 · claude
 - 변경: 위키 1단계. `tools/build_wiki.py`(표준 라이브러리) 추가: `wiki/*.md` → `chapters/wiki/<slug>.html`·`index.html`, `data/wiki-index.json`. 기능: front matter(title/en/aliases/category/status/reviewed/summary/related/chapter/sources/info), 마크다운 부분 집합, `[[링크]]`·빨간 링크·역링크, 본문 장 자동 연결(2회 이상 언급, 최대 6개), 정보 상자, ‘GitHub에서 고치기’ 링크, 분류별 목록·검색(`wiki-index` 모듈). 용어 사전 117개를 초안 문서로 시드(hypotaxy 중복 1개 병합), MoS₂(새 문서)·CVD·MOCVD·하이포택시 본문 작성. FIELDS에 ‘VI. 위키’, 용어 사전 행에 ‘위키 문서 ↗’ 링크, 위키 CSS, `deploy.yml`에 빌드 단계, `.gitignore`에 결과물, `wiki/README.md`, AGENTS.md 규칙 갱신. 버전 `20261027-wiki`.
 - 확인: 빌드 117개·빨간 링크 0, 위키 목록·문서(라이트/다크/모바일)·용어 사전 링크 133개, 콘솔 오류 없음.
