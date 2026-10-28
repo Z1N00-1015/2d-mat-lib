@@ -5,5 +5,5 @@ category: 결정학
 status: 초안
 reviewed: 2026-10-27
 summary: 한 원자층 안에서 서로 다른 재료 영역을 옆으로 연결한 구조. 계면에서 원자 간 공유결합이 형성되는 경우가 많다.
-papers: gong2014, huang2014lateral, duan2014, liu2016nrm
+papers: gong2014, huang2014lateral, duan2014, liu2016nrm, lee2014pn
 ---

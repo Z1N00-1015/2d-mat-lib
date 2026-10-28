@@ -22,7 +22,7 @@ kang2015 | 10.1038/nature14417 | Kang et al. | Nature | 2015 | High-mobility thr
 vanderzande2013 | 10.1038/nmat3633 | van der Zande et al. | Nature Materials | 2013 | Grains and grain boundaries in highly crystalline monolayer molybdenum disulphide | 단층 MoS₂ 결정립계 구조와 전기적 영향
 najmaei2013 | 10.1038/nmat3673 | Najmaei et al. | Nature Materials | 2013 | Vapour phase growth and grain boundary structure of molybdenum disulphide atomic layers | CVD MoS₂ 성장과 결정립계 원자 구조
 lee2012cvd | 10.1002/adma.201104798 | Lee et al. | Advanced Materials | 2012 | Synthesis of Large-Area MoS2 Atomic Layers with Chemical Vapor Deposition | MoO₃·S 분말 CVD로 대면적 MoS₂ 합성
-zhou2018library | 10.1038/s41586-018-0129-8 | Zhou et al. | Nature | 2018 | A library of atomically thin metal chalcogenides | 염 보조 CVD로 다양한 금속 칼코젠화물 합성
+zhou2018library | 10.1038/s41586-018-0008-3 | Zhou et al. | Nature | 2018 | A library of atomically thin metal chalcogenides | 염 보조 CVD로 다양한 금속 칼코젠화물 합성
 chernikov2014 | 10.1103/PhysRevLett.113.076802 | Chernikov et al. | Phys. Rev. Lett. | 2014 | Exciton Binding Energy and Nonhydrogenic Rydberg Series in Monolayer WS2 | 단층 WS₂ 엑시톤의 큰 결합 에너지 측정
 he2014 | 10.1103/PhysRevLett.113.026803 | He et al. | Phys. Rev. Lett. | 2014 | Tightly Bound Excitons in Monolayer WSe2 | 단층 WSe₂의 강하게 묶인 엑시톤 관측
 wang2018rmp | 10.1103/RevModPhys.90.021001 | Wang et al. | Rev. Mod. Phys. | 2018 | Colloquium: Excitons in atomically thin transition metal dichalcogenides | 원자층 TMD 엑시톤 물리 리뷰
@@ -30,10 +30,10 @@ rivera2015 | 10.1038/ncomms7242 | Rivera et al. | Nature Communications | 2015 |
 hong2014 | 10.1038/nnano.2014.167 | Hong et al. | Nature Nanotechnology | 2014 | Ultrafast charge transfer in atomically thin MoS2/WS2 heterostructures | MoS₂/WS₂ 층간 초고속 전하 이동
 gong2014 | 10.1038/nmat4091 | Gong et al. | Nature Materials | 2014 | Vertical and in-plane heterostructures from WS2/MoS2 monolayers | WS₂/MoS₂ 수직·평면 내 이종구조를 한 번에 성장
 huang2014lateral | 10.1038/nmat4064 | Huang et al. | Nature Materials | 2014 | Lateral heterojunctions within monolayer MoSe2–WSe2 semiconductors | 단층 MoSe₂–WSe₂ 평면 내 이종접합 성장
-duan2014 | 10.1038/nnano.2014.150 | Duan et al. | Nature Nanotechnology | 2014 | Lateral epitaxial growth of two-dimensional layered semiconductor heterojunctions | 2D 반도체 평면 내 이종접합의 측면 에피택시
+duan2014 | 10.1038/nnano.2014.222 | Duan et al. | Nature Nanotechnology | 2014 | Lateral epitaxial growth of two-dimensional layered semiconductor heterojunctions | 2D 반도체 평면 내 이종접합의 측면 에피택시
 liu2016nrm | 10.1038/natrevmats.2016.42 | Liu et al. | Nature Reviews Materials | 2016 | Van der Waals heterostructures and devices | 반데르발스 이종구조와 소자 리뷰
 liu2021prospects | 10.1038/s41586-021-03339-z | Liu et al. | Nature | 2021 | Promises and prospects of two-dimensional transistors | 2D 트랜지스터의 가능성과 과제 정리
-liu2018schottky | 10.1038/s41586-018-0574-4 | Liu et al. | Nature | 2018 | Approaching the Schottky–Mott limit in van der Waals metal–semiconductor junctions | 전사 금속 전극으로 페르미 준위 고정 완화
+liu2018schottky | 10.1038/s41586-018-0129-8 | Liu et al. | Nature | 2018 | Approaching the Schottky–Mott limit in van der Waals metal–semiconductor junctions | 전사 금속 전극으로 페르미 준위 고정 완화
 shen2021 | 10.1038/s41586-021-03472-9 | Shen et al. | Nature | 2021 | Ultralow contact resistance between semimetal and monolayer semiconductors | 반금속 Bi 전극으로 초저 접촉 저항 달성
 allain2015 | 10.1038/nmat4452 | Allain et al. | Nature Materials | 2015 | Electrical contacts to two-dimensional semiconductors | 2D 반도체 전기 접촉 문제 리뷰
 desai2016 | 10.1126/science.aah4698 | Desai et al. | Science | 2016 | MoS2 transistors with 1-nanometer gate lengths | 게이트 길이 1 nm MoS₂ 트랜지스터
@@ -41,7 +41,7 @@ kappera2014 | 10.1038/nmat4080 | Kappera et al. | Nature Materials | 2014 | Phas
 akinwande2019 | 10.1038/s41586-019-1573-9 | Akinwande et al. | Nature | 2019 | Graphene and two-dimensional materials for silicon technology | 실리콘 공정에 2D 물질을 통합하는 방향 리뷰
 illarionov2020 | 10.1038/s41467-020-16640-8 | Illarionov et al. | Nature Communications | 2020 | Insulators for 2D nanoelectronics: the gap to bridge | 2D 소자용 게이트 절연막 과제 정리
 das2021 | 10.1038/s41928-021-00670-1 | Das et al. | Nature Electronics | 2021 | Transistors based on two-dimensional materials for future integrated circuits | 미래 집적회로용 2D 트랜지스터 리뷰
-jayachandran2024 | 10.1038/s41586-023-06860-5 | Jayachandran et al. | Nature | 2024 | A three-dimensional integrated circuit based on two-dimensional materials | 2D 트랜지스터 층을 쌓은 단일체 3D 집적회로
+jayachandran2024 | 10.1038/s41586-023-06860-5 | Jayachandran et al. | Nature | 2024 | Three-dimensional integration of two-dimensional field-effect transistors | 2D 트랜지스터 층을 쌓은 단일체 3D 집적
 moon2025 | 10.1038/s41586-024-08492-9 | Moon et al. | Nature | 2025 | Hypotaxy of wafer-scale single-crystal transition metal dichalcogenides | 그래핀 나노구멍 아래 하이포택시로 웨이퍼 단결정 TMD
 si2019 | 10.1038/s41928-019-0338-7 | Si et al. | Nature Electronics | 2019 | A ferroelectric semiconductor field-effect transistor | α-In₂Se₃ 채널의 강유전체 반도체 FET
 huang2017 | 10.1038/nature22391 | Huang et al. | Nature | 2017 | Layer-dependent ferromagnetism in a van der Waals crystal down to the monolayer limit | 단층 CrI₃ 강자성과 층수 의존성
@@ -85,8 +85,8 @@ krivanek2010 | 10.1038/nature08879 | Krivanek et al. | Nature | 2010 | Atom-by-a
 zhou2013defects | 10.1021/nl4007479 | Zhou et al. | Nano Letters | 2013 | Intrinsic Structural Defects in Monolayer Molybdenum Disulfide | 단층 MoS₂ 고유 결함의 원자 구조 관찰
 meyer2007 | 10.1038/nature05545 | Meyer et al. | Nature | 2007 | The structure of suspended graphene sheets | 전자 회절로 매달린 그래핀의 미세 굴곡 확인
 huang2011 | 10.1038/nature09718 | Huang et al. | Nature | 2011 | Grains and grain boundaries in single-layer graphene atomic patchwork quilts | DF-TEM으로 그래핀 결정립 지도 작성
-lin2014phase | 10.1038/nnano.2014.81 | Lin et al. | Nature Nanotechnology | 2014 | Atomic mechanism of the semiconducting-to-metallic phase transition in single-layered MoS2 | STEM으로 MoS₂ 2H→1T 상전이 원자 기작 관찰
-muller2008 | 10.1126/science.1153866 | Muller et al. | Science | 2008 | Atomic-Scale Chemical Imaging of Composition and Bonding by Aberration-Corrected Microscopy | 수차 보정 STEM-EELS 원자 단위 화학 영상
+lin2014phase | 10.1038/nnano.2014.64 | Lin et al. | Nature Nanotechnology | 2014 | Atomic mechanism of the semiconducting-to-metallic phase transition in single-layered MoS2 | STEM으로 MoS₂ 2H→1T 상전이 원자 기작 관찰
+muller2008 | 10.1126/science.1148820 | Muller et al. | Science | 2008 | Atomic-Scale Chemical Imaging of Composition and Bonding by Aberration-Corrected Microscopy | 수차 보정 STEM-EELS 원자 단위 화학 영상
 li2009 | 10.1126/science.1171245 | Li et al. | Science | 2009 | Large-Area Synthesis of High-Quality and Uniform Graphene Films on Copper Foils | 구리 포일 CVD로 대면적 균일 그래핀 합성
 bae2010 | 10.1038/nnano.2010.132 | Bae et al. | Nature Nanotechnology | 2010 | Roll-to-roll production of 30-inch graphene films for transparent electrodes | 롤투롤로 30인치 그래핀 투명전극 제작
 kim2009 | 10.1038/nature07719 | Kim et al. | Nature | 2009 | Large-scale pattern growth of graphene films for stretchable transparent electrodes | 대면적 그래핀 패턴 성장과 신축성 전극
@@ -115,7 +115,7 @@ klitzing1980 | 10.1103/PhysRevLett.45.494 | von Klitzing et al. | Phys. Rev. Let
 mak2014valley | 10.1126/science.1250140 | Mak et al. | Science | 2014 | The valley Hall effect in MoS2 transistors | MoS₂ 트랜지스터의 밸리 홀 효과 관측
 ali2014 | 10.1038/nature13763 | Ali et al. | Nature | 2014 | Large, non-saturating magnetoresistance in WTe2 | 반금속 WTe₂의 포화하지 않는 거대 자기저항
 qian2014 | 10.1126/science.1256815 | Qian et al. | Science | 2014 | Quantum spin Hall effect in two-dimensional transition metal dichalcogenides | 1T′ TMD의 양자 스핀 홀 효과 예측
-miro2014 | 10.1039/C3CS60401B | Miró et al. | Chem. Soc. Rev. | 2014 | An atlas of two-dimensional materials | 다양한 2D 물질 구조·물성 지도
+miro2014 | 10.1039/C4CS00102H | Miró et al. | Chem. Soc. Rev. | 2014 | An atlas of two-dimensional materials | 다양한 2D 물질 구조·물성 지도
 mounet2018 | 10.1038/s41565-017-0035-5 | Mounet et al. | Nature Nanotechnology | 2018 | Two-dimensional materials from high-throughput computational exfoliation of experimentally known compounds | 계산으로 박리 가능한 층상 물질 대량 탐색
 garaj2010 | 10.1038/nature09379 | Garaj et al. | Nature | 2010 | Graphene as a subnanometre trans-electrode membrane | 그래핀 나노구멍 막을 이용한 DNA 검출
 schneider2010 | 10.1021/nl102069z | Schneider et al. | Nano Letters | 2010 | DNA Translocation through Graphene Nanopores | 그래핀 나노구멍을 통한 DNA 이동 관측
@@ -151,3 +151,5 @@ eda2012 | 10.1021/nn302422x | Eda et al. | ACS Nano | 2012 | Coherent Atomic and
 suzuki2014 | 10.1038/nnano.2014.148 | Suzuki et al. | Nature Nanotechnology | 2014 | Valley-dependent spin polarization in bulk MoS2 with broken inversion symmetry | 반전 대칭이 깨진 3R-MoS₂의 밸리 스핀 편극
 amani2015 | 10.1126/science.aad2114 | Amani et al. | Science | 2015 | Near-unity photoluminescence quantum yield in MoS2 | 초강산 처리로 MoS₂ 발광 양자효율 ~100%
 mak2013trion | 10.1038/nmat3505 | Mak et al. | Nature Materials | 2013 | Tightly bound trions in monolayer MoS2 | 단층 MoS₂의 강하게 묶인 트라이온 관측
+lin2018solution | 10.1038/s41586-018-0574-4 | Lin et al. | Nature | 2018 | Solution-processable 2D semiconductors for high-performance large-area electronics | 분자 삽입 박리로 용액 공정형 고성능 2D 반도체 박막
+lee2014pn | 10.1038/nnano.2014.150 | Lee et al. | Nature Nanotechnology | 2014 | Atomically thin p–n junctions with van der Waals heterointerfaces | 반데르발스 계면으로 만든 원자층 p–n 접합
