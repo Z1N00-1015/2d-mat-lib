@@ -38,6 +38,7 @@ import html
 import json
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -138,30 +139,45 @@ def _simple(text):
 
 
 def crossref(doi):
+    """Crossref에서 DOI 정보를 가져온다. 요청 제한(429)·서버 오류는 잠시 쉬었다가 다시 묻는다."""
     url = "https://api.crossref.org/works/" + urllib.parse.quote(doi, safe="/")
     req = urllib.request.Request(url, headers={"User-Agent": "BeyondSilicon-wiki/1.0 (https://github.com/z1n00-1015/2d-mat-lib)"})
-    try:
-        with urllib.request.urlopen(req, timeout=20) as r:
-            return json.load(r)["message"]
-    except urllib.error.HTTPError as e:
-        return {"_status": e.code}
-    except Exception as e:  # 네트워크 문제
-        return {"_error": str(e)}
+    wait = 2.0
+    for _ in range(5):
+        try:
+            with urllib.request.urlopen(req, timeout=20) as r:
+                return json.load(r)["message"]
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                return {"_status": 404}
+            if e.code in (429, 500, 502, 503, 504):
+                time.sleep(float(e.headers.get("Retry-After") or wait))
+                wait *= 2
+                continue
+            return {"_status": e.code}
+        except Exception as e:  # 네트워크 문제
+            return {"_error": str(e)}
+    return {"_busy": True}
 
 
 def verify_papers(pool):
-    """Crossref 제목·연도가 목록과 맞는 논문만 남긴다. Crossref에 닿지 않으면 대조를 건너뛴다."""
-    with ThreadPoolExecutor(max_workers=8) as ex:
-        metas = dict(zip(pool, ex.map(lambda k: crossref(pool[k]["doi"]), pool)))
+    """Crossref 제목·연도가 목록과 맞지 않거나 DOI가 없는 논문만 뺀다.
+    요청 제한 등으로 끝내 확인하지 못한 논문은 빼지 않고 남겨 둔다(로그에 표시)."""
+    with ThreadPoolExecutor(max_workers=2) as ex:
+        metas = dict(zip(pool, ex.map(lambda k: (time.sleep(0.2), crossref(pool[k]["doi"]))[1], pool)))
     errors = [k for k, m in metas.items() if "_error" in m]
     if len(errors) > len(pool) / 2:
         print("경고: Crossref에 연결할 수 없어 논문 대조를 건너뜁니다({0}).".format(metas[errors[0]]["_error"]))
         return pool, []
-    kept, dropped = {}, []
+    kept, dropped, unchecked = {}, [], []
     for k, m in metas.items():
         p = pool[k]
-        if "_error" in m or "_status" in m:
-            dropped.append((k, "DOI 조회 실패 {0}".format(m.get("_status", m.get("_error")))))
+        if "_busy" in m or "_error" in m:
+            unchecked.append(k)
+            kept[k] = p
+            continue
+        if "_status" in m:
+            dropped.append((k, "DOI 조회 실패 {0}".format(m["_status"])))
             continue
         real = (m.get("title") or [""])[0]
         ratio = difflib.SequenceMatcher(None, _simple(real), _simple(p["title"])).ratio()
@@ -172,6 +188,9 @@ def verify_papers(pool):
         kept[k] = p
     for k, why in dropped:
         print("논문 제외 [{0}] {1} — {2}".format(k, pool[k]["doi"], why))
+    if unchecked:
+        print("논문 확인 못 함(남겨 둠): " + ", ".join(unchecked))
+    print("논문 대조: 확인 {0}편, 제외 {1}편, 확인 못 함 {2}편".format(len(kept) - len(unchecked), len(dropped), len(unchecked)))
     return kept, dropped
 
 
