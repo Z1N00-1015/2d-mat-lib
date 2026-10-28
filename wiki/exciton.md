@@ -5,4 +5,5 @@ category: 전자 구조
 status: 초안
 reviewed: 2026-10-27
 summary: 쿨롱 인력으로 속박된 전자–정공 쌍. 2D 반도체에서는 결합 에너지가 수백 meV에 이른다.
+papers: chernikov2014, he2014, wang2018rmp, mak2013trion, mak2016photonics
 ---

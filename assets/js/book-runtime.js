@@ -146,7 +146,7 @@ function buildLayout() {
     <button class="icon-btn search-btn" aria-label="검색 열기">${ICONS.search}</button>
     <button class="icon-btn theme-btn" aria-label="테마 전환"></button>`;
   body.prepend(top);
-  import('./site-search.js?v=20261028-search').then(m => m.init({ top, root, fields: FIELDS, chapterUrl })).catch(() => {});
+  import('./site-search.js?v=20261028-papers').then(m => m.init({ top, root, fields: FIELDS, chapterUrl })).catch(() => {});
   const bar = document.createElement('div');
   bar.className = 'progress-bar';
   body.prepend(bar);

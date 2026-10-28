@@ -5,4 +5,5 @@ category: 물성
 status: 초안
 reviewed: 2026-10-27
 summary: 반강자성 장거리 질서가 사라지는 전이 온도.
+papers: huang2017, klein2018, burch2018, jungwirth2016
 ---

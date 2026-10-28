@@ -6,4 +6,5 @@ status: 초안
 reviewed: 2026-10-27
 summary: 가전자대 최대점과 전도대 최소점 사이의 금지 에너지 폭.
 chapter: semiconductor/bands
+papers: mak2010, splendiani2010, kuc2011, chaves2020, wang2012review
 ---

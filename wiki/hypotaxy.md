@@ -10,6 +10,7 @@ related: 에피택시, 그래핀 나노구멍, 화학 기상 증착
 chapter: materials/single-crystal-growth
 sources:
 - Moon et al., “Hypotaxy of wafer-scale single-crystal transition metal dichalcogenides”, Nature (2025) | https://doi.org/10.1038/s41586-024-08492-9
+papers: moon2025, kim2017remote, koma1992, li2021sapphire
 ---
 ## 개요
 

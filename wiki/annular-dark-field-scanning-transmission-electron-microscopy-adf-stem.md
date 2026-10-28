@@ -5,4 +5,5 @@ category: 분석법
 status: 초안
 reviewed: 2026-10-27
 summary: 시료를 주사하는 전자빔에서 산란된 전자를 환형 검출기로 모아 영상을 만드는 방법. 검출 각도와 camera length가 대비에 영향을 준다.
+papers: krivanek2010, zhou2013defects, lin2014phase, weston2020, muller2008
 ---

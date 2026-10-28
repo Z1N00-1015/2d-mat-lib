@@ -1050,3 +1050,9 @@ table.gloss-table .empty { text-align: center; color: var(--muted); padding: 30p
   body.search-open .site-search-results { left: 0; right: 0; width: auto; }
   .site-search kbd { display: none; }
 }
+/* 위키 대표 논문: 한 줄 설명 + 링크 */
+.wiki-papers { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 7px; }
+.wiki-papers li { padding: 9px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); font-size: 14px; line-height: 1.5; }
+.wiki-papers .wp-desc { color: var(--text); font-weight: 600; }
+.wiki-papers a { color: var(--accent); font-size: 13px; white-space: nowrap; }
+@media (max-width: 700px) { .wiki-papers a { white-space: normal; display: block; margin-top: 2px; } }

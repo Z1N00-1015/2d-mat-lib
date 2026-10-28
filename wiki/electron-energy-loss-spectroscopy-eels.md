@@ -5,4 +5,5 @@ category: 분석법
 status: 초안
 reviewed: 2026-10-27
 summary: 시료를 통과한 전자의 에너지 손실을 측정해 원소와 결합·전자 구조 정보를 얻는 방법.
+papers: muller2008, krivanek2010, zhou2013defects
 ---

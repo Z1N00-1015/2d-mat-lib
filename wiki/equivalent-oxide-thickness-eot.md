@@ -5,4 +5,5 @@ category: 소자
 status: 초안
 reviewed: 2026-10-27
 summary: 고유전율 절연막과 같은 정전 용량을 주는 SiO₂의 두께. EOT = t_phys × (3.9 / κ).
+papers: wilk2001, illarionov2020, liu2021prospects, das2021
 ---

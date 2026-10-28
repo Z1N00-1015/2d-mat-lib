@@ -9,6 +9,8 @@
 - chapters/wiki/index.html  : 전체 문서 목록, 분류, 아직 없는 문서(빨간 링크) 목록
 - data/wiki-index.json      : 검색·용어 사전 연결용 색인
 이 결과물은 저장소에 넣지 않고(.gitignore), 배포할 때 GitHub Actions가 다시 만든다.
+배포 때는 `--verify`를 붙여 대표 논문(wiki/_papers.txt)의 DOI를 Crossref에서 제목·연도와 대조하고,
+맞지 않거나 없는 DOI는 사이트에서 뺀다. 로컬에서 --verify 없이 실행하면 대조하지 않고 모두 보여 준다.
 
 문서 형식(wiki/*.md)
     ---
@@ -25,26 +27,33 @@
     - Kang et al., Nature (2015) | https://doi.org/10.1038/nature14417
     info:
     - 결정 구조 | 2H (삼각 프리즘)
+    papers: kang2015, mak2010     # wiki/_papers.txt의 키, 최대 5개 정도
     ---
     본문은 마크다운: ## 제목, 문단, - 목록, 1. 목록, > 메모, | 표 |, **굵게**, *기울임*, `코드`,
     [글자](주소), [[문서 제목]], [[문서 제목|보여 줄 글자]]. <sub>·<sup> 같은 짧은 HTML 태그도 쓸 수 있다.
 """
 
+import difflib
 import html
 import json
 import re
 import sys
+import urllib.error
+import urllib.parse
+import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "wiki"
 OUT = ROOT / "chapters" / "wiki"
 INDEX_JSON = ROOT / "data" / "wiki-index.json"
+PAPERS = SRC / "_papers.txt"
 EDIT_URL = "https://github.com/z1n00-1015/2d-mat-lib/edit/main/wiki/{0}.md"
 NEW_URL = "https://github.com/z1n00-1015/2d-mat-lib/new/main/wiki"
 CATEGORY_ORDER = ["물질", "결정학", "전자 구조", "물성", "공정", "분석법", "소자", "연구 분야", "기타"]
 LIST_KEYS = {"sources", "info"}
-COMMA_KEYS = {"aliases", "related"}
+COMMA_KEYS = {"aliases", "related", "papers"}
 
 
 # ── 문서 읽기 ──────────────────────────────────────────────────────
@@ -80,6 +89,7 @@ def parse_doc(path):
     meta.setdefault("related", [])
     meta.setdefault("sources", [])
     meta.setdefault("info", [])
+    meta.setdefault("papers", [])
     meta.setdefault("status", "초안")
     meta.setdefault("reviewed", "")
     meta.setdefault("chapter", "")
@@ -105,6 +115,64 @@ def plain(text):
 
 def norm(name):
     return re.sub(r"\s+", " ", name.strip()).lower()
+
+
+# ── 대표 논문 ──────────────────────────────────────────────────────
+def load_papers():
+    pool = {}
+    if not PAPERS.exists():
+        return pool
+    for n, raw in enumerate(PAPERS.read_text(encoding="utf-8").splitlines(), 1):
+        if not raw.strip() or raw.lstrip().startswith("#"):
+            continue
+        parts = [x.strip() for x in raw.split("|")]
+        if len(parts) != 7:
+            sys.exit("_papers.txt {0}번째 줄: 항목이 7개여야 합니다(키|DOI|저자|저널|연도|영문 제목|한 줄 설명).".format(n))
+        key, doi, authors, journal, year, title, desc = parts
+        pool[key] = {"key": key, "doi": doi, "authors": authors, "journal": journal, "year": year, "title": title, "desc": desc}
+    return pool
+
+
+def _simple(text):
+    return re.sub(r"[^a-z0-9]", "", re.sub(r"<[^>]+>", "", html.unescape(text)).lower())
+
+
+def crossref(doi):
+    url = "https://api.crossref.org/works/" + urllib.parse.quote(doi, safe="/")
+    req = urllib.request.Request(url, headers={"User-Agent": "BeyondSilicon-wiki/1.0 (https://github.com/z1n00-1015/2d-mat-lib)"})
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            return json.load(r)["message"]
+    except urllib.error.HTTPError as e:
+        return {"_status": e.code}
+    except Exception as e:  # 네트워크 문제
+        return {"_error": str(e)}
+
+
+def verify_papers(pool):
+    """Crossref 제목·연도가 목록과 맞는 논문만 남긴다. Crossref에 닿지 않으면 대조를 건너뛴다."""
+    with ThreadPoolExecutor(max_workers=8) as ex:
+        metas = dict(zip(pool, ex.map(lambda k: crossref(pool[k]["doi"]), pool)))
+    errors = [k for k, m in metas.items() if "_error" in m]
+    if len(errors) > len(pool) / 2:
+        print("경고: Crossref에 연결할 수 없어 논문 대조를 건너뜁니다({0}).".format(metas[errors[0]]["_error"]))
+        return pool, []
+    kept, dropped = {}, []
+    for k, m in metas.items():
+        p = pool[k]
+        if "_error" in m or "_status" in m:
+            dropped.append((k, "DOI 조회 실패 {0}".format(m.get("_status", m.get("_error")))))
+            continue
+        real = (m.get("title") or [""])[0]
+        ratio = difflib.SequenceMatcher(None, _simple(real), _simple(p["title"])).ratio()
+        years = {str(m.get(f, {}).get("date-parts", [[None]])[0][0]) for f in ("published-print", "published-online", "issued")}
+        if ratio < 0.8 or p["year"] not in years:
+            dropped.append((k, "불일치: Crossref 제목 '{0}', 연도 {1}, 유사도 {2:.2f}".format(real[:80], "/".join(sorted(years)), ratio)))
+            continue
+        kept[k] = p
+    for k, why in dropped:
+        print("논문 제외 [{0}] {1} — {2}".format(k, pool[k]["doi"], why))
+    return kept, dropped
 
 
 # ── 마크다운(간단한 부분 집합) ─────────────────────────────────────
@@ -255,7 +323,7 @@ def link_list(items):
     return "<ul class=\"wiki-links\">{0}</ul>".format("".join(items))
 
 
-def render_doc(doc, docs, lookup, backlinks, chapters):
+def render_doc(doc, docs, lookup, backlinks, chapters, papers):
     r = Renderer(lookup, doc["slug"])
     body = r.render(doc["body"]) if doc["body"] else ""
     parts = []
@@ -281,6 +349,13 @@ def render_doc(doc, docs, lookup, backlinks, chapters):
     else:
         parts.append('<div class="callout note"><span class="t">아직 짧은 문서입니다</span><p>용어 사전의 정의만 옮겨 둔 초안입니다. '
                      '원리, 2D 물질에서의 의미, 관련 연구를 출처와 함께 채워 주세요.</p></div>')
+    picked = [papers[k] for k in doc["papers"] if k in papers][:5]
+    if picked:
+        rows = []
+        for p in picked:
+            rows.append('<li><span class="wp-desc">{0}</span> <a href="https://doi.org/{1}" target="_blank" rel="noopener">{2}, <i>{3}</i> ({4}) ↗</a></li>'.format(
+                html.escape(p["desc"]), html.escape(p["doi"]), html.escape(p["authors"]), html.escape(p["journal"]), html.escape(p["year"])))
+        parts.append('<h2>대표 논문</h2>\n<ul class="wiki-papers">{0}</ul>'.format("".join(rows)))
     rel = []
     for name in doc["related"]:
         d = lookup.get(norm(name))
@@ -367,12 +442,18 @@ def main():
                 backlinks.setdefault(s, set()).add(d["slug"])
         for m in r.missing:
             missing.setdefault(m, set()).add(d["slug"])
+    papers = load_papers()
+    unknown = sorted({k for d in docs.values() for k in d["papers"] if k not in papers})
+    if unknown:
+        print("주의: _papers.txt에 없는 논문 키: " + ", ".join(unknown))
+    if "--verify" in sys.argv:
+        papers, _ = verify_papers(papers)
     chapters = load_chapters()
     OUT.mkdir(parents=True, exist_ok=True)
     for old in OUT.glob("*.html"):
         old.unlink()
     for d in docs.values():
-        html_text, _ = render_doc(d, docs, lookup, backlinks, chapters)
+        html_text, _ = render_doc(d, docs, lookup, backlinks, chapters, papers)
         (OUT / "{0}.html".format(d["slug"])).write_text(html_text, encoding="utf-8")
     (OUT / "index.html").write_text(render_index(docs, missing), encoding="utf-8")
     index = [{"slug": d["slug"], "title": d["title"], "en": d["en"], "aliases": d["aliases"], "category": d["category"],

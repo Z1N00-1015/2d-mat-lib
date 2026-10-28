@@ -20,6 +20,7 @@ sources:
 - Chaves et al., 2D 소재 밴드갭 리뷰, npj 2D Materials and Applications (2020) | https://doi.org/10.1038/s41699-020-00162-4
 - 2H-TMD 격자상수 | https://doi.org/10.1103/PhysRevB.89.075409
 - 1T-MoS₂ 구조 | https://doi.org/10.1002/ange.201710512
+papers: mak2010, splendiani2010, radisavljevic2011, kang2015, lee2010raman
 ---
 ## 개요
 

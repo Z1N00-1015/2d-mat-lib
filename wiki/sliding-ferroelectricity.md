@@ -5,4 +5,5 @@ category: 물성
 status: 초안
 reviewed: 2026-10-27
 summary: 반데르발스 층의 상대적인 옆 방향 미끄럼으로 적층 대칭성과 계면 분극을 바꾸는 강유전성.
+papers: yasuda2021, viznerstern2021, fei2018, wu2021sliding
 ---

@@ -10,6 +10,7 @@ related: 화학 기상 증착, 질량 유량 제어기, 결정립계
 chapter: materials/synthesis
 sources:
 - Kang et al., “High-mobility three-atom-thick semiconducting films with wafer-scale homogeneity”, Nature (2015) | https://doi.org/10.1038/nature14417
+papers: kang2015, zhou2018library, li2021sapphire, jayachandran2024
 ---
 ## 개요
 
