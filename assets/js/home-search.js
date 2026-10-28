@@ -1,4 +1,4 @@
-import { FIELDS } from './book-runtime.js?v=20261028-autolink';
+import { FIELDS } from './book-runtime.js?v=20261028-search';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'

@@ -109,6 +109,7 @@ const LOGO = '<svg class="brand-logo" viewBox="0 0 32 32" aria-hidden="true"><de
 const ICONS = {
   menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
   sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>',
+  search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>',
   moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>',
 };
 
@@ -141,8 +142,11 @@ function buildLayout() {
     <button class="icon-btn menu-btn" aria-label="목차 열기">${ICONS.menu}</button>
     <a class="brand" href="${root}index.html">${LOGO}<span>${BRAND.name}</span><small>${field ? field.title : BRAND.sub}</small></a>
     <div class="spacer"></div>
+    <div class="site-search" role="search">${ICONS.search}<input type="search" placeholder="위키·장 검색" aria-label="사이트 검색 (단축키 /)" autocomplete="off"><kbd>/</kbd><div class="site-search-results" role="listbox" hidden></div></div>
+    <button class="icon-btn search-btn" aria-label="검색 열기">${ICONS.search}</button>
     <button class="icon-btn theme-btn" aria-label="테마 전환"></button>`;
   body.prepend(top);
+  import('./site-search.js?v=20261028-search').then(m => m.init({ top, root, fields: FIELDS, chapterUrl })).catch(() => {});
   const bar = document.createElement('div');
   bar.className = 'progress-bar';
   body.prepend(bar);
