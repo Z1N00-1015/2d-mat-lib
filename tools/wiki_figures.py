@@ -122,8 +122,8 @@ def _tmd_side(x0, y0, w, h, stack, scale, cid, gap=True, tags=None):
            '<rect class="panel" x="{0}" y="{1}" width="{2}" height="{3}" rx="12"/>'.format(x0, y0, w, h),
            '<g clip-path="url(#{0})">'.format(cid)]
     if tags:
-        # 1층 금속 자리를 지나는 세로 점선: 같은 자리로 돌아오는 층을 보여 준다.
-        m0 = stack[0][0]
+        # 맨 아래층 금속 자리를 지나는 세로 점선: 같은 자리로 돌아오는 층을 보여 준다.
+        m0 = stack[-1][0]
         out += ['<line class="dash" x1="{0:.1f}" y1="{1}" x2="{0:.1f}" y2="{2}"/>'.format(x0 + 18 + m0 * TMD_L * scale + k * step, y0, y0 + h)
                 for k in range(-2, int(w / step) + 3)]
     zs = []
@@ -157,17 +157,17 @@ def _tmd_side(x0, y0, w, h, stack, scale, cid, gap=True, tags=None):
 
 
 def stacking(args):
-    """2H와 3R 적층을 나란히 비교한다. 층마다 금속 자리(A·B·C)를 오른쪽에 적는다."""
+    """2H와 3R 적층을 나란히 비교한다. 층 이름은 아래층부터 붙인다(stack과 tags는 위층부터 적는다)."""
     m, x = (list(args) + ["M", "X"])[1:3]
     ph = 268
-    left = _tmd_side(20, 34, 320, ph, [(0, 1), (1, 0), (0, 1)], 11.5, "ws-2h", gap=False, tags=["A", "B", "A"])
-    right = _tmd_side(380, 34, 320, ph, [(0, 1), (1, 2), (2, 0)], 11.5, "ws-3r", gap=False, tags=["A", "B", "C"])
+    left = _tmd_side(20, 34, 320, ph, [(0, 1), (1, 0), (0, 1)], 11.5, "ws-2h", gap=False, tags=["A", "A′", "A"])
+    right = _tmd_side(380, 34, 320, ph, [(0, 1), (1, 2), (2, 0)], 11.5, "ws-3r", gap=False, tags=["C", "B", "A"])
     inner = (_text(180, 22, "2H · 층마다 180° 돌아감, 2층 주기", "label-strong") + _text(540, 22, "3R · 같은 방향으로 밀림, 3층 주기", "label-strong")
              + left + right
              + '<circle class="atom" cx="26" cy="321" r="6"/>' + _text(38, 325, "{0} 금속".format(m), "label", "start")
              + '<circle class="atom-3" cx="116" cy="321" r="6"/>' + _text(128, 325, "{0} 칼코겐".format(x), "label", "start")
-             + _text(700, 325, "A·B·C: 층마다 금속 원자가 놓인 자리 · 점선: 1층 금속 자리", "tiny-label", "end"))
-    return _wrap("2H와 3R 적층", "2H는 이웃 층이 180° 돌아가 금속 자리가 A·B·A로 두 층마다 반복되고, 3R은 같은 방향의 층이 한 칸씩 밀려 A·B·C로 세 층마다 반복된다.", 334, inner)
+             + _text(700, 325, "층 이름은 아래층부터 · A′: A를 180° 돌린 층 · 점선: 맨 아래층 금속 자리", "tiny-label", "end"))
+    return _wrap("2H와 3R 적층", "아래층부터 2H는 A–A′–A로 이웃 층이 180° 돌아가며 두 층마다 반복되고, 3R은 A–B–C로 같은 방향의 층이 한 칸씩 밀리며 세 층마다 반복된다.", 334, inner)
 
 
 def structure(args):
