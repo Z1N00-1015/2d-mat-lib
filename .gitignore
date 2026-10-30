@@ -1,3 +1,6 @@
 # 위키 결과물: tools/build_wiki.py가 배포 때 만든다
 chapters/wiki/
 data/wiki-index.json
+
+# 파이썬 캐시
+__pycache__/
