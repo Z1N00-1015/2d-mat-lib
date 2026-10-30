@@ -1,6 +1,10 @@
 # 작업 인계 기록
 
 ## 2026-10-30 · claude
+- 변경: 위키 초안 확장 3차(소자 24개): 접촉 저항·SS·단채널 효과·DIBL·스케일 길이·EOT·온 전류 밀도·전류 밀도·양자 터널링·전하 트랩·2DEG·TMR·FeFET·FeS-FET·NCFET·메모리 창·잔류 시간·선택 소자·BEOL·BSPDN·단일체 3D 집적·열 예산·저유전율 절연막·기생 정전용량. 소자 그림 18종 `tools/wiki_devices.py`.
+- 남은 일: 짧은 초안 47개(물성 18, 결정학 14, 공정 9, 물질 6).
+
+## 2026-10-30 · claude
 - 변경: 위키 초안 확장 2차(분석법 22개): TEM·STEM·ADF·HAADF·HRTEM·DF-TEM·SAED·카메라 길이·FFT·모아레 프린지·MOKE·라만 분광/라만 이동/Rayleigh/Stokes·포논·XRD·XPS·화학적 이동·EDS·EELS·AFM. 장비 모식도·원리·스펙트럼 그림 16종 `tools/wiki_analysis.py`.
 - 수정: 출처 DOI를 `_papers.txt`(배포 때 Crossref 검증)와 대조해 Lin 2014(10.1038/nnano.2014.64), Muller 2008(10.1126/science.1148820) 바로잡음. 이후 문서의 논문 출처는 `_papers.txt` 키에서 만들도록 함.
 - 남은 일: 짧은 초안 71개(공정·물성·소자·물질·결정학 나머지).

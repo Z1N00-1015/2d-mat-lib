@@ -406,7 +406,10 @@ def render(spec):
     name = f[0]
     import wiki_analysis  # 분석법 그림
     import wiki_concepts  # 개념 그림(결정학·전자 구조)
-    fn = KINDS.get(name.lower()) or wiki_concepts.KINDS.get(name.lower()) or wiki_analysis.KINDS.get(name.lower())
+    import wiki_devices  # 소자·물성 그림
+    fn = None
+    for table in (KINDS, wiki_concepts.KINDS, wiki_analysis.KINDS, wiki_devices.KINDS):
+        fn = fn or table.get(name.lower())
     if not fn:
         raise ValueError("알 수 없는 그림 종류: " + name)
     return name, fn(f[1:])
