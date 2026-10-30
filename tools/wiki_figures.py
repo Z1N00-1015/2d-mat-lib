@@ -404,7 +404,8 @@ def render(spec):
     """'라만 | 384:0.7:E′, 404:1:A₁′ | 532 nm' 같은 한 줄을 (이름, svg)로 바꾼다."""
     f = [x.strip() for x in spec.split("|")]
     name = f[0]
-    fn = KINDS.get(name.lower())
+    import wiki_concepts  # 개념 그림(결정학·전자 구조)
+    fn = KINDS.get(name.lower()) or wiki_concepts.KINDS.get(name.lower())
     if not fn:
         raise ValueError("알 수 없는 그림 종류: " + name)
     return name, fn(f[1:])
