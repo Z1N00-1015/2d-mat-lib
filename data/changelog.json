@@ -2,6 +2,13 @@
   "entries": [
     {
       "date": "2026-10-30",
+      "page": "위키 분석법 문서 확장",
+      "url": "./chapters/wiki/index.html",
+      "summary": "TEM·STEM·HAADF·SAED·라만·XRD·XPS·EDS·EELS·AFM 등 분석법 위키 문서 22개를 장비 모식도, 원리 그림, 스펙트럼과 함께 자세히 채웠습니다.",
+      "added_dois": []
+    },
+    {
+      "date": "2026-10-30",
       "page": "위키 결정학·전자 구조 문서 확장",
       "url": "./chapters/wiki/index.html",
       "summary": "결정학 10개(단위격자, 역격자, 브릴루앙 영역, 브래그 법칙 등)와 전자 구조 10개(밴드갭, 엑시톤, 디랙 원뿔, 평탄 밴드 등) 위키 문서를 자세한 설명과 개념 그림으로 채웠습니다.",

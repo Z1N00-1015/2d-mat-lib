@@ -240,7 +240,7 @@ def _ticks(lo, hi, step):
         t += step
 
 
-def _spectrum(peaks, lo, hi, step, xlabel, fmt, band=None, top_axis=None, title="", desc=""):
+def _spectrum(peaks, lo, hi, step, xlabel, fmt, band=None, top_axis=None, title="", desc="", band_label="보고 범위"):
     x0, x1, y0 = 56, W - 24, (96 if top_axis else 56)
     y1 = y0 + 184
     sx = lambda v: x0 + (v - lo) / (hi - lo) * (x1 - x0)
@@ -256,7 +256,7 @@ def _spectrum(peaks, lo, hi, step, xlabel, fmt, band=None, top_axis=None, title=
     if band:
         a, b = band
         out.append('<rect class="area" x="{0:.1f}" y="{1}" width="{2:.1f}" height="{3}"/>'.format(sx(a), y0 - 6, sx(b) - sx(a), y1 - y0 + 6))
-        out.append(_text((sx(a) + sx(b)) / 2, y1 - 8, "보고 범위", "tiny-label"))
+        out.append(_text((sx(a) + sx(b)) / 2, y1 - 8, band_label, "tiny-label"))
     if top_axis:
         conv, tstep, tlabel = top_axis
         # 위쪽 축: 파장(nm). 보기 좋은 파장 눈금을 에너지로 바꿔 찍는다.
@@ -404,8 +404,9 @@ def render(spec):
     """'라만 | 384:0.7:E′, 404:1:A₁′ | 532 nm' 같은 한 줄을 (이름, svg)로 바꾼다."""
     f = [x.strip() for x in spec.split("|")]
     name = f[0]
+    import wiki_analysis  # 분석법 그림
     import wiki_concepts  # 개념 그림(결정학·전자 구조)
-    fn = KINDS.get(name.lower()) or wiki_concepts.KINDS.get(name.lower())
+    fn = KINDS.get(name.lower()) or wiki_concepts.KINDS.get(name.lower()) or wiki_analysis.KINDS.get(name.lower())
     if not fn:
         raise ValueError("알 수 없는 그림 종류: " + name)
     return name, fn(f[1:])

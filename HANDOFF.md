@@ -1,6 +1,11 @@
 # 작업 인계 기록
 
 ## 2026-10-30 · claude
+- 변경: 위키 초안 확장 2차(분석법 22개): TEM·STEM·ADF·HAADF·HRTEM·DF-TEM·SAED·카메라 길이·FFT·모아레 프린지·MOKE·라만 분광/라만 이동/Rayleigh/Stokes·포논·XRD·XPS·화학적 이동·EDS·EELS·AFM. 장비 모식도·원리·스펙트럼 그림 16종 `tools/wiki_analysis.py`.
+- 수정: 출처 DOI를 `_papers.txt`(배포 때 Crossref 검증)와 대조해 Lin 2014(10.1038/nnano.2014.64), Muller 2008(10.1126/science.1148820) 바로잡음. 이후 문서의 논문 출처는 `_papers.txt` 키에서 만들도록 함.
+- 남은 일: 짧은 초안 71개(공정·물성·소자·물질·결정학 나머지).
+
+## 2026-10-30 · claude
 - 변경: 위키 초안 문서 확장 1차(20개). 결정학(단위격자·기저·브라베 격자·결정 구조·밀러 지수·면간 거리·브래그 법칙·역격자·제1 브릴루앙 영역·Wigner–Seitz 셀)과 전자 구조(밴드갭·직접/간접 밴드갭·디랙 원뿔·유효 질량·에너지 밴드·엑시톤·평탄 밴드·층간 엑시톤·광발광·강한 결합 근사)에 정의·원리·식·2D 물질에서의 의미, 정보 상자, 그림, 출처(교과서 Kittel/Ashcroft–Mermin/Sze/Cullity + `_papers.txt` 논문) 추가.
 - 변경: 개념 그림 16종 `tools/wiki_concepts.py`(wiki_figures.render가 불러 씀).
 - 남은 일: 아직 짧은 초안 93개(공정·물성·분석법·소자·물질 등) 순서대로 확장.
