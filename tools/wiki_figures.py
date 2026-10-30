@@ -408,8 +408,9 @@ def render(spec):
     import wiki_concepts  # 개념 그림(결정학·전자 구조)
     import wiki_devices  # 소자 그림
     import wiki_matter  # 물성 그림(자성·분극·스핀)
+    import wiki_struct  # 적층·이종구조·공정·물질 그림
     fn = None
-    for table in (KINDS, wiki_concepts.KINDS, wiki_analysis.KINDS, wiki_devices.KINDS, wiki_matter.KINDS):
+    for table in (KINDS, wiki_concepts.KINDS, wiki_analysis.KINDS, wiki_devices.KINDS, wiki_matter.KINDS, wiki_struct.KINDS):
         fn = fn or table.get(name.lower())
     if not fn:
         raise ValueError("알 수 없는 그림 종류: " + name)

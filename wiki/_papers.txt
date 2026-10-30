@@ -175,3 +175,5 @@ li2016gase | 10.1126/sciadv.1501882 | Li et al. | Science Advances | 2016 | Two-
 moody2023 | 10.1021/acsami.3c11931 | Moody et al. | ACS Appl. Mater. Interfaces | 2023 | van der Waals Epitaxy, Superlubricity, and Polarization of the 2D Ferroelectric SnS | h-BN 위 강유전체 SnS의 반데르발스 에피택시와 초윤활
 jung2025 | 10.1016/j.apsusc.2024.161676 | Jung et al. | Applied Surface Science | 2025 | WOx-driven growth of 2H- and 3R-WS2 multilayers by physical vapor deposition | WOₓ를 매개로 PVD에서 2H·3R WS₂ 다층을 골라 성장
 gorbachev2011 | 10.1002/smll.201001628 | Gorbachev et al. | Small | 2011 | Hunting for Monolayer Boron Nitride: Optical and Raman Signatures | 라만 E₂g 피크 이동과 광학 대비로 단층 h-BN 판별
+binnig1986 | 10.1103/PhysRevLett.56.930 | Binnig et al. | Phys. Rev. Lett. | 1986 | Atomic Force Microscope | 원자힘현미경 제안
+vidal2012 | 10.1063/1.3675880 | Vidal et al. | Appl. Phys. Lett. | 2012 | Band-structure, optical properties, and defect physics of the photovoltaic semiconductor SnS | SnS의 밴드 구조와 결함 물리
