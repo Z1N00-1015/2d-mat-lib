@@ -140,7 +140,7 @@ def _tmd_side(x0, y0, w, h, stack, scale, cid, gap=True, tags=None):
                     for dz in (-TMD_Z, TMD_Z):
                         bonds.append('<line x1="{0:.1f}" y1="{1:.1f}" x2="{2:.1f}" y2="{3:.1f}"/>'.format(xm, zc, xx, zc + dz * scale))
         out.append('<g class="line" style="stroke-width:1.8">{0}</g>'.format("".join(bonds)))
-        r = max(4.0, scale * 0.38)
+        r = max(4.0, scale * 0.46)
         for dz in (-TMD_Z, TMD_Z):
             out += ['<circle class="atom-3" cx="{0:.1f}" cy="{1:.1f}" r="{2:.1f}"/>'.format(xx, zc + dz * scale, r * 0.85) for xx in xs]
         out += ['<circle class="atom" cx="{0:.1f}" cy="{1:.1f}" r="{2:.1f}"/>'.format(xm, zc, r) for xm in ms]
