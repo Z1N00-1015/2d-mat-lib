@@ -177,3 +177,7 @@ jung2025 | 10.1016/j.apsusc.2024.161676 | Jung et al. | Applied Surface Science 
 gorbachev2011 | 10.1002/smll.201001628 | Gorbachev et al. | Small | 2011 | Hunting for Monolayer Boron Nitride: Optical and Raman Signatures | 라만 E₂g 피크 이동과 광학 대비로 단층 h-BN 판별
 binnig1986 | 10.1103/PhysRevLett.56.930 | Binnig et al. | Phys. Rev. Lett. | 1986 | Atomic Force Microscope | 원자힘현미경 제안
 vidal2012 | 10.1063/1.3675880 | Vidal et al. | Appl. Phys. Lett. | 2012 | Band-structure, optical properties, and defect physics of the photovoltaic semiconductor SnS | SnS의 밴드 구조와 결함 물리
+kim2026strain | 10.1088/1361-6633/ae5ea2 | Kim et al. | Rep. Prog. Phys. | 2026 | Visualizing lattice-mismatch-dependent strain relaxation in epitaxially grown MoS2/WS2 and MoS2/WSe2 hetero-bilayers | MoS₂/WS₂·MoS₂/WSe₂ 이종이중층에서 격자 불일치에 따른 변형 완화를 시각화
+hong2025recon | 10.1021/acsnano.5c14888 | Hong et al. | ACS Nano | 2025 | Overcoming the Lattice Mismatch Barrier for Atomic Reconstruction in MoSe2/MoS2 Heterobilayers | 격자 불일치가 큰 MoSe₂/MoS₂ 이종이중층에서 원자 재구성을 구현
+hong2025vls | 10.1021/acsnano.5c11757 | Hong et al. | ACS Nano | 2025 | Strain-Mediated Control of Domain Structures in 3R-MoS2 Bilayers Synthesized by Vapor-Liquid-Solid Growth in Chemical Vapor Deposition | VLS 성장 3R-MoS₂ 이중층의 도메인 구조를 변형으로 제어
+baek2025sliding | 10.1002/adfm.202519094 | Baek et al. | Adv. Funct. Mater. | 2025 | Domain-Wall-Free Sliding Ferroelectricity in Fully Commensurate 3R Transition Metal Dichalcogenide Bilayers | 완전 정합 3R TMD 이중층에서 도메인 벽 없는 미끄럼 강유전성

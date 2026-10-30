@@ -4,7 +4,7 @@ en: retention time
 category: 소자
 status: 초안
 summary: 메모리 소자가 기록한 정보를 다시 쓰지 않고 유지할 수 있는 시간.
-papers: si2019, muller2012
+papers: baek2025sliding, si2019, muller2012
 reviewed: 2026-10-30
 info:
 - 정의 | 다시 쓰지 않고 정보를 유지하는 시간
@@ -17,6 +17,7 @@ sources:
 - Si et al., Nature Electronics (2019) | https://doi.org/10.1038/s41928-019-0338-7
 - Müller et al., Nano Letters (2012) | https://doi.org/10.1021/nl302049k
 - Böscke et al., Appl. Phys. Lett. (2011) | https://doi.org/10.1063/1.3634052
+- Baek et al., Adv. Funct. Mater. (2025) — 연구실 DB | https://doi.org/10.1002/adfm.202519094
 ---
 ## 정의
 
@@ -36,4 +37,4 @@ sources:
 
 ## 2D 메모리에서
 
-2D 채널과 HfO₂ 계열 강유전체(Müller 2012)나 강유전 반도체 채널(Si 2019)을 쓴 메모리 연구에서는 [[메모리 창]], 내구성과 함께 잔류 시간 곡선을 보고합니다. 짧은 시간의 결과만으로 10년을 외삽하면 오차가 크므로, 측정한 시간 범위와 온도를 함께 밝혀야 합니다.
+2D 채널과 HfO₂ 계열 강유전체(Müller 2012)나 강유전 반도체 채널(Si 2019)을 쓴 메모리 연구에서는 [[메모리 창]], 내구성과 함께 잔류 시간 곡선을 보고합니다. 완전 정합 3R TMD 이중층의 미끄럼 강유전 소자에서는 분극 유지가 10년 이상으로 외삽되었습니다(Baek 2025, 연구실 DB). 짧은 시간의 결과만으로 10년을 외삽하면 오차가 크므로, 측정한 시간 범위와 온도를 함께 밝혀야 합니다.

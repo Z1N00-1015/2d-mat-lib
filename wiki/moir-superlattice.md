@@ -5,7 +5,7 @@ category: 결정학
 status: 초안
 summary: 두 주기 격자를 비틀림 또는 격자 불일치로 겹쳤을 때 생기는 장주기 구조. L = a / [2 sin(θ/2)].
 chapter: materials/moire
-papers: dean2013, ponomarenko2013, hunt2013, cao2018sc, andrei2020
+papers: kim2026strain, hong2025recon, dean2013, ponomarenko2013, hunt2013, cao2018sc, andrei2020
 reviewed: 2026-10-30
 info:
 - 정의 | 두 층의 격자 차이로 생긴 긴 주기의 초격자

@@ -1,0 +1,7 @@
+# 사이트 운영자가 저자로 참여한 논문(_papers.txt의 키). 위키 '대표 논문'에서 맨 앞에 '참여 논문' 표시와 함께 보인다.
+moon2025
+jung2025
+kim2026strain
+hong2025recon
+hong2025vls
+baek2025sliding

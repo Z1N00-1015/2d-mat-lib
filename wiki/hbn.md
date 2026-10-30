@@ -16,7 +16,7 @@ figures:
 - 구조 | hbn
 - 라만 | 1366:1:E₂g:9 | 532 nm
 - 밴드 | wide | 6
-papers: dean2010, wang2019hbn, gorbachev2011, moody2023, kim2018moo3
+papers: moon2025, dean2010, wang2019hbn, gorbachev2011, moody2023, kim2018moo3
 sources:
 - Dean et al., Nature Nanotechnology (2010) | https://doi.org/10.1038/nnano.2010.172
 - graphene·h-BN 격자상수 | https://link.aps.org/accepted/10.1103/PhysRevB.97.205104

@@ -4,7 +4,7 @@ en: sliding ferroelectricity
 category: 물성
 status: 초안
 summary: 반데르발스 층의 상대적인 옆 방향 미끄럼으로 적층 대칭성과 계면 분극을 바꾸는 강유전성.
-papers: yasuda2021, viznerstern2021, fei2018, wu2021sliding
+papers: baek2025sliding, hong2025vls, yasuda2021, viznerstern2021, fei2018, wu2021sliding
 reviewed: 2026-10-30
 info:
 - 원리 | 층 사이 미끄럼으로 적층(AB↔BA)이 바뀌며 분극 반전
@@ -19,6 +19,8 @@ sources:
 - Vizner Stern et al., Science (2021) | https://doi.org/10.1126/science.abe8177
 - Fei et al., Nature (2018) | https://doi.org/10.1038/s41586-018-0336-3
 - Wu & Li, PNAS (2021) | https://doi.org/10.1073/pnas.2115703118
+- Baek et al., Adv. Funct. Mater. (2025) — 연구실 DB | https://doi.org/10.1002/adfm.202519094
+- Hong et al., ACS Nano (2025, 3R-MoS₂ VLS) — 연구실 DB | https://doi.org/10.1021/acsnano.5c11757
 ---
 ## 정의
 
@@ -34,6 +36,7 @@ sources:
 
 - **h-BN 이중층**: 두 층을 평행하게(같은 방향으로) 쌓으면 면외 분극이 생기고 전기장으로 뒤집힙니다(Yasuda 2021, Vizner Stern 2021). 원래 강유전체가 아닌 물질을 ‘쌓는 방식’만으로 강유전체로 만든 사례입니다.
 - **WTe₂**: 금속인 이중층·삼중층에서도 분극 전환이 관측되었습니다(Fei 2018).
+- **완전 정합 3R TMD 이중층**: 도메인 벽 없이 미끄럼 강유전성이 나타나고, 분극 유지 시간이 10년 이상으로 외삽된 연구가 있습니다(Baek 2025, 연구실 DB). CVD(VLS 성장)로 키운 3R-MoS₂ 이중층의 도메인 구조를 변형으로 제어한 연구도 있습니다(Hong 2025).
 - **3R 적층 TMD**: 같은 방향으로 밀려 쌓인 3R 상은 반전 대칭이 없어 미끄럼 강유전성의 무대가 됩니다([[결정 다형]]).
 
 {{그림: 적층 | 2H(A–A′–A)와 3R(A–B–C) 적층. 3R처럼 같은 방향으로 밀려 쌓인 구조는 반전 대칭이 깨져 층 사이 분극이 생길 수 있습니다.}}

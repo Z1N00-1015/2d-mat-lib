@@ -4,7 +4,7 @@ en: grain boundary
 category: 공정
 status: 초안
 summary: 방위가 다른 결정립 사이의 경계. 캐리어를 산란시켜 이동도를 낮춘다.
-papers: huang2011, vanderzande2013, najmaei2013, zhou2013defects
+papers: moon2025, huang2011, vanderzande2013, najmaei2013, zhou2013defects
 reviewed: 2026-10-30
 info:
 - 정의 | 방향이 다른 결정립이 만나는 경계

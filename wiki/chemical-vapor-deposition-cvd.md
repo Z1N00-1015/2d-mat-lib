@@ -10,7 +10,7 @@ related: 유기금속 화학 기상 증착, 결정립계, 상향식 합성, 에�
 chapter: materials/synthesis
 sources:
 - Kang et al., “High-mobility three-atom-thick semiconducting films with wafer-scale homogeneity”, Nature (2015) | https://doi.org/10.1038/nature14417
-papers: li2009, lee2012cvd, kang2015, zhou2018library, li2021sapphire
+papers: moon2025, hong2025vls, li2009, lee2012cvd, kang2015, zhou2018library, li2021sapphire
 ---
 ## 개요
 

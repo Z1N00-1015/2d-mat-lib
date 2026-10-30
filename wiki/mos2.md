@@ -22,7 +22,7 @@ figures:
 - 라만 | 384:0.8:E′, 404:1:A₁′ | 532 nm
 - PL | 1.84:1:A | 1.82–1.90
 - 밴드 | tmd | 1.2 | 1.8–1.9
-papers: mak2010, splendiani2010, radisavljevic2011, kang2015, shen2021, li2023sb
+papers: moon2025, kim2026strain, hong2025recon, baek2025sliding, hong2025vls, mak2010, splendiani2010, radisavljevic2011, kang2015, shen2021, li2023sb
 sources:
 - Mak et al., Phys. Rev. Lett. (2010) | https://doi.org/10.1103/PhysRevLett.105.136805
 - 2H-TMD 격자상수 | https://doi.org/10.1103/PhysRevB.89.075409
@@ -34,6 +34,8 @@ sources:
 - Suzuki et al., Nature Nanotechnology (2014) | https://doi.org/10.1038/nnano.2014.148
 - Wu & Li, PNAS (2021) | https://doi.org/10.1073/pnas.2115703118
 - Lee et al., ACS Nano (2010) | https://doi.org/10.1021/nn1003937
+- Hong et al., ACS Nano (2025, 3R-MoS₂ VLS) — 연구실 DB | https://doi.org/10.1021/acsnano.5c11757
+- Baek et al., Adv. Funct. Mater. (2025) — 연구실 DB | https://doi.org/10.1002/adfm.202519094
 ---
 ## 개요
 
@@ -48,7 +50,7 @@ S–Mo–S 층 하나의 구조는 같아도, 층을 쌓는 방식에 따라 서
 - **2H**: 이웃한 층이 180° 돌아간 채 쌓여, 위층의 Mo가 아래층의 S 바로 위에 옵니다. 아래층부터 A–A′–A로 두 층마다 같은 배열이 반복되며(A′는 A를 180° 돌린 층), 천연 MoS₂와 CVD 다층에서 가장 흔한 안정상입니다. bulk와 짝수 층은 반전 대칭을 가집니다.
 - **3R**: 모든 층이 같은 방향을 향한 채 한 칸씩 밀려 쌓여, 아래층부터 A–B–C로 세 층마다 반복됩니다. 층수와 관계없이 반전 대칭이 깨져 있어 bulk에서도 밸리에 따른 스핀 편극이 나타나고(Suzuki 2014), 층이 서로 미끄러지면 분극 방향이 바뀌는 [[층간 미끄럼 강유전성]]이 나타납니다(Wu & Li 2021).
 
-2H·3R은 층 안의 배위(삼각 프리즘)는 같고 쌓는 방식만 다릅니다. 이와 달리 1T상은 층 자체의 배위가 팔면체로 바뀐 금속상입니다. WS₂에서도 성장 조건으로 2H·3R 다층을 골라 키운 사례가 있습니다([[WS₂]]).
+2H·3R은 층 안의 배위(삼각 프리즘)는 같고 쌓는 방식만 다릅니다. 이와 달리 1T상은 층 자체의 배위가 팔면체로 바뀐 금속상입니다. WS₂에서도 성장 조건으로 2H·3R 다층을 골라 키운 사례가 있습니다([[WS₂]]). 3R-MoS₂ 이중층은 CVD(VLS 성장)로 키워 변형으로 도메인 구조를 조절할 수 있고(Hong 2025), 완전 정합한 3R 이중층에서는 도메인 벽 없는 미끄럼 강유전성이 보고되었습니다(Baek 2025).
 
 {{그림: 적층 | 2H와 3R 적층을 옆에서 본 모습. 층 이름은 아래층부터 붙였습니다. 2H는 이웃 층이 180° 돌아가 A–A′–A로 두 층마다 반복되고, 3R은 같은 방향의 층이 한 칸씩 밀려 A–B–C로 세 층마다 반복됩니다. 점선은 맨 아래층 Mo 자리입니다.}}
 

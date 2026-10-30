@@ -16,7 +16,7 @@ figures:
 - 구조 | graphene
 - 라만 | 1580:0.45:G:14, 2700:1:2D:30 | 514 nm
 - 밴드 | dirac
-papers: novoselov2004, novoselov2005, castroneto2009, li2009, moon2025
+papers: moon2025, novoselov2004, novoselov2005, castroneto2009, li2009
 sources:
 - Novoselov et al., Science (2004) | https://doi.org/10.1126/science.1102896
 - Castro Neto et al., Rev. Mod. Phys. (2009) | https://doi.org/10.1103/RevModPhys.81.109

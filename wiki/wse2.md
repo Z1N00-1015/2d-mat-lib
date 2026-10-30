@@ -18,7 +18,7 @@ figures:
 - 라만 | 249:1:E¹₂g/A₁g:5 | 532 nm
 - PL | 1.62:1:A | 1.60–1.65
 - 밴드 | tmd | - | 1.6–1.65
-papers: zhao2013, kwon2022, chou2022, sahoo2018, yuan2020, yang2017
+papers: kim2026strain, baek2025sliding, zhao2013, kwon2022, chou2022, sahoo2018, yuan2020, yang2017
 sources:
 - Zhao et al., ACS Nano (2013) | https://doi.org/10.1021/nn305275h
 - 2H-TMD 격자상수 | https://doi.org/10.1103/PhysRevB.89.075409

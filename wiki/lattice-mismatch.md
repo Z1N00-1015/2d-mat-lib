@@ -4,7 +4,7 @@ en: lattice mismatch
 category: 결정학
 status: 초안
 summary: 이종 물질의 두 격자 주기 사이 상대적인 차이. 작은 불일치도 겹친 층에서 긴 모아레 주기를 만들 수 있다.
-papers: koma1992, kim2017remote, hunt2013, weston2020
+papers: kim2026strain, hong2025recon, koma1992, kim2017remote, hunt2013, weston2020
 reviewed: 2026-10-30
 info:
 - 정의 | 막과 기판(또는 두 층) 격자상수의 상대 차이
@@ -20,6 +20,8 @@ sources:
 - Weston et al., Nature Nanotechnology (2020) | https://doi.org/10.1038/s41565-020-0682-9
 - 2H-TMD 격자상수 | https://doi.org/10.1103/PhysRevB.89.075409
 - graphene·h-BN 격자상수 | https://link.aps.org/accepted/10.1103/PhysRevB.97.205104
+- Kim et al., Rep. Prog. Phys. (2026) — 연구실 DB | https://doi.org/10.1088/1361-6633/ae5ea2
+- Hong et al., ACS Nano (2025, 원자 재구성) — 연구실 DB | https://doi.org/10.1021/acsnano.5c14888
 ---
 ## 정의
 
@@ -45,4 +47,4 @@ sources:
 
 ## 원격 에피택시와 재구성
 
-그래핀을 사이에 둔 원격 에피택시에서는 기판과 막이 직접 결합하지 않아 불일치에 따른 결함이 줄어듭니다(Kim 2017). 작은 불일치·작은 회전각의 이중층에서는 원자가 움직여 일부 영역을 정합으로 맞추는 [[원자 재구성]]이 일어납니다(Weston 2020).
+그래핀을 사이에 둔 원격 에피택시에서는 기판과 막이 직접 결합하지 않아 불일치에 따른 결함이 줄어듭니다(Kim 2017). 작은 불일치·작은 회전각의 이중층에서는 원자가 움직여 일부 영역을 정합으로 맞추는 [[원자 재구성]]이 일어납니다(Weston 2020). 에피택시로 키운 MoS₂/WS₂(불일치 약 0.2%)와 MoS₂/WSe₂ 이종이중층을 비교하면 불일치에 따라 변형 완화 양상이 달라지고(Kim 2026), 약 4% 불일치의 MoSe₂/MoS₂에서도 조건을 맞추면 원자 재구성이 일어날 수 있습니다(Hong 2025).

@@ -4,7 +4,7 @@ en: bottom-up synthesis
 category: 공정
 status: 초안
 summary: 원자·분자 전구체를 반응·조립해 결정이나 박막을 성장시키는 접근.
-papers: li2009, lee2012cvd, kang2015, zhou2018library, moon2025
+papers: moon2025, hong2025vls, jung2025, li2009, lee2012cvd, kang2015, zhou2018library
 reviewed: 2026-10-30
 info:
 - 정의 | 원자·분자 원료를 기판 위에서 반응·결합시켜 막을 키움

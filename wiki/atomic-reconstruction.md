@@ -4,7 +4,7 @@ en: atomic reconstruction
 category: 결정학
 status: 초안
 summary: 모아레 구조에서 층간 상호작용과 탄성 에너지의 균형에 따라 원자 위치와 국소 적층이 변해 stacking domains와 domain walls가 형성되는 현상.
-papers: yoo2019, weston2020, rosenberger2020, alden2013
+papers: kim2026strain, hong2025recon, yoo2019, weston2020, rosenberger2020, alden2013
 reviewed: 2026-10-30
 info:
 - 정의 | 작은 회전각에서 원자가 움직여 에너지가 낮은 적층 도메인을 넓히는 현상
@@ -18,6 +18,8 @@ sources:
 - Weston et al., Nature Nanotechnology (2020) | https://doi.org/10.1038/s41565-020-0682-9
 - Rosenberger et al., ACS Nano (2020) | https://doi.org/10.1021/acsnano.0c00088
 - Alden et al., PNAS (2013) | https://doi.org/10.1073/pnas.1309394110
+- Kim et al., Rep. Prog. Phys. (2026) — 연구실 DB | https://doi.org/10.1088/1361-6633/ae5ea2
+- Hong et al., ACS Nano (2025, 원자 재구성) — 연구실 DB | https://doi.org/10.1021/acsnano.5c14888
 ---
 ## 정의
 
@@ -33,6 +35,7 @@ sources:
 
 - **꼬인 이중층 그래핀**: 아주 작은 각도에서 AB/BA 삼각 도메인과 그 사이 [[도메인 벽]]이 [[암시야 투과전자현미경|DF-TEM]]으로 관찰되었습니다(Yoo 2019). 이중층 그래핀의 도메인 벽은 먼저 변형 솔리톤으로 보고되었습니다(Alden 2013).
 - **꼬인 TMD 이중층**: 3R형(같은 방향) 이중층은 삼각 도메인, 2H형(반대 방향)은 육각 도메인으로 재구성됩니다(Weston 2020). 재구성이 시작되는 각도는 물질 조합에 따라 다릅니다(Rosenberger 2020).
+- **격자 불일치가 있는 이종이중층**: 에피택시로 키운 MoS₂/WS₂와 MoS₂/WSe₂ 이종이중층에서 격자 불일치에 따라 변형이 완화되는 정도가 달라지는 모습이 시각화되었고(Kim 2026), 불일치가 더 큰 MoSe₂/MoS₂ 이종이중층에서도 그 장벽을 넘어 원자 재구성을 일으킨 연구가 있습니다(Hong 2025).
 
 ## 의미
 

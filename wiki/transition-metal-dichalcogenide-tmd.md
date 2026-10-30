@@ -4,7 +4,7 @@ en: transition metal dichalcogenide, TMD
 category: 물질
 status: 초안
 summary: MX₂ 조성(M: Mo, W 등, X: S, Se, Te)의 층상 물질. 예: MoS₂, WSe₂.
-papers: wang2012review, chhowalla2013, manzeli2017, mak2010, radisavljevic2011
+papers: moon2025, wang2012review, chhowalla2013, manzeli2017, mak2010, radisavljevic2011
 reviewed: 2026-10-30
 info:
 - 화학식 | MX₂ (M: 전이금속, X: S, Se, Te)

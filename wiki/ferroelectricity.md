@@ -5,7 +5,7 @@ category: 물성
 status: 초안
 summary: 외부 전기장 없이 자발 분극을 가지며, 전기장으로 분극 방향을 반전할 수 있는 성질.
 chapter: materials/ferroelectric
-papers: liu2016cips, chang2016, zhou2017in2se3, fei2018, wu2021sliding
+papers: baek2025sliding, liu2016cips, chang2016, zhou2017in2se3, fei2018, wu2021sliding
 reviewed: 2026-10-30
 info:
 - 정의 | 전기장으로 뒤집을 수 있는 자발 분극

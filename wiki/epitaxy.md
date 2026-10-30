@@ -5,7 +5,7 @@ category: 결정학
 status: 초안
 summary: 기판의 결정 방위를 따라 단결정 박막을 성장시키는 것.
 chapter: materials/single-crystal-growth
-papers: koma1992, kim2017remote, li2021sapphire, wang2019hbn, moon2025
+papers: moon2025, kim2026strain, koma1992, kim2017remote, li2021sapphire, wang2019hbn
 reviewed: 2026-10-30
 info:
 - 정의 | 기판 결정 방위를 따라 결정 막을 키움

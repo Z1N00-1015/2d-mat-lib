@@ -4,7 +4,7 @@ en: domain wall, soliton
 category: 결정학
 status: 초안
 summary: 서로 다른 stacking domains 사이를 잇는 좁은 전이 영역.
-papers: alden2013, yoo2019, weston2020, rosenberger2020
+papers: kim2026strain, hong2025recon, baek2025sliding, hong2025vls, alden2013, yoo2019, weston2020, rosenberger2020
 reviewed: 2026-10-30
 info:
 - 정의 | 두 적층(또는 분극·자화) 도메인 사이의 경계
