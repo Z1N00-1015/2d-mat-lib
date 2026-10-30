@@ -1,5 +1,11 @@
 # 작업 인계 기록
 
+## 2026-10-30 · claude
+- 변경: 연구실 논문 DB(`data/papers.json`) 크로스체크 결과에 따라 1.1.2 밴드갭 그래프의 단층 TMD 값을 실온 PL(A 엑시톤) 기준으로 수정: MoS₂ 1.91→1.82–1.90(기판 위~떠 있는 시료, Mak 2010), MoSe₂ 1.66→약 1.55(Tongay 2012), WSe₂ 1.74→약 1.65, WS₂ 2.04→약 1.97(Zhao 2013). 캡션에 ‘PL=엑시톤 에너지, 준입자 밴드갭보다 작음’ 설명과 출처 추가.
+- 변경: 위키 물질 문서 WSe₂·MoSe₂·WS₂·그래핀·h-BN 신규, MoS₂ 보강. 연구실 DB 수치(PL·라만·성장 온도·접촉 저항·온 전류 등)를 논문별로 인용하고 ‘연구실 DB 수치는 대부분 AI 상호검증 승인’ 안내를 넣음. `_papers.txt`에 연구실 DB 논문 19편과 PL 출처 2편 추가(배포 때 Crossref 대조). 용어 사전에 6개 물질 추가(glossary.js 버전 `20261030-materials`).
+- 주의(연구실 DB 확인 필요): Hypotaxy 논문(Moon 2025, human 승인)의 on/off 비 ‘1.4’, 온 전류 ‘2.5 A μm⁻¹’은 단위·지수가 빠진 것으로 보여 문서에 쓰지 않음. ‘MoO₃/WO₃ source temperature’가 growth_temperature로 분류된 사례(MoS₂/WSe₂ 이종이중층 논문)도 있음.
+- 남은 일: 다음 배포 로그의 논문 대조 결과 확인.
+
 ## 2026-10-28 · claude
 - 수정: 배포 로그의 Crossref 대조 결과(확인 143편, 제외 7편)에 따라 `_papers.txt` 바로잡음. liu2018schottky·jayachandran2024는 Crossref 실제 제목으로 DOI/제목 수정, zhou2018library·duan2014·lin2014phase·muller2008·miro2014는 DOI 교체(다음 배포에서 다시 대조). 기존 DOI가 가리키던 실제 논문 2편(Lin 2018 용액 공정 2D 반도체, Lee 2014 원자층 p–n 접합)을 새로 넣어 관련 문서에 연결.
 - 남은 일: 다음 배포 로그의 ‘논문 제외’ 확인.

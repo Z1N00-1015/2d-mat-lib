@@ -153,3 +153,24 @@ amani2015 | 10.1126/science.aad2114 | Amani et al. | Science | 2015 | Near-unity
 mak2013trion | 10.1038/nmat3505 | Mak et al. | Nature Materials | 2013 | Tightly bound trions in monolayer MoS2 | 단층 MoS₂의 강하게 묶인 트라이온 관측
 lin2018solution | 10.1038/s41586-018-0574-4 | Lin et al. | Nature | 2018 | Solution-processable 2D semiconductors for high-performance large-area electronics | 분자 삽입 박리로 용액 공정형 고성능 2D 반도체 박막
 lee2014pn | 10.1038/nnano.2014.150 | Lee et al. | Nature Nanotechnology | 2014 | Atomically thin p–n junctions with van der Waals heterointerfaces | 반데르발스 계면으로 만든 원자층 p–n 접합
+tongay2012 | 10.1021/nl302584w | Tongay et al. | Nano Letters | 2012 | Thermally Driven Crossover from Indirect toward Direct Bandgap in 2D Semiconductors: MoSe2 versus MoS2 | 단층 MoSe₂의 직접 밴드갭(약 1.55 eV)과 층간 결합 약화
+zhao2013 | 10.1021/nn305275h | Zhao et al. | ACS Nano | 2013 | Evolution of Electronic Structure in Atomically Thin Sheets of WS2 and WSe2 | 층수에 따른 WS₂·WSe₂의 간접→직접 밴드갭 전이와 발광
+sahoo2018 | 10.1038/nature25155 | Sahoo et al. | Nature | 2018 | One-pot growth of two-dimensional lateral heterostructures via sequential edge-epitaxy | 한 번의 공정으로 여러 TMD 측면 이종구조를 가장자리 에피택시 성장
+li2023sb | 10.1038/s41586-022-05431-4 | Li et al. | Nature | 2023 | Approaching the quantum limit in two-dimensional semiconductor contacts | Sb(01̄12) 반금속 전극으로 MoS₂ 접촉 저항을 양자 한계 가까이 낮춤
+kwon2022 | 10.1038/s41928-022-00746-6 | Kwon et al. | Nature Electronics | 2022 | Interaction- and defect-free van der Waals contacts between metals and two-dimensional semiconductors | 상호작용·결함 없는 반데르발스 금속 접촉으로 WSe₂ p형 FET 성능 향상
+kong2023vdw | 10.1038/s41467-023-36715-6 | Kong et al. | Nature Communications | 2023 | Wafer-scale and universal van der Waals metal semiconductor contact | 웨이퍼 규모로 적용 가능한 반데르발스 금속–반도체 접촉
+chou2022 | 10.1109/iedm45625.2022.10019491 | Chou et al. | IEDM | 2022 | High-Performance Monolayer WSe2 p/n FETs via Antimony-Platinum Modulated Contact Technology towards 2D CMOS Electronics | Sb–Pt 접촉으로 단층 WSe₂ p형·n형 FET를 함께 구현
+li2021iedm | 10.1109/iedm19574.2021.9720595 | Li et al. | IEDM | 2021 | High-Performance CVD MoS2 Transistors with Self-Aligned Top-Gate and Bi Contact | Bi 접촉과 자기정렬 상부 게이트를 쓴 CVD MoS₂ 트랜지스터
+chou2021 | 10.1109/iedm19574.2021.9720608 | Chou et al. | IEDM | 2021 | Antimony Semimetal Contact with Enhanced Thermal Stability for High Performance 2D Electronics | 열 안정성이 높은 Sb 반금속 접촉
+zhang2021molecule | 10.1002/adma.202104935 | Zhang et al. | Advanced Materials | 2021 | Molecule‐Upgraded van der Waals Contacts for Schottky‐Barrier‐Free Electronics | 분자 처리한 반데르발스 접촉으로 WSe₂ 쇼트키 장벽 감소
+yuan2020 | 10.1038/s41563-020-0670-3 | Yuan et al. | Nature Materials | 2020 | Twist-angle-dependent interlayer exciton diffusion in WS2–WSe2 heterobilayers | WS₂–WSe₂ 이종이중층에서 비틀림각에 따른 층간 엑시톤 확산
+wu2019nbte2 | 10.1002/adfm.201806611 | Wu et al. | Advanced Functional Materials | 2019 | van der Waals Epitaxial Growth of Atomically Thin 2D Metals on Dangling‐Bond‐Free WSe2 and WS2 | 댕글링 본드 없는 WSe₂·WS₂ 위에 원자층 2D 금속을 에피택시 성장
+sun2019sb2se3 | 10.1007/s12274-019-2364-1 | Sun et al. | Nano Research | 2019 | Direct van der Waals epitaxial growth of 1D/2D Sb2Se3/WS2 mixed-dimensional p-n heterojunctions | 단층 WS₂ 위 Sb₂Se₃ 나노선 p–n 혼합차원 이종접합 성장
+kim2018moo3 | 10.1088/2053-1583/aaedc8 | Kim et al. | 2D Materials | 2018 | van der Waals epitaxial growth of single crystal α -MoO3 layers on layered materials growth templates | 그래핀·h-BN 템플릿 위 단결정 α-MoO₃ 반데르발스 에피택시
+seo2018res2 | 10.1002/smll.201804133 | Seo et al. | Small | 2018 | Site‐Selective and van der Waals Epitaxial Growth of Rhenium Disulfide on Graphene | 그래핀 위 ReS₂의 위치 선택적 반데르발스 에피택시
+hsu2018 | 10.1038/s41467-018-03869-7 | Hsu et al. | Nature Communications | 2018 | Negative circular polarization emissions from WSe2/MoSe2 commensurate heterobilayers | 정합 WSe₂/MoSe₂ 이종이중층의 음의 원편광 발광
+yang2017 | 10.1038/s41467-017-02093-z | Yang et al. | Nature Communications | 2017 | Van der Waals epitaxial growth and optoelectronics of large-scale WSe2/SnS2 vertical bilayer p–n junctions | 대면적 WSe₂/SnS₂ 수직 p–n 접합 성장과 광전자 특성
+pak2017 | 10.1021/acs.nanolett.7b02513 | Pak et al. | Nano Letters | 2017 | Strain-Mediated Interlayer Coupling Effects on the Excitonic Behaviors in an Epitaxially Grown MoS2/WS2 van der Waals Heterobilayer | 에피택시 MoS₂/WS₂ 이중층에서 변형이 층간 결합·엑시톤에 미치는 영향
+li2016gase | 10.1126/sciadv.1501882 | Li et al. | Science Advances | 2016 | Two-dimensional GaSe/MoSe2 misfit bilayer heterojunctions by van der Waals epitaxy | 격자 불일치가 큰 GaSe/MoSe₂ 이중층의 반데르발스 에피택시
+moody2023 | 10.1021/acsami.3c11931 | Moody et al. | ACS Appl. Mater. Interfaces | 2023 | van der Waals Epitaxy, Superlubricity, and Polarization of the 2D Ferroelectric SnS | h-BN 위 강유전체 SnS의 반데르발스 에피택시와 초윤활
+jung2025 | 10.1016/j.apsusc.2024.161676 | Jung et al. | Applied Surface Science | 2025 | WOx-driven growth of 2H- and 3R-WS2 multilayers by physical vapor deposition | WOₓ를 매개로 PVD에서 2H·3R WS₂ 다층을 골라 성장

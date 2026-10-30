@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-10-30",
+      "page": "밴드갭 지도 · 위키 대표 물질",
+      "url": "./chapters/materials/intro.html",
+      "summary": "연구실 논문 DB와 대조해 1.1.2 밴드갭 그래프의 단층 TMD 값을 실온 PL(A 엑시톤) 기준으로 바로잡았습니다(MoS₂ 1.82–1.90, MoSe₂ 약 1.55, WSe₂ 약 1.65, WS₂ 약 1.97 eV). 위키에 WSe₂·MoSe₂·WS₂·그래핀·h-BN 문서를 새로 만들고 MoS₂ 문서를 연구실 DB 수치로 보강했습니다.",
+      "added_dois": [
+        "10.1021/nl302584w",
+        "10.1021/nn305275h"
+      ]
+    },
+    {
       "date": "2026-10-27",
       "page": "위키 문서 (새 분야 VI)",
       "url": "./chapters/wiki/index.html",

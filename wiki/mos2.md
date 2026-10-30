@@ -4,39 +4,48 @@ en: molybdenum disulfide, MoS₂
 aliases: 이황화몰리브데넘, MoS2, 2H-MoS₂
 category: 물질
 status: 초안
-reviewed: 2026-10-27
+reviewed: 2026-10-30
 summary: 몰리브데넘 원자층을 황 원자층이 위아래로 감싼 층상 [[전이금속 디칼코제나이드]]. 단층에서 직접 밴드갭을 갖는 대표적인 2D 반도체다.
-related: 전이금속 디칼코제나이드, 화학 기상 증착, 유기금속 화학 기상 증착, 라만 분광법, 직접/간접 밴드갭
+related: WS₂, MoSe₂, WSe₂, 전이금속 디칼코제나이드, 화학 기상 증착, 접촉 저항
 chapter: materials/intro
 info:
 - 구조 | S–Mo–S 샌드위치 층, 2H상(삼각 프리즘 배위)
 - 면내 격자상수 a | 3.160 Å (2H)
-- 밴드갭(단층) | 약 1.91 eV, 직접 · 대표 광학 전이
-- 밴드갭(bulk) | 약 1.2 eV, 간접
+- 단층 PL(A 엑시톤) | 1.82–1.90 eV (기판 위 약 1.82, 떠 있는 시료 1.90)
+- bulk 밴드갭 | 약 1.2 eV, 간접
+- 단층 라만 | E′ 약 383–385, A₁′ 약 403–405 cm⁻¹
 - 금속상 | 1T-MoS₂ (a 3.190 Å)
+papers: mak2010, splendiani2010, radisavljevic2011, kang2015, shen2021, li2023sb
 sources:
-- Mak et al., “Atomically Thin MoS₂: A New Direct-Gap Semiconductor”, Phys. Rev. Lett. (2010) | https://doi.org/10.1103/PhysRevLett.105.136805
-- Radisavljevic et al., “Single-layer MoS₂ transistors”, Nature Nanotechnology (2011) | https://doi.org/10.1038/nnano.2010.279
-- Chaves et al., 2D 소재 밴드갭 리뷰, npj 2D Materials and Applications (2020) | https://doi.org/10.1038/s41699-020-00162-4
+- Mak et al., Phys. Rev. Lett. (2010) | https://doi.org/10.1103/PhysRevLett.105.136805
 - 2H-TMD 격자상수 | https://doi.org/10.1103/PhysRevB.89.075409
 - 1T-MoS₂ 구조 | https://doi.org/10.1002/ange.201710512
-papers: mak2010, splendiani2010, radisavljevic2011, kang2015, lee2010raman
+- Gong et al., Nature Materials (2014) — 연구실 DB | https://doi.org/10.1038/nmat4091
+- Pak et al., Nano Letters (2017) — 연구실 DB | https://doi.org/10.1021/acs.nanolett.7b02513
+- Shen et al., Nature (2021) — 연구실 DB | https://doi.org/10.1038/s41586-021-03472-9
+- Li et al., Nature (2023) — 연구실 DB | https://doi.org/10.1038/s41586-022-05431-4
 ---
 ## 개요
 
-MoS₂는 Mo 원자층 하나를 S 원자층 두 개가 위아래로 감싼 S–Mo–S 층이 반데르발스 힘으로 쌓인 [[반데르발스 물질]]입니다. 흔히 보는 2H상은 반도체이고, 원자 배열이 다른 1T상은 금속성을 띱니다.
+MoS₂는 Mo 원자층 하나를 S 원자층 두 개가 감싼 S–Mo–S 층이 반데르발스 힘으로 쌓인 [[반데르발스 물질]]입니다. 흔한 2H상은 반도체, 원자 배열이 다른 1T상은 금속성입니다.
 
-## 층수에 따른 밴드갭
+## 층수와 광학 물성
 
-bulk MoS₂는 약 1.2 eV의 간접 밴드갭을 갖지만, 단층이 되면 약 1.9 eV의 직접 밴드갭으로 바뀌어 빛을 강하게 냅니다([[직접/간접 밴드갭]]). Mak 등(2010)이 단층에서의 직접 밴드갭 발광을 보고하면서 그래핀을 넘어선 2D 반도체 연구가 본격화됐습니다.
+bulk는 약 1.2 eV의 간접 밴드갭이지만 단층에서는 직접 밴드갭이 되어 빛을 강하게 냅니다([[직접/간접 밴드갭]]). Mak 등(2010)은 떠 있는 단층에서 PL 피크를 1.90 eV로 보고했습니다. 연구실 DB의 CVD 단층은 1.82–1.84 eV로, 기판의 변형·도핑 때문에 조금 낮게 나옵니다(Gong 2014, Pak 2017). PL 피크는 [[엑시톤]] 에너지라서 전자적 밴드갭보다 결합 에너지만큼 작습니다.
+
+## 라만으로 층수 확인
+
+연구실 DB의 단층 MoS₂는 E′(E¹₂g) 약 383–384 cm⁻¹, A₁′(A₁g) 약 403–405 cm⁻¹로 간격이 약 20 cm⁻¹입니다. 층이 늘면 간격이 커지므로 [[라만 분광법]]으로 층수를 빠르게 판단합니다.
 
 ## 만드는 방법
 
-- [[기계적 박리]]: 결함이 적은 작은 플레이크로 기본 물성을 연구한다.
-- [[화학 기상 증착]]: MoO₃와 황 분말로 큰 삼각형 단결정 도메인을 키운다.
-- [[유기금속 화학 기상 증착]]: 웨이퍼 규모의 균일한 단층 막을 만든다.
-- [[하이포택시]]: 그래핀 template 아래에서 방위가 정렬된 단결정 막을 만든다.
+- [[기계적 박리]]: 결함이 적은 작은 플레이크.
+- [[화학 기상 증착]](MoO₃·S 분말): 연구실 DB 성장 온도 약 750–850 °C, 큰 삼각형 단결정 도메인.
+- [[유기금속 화학 기상 증착]]: 웨이퍼 규모 균일 막. Shen 등(2021)은 320 °C에서 성장한 MOCVD 단층을 사용했습니다.
+- [[하이포택시]]: 그래핀 template 아래 방위가 정렬된 단결정 막.
 
-## 분석과 소자
+## 소자와 접촉
 
-층수와 변형은 [[라만 분광법]]으로 빠르게 확인합니다. Radisavljevic 등(2011)은 단층 MoS₂ 트랜지스터를 보고했고, 이후 짧은 채널 소자와 3차원 집적 연구로 이어지고 있습니다.
+단층 MoS₂ FET의 성능은 [[접촉 저항]]에 크게 좌우됩니다. 반금속 전극을 쓰면 쇼트키 장벽이 거의 사라집니다. 연구실 DB 기준 Bi 접촉 123 Ω·μm(Shen 2021), Sb(01̄12) 접촉 42 Ω·μm(Li 2023)이 보고되었고, 짧은 채널에서 온 전류는 1 mA/μm를 넘습니다.
+
+> 이 문서의 ‘연구실 DB’ 수치는 연구실 논문 데이터베이스에서 검토를 마친 값(대부분 AI 상호검증 승인)이며, 측정 조건이 논문마다 달라 대표 범위로 읽어야 합니다.
