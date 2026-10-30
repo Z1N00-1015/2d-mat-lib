@@ -106,6 +106,70 @@ def _side_layers(x0, y0, w, h, rows, period, layers, shift, cid, gap_label):
     return "".join(out)
 
 
+# TMD 옆모습은 2H-MoS₂의 실제 원자 위치 비율로 그린다(a = 3.16 Å, 층 간격 c/2 ≈ 6.15 Å, 금속–칼코겐 높이 차 ≈ 1.59 Å).
+# 지그재그 방향을 따라 보면 금속(M)과 칼코겐(X) 기둥이 1.5L(L = a/√3) 간격으로 반복되고,
+# 한 층 안에서 X는 M에서 +L(원자 1개)과 −0.5L(앞뒤로 겹친 원자 2개)에 있다. 위아래 X는 같은 자리(삼각 프리즘).
+TMD_L, TMD_Z, TMD_C = 3.16 / math.sqrt(3), 1.59, 6.15
+
+
+def _tmd_side(x0, y0, w, h, stack, scale, cid, gap=True, tags=None):
+    """stack: 층마다 (M 자리, X 자리)를 L 단위로. 예) 2H [(0, 1), (1, 0)], 3R [(0, 1), (1, 2), (2, 0)]."""
+    step = 1.5 * TMD_L * scale
+    n = len(stack)
+    top = y0 + (h - ((n - 1) * TMD_C + 2 * TMD_Z) * scale) / 2 + TMD_Z * scale
+    cw = w - 40 if tags else w   # 글자 칸을 오른쪽에 비워 둔다
+    out = ['<clipPath id="{0}"><rect x="{1}" y="{2}" width="{3}" height="{4}" rx="12"/></clipPath>'.format(cid, x0, y0, cw, h),
+           '<rect class="panel" x="{0}" y="{1}" width="{2}" height="{3}" rx="12"/>'.format(x0, y0, w, h),
+           '<g clip-path="url(#{0})">'.format(cid)]
+    if tags:
+        # 1층 금속 자리를 지나는 세로 점선: 같은 자리로 돌아오는 층을 보여 준다.
+        m0 = stack[0][0]
+        out += ['<line class="dash" x1="{0:.1f}" y1="{1}" x2="{0:.1f}" y2="{2}"/>'.format(x0 + 18 + m0 * TMD_L * scale + k * step, y0, y0 + h)
+                for k in range(-2, int(w / step) + 3)]
+    zs = []
+    for i, (m, xpos) in enumerate(stack):
+        zc = top + i * TMD_C * scale
+        zs.append(zc)
+        cols = range(-2, int(w / step) + 3)
+        ms = [x0 + 18 + (m * TMD_L * scale) + k * step for k in cols]
+        xs = [x0 + 18 + (xpos * TMD_L * scale) + k * step for k in cols]
+        bonds = []
+        for xm in ms:
+            for xx in xs:
+                if abs(xm - xx) <= TMD_L * scale + 0.5:
+                    for dz in (-TMD_Z, TMD_Z):
+                        bonds.append('<line x1="{0:.1f}" y1="{1:.1f}" x2="{2:.1f}" y2="{3:.1f}"/>'.format(xm, zc, xx, zc + dz * scale))
+        out.append('<g class="line" style="stroke-width:1.8">{0}</g>'.format("".join(bonds)))
+        r = max(4.0, scale * 0.38)
+        for dz in (-TMD_Z, TMD_Z):
+            out += ['<circle class="atom-3" cx="{0:.1f}" cy="{1:.1f}" r="{2:.1f}"/>'.format(xx, zc + dz * scale, r * 0.85) for xx in xs]
+        out += ['<circle class="atom" cx="{0:.1f}" cy="{1:.1f}" r="{2:.1f}"/>'.format(xm, zc, r) for xm in ms]
+    out.append("</g>")
+    if tags:
+        for zc, t in zip(zs, tags):
+            out.append(_text(x0 + w - 20, zc + 4, t, "accent-label"))
+    if gap and n > 1:
+        ya, yb = zs[0] + TMD_Z * scale + 8, zs[1] - TMD_Z * scale - 8
+        xm = x0 + w - 18
+        out.append('<path class="accent-line" style="stroke-width:1.6" d="M{0} {1:.1f}V{2:.1f}M{3} {1:.1f}h10M{3} {2:.1f}h10"/>'.format(xm, ya, yb, xm - 5))
+        out.append('<text class="accent-label" x="{0}" y="{1:.1f}" text-anchor="end" style="paint-order:stroke;stroke:var(--surface-2);stroke-width:4px">반데르발스 간격</text>'.format(xm - 10, (ya + yb) / 2 + 4))
+    return "".join(out)
+
+
+def stacking(args):
+    """2H와 3R 적층을 나란히 비교한다. 층마다 금속 자리(A·B·C)를 오른쪽에 적는다."""
+    m, x = (list(args) + ["M", "X"])[1:3]
+    ph = 268
+    left = _tmd_side(20, 34, 320, ph, [(0, 1), (1, 0), (0, 1)], 11.5, "ws-2h", gap=False, tags=["A", "B", "A"])
+    right = _tmd_side(380, 34, 320, ph, [(0, 1), (1, 2), (2, 0)], 11.5, "ws-3r", gap=False, tags=["A", "B", "C"])
+    inner = (_text(180, 22, "2H · 층마다 180° 돌아감, 2층 주기", "label-strong") + _text(540, 22, "3R · 같은 방향으로 밀림, 3층 주기", "label-strong")
+             + left + right
+             + '<circle class="atom" cx="26" cy="321" r="6"/>' + _text(38, 325, "{0} 금속".format(m), "label", "start")
+             + '<circle class="atom-3" cx="116" cy="321" r="6"/>' + _text(128, 325, "{0} 칼코겐".format(x), "label", "start")
+             + _text(700, 325, "A·B·C: 층마다 금속 원자가 놓인 자리 · 점선: 1층 금속 자리", "tiny-label", "end"))
+    return _wrap("2H와 3R 적층", "2H는 이웃 층이 180° 돌아가 금속 자리가 A·B·A로 두 층마다 반복되고, 3R은 같은 방향의 층이 한 칸씩 밀려 A·B·C로 세 층마다 반복된다.", 334, inner)
+
+
 def structure(args):
     kind = args[0].lower()
     lx, ly, pw, ph = 20, 34, 320, 230
@@ -113,11 +177,10 @@ def structure(args):
     if kind == "tmd":
         m, x = (args + ["M", "X"])[1:3]
         top = _honeycomb(lx, ly, pw, ph, 25, "atom", "atom-3", 7.5, 6.5, "wf-top")
-        rows = [(-22, "atom-3", 6.5, 0.5), (0, "atom", 7.5, 0.0), (22, "atom-3", 6.5, 0.5)]
-        side = _side_layers(rx, ly, pw, ph, rows, 42, [ly + 62, ly + 168], 0.5, "wf-side", "반데르발스 간격")
+        side = _tmd_side(rx, ly, pw, ph, [(0, 1), (1, 0)], 16, "wf-side")
         legend = [("atom", m, "금속"), ("atom-3", x, "칼코겐")]
         title, desc = "{0}{1}₂의 원자 구조".format(m, x), "위에서 보면 {0}과 {1}이 번갈아 놓인 벌집 격자, 옆에서 보면 {1}–{0}–{1} 샌드위치 층이 반데르발스 간격을 두고 쌓인다.".format(m, x)
-        lt, rt = "위에서 본 단층", "옆에서 본 {0}–{1}–{0} 층".format(x, m)
+        lt, rt = "위에서 본 단층", "옆에서 본 2H 이중층({0}–{1}–{0})".format(x, m)
     elif kind == "graphene":
         top = _honeycomb(lx, ly, pw, ph, 26, "atom", "atom", 7, 7, "wf-top")
         side = _side_layers(rx, ly, pw, ph, [(0, "atom", 7, 0.0)], 30, [ly + 70, ly + 160], 0.5, "wf-side", "0.335 nm")
@@ -334,7 +397,7 @@ def band(args):
     return _wrap(title, desc, h, "".join(out))
 
 
-KINDS = {"구조": structure, "라만": raman, "pl": pl, "밴드": band}
+KINDS = {"구조": structure, "적층": stacking, "라만": raman, "pl": pl, "밴드": band}
 
 
 def render(spec):

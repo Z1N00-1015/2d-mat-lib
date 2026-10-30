@@ -2,6 +2,13 @@
   "entries": [
     {
       "date": "2026-10-30",
+      "page": "위키 MoS₂ · 2H와 3R 적층",
+      "url": "./chapters/wiki/mos2.html",
+      "summary": "TMD 옆모습 그림을 실제 원자 위치 비율로 바로잡고, MoS₂ 문서에 2H·3R 적층 설명과 비교 그림을 넣었습니다(WS₂ 문서에도 적층 그림 추가).",
+      "added_dois": []
+    },
+    {
+      "date": "2026-10-30",
       "page": "위키 대표 물질 그림",
       "url": "./chapters/wiki/mos2.html",
       "summary": "MoS₂·WSe₂·MoSe₂·WS₂·그래핀·h-BN 위키 문서에 원자 구조(위·옆에서 본 모습), 밴드 구조 개념도, PL·라만 스펙트럼 그림을 넣었습니다. 피크 위치는 연구실 DB와 문헌값이고, 그림은 빌드 때 자동으로 그려집니다.",
