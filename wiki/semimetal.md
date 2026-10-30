@@ -3,7 +3,7 @@ title: 반금속
 en: semimetal
 category: 물질
 status: 초안
-summary: 전도대와 가전자대가 맞닿거나 약간 겹쳐 밴드갭이 없는 물질. 그래핀은 영 밴드갭 반금속이다.
+summary: 전도대와 가전자대가 맞닿거나 약간 겹쳐 밴드갭이 없는 물질. 그래핀은 zero-band-gap semimetal이다.
 papers: shen2021, ali2014, qian2014, castroneto2009
 reviewed: 2026-10-30
 info:
@@ -19,7 +19,7 @@ sources:
 - Ali et al., Nature (2014) | https://doi.org/10.1038/nature13763
 - Qian et al., Science (2014) | https://doi.org/10.1126/science.1256815
 - Castro Neto et al., Rev. Mod. Phys. (2009) | https://doi.org/10.1103/RevModPhys.81.109
-- Li et al., Nature (2023) — 연구실 DB | https://doi.org/10.1038/s41586-022-05431-4
+- Li et al., Nature (2023) — DB | https://doi.org/10.1038/s41586-022-05431-4
 - Kittel, Introduction to Solid State Physics, 8th ed. (Wiley, 2005)
 ---
 ## 정의
@@ -40,4 +40,4 @@ sources:
 
 {{그림: 쇼트키 | 증착 금속(왼쪽)과 반금속·반데르발스 접촉(오른쪽)의 쇼트키 장벽 비교. 곡선은 개념도입니다.}}
 
-그 결과 Bi 전극으로 단층 MoS₂의 접촉 저항 123 Ω·μm(Shen 2021), Sb(01̄12) 전극으로 42 Ω·μm(Li 2023)가 보고되었습니다(연구실 DB). [[접촉 저항]]도 함께 보세요.
+그 결과 Bi 전극으로 단층 MoS₂의 접촉 저항 123 Ω·μm(Shen 2021), Sb(01̄12) 전극으로 42 Ω·μm(Li 2023)가 보고되었습니다(DB). [[접촉 저항]]도 함께 보세요.

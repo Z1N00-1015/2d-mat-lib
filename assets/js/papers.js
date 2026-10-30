@@ -141,7 +141,7 @@ async function initRefs(root) {
     const rootPath = document.body.dataset.root || '../../';
     const heading = `대표 관련 연구 ${list.length}편`;
     const rest = matching.length > list.length ? `<details class="related-paper-list"><summary>전체 관련 논문 ${matching.length}편 보기</summary><ol>${matching.slice(list.length).map(p => `<li><a href="${esc(p.url || '#')}"${p.url ? ' target="_blank" rel="noopener"' : ''}>${esc(p.title)}</a> · ${esc(p.journal || '저널 미기록')} (${p.year || '연도 미기록'})${p.doi ? ` · DOI ${esc(p.doi)}` : ''}</li>`).join('')}</ol></details>` : '';
-    root.innerHTML = `<div class="refs-head"><span class="refs-tag">연구실 논문 DB</span><h4>${heading}</h4><a href="${rootPath}chapters/tools/papers.html">전체 논문 검색 ›</a></div>
+    root.innerHTML = `<div class="refs-head"><span class="refs-tag">논문 DB</span><h4>${heading}</h4><a href="${rootPath}chapters/tools/papers.html">전체 논문 검색 ›</a></div>
       <div class="refs-row">${list.map(p => topic.methodRe ? methodCard(p, topic, focus) : valueCard(p, topic.keys, focus)).join('')}</div>${rest}`;
   } catch (e) {
     root.remove();

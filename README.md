@@ -11,7 +11,7 @@
 - `assets/js/book-runtime.js` — 분야·페이지 목록(`FIELDS`)과 공통 레이아웃, 실험 모듈 지연 로딩
 - `assets/css/book.css` — 디자인 시스템 (SemiBook과 같은 계열, 라이트/다크 테마)
 - `assets/js/*.js` — 실험 모듈 (three.js, Canvas)
-- `data/papers.json` — 연구실 논문 DB 공개용 데이터
+- `data/papers.json` — 논문 DB 공개용 데이터
 - `data/paper-focus.json` — 논문별 핵심 소재. 등록 논문이 추가되면 이 파일에 논문 ID와 핵심 소재를 함께 추가합니다. 보조 재료와 기판은 자동으로 핵심 소재에 포함하지 않습니다.
 - `data/paper-synthesis-focus.json` — 합성 비교에 사용할 논문별 합성 대상 소재. 기판·전극·전구체를 제외한 성장 결과물을 별도로 분류합니다.
 
@@ -23,7 +23,7 @@
 | **물성** |  |  |
 | 02 | 2D 강유전성 | 면내 · 면외 · sliding 강유전성 |
 | 03 | 2D 강자성 | 원자층 강자성 · 합성·측정 |
-| 04 | 이종구조와 모아레 연구 | 모아레 초격자 · 원자 재구성 |
+| 04 | 이종구조와 모아레 연구 | 모아레 초격자 · atomic reconstruction |
 | **합성** |  |  |
 | 05 | 박막 증착 | CVD · PVD · ALD |
 | 06 | 2D 물질의 합성 | 기계적·액상 박리 · 화학적 박리 |

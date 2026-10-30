@@ -174,7 +174,7 @@ def sliding(args):
         out.append(arrow(x0 + 290, 210 if up else 104, x0 + 290, 104 if up else 210, "rose", 3, head=10) + label(x0 + 282, 98 if up else 230, "P", "rose-label", "end"))
         out.append(_text(x0 + 160, 270, "아래층이 오른쪽으로 밀림" if up else "아래층이 왼쪽으로 밀림", "tiny-label"))
     out.append(arrow(330, 160, 390, 160, "accent", 2.2) + label(360, 150, "미끄럼", "accent-label"))
-    return _wrap("층간 미끄럼 강유전성", "두 층이 원자 결합 길이의 일부만큼 옆으로 미끄러지면 적층이 AB↔BA로 바뀌며 면에 수직한 분극이 뒤집힌다.", 302, "".join(out))
+    return _wrap("sliding ferroelectricity", "두 층이 원자 결합 길이의 일부만큼 옆으로 미끄러지면 적층이 AB↔BA로 바뀌며 면에 수직한 분극이 뒤집힌다.", 302, "".join(out))
 
 
 def spin_valley(args):

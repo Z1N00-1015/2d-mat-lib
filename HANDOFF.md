@@ -1,5 +1,11 @@
 # 작업 인계 기록
 
+## 2026-10-30 · codex
+- 변경: 주요 페이지·용어 사전·위키·논문 카드에서 삼각 프리즘 배위, polytype, spin polarization, sliding ferroelectricity, suspended, zero-band-gap semimetal, Sb₂O₃, dielectric, encapsulation, EOT, lateral heterostructure, remote epitaxy, atomic reconstruction 표기를 정리. 반데르발스 간격은 반데르발스 갭으로 변경.
+- 정리: 떠 있는 시료·원자 위치 비율·곡선 모양·세기/선폭 관련 안내를 그림 캡션에서 제거하고, 논문 DB 언급을 간결한 DB/선행 연구 표현으로 바꿈. 불필요한 1T 구조 소개, 그래핀 nanopore 위키 페이지와 전용 정적 그림 생성기, 위키 사이드바의 대표 문서 그룹을 제거.
+- 확인: 위키 재생성 121개 문서, 누락 링크 0개. JSON 구문과 `git diff --check` 통과. 로컬 브라우저에서 표지·용어 사전 렌더링 확인.
+- 남은 일: 없음.
+
 ## 2026-10-30 · claude
 - 변경: 사용자 참여 논문(연구실 DB에서 저자 ‘Jinwoo Kim’인 6편: Moon 2025 Nature, Kim 2026 RPP, Hong 2025 ACS Nano ×2, Baek 2025 AFM, Jung 2025 ASS)을 `wiki/_my_papers.txt`로 지정. 위키 ‘대표 논문’에서 맨 앞에 ‘참여 논문’ 칩·강조 테두리로 표시(나머지 최소 2편, 합계 6편). `_papers.txt`에 4편 추가(kim2026strain, hong2025recon, hong2025vls, baek2025sliding). 관련 29개 문서 `papers:`에 배치, 원자 재구성·격자 불일치·미끄럼 강유전성·결정 다형·적층 도메인·잔류 시간·MoS₂ 본문에 제목·연구실 DB 수준의 한 문장 소개와 출처 추가. book.css 버전 `20261030-mypapers`.
 - 주의: 본인 확인은 이메일 아이디(zinu)와 저자명 일치로 추정. 다른 논문이 더 있으면 `_papers.txt`와 `_my_papers.txt`에 추가.

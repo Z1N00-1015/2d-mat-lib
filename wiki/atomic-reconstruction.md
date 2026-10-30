@@ -1,5 +1,5 @@
 ---
-title: 원자 재구성
+title: atomic reconstruction
 en: atomic reconstruction
 category: 결정학
 status: 초안
@@ -18,12 +18,12 @@ sources:
 - Weston et al., Nature Nanotechnology (2020) | https://doi.org/10.1038/s41565-020-0682-9
 - Rosenberger et al., ACS Nano (2020) | https://doi.org/10.1021/acsnano.0c00088
 - Alden et al., PNAS (2013) | https://doi.org/10.1073/pnas.1309394110
-- Kim et al., Rep. Prog. Phys. (2026) — 연구실 DB | https://doi.org/10.1088/1361-6633/ae5ea2
-- Hong et al., ACS Nano (2025, 원자 재구성) — 연구실 DB | https://doi.org/10.1021/acsnano.5c14888
+- Kim et al., Rep. Prog. Phys. (2026) — DB | https://doi.org/10.1088/1361-6633/ae5ea2
+- Hong et al., ACS Nano (2025, atomic reconstruction) — DB | https://doi.org/10.1021/acsnano.5c14888
 ---
 ## 정의
 
-**원자 재구성**(atomic reconstruction)은 두 층을 작은 각도로 꼬아 쌓았을 때, 원자들이 원래 자리에서 조금씩 움직여 에너지가 낮은 적층(AB, BA 등)의 영역은 넓히고 에너지가 높은 적층(AA) 영역은 줄이는 현상입니다.
+**atomic reconstruction**은 두 층을 작은 각도로 꼬아 쌓았을 때, 원자들이 원래 자리에서 조금씩 움직여 에너지가 낮은 적층(AB, BA 등)의 영역은 넓히고 에너지가 높은 적층(AA) 영역은 줄이는 현상입니다.
 
 {{그림: 재구성 | 왼쪽: 회전각이 크면 두 층이 그대로 겹쳐 적층이 매끄럽게 바뀌는 모아레가 됩니다. 오른쪽: 회전각이 작으면 원자가 움직여 AB·BA 삼각 도메인이 넓어지고, 그 경계에 좁은 도메인 벽, 꼭짓점에 AA 매듭이 남습니다.}}
 
@@ -35,8 +35,8 @@ sources:
 
 - **꼬인 이중층 그래핀**: 아주 작은 각도에서 AB/BA 삼각 도메인과 그 사이 [[도메인 벽]]이 [[암시야 투과전자현미경|DF-TEM]]으로 관찰되었습니다(Yoo 2019). 이중층 그래핀의 도메인 벽은 먼저 변형 솔리톤으로 보고되었습니다(Alden 2013).
 - **꼬인 TMD 이중층**: 3R형(같은 방향) 이중층은 삼각 도메인, 2H형(반대 방향)은 육각 도메인으로 재구성됩니다(Weston 2020). 재구성이 시작되는 각도는 물질 조합에 따라 다릅니다(Rosenberger 2020).
-- **격자 불일치가 있는 이종이중층**: 에피택시로 키운 MoS₂/WS₂와 MoS₂/WSe₂ 이종이중층에서 격자 불일치에 따라 변형이 완화되는 정도가 달라지는 모습이 시각화되었고(Kim 2026), 불일치가 더 큰 MoSe₂/MoS₂ 이종이중층에서도 그 장벽을 넘어 원자 재구성을 일으킨 연구가 있습니다(Hong 2025).
+- **격자 불일치가 있는 이종이중층**: 에피택시로 키운 MoS₂/WS₂와 MoS₂/WSe₂ 이종이중층에서 격자 불일치에 따라 변형이 완화되는 정도가 달라지는 모습이 시각화되었고(Kim 2026), 불일치가 더 큰 MoSe₂/MoS₂ 이종이중층에서도 그 장벽을 넘어 atomic reconstruction을 일으킨 연구가 있습니다(Hong 2025).
 
 ## 의미
 
-재구성은 전자 구조와 광학 성질을 바꿉니다. 도메인마다 [[층간 미끄럼 강유전성|분극]]이 반대일 수 있고, 도메인 벽을 따라 전류나 엑시톤이 흐르기도 합니다. [[적층 도메인]], [[모아레 초격자]]도 함께 보세요.
+재구성은 전자 구조와 광학 성질을 바꿉니다. 도메인마다 [[sliding ferroelectricity|분극]]이 반대일 수 있고, 도메인 벽을 따라 전류나 엑시톤이 흐르기도 합니다. [[적층 도메인]], [[모아레 초격자]]도 함께 보세요.

@@ -13,7 +13,6 @@ info:
 - 대표 반도체 | MoS₂, MoSe₂, WS₂, WSe₂ (단층 직접 밴드갭)
 figures:
 - 구조 | tmd | M | X
-- 배위
 sources:
 - Wang et al., Nature Nanotechnology (2012) | https://doi.org/10.1038/nnano.2012.193
 - Chhowalla et al., Nature Chemistry (2013) | https://doi.org/10.1038/nchem.1589
@@ -30,10 +29,8 @@ sources:
 
 ## 구조의 다양성
 
-- **층 안 배위**: 금속 주변 칼코겐이 삼각 프리즘(2H)이면 Mo·W 계열은 반도체, 팔면체(1T)면 금속성입니다(Chhowalla 2013).
-- **적층**: 같은 층이라도 2H, 3R처럼 쌓는 방식이 다릅니다([[결정 다형]]).
-
-{{그림: 배위 | 금속 주변 칼코겐 배위. 삼각 프리즘(2H)과 팔면체(1T).}}
+- **층 구조**: 대표 반도체인 Mo·W 계열은 금속 원자층을 칼코겐 원자층이 위아래로 감싼 X–M–X 구조를 이룹니다.
+- **적층**: 같은 층도 2H, 3R처럼 쌓는 방식이 달라질 수 있습니다([[polytype]]).
 
 ## 성질
 

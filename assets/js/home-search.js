@@ -1,4 +1,4 @@
-import { FIELDS } from './book-runtime.js?v=20261028-papers';
+import { FIELDS } from './book-runtime.js?v=20261030-terms';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'

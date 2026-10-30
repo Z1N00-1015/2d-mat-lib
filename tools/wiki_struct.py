@@ -36,7 +36,7 @@ def _hexpatch(x0, y0, w, h, L, rot, cls_a, cls_b, r, cid, skip=None):
 
 def reconstruction(args):
     out = []
-    for k, (x0, title, recon) in enumerate([(20, "강체 모아레(큰 회전각)", False), (380, "원자 재구성(작은 회전각)", True)]):
+    for k, (x0, title, recon) in enumerate([(20, "강체 모아레(큰 회전각)", False), (380, "atomic reconstruction(작은 회전각)", True)]):
         out.append(panel(x0, 40, 320, 260, title) + clip("rc%d" % k, x0, 40, 320, 260))
         g = ['<g clip-path="url(#rc{0})">'.format(k)]
         a = 64
@@ -56,7 +56,7 @@ def reconstruction(args):
         g.append("</g>")
         out += g
         out.append(_text(x0 + 160, 320, "AA·AB·BA 영역이 매끄럽게 이어짐" if not recon else "AB·BA 삼각 도메인 + 좁은 도메인 벽 + AA 매듭(빨간 점)", "tiny-label"))
-    return _wrap("원자 재구성", "회전각이 크면 두 층이 그대로 겹쳐 매끄러운 모아레가 되지만, 작으면 원자가 움직여 에너지가 낮은 AB·BA 적층 도메인을 넓히고 그 경계에 좁은 도메인 벽이 생긴다.", 332, "".join(out))
+    return _wrap("atomic reconstruction", "회전각이 크면 두 층이 그대로 겹쳐 매끄러운 모아레가 되지만, 작으면 원자가 움직여 에너지가 낮은 AB·BA 적층 도메인을 넓히고 그 경계에 좁은 도메인 벽이 생긴다.", 332, "".join(out))
 
 
 def soliton(args):
@@ -80,7 +80,7 @@ def soliton(args):
 
 def epitaxy(args):
     out = []
-    specs = [("공유결합 에피택시", "격자가 맞아야 함(불일치 → 변형·결함)", "cov"), ("반데르발스 에피택시", "약한 결합 → 불일치가 커도 성장", "vdw"), ("원격 에피택시", "그래핀 너머로 기판 정보 전달", "rem")]
+    specs = [("공유결합 에피택시", "격자가 맞아야 함(불일치 → 변형·결함)", "cov"), ("반데르발스 에피택시", "약한 결합 → 불일치가 커도 성장", "vdw"), ("remote epitaxy", "그래핀 너머로 기판 정보 전달", "rem")]
     for k, (name, note, kind) in enumerate(specs):
         x0 = 20 + k * 233
         out.append(panel(x0, 40, 213, 230, name))
@@ -140,7 +140,7 @@ def hetero(args):
         out.append(rect(140, 70, 220, 200, "var(--accent)", None, 0, "opacity:.08") + rect(360, 70, 220, 200, "var(--teal)", None, 0, "opacity:.14"))
         out.append(line(360, 70, 360, 270, "rose-line", "stroke-width:2.4;stroke-dasharray:6 4"))
         out.append(label(250, 62, "MoS₂", "accent-label") + label(470, 62, "WS₂", "teal-label") + label(366, 288, "원자 단위로 이어진 경계(1D 접합)", "rose-label", "start"))
-        title, desc = "평면 내 이종구조", "두 2D 물질이 같은 원자층 안에서 옆으로 공유결합으로 이어진 구조."
+        title, desc = "lateral heterostructure", "두 2D 물질이 같은 원자층 안에서 옆으로 공유결합으로 이어진 구조."
     return _wrap(title, desc, 312, "".join(out))
 
 
@@ -184,28 +184,6 @@ def structure_factor(args):
     out += g
     out.append(_text(360, 322, "F_hk = f[1 + e^{iπ(h+k)}] → h + k 홀수이면 0 (빈 원: 소멸)", "label"))
     return _wrap("구조 인자와 소멸 규칙", "단위격자 안 원자들의 산란파가 위상 차로 상쇄되면, 격자만으로는 허용되는 회절점도 세기가 0이 된다.", 334, "".join(out))
-
-
-def coordination(args):
-    out = []
-    for k, (x0, title, oct_) in enumerate([(20, "2H · 삼각 프리즘 배위(반도체)", False), (380, "1T · 팔면체 배위(금속)", True)]):
-        out.append(panel(x0, 40, 320, 250, title))
-        cx, cy, r = x0 + 160, 165, 62
-        up = [(cx + r * math.cos(math.radians(90 + 120 * i)), cy - r * math.sin(math.radians(90 + 120 * i))) for i in range(3)]
-        rot = 180 if oct_ else 0
-        dn = [(cx + r * math.cos(math.radians(90 + rot + 120 * i)), cy - r * math.sin(math.radians(90 + rot + 120 * i))) for i in range(3)]
-        out.append(poly(dn, "", "fill:var(--teal);opacity:.18;stroke:var(--teal);stroke-width:2;stroke-dasharray:5 4"))
-        out.append(poly(up, "", "fill:var(--amber);opacity:.18;stroke:var(--amber);stroke-width:2"))
-        for p in dn:
-            out.append(line(cx, cy, p[0], p[1], "line", "stroke-width:1.4"))
-            out.append(dot(p[0], p[1], 9 if not oct_ else 8, "atom-alt"))
-        for p in up:
-            out.append(line(cx, cy, p[0], p[1], "line", "stroke-width:1.4"))
-            out.append(dot(p[0], p[1], 9, "atom-3"))
-        out.append(dot(cx, cy, 11, "atom"))
-        out.append(_text(x0 + 160, 270, "위·아래 칼코겐이 겹침" if not oct_ else "위·아래 칼코겐이 엇갈림(60° 회전)", "tiny-label"))
-    out.append(_text(360, 72, "위에서 본 금속(보라) 주변 칼코겐: 노랑=위층, 청록 점선=아래층", "tiny-label"))
-    return _wrap("TMD의 배위: 2H와 1T", "금속 원자를 둘러싼 위·아래 칼코겐 삼각형이 겹치면 삼각 프리즘(2H), 서로 엇갈리면 팔면체(1T) 배위가 된다.", 302, "".join(out))
 
 
 def topdown(args):
@@ -375,17 +353,6 @@ def intercalation(args):
     return _wrap("이온 삽입", "층 사이의 반데르발스 틈에 이온이나 분자를 넣으면 층 간격이 벌어지고 전자가 주입되어 물성이 바뀐다.", 302, "".join(out))
 
 
-def nanopore(args):
-    out = [panel(140, 40, 440, 260, "그래핀 나노구멍")]
-    cx, cy = 360, 160
-    skip = lambda x, y: math.hypot(x - cx, y - cy) < 34
-    out.append(_hexpatch(150, 50, 420, 220, 14, 0, "atom", "atom", 4.5, "np", skip))
-    out.append('<circle cx="{0}" cy="{1}" r="34" style="fill:none;stroke:var(--rose);stroke-width:2;stroke-dasharray:5 4"/>'.format(cx, cy))
-    out.append(label(cx + 44, cy - 30, "구멍 가장자리: 결합이 끊긴 탄소(반응성 큼)", "rose-label", "start"))
-    out.append(_text(360, 290, "원자 한 층 두께의 막에 뚫린 구멍 → 분자 통과·검출, 아래 물질 성장의 통로", "tiny-label"))
-    return _wrap("그래핀 나노구멍", "그래핀에 수 nm 크기의 구멍을 내면 원자 한 층 두께의 막에 통로가 생기고, 구멍 가장자리는 화학적으로 활발하다.", 312, "".join(out))
-
-
 def semimetal_band(args):
     out = []
     specs = [("금속", "페르미 준위가 밴드 한가운데 · 상태 많음",
@@ -411,5 +378,5 @@ def semimetal_band(args):
 
 
 KINDS = {"재구성": reconstruction, "도메인벽": soliton, "에피택시": epitaxy, "격자불일치": mismatch, "이종구조": hetero,
-         "모아레벡터": moire_vec, "구조인자": structure_factor, "배위": coordination, "하향상향": topdown, "박리": exfoliation,
-         "액상박리": lpe, "ald": ald, "mfc": mfc, "pvd": pvd, "결정립계": grains, "삽입": intercalation, "나노구멍": nanopore, "반금속": semimetal_band}
+         "모아레벡터": moire_vec, "구조인자": structure_factor, "하향상향": topdown, "박리": exfoliation,
+         "액상박리": lpe, "ald": ald, "mfc": mfc, "pvd": pvd, "결정립계": grains, "삽입": intercalation, "반금속": semimetal_band}

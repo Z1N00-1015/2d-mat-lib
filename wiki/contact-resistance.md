@@ -20,7 +20,7 @@ sources:
 - Shen et al., Nature (2021) | https://doi.org/10.1038/s41586-021-03472-9
 - Kappera et al., Nature Materials (2014) | https://doi.org/10.1038/nmat4080
 - Wang et al., Science (2013) | https://doi.org/10.1126/science.1244358
-- Li et al., Nature (2023) — 연구실 DB | https://doi.org/10.1038/s41586-022-05431-4
+- Li et al., Nature (2023) — DB | https://doi.org/10.1038/s41586-022-05431-4
 - Sze & Ng, Physics of Semiconductor Devices, 3rd ed. (Wiley, 2007)
 ---
 ## 정의
@@ -36,7 +36,7 @@ sources:
 ## 2D 반도체에서 접촉을 낮추는 방법
 
 - **반데르발스 접촉**: 금속을 따로 만들어 옮겨 붙이면 계면 손상이 없어 장벽이 이론값(쇼트키–모트 한계)에 가까워집니다(Liu 2018).
-- **반금속 전극**: [[반금속]]은 페르미 준위 근처 상태 밀도가 작아 갭 상태가 억제됩니다. Bi 전극으로 단층 MoS₂의 R_c 123 Ω·μm(Shen 2021), Sb(01̄12) 전극으로 42 Ω·μm(Li 2023)가 보고되었습니다(연구실 DB).
+- **반금속 전극**: [[반금속]]은 페르미 준위 근처 상태 밀도가 작아 갭 상태가 억제됩니다. Bi 전극으로 단층 MoS₂의 R_c 123 Ω·μm(Shen 2021), Sb(01̄12) 전극으로 42 Ω·μm(Li 2023)가 보고되었습니다(DB).
 - **상 공학**: 접촉 부분만 금속성 1T 상으로 바꿔 장벽을 없앱니다(Kappera 2014).
 - **가장자리 접촉**: h-BN으로 감싼 그래핀은 옆면(1차원)으로 전극을 연결할 수 있습니다(Wang 2013).
 

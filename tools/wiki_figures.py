@@ -108,7 +108,7 @@ def _side_layers(x0, y0, w, h, rows, period, layers, shift, cid, gap_label):
 
 # TMD 옆모습은 2H-MoS₂의 실제 원자 위치 비율로 그린다(a = 3.16 Å, 층 간격 c/2 ≈ 6.15 Å, 금속–칼코겐 높이 차 ≈ 1.59 Å).
 # 지그재그 방향을 따라 보면 금속(M)과 칼코겐(X) 기둥이 1.5L(L = a/√3) 간격으로 반복되고,
-# 한 층 안에서 X는 M에서 +L(원자 1개)과 −0.5L(앞뒤로 겹친 원자 2개)에 있다. 위아래 X는 같은 자리(삼각 프리즘).
+# 한 층 안에서 X는 M에서 +L(원자 1개)과 −0.5L(앞뒤로 겹친 원자 2개)에 있다. 위아래 X는 같은 자리(Trigonal Prism).
 TMD_L, TMD_Z, TMD_C = 3.16 / math.sqrt(3), 1.59, 6.15
 
 
@@ -152,7 +152,7 @@ def _tmd_side(x0, y0, w, h, stack, scale, cid, gap=True, tags=None):
         ya, yb = zs[0] + TMD_Z * scale + 8, zs[1] - TMD_Z * scale - 8
         xm = x0 + w - 18
         out.append('<path class="accent-line" style="stroke-width:1.6" d="M{0} {1:.1f}V{2:.1f}M{3} {1:.1f}h10M{3} {2:.1f}h10"/>'.format(xm, ya, yb, xm - 5))
-        out.append('<text class="accent-label" x="{0}" y="{1:.1f}" text-anchor="end" style="paint-order:stroke;stroke:var(--surface-2);stroke-width:4px">반데르발스 간격</text>'.format(xm - 10, (ya + yb) / 2 + 4))
+        out.append('<text class="accent-label" x="{0}" y="{1:.1f}" text-anchor="end" style="paint-order:stroke;stroke:var(--surface-2);stroke-width:4px">반데르발스 갭</text>'.format(xm - 10, (ya + yb) / 2 + 4))
     return "".join(out)
 
 
@@ -179,7 +179,7 @@ def structure(args):
         top = _honeycomb(lx, ly, pw, ph, 25, "atom", "atom-3", 7.5, 6.5, "wf-top")
         side = _tmd_side(rx, ly, pw, ph, [(0, 1), (1, 0)], 16, "wf-side")
         legend = [("atom", m, "금속"), ("atom-3", x, "칼코겐")]
-        title, desc = "{0}{1}₂의 원자 구조".format(m, x), "위에서 보면 {0}과 {1}이 번갈아 놓인 벌집 격자, 옆에서 보면 {1}–{0}–{1} 샌드위치 층이 반데르발스 간격을 두고 쌓인다.".format(m, x)
+        title, desc = "{0}{1}₂의 원자 구조".format(m, x), "위에서 보면 {0}과 {1}이 번갈아 놓인 벌집 격자, 옆에서 보면 {1}–{0}–{1} 샌드위치 층이 반데르발스 갭을 두고 쌓인다.".format(m, x)
         lt, rt = "위에서 본 단층", "옆에서 본 2H 이중층({0}–{1}–{0})".format(x, m)
     elif kind == "graphene":
         top = _honeycomb(lx, ly, pw, ph, 26, "atom", "atom", 7, 7, "wf-top")
@@ -189,7 +189,7 @@ def structure(args):
         lt, rt = "위에서 본 단층", "옆에서 본 층(흑연)"
     elif kind == "hbn":
         top = _honeycomb(lx, ly, pw, ph, 26, "atom-3", "atom-alt", 7.5, 7.5, "wf-top")
-        side = _side_layers(rx, ly, pw, ph, [(0, "atom-3", 7.5, 0.0)], 30, [ly + 70, ly + 160], 0.0, "wf-side", "반데르발스 간격")
+        side = _side_layers(rx, ly, pw, ph, [(0, "atom-3", 7.5, 0.0)], 30, [ly + 70, ly + 160], 0.0, "wf-side", "반데르발스 갭")
         # 옆에서 보면 B와 N이 번갈아 놓이고, 위층의 B 위에 아래층의 N이 온다(AA′ 적층).
         side = side.replace('class="atom-3"', 'class="atom-3 hb"')
         legend = [("atom-3", "B", "붕소"), ("atom-alt", "N", "질소")]

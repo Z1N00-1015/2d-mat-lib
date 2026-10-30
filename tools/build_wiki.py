@@ -26,7 +26,7 @@
     sources:
     - Kang et al., Nature (2015) | https://doi.org/10.1038/nature14417
     info:
-    - 결정 구조 | 2H (삼각 프리즘)
+    - 결정 구조 | 2H (Trigonal Prism)
     papers: kang2015, mak2010     # wiki/_papers.txt의 키, 최대 5개 정도
     ---
     본문은 마크다운: ## 제목, 문단, - 목록, 1. 목록, > 메모, | 표 |, **굵게**, *기울임*, `코드`,

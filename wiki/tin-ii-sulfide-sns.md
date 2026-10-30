@@ -17,7 +17,7 @@ sources:
 - Higashitarumizu et al., Nature Communications (2020) | https://doi.org/10.1038/s41467-020-16291-9
 - Chang et al., Science (2016) | https://doi.org/10.1126/science.aad8609
 - Vidal et al., Appl. Phys. Lett. (2012) | https://doi.org/10.1063/1.3675880
-- Moody et al., ACS Appl. Mater. Interfaces (2023) — 연구실 DB | https://doi.org/10.1021/acsami.3c11931
+- Moody et al., ACS Appl. Mater. Interfaces (2023) — DB | https://doi.org/10.1021/acsami.3c11931
 ---
 ## 개요
 
@@ -33,7 +33,7 @@ sources:
 
 ## 성장
 
-연구실 DB에는 박리한 [[h-BN]] 위에서 SnS를 약 180–200 °C의 낮은 온도로 반데르발스 에피택시 성장하고, 층 사이 마찰이 매우 작은 초윤활 거동과 분극을 보고한 연구가 있습니다(Moody 2023).
+DB에는 박리한 [[h-BN]] 위에서 SnS를 약 180–200 °C의 낮은 온도로 반데르발스 에피택시 성장하고, 층 사이 마찰이 매우 작은 초윤활 거동과 분극을 보고한 연구가 있습니다(Moody 2023).
 
 ## 특징 요약
 

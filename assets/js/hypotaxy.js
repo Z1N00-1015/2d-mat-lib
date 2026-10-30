@@ -126,7 +126,7 @@ export function init(root) {
     out('trend', time === 0
       ? '성장 시작 전'
       : time < 0.15
-        ? '나노구멍 성장 중'
+        ? 'nanopore 성장 중'
         : time < 0.62
           ? `핵 성장 중 · 무작위 배향 ${randomOrientationCount}개`
           : time < 0.96

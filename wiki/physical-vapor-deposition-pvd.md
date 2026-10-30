@@ -9,14 +9,14 @@ reviewed: 2026-10-30
 info:
 - 원리 | 원료를 가열·이온 충돌로 기화해 진공 속에서 기판에 쌓음
 - 종류 | 열·전자빔 증발, 스퍼터링, 펄스 레이저 증착
-- 쓰임 | 금속 전극, 절연막, 일부 2D 막 성장
+- 쓰임 | 금속 전극, dielectric, 일부 2D 막 성장
 - 2D 위 주의 | 고에너지 원자가 계면 손상 → 페르미 준위 고정
 figures:
 - pvd
 sources:
 - Akinwande et al., Nature (2019) | https://doi.org/10.1038/s41586-019-1573-9
 - Liu et al., Nature (2018) | https://doi.org/10.1038/s41586-018-0129-8
-- Jung et al., Applied Surface Science (2025) — 연구실 DB | https://doi.org/10.1016/j.apsusc.2024.161676
+- Jung et al., Applied Surface Science (2025) — DB | https://doi.org/10.1016/j.apsusc.2024.161676
 ---
 ## 원리
 
@@ -36,4 +36,4 @@ sources:
 
 ## 2D 물질 성장에 쓰기
 
-화합물 분말을 고온에서 승화시켜 기판에 다시 결정으로 쌓는 방식도 PVD로 분류합니다. 연구실 DB에는 WS₂ 분말에서 WOₓ를 매개로 2H·3R 다층 WS₂를 골라 키운 연구가 있습니다(Jung 2025, 기판 온도 800–1000 °C). 스퍼터링한 금속·산화물 막을 황화·셀렌화해 TMD로 바꾸는 방법도 연구됩니다(Akinwande 2019).
+화합물 분말을 고온에서 승화시켜 기판에 다시 결정으로 쌓는 방식도 PVD로 분류합니다. DB에는 WS₂ 분말에서 WOₓ를 매개로 2H·3R 다층 WS₂를 골라 키운 연구가 있습니다(Jung 2025, 기판 온도 800–1000 °C). 스퍼터링한 금속·산화물 막을 황화·셀렌화해 TMD로 바꾸는 방법도 연구됩니다(Akinwande 2019).

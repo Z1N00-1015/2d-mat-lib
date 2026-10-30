@@ -1,5 +1,5 @@
 ---
-title: 층간 미끄럼 강유전성
+title: sliding ferroelectricity
 en: sliding ferroelectricity
 category: 물성
 status: 초안
@@ -19,12 +19,12 @@ sources:
 - Vizner Stern et al., Science (2021) | https://doi.org/10.1126/science.abe8177
 - Fei et al., Nature (2018) | https://doi.org/10.1038/s41586-018-0336-3
 - Wu & Li, PNAS (2021) | https://doi.org/10.1073/pnas.2115703118
-- Baek et al., Adv. Funct. Mater. (2025) — 연구실 DB | https://doi.org/10.1002/adfm.202519094
-- Hong et al., ACS Nano (2025, 3R-MoS₂ VLS) — 연구실 DB | https://doi.org/10.1021/acsnano.5c11757
+- Baek et al., Adv. Funct. Mater. (2025) — DB | https://doi.org/10.1002/adfm.202519094
+- Hong et al., ACS Nano (2025, 3R-MoS₂ VLS) — DB | https://doi.org/10.1021/acsnano.5c11757
 ---
 ## 정의
 
-**층간 미끄럼 강유전성**(sliding ferroelectricity)은 각 층 자체는 극성이 없는데, 두 층을 특정한 방식으로 쌓으면 층 사이에 분극이 생기고, 한 층이 원자 결합 길이의 일부만큼 옆으로 미끄러지면 분극 방향이 뒤집히는 현상입니다(Wu & Li 2021).
+**sliding ferroelectricity**은 각 층 자체는 극성이 없는데, 두 층을 특정한 방식으로 쌓으면 층 사이에 분극이 생기고, 한 층이 원자 결합 길이의 일부만큼 옆으로 미끄러지면 분극 방향이 뒤집히는 현상입니다(Wu & Li 2021).
 
 {{그림: 미끄럼 | 두 층의 상대 위치가 AB에서 BA로 바뀌면(아래층이 조금 미끄러짐) 면에 수직한 분극 P가 반대가 됩니다.}}
 
@@ -36,8 +36,8 @@ sources:
 
 - **h-BN 이중층**: 두 층을 평행하게(같은 방향으로) 쌓으면 면외 분극이 생기고 전기장으로 뒤집힙니다(Yasuda 2021, Vizner Stern 2021). 원래 강유전체가 아닌 물질을 ‘쌓는 방식’만으로 강유전체로 만든 사례입니다.
 - **WTe₂**: 금속인 이중층·삼중층에서도 분극 전환이 관측되었습니다(Fei 2018).
-- **완전 정합 3R TMD 이중층**: 도메인 벽 없이 미끄럼 강유전성이 나타나고, 분극 유지 시간이 10년 이상으로 외삽된 연구가 있습니다(Baek 2025, 연구실 DB). CVD(VLS 성장)로 키운 3R-MoS₂ 이중층의 도메인 구조를 변형으로 제어한 연구도 있습니다(Hong 2025).
-- **3R 적층 TMD**: 같은 방향으로 밀려 쌓인 3R 상은 반전 대칭이 없어 미끄럼 강유전성의 무대가 됩니다([[결정 다형]]).
+- **완전 정합 3R TMD 이중층**: 도메인 벽 없이 sliding ferroelectricity이 나타나고, 분극 유지 시간이 10년 이상으로 외삽된 연구가 있습니다(Baek 2025, DB). CVD(VLS 성장)로 키운 3R-MoS₂ 이중층의 도메인 구조를 변형으로 제어한 연구도 있습니다(Hong 2025).
+- **3R 적층 TMD**: 같은 방향으로 밀려 쌓인 3R 상은 반전 대칭이 없어 sliding ferroelectricity의 무대가 됩니다([[polytype]]).
 
 {{그림: 적층 | 2H(A–A′–A)와 3R(A–B–C) 적층. 3R처럼 같은 방향으로 밀려 쌓인 구조는 반전 대칭이 깨져 층 사이 분극이 생길 수 있습니다.}}
 

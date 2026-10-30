@@ -56,13 +56,13 @@ export const FIELDS = [
       { id: 'ferromagnetism', dir: 'materials', n: '02', title: '2D 자성', group: '다양한 기능성',
         desc: '강자성과 반강자성의 원리, 대표 반데르발스 자성체, 스핀 수송과 소자 응용을 살펴봅니다.', labs: [] },
       { id: 'moire', dir: 'materials', n: '03', title: '이종구조와 모아레 연구', group: '다양한 기능성',
-        desc: '반데르발스 이종구조, 비틀림 각도, 모아레 초격자와 트위스트로닉스를 살펴봅니다.', labs: ['모아레 주기', '원자 재구성'] },
+        desc: '반데르발스 이종구조, 비틀림 각도, 모아레 초격자와 트위스트로닉스를 살펴봅니다.', labs: ['모아레 주기', 'atomic reconstruction'] },
       { id: 'materials', dir: 'semiconductor', n: '04', title: '2D 반도체와 FET', group: '반도체 소자 응용',
         desc: '원자층 채널이 트랜지스터 축소에 주는 이점과 실제 구현을 가로막는 재료·접촉·측정 과제를 살펴봅니다.', labs: ['물질 라인업'] },
       { id: 'devices', dir: 'semiconductor', n: '05', title: '차세대 전자소자', group: '반도체 소자 응용',
         desc: '메모리·광전자·터널 소자와 FeS-FET 등, 채널과 적층 구조를 바꾸어 기능을 확장하는 연구를 살펴봅니다.', labs: [] },
       { id: 'next-semiconductors', dir: 'semiconductor', n: '06', title: '차세대 반도체 공정', group: '반도체 소자 응용',
-        desc: '2D 소재를 칩 배선·절연막·저온 집적 소자에 활용하려는 방향과 제조 과제를 소개합니다.', labs: [] },
+        desc: '2D 소재를 칩 배선·dielectric·저온 집적 소자에 활용하려는 방향과 제조 과제를 소개합니다.', labs: [] },
     ],
   },
   {
@@ -70,7 +70,7 @@ export const FIELDS = [
     desc: '논문 데이터와 주요 용어를 살펴보고 연구실 논문 분석실로 이동합니다.',
     chapters: [
       { id: 'papers', n: '01', title: '논문 데이터', group: '연구 자료',
-        desc: '연구실 논문 라이브러리에 저장된 논문을 검색합니다.', labs: ['논문 검색'] },
+        desc: '논문 라이브러리에 저장된 논문을 검색합니다.', labs: ['논문 검색'] },
       { id: 'glossary', n: '02', title: '용어 사전', group: '참고 도구',
         desc: '2D 물질과 반도체 분야의 핵심 용어를 표준 표기와 영문으로 찾아봅니다.', labs: [] },
       { id: 'changelog', n: '03', title: '변경 이력', group: '참고 도구',
@@ -86,10 +86,6 @@ export const FIELDS = [
     chapters: [
       { id: 'index', dir: 'wiki', n: '00', title: '전체 문서', group: '위키',
         desc: '분류별 문서 목록과 검색, 아직 없는 문서를 확인합니다.', labs: [] },
-      { id: 'mos2', dir: 'wiki', n: '01', title: 'MoS₂', group: '대표 문서',
-        desc: '대표 2D 반도체 MoS₂의 구조·밴드갭·합성·소자.', labs: [] },
-      { id: 'chemical-vapor-deposition-cvd', dir: 'wiki', n: '02', title: '화학 기상 증착', group: '대표 문서',
-        desc: '분말 CVD와 MOCVD를 포함한 CVD의 원리.', labs: [] },
     ],
   },
 ];
@@ -99,7 +95,7 @@ const MODULES = {
   crystal: './crystal.js?v=20261020i', lattice2d: './lattice2d.js?v=20261020i', miller: './miller.js?v=20261020i', bragg: './bragg.js',
   xrd: './xrd.js?v=20261020i', moire: './moire.js?v=20261020l', 'moire-reconstruction': './moire-reconstruction.js?v=20261020s', spectrum: './spectrum.js?v=20261023-remove-wbg',
   mos2: './mos2.js', bands: './bands.js', exfo: './exfo.js', cvd: './cvd.js',
-  glossary: './glossary.js?v=20261030-materials', refs: './papers.js?v=20261025-review-curation', papersearch: './papers.js?v=20261025-review-curation',
+  glossary: './glossary.js?v=20261030-terms', refs: './papers.js?v=20261025-review-curation', papersearch: './papers.js?v=20261025-review-curation',
   raman: './raman.js?v=20261020i', 'tem-moire': './tem-moire.js?v=20261023-overlap-controls',
   hypotaxy: './hypotaxy.js?v=20261020h', 'home-lineup': './home-materials.js?v=20261025-card-links',
   lineup: './lineup.js?v=20261023-2d-only', 'wiki-index': './wiki-index.js?v=20261027-wiki',
@@ -146,7 +142,7 @@ function buildLayout() {
     <button class="icon-btn search-btn" aria-label="검색 열기">${ICONS.search}</button>
     <button class="icon-btn theme-btn" aria-label="테마 전환"></button>`;
   body.prepend(top);
-  import('./site-search.js?v=20261028-papers').then(m => m.init({ top, root, fields: FIELDS, chapterUrl })).catch(() => {});
+  import('./site-search.js?v=20261030-terms').then(m => m.init({ top, root, fields: FIELDS, chapterUrl })).catch(() => {});
   const bar = document.createElement('div');
   bar.className = 'progress-bar';
   body.prepend(bar);

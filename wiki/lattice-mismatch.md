@@ -20,8 +20,8 @@ sources:
 - Weston et al., Nature Nanotechnology (2020) | https://doi.org/10.1038/s41565-020-0682-9
 - 2H-TMD 격자상수 | https://doi.org/10.1103/PhysRevB.89.075409
 - graphene·h-BN 격자상수 | https://link.aps.org/accepted/10.1103/PhysRevB.97.205104
-- Kim et al., Rep. Prog. Phys. (2026) — 연구실 DB | https://doi.org/10.1088/1361-6633/ae5ea2
-- Hong et al., ACS Nano (2025, 원자 재구성) — 연구실 DB | https://doi.org/10.1021/acsnano.5c14888
+- Kim et al., Rep. Prog. Phys. (2026) — DB | https://doi.org/10.1088/1361-6633/ae5ea2
+- Hong et al., ACS Nano (2025, atomic reconstruction) — DB | https://doi.org/10.1021/acsnano.5c14888
 ---
 ## 정의
 
@@ -43,8 +43,8 @@ sources:
 
 - 그래핀/h-BN: 약 1.8% → 방향을 맞춰도 약 14 nm 모아레(Hunt 2013)
 - MoS₂(3.160 Å)/MoSe₂(3.288 Å): 약 4%
-- MoS₂(3.160 Å)/WS₂(3.153 Å): 약 0.2% → 거의 맞아 평면 내 이종구조를 만들기 쉬움
+- MoS₂(3.160 Å)/WS₂(3.153 Å): 약 0.2% → 거의 맞아 lateral heterostructure를 만들기 쉬움
 
-## 원격 에피택시와 재구성
+## remote epitaxy와 재구성
 
-그래핀을 사이에 둔 원격 에피택시에서는 기판과 막이 직접 결합하지 않아 불일치에 따른 결함이 줄어듭니다(Kim 2017). 작은 불일치·작은 회전각의 이중층에서는 원자가 움직여 일부 영역을 정합으로 맞추는 [[원자 재구성]]이 일어납니다(Weston 2020). 에피택시로 키운 MoS₂/WS₂(불일치 약 0.2%)와 MoS₂/WSe₂ 이종이중층을 비교하면 불일치에 따라 변형 완화 양상이 달라지고(Kim 2026), 약 4% 불일치의 MoSe₂/MoS₂에서도 조건을 맞추면 원자 재구성이 일어날 수 있습니다(Hong 2025).
+그래핀을 사이에 둔 remote epitaxy에서는 기판과 막이 직접 결합하지 않아 불일치에 따른 결함이 줄어듭니다(Kim 2017). 작은 불일치·작은 회전각의 이중층에서는 원자가 움직여 일부 영역을 정합으로 맞추는 [[atomic reconstruction]]이 일어납니다(Weston 2020). 에피택시로 키운 MoS₂/WS₂(불일치 약 0.2%)와 MoS₂/WSe₂ 이종이중층을 비교하면 불일치에 따라 변형 완화 양상이 달라지고(Kim 2026), 약 4% 불일치의 MoSe₂/MoS₂에서도 조건을 맞추면 atomic reconstruction이 일어날 수 있습니다(Hong 2025).

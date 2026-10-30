@@ -24,15 +24,15 @@ def fet(args):
     out = [panel(60, 30, 600, 280)]
     y_sub, y_ox, y_ch = 230, 206, 196
     out.append(rect(90, y_sub, 540, 56, "var(--fig-si)", None, 4) + label(360, y_sub + 34, "기판", "label"))
-    out.append(rect(90, y_ox, 540, 24, "var(--fig-oxide)", None, 2) + label(640, y_ox + 17, "절연막", "tiny-label", "start"))
+    out.append(rect(90, y_ox, 540, 24, "var(--fig-oxide)", None, 2) + label(640, y_ox + 17, "dielectric", "tiny-label", "start"))
     out.append(rect(170, y_ch, 380, 10, "var(--accent)", None, 2) + label(360, y_ch + 26, "2D 반도체 채널 (원자 몇 층)", "accent-label"))
     out.append(rect(120, 150, 110, 56, "var(--fig-metal)", None, 4) + label(175, 182, "소스", "label-strong"))
     out.append(rect(490, 150, 110, 56, "var(--fig-metal)", None, 4) + label(545, 182, "드레인", "label-strong"))
     out.append(rect(250, 160, 220, 30, "var(--fig-oxide)", None, 2) + rect(250, 100, 220, 60, "var(--fig-metal)", None, 4) + label(360, 136, "게이트", "label-strong"))
-    out.append(_text(360, 180, "게이트 절연막", "tiny-label"))
+    out.append(_text(360, 180, "gate dielectric", "tiny-label"))
     out.append(arrow(250, 90, 470, 90, "text", 1.4, head=6) + arrow(470, 90, 250, 90, "text", 1.4, head=6) + label(360, 82, "게이트 길이 L_g", "label"))
     out.append(_text(360, 332, "게이트 전압이 채널의 전자 농도를 바꿔 소스→드레인 전류를 켜고 끈다 (폭 W는 지면에 수직 방향)", "tiny-label"))
-    return _wrap("2D 전계효과 트랜지스터 단면", "원자층 채널 위에 게이트 절연막과 게이트가 있고, 양쪽 금속 전극(소스·드레인)이 채널에 접촉한다.", 344, "".join(out))
+    return _wrap("2D 전계효과 트랜지스터 단면", "원자층 채널 위에 gate dielectric과 게이트가 있고, 양쪽 금속 전극(소스·드레인)이 채널에 접촉한다.", 344, "".join(out))
 
 
 def _transfer(x0, y0, w, h, vth, ss_px, color, dash=False, ion=0.0, ioff=0.0):
@@ -195,7 +195,7 @@ def eot(args):
         out.append(rect(x0, 116 + t * 0.45, 180, 36, "var(--fig-si)", None, 3) + label(x0 + 90, 139 + t * 0.45, "채널", "label-strong"))
         out.append(label(x0 + 90, 262, name, "label") + label(x0 + 90, 280, note, "tiny-label"))
     out.append(_text(360, 316, "EOT = t_물리 × 3.9/κ — 두꺼운 고유전율 막으로 같은 게이트 제어력을 얻고 터널링 누설은 줄인다", "tiny-label"))
-    return _wrap("등가 산화막 두께", "유전율이 큰 절연막은 물리적으로 두꺼워도 얇은 SiO₂와 같은 정전용량을 줄 수 있다.", 328, "".join(out))
+    return _wrap("EOT", "유전율이 큰 dielectric은 물리적으로 두꺼워도 얇은 SiO₂와 같은 정전용량을 줄 수 있다.", 328, "".join(out))
 
 
 def pe_loop(args):
@@ -253,7 +253,7 @@ def chip(args):
         for i in range(n):
             out.append(rect(x0 + i * span + span * 0.18, y - hgt / 2, span * 0.64, hgt, "var(--fig-metal)", None, 1))
             out.append(rect(x0 + i * span + span * 0.46, y + hgt / 2, span * 0.08, 30 - hgt / 2, "var(--fig-metal)", None, 0, "opacity:.8"))
-    out.append(label(x0 + w + 6, ybase - 80, "BEOL(배선)", "tiny-label", "start") + label(x0 + w + 6, ybase - 64, "금속선+저유전율 절연막", "tiny-label", "start"))
+    out.append(label(x0 + w + 6, ybase - 80, "BEOL(배선)", "tiny-label", "start") + label(x0 + w + 6, ybase - 64, "금속선+low-k dielectric", "tiny-label", "start"))
     if back:
         out.append(rect(x0, ybase + 30, w, 18, "var(--fig-si)", None, 0, "opacity:.6") + label(x0 + w + 6, ybase + 44, "얇게 깎은 기판", "tiny-label", "start"))
         for i in range(4):
@@ -265,7 +265,7 @@ def chip(args):
     else:
         out.append(_text(360, 320, "아래층 트랜지스터를 만든 뒤 그 위에 여러 층의 금속 배선을 쌓는다(위로 갈수록 굵음)", "tiny-label"))
         out.append(label(x0 + w / 2, ybase + 52, "기판", "label"))
-        title, desc = "칩 단면: FEOL과 BEOL", "기판 위 트랜지스터층(FEOL) 위에 금속 배선과 층간 절연막이 여러 층 쌓인 배선층(BEOL)이 있다."
+        title, desc = "칩 단면: FEOL과 BEOL", "기판 위 트랜지스터층(FEOL) 위에 금속 배선과 interlayer dielectric이 여러 층 쌓인 배선층(BEOL)이 있다."
     return _wrap(title, desc, 364, "".join(out))
 
 
@@ -287,7 +287,7 @@ def m3d(args):
 
 def parasitic(args):
     out = [panel(140, 40, 440, 250)]
-    out.append(rect(170, 180, 380, 60, "var(--fig-oxide)", None, 2, "opacity:.5") + label(360, 266, "층간 절연막 (유전율 κ)", "label"))
+    out.append(rect(170, 180, 380, 60, "var(--fig-oxide)", None, 2, "opacity:.5") + label(360, 266, "interlayer dielectric (유전율 κ)", "label"))
     for x in (230, 400):
         out.append(rect(x, 120, 90, 120, "var(--fig-metal)", None, 3))
     out.append(label(275, 112, "배선 1", "label-strong") + label(445, 112, "배선 2", "label-strong"))
@@ -295,8 +295,8 @@ def parasitic(args):
         y = 140 + k * 20
         out.append(arrow(322, y, 398, y, "accent", 1.4, head=5))
     out.append(label(360, 76, "C ∝ κ · (마주보는 면적) / 간격", "accent-label"))
-    out.append(_text(360, 284, "배선 간격이 줄수록 C가 커져 RC 지연과 충방전 전력이 늘어난다 → 낮은 κ 절연막 사용", "tiny-label"))
-    return _wrap("배선 사이 기생 정전용량", "이웃한 금속선과 그 사이 절연막이 원치 않는 커패시터가 되어 신호 지연과 전력 소모를 늘린다.", 302, "".join(out))
+    out.append(_text(360, 284, "배선 간격이 줄수록 C가 커져 RC 지연과 충방전 전력이 늘어난다 → 낮은 κ dielectric 사용", "tiny-label"))
+    return _wrap("배선 사이 기생 정전용량", "이웃한 금속선과 그 사이 dielectric이 원치 않는 커패시터가 되어 신호 지연과 전력 소모를 늘린다.", 302, "".join(out))
 
 
 def mtj(args):

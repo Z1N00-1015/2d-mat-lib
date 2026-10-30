@@ -1,5 +1,5 @@
 // Hub page: render every field (분야) and its chapter cards from the manifest in book-runtime.js
-import { FIELDS, chapterUrl } from './book-runtime.js?v=20261028-papers';
+import { FIELDS, chapterUrl } from './book-runtime.js?v=20261030-terms';
 
 const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const local = FIELDS.filter(f => !f.external);

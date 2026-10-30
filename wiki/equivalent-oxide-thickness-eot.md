@@ -1,9 +1,9 @@
 ---
-title: 등가 산화막 두께
+title: EOT
 en: equivalent oxide thickness, EOT
 category: 소자
 status: 초안
-summary: 고유전율 절연막과 같은 정전 용량을 주는 SiO₂의 두께. EOT = t_phys × (3.9 / κ).
+summary: high-k dielectric과 같은 정전 용량을 주는 SiO₂의 두께. EOT = t_phys × (3.9 / κ).
 papers: wilk2001, illarionov2020, liu2021prospects, das2021
 reviewed: 2026-10-30
 info:
@@ -22,7 +22,7 @@ sources:
 ---
 ## 정의
 
-**등가 산화막 두께**(equivalent oxide thickness, EOT)는 어떤 게이트 절연막과 같은 단위 면적당 정전용량을 주는 SiO₂의 두께입니다.
+**EOT**(equivalent oxide thickness, EOT)는 어떤 gate dielectric과 같은 단위 면적당 정전용량을 주는 SiO₂의 두께입니다.
 
 **EOT = t_물리 × (κ_SiO₂ / κ) = t_물리 × (3.9 / κ)**
 
@@ -38,4 +38,4 @@ sources:
 
 ## 2D 소자에서의 과제
 
-2D 채널은 표면에 결합할 자리가 없어 원자층 증착(ALD)으로 산화막이 고르게 붙지 않고, 계면 결함과 [[전하 트랩]]이 생기기 쉽습니다. [[h-BN]]은 계면이 깨끗하지만 유전율이 SiO₂와 비슷한 수준으로 낮고 얇으면 누설이 커서 EOT를 1 nm 아래로 줄이기 어렵습니다. 따라서 EOT, 누설 전류, 결함 밀도를 함께 만족하는 절연막이 2D 트랜지스터의 핵심 과제로 꼽힙니다(Illarionov 2020, Liu 2021, Das 2021).
+2D 채널은 표면에 결합할 자리가 없어 원자층 증착(ALD)으로 산화막이 고르게 붙지 않고, 계면 결함과 [[전하 트랩]]이 생기기 쉽습니다. [[h-BN]]은 계면이 깨끗하지만 유전율이 SiO₂와 비슷한 수준으로 낮고 얇으면 누설이 커서 EOT를 1 nm 아래로 줄이기 어렵습니다. 따라서 EOT, 누설 전류, 결함 밀도를 함께 만족하는 dielectric이 2D 트랜지스터의 핵심 과제로 꼽힙니다(Illarionov 2020, Liu 2021, Das 2021).
