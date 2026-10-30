@@ -1,6 +1,11 @@
 # 작업 인계 기록
 
 ## 2026-10-30 · claude
+- 변경: 위키 그림 기능. `tools/wiki_figures.py`(표준 라이브러리)가 front matter `figures:`로 SVG를 그리고, 본문 `{{그림: 이름 | 캡션}}` 줄 자리에 번호를 붙여 넣음. 종류: 원자 구조(tmd·graphene·hbn, 위/옆), 라만·PL 스펙트럼(로런츠 곡선, PL은 위쪽 파장 축·보고 범위 띠), 밴드 구조 개념도(TMD bulk 간접↔단층 직접, 그래핀 디랙 원뿔, h-BN 넓은 갭). MoS₂·WSe₂·MoSe₂·WS₂·그래핀·h-BN 문서에 적용(각 3–4개). 피크 위치는 연구실 DB·문헌값, 세기·선폭은 표현용이라고 캡션에 밝힘. 새 출처: Lee 2010(MoS₂ 라만), Ferrari 2006(그래핀 라만), Gorbachev 2011(h-BN 라만, `_papers.txt`에 추가해 배포 때 대조), MoSe₂ bulk 1.1 eV(Tongay 2012). `.wiki-figure`가 정보 상자 아래로 내려가도록 CSS, book.css 버전 `20261030-figures`.
+- 확인: 빌드 122개, 라이트/다크·모바일(가로 넘침 없음), 콘솔 오류 없음.
+- 남은 일: 모바일에서 두 칸 그림의 글자가 작음(확대해 보는 수준). 다른 물질 문서에도 `figures:`를 붙일 수 있음.
+
+## 2026-10-30 · claude
 - 변경: 연구실 논문 DB(`data/papers.json`) 크로스체크 결과에 따라 1.1.2 밴드갭 그래프의 단층 TMD 값을 실온 PL(A 엑시톤) 기준으로 수정: MoS₂ 1.91→1.82–1.90(기판 위~떠 있는 시료, Mak 2010), MoSe₂ 1.66→약 1.55(Tongay 2012), WSe₂ 1.74→약 1.65, WS₂ 2.04→약 1.97(Zhao 2013). 캡션에 ‘PL=엑시톤 에너지, 준입자 밴드갭보다 작음’ 설명과 출처 추가.
 - 변경: 위키 물질 문서 WSe₂·MoSe₂·WS₂·그래핀·h-BN 신규, MoS₂ 보강. 연구실 DB 수치(PL·라만·성장 온도·접촉 저항·온 전류 등)를 논문별로 인용하고 ‘연구실 DB 수치는 대부분 AI 상호검증 승인’ 안내를 넣음. `_papers.txt`에 연구실 DB 논문 19편과 PL 출처 2편 추가(배포 때 Crossref 대조). 용어 사전에 6개 물질 추가(glossary.js 버전 `20261030-materials`).
 - 주의(연구실 DB 확인 필요): Hypotaxy 논문(Moon 2025, human 승인)의 on/off 비 ‘1.4’, 온 전류 ‘2.5 A μm⁻¹’은 단위·지수가 빠진 것으로 보여 문서에 쓰지 않음. ‘MoO₃/WO₃ source temperature’가 growth_temperature로 분류된 사례(MoS₂/WSe₂ 이종이중층 논문)도 있음.

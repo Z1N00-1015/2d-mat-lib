@@ -45,6 +45,9 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import wiki_figures  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "wiki"
 OUT = ROOT / "chapters" / "wiki"
@@ -53,7 +56,7 @@ PAPERS = SRC / "_papers.txt"
 EDIT_URL = "https://github.com/z1n00-1015/2d-mat-lib/edit/main/wiki/{0}.md"
 NEW_URL = "https://github.com/z1n00-1015/2d-mat-lib/new/main/wiki"
 CATEGORY_ORDER = ["물질", "결정학", "전자 구조", "물성", "공정", "분석법", "소자", "연구 분야", "기타"]
-LIST_KEYS = {"sources", "info"}
+LIST_KEYS = {"sources", "info", "figures"}
 COMMA_KEYS = {"aliases", "related", "papers"}
 
 
@@ -90,6 +93,7 @@ def parse_doc(path):
     meta.setdefault("related", [])
     meta.setdefault("sources", [])
     meta.setdefault("info", [])
+    meta.setdefault("figures", [])
     meta.setdefault("papers", [])
     meta.setdefault("status", "초안")
     meta.setdefault("reviewed", "")
@@ -199,6 +203,18 @@ class Renderer:
     def __init__(self, lookup, current):
         self.lookup, self.current = lookup, current
         self.links, self.missing = set(), set()
+        self.figures, self.fig_n = None, 0   # None: 링크만 모으는 1차 처리라 그림을 만들지 않음
+
+    def figure(self, name, caption):
+        if self.figures is None:
+            self.inline(caption)
+            return ""
+        svg = self.figures.get(name.lower())
+        if not svg:
+            sys.exit("{0}: figures에 '{1}' 그림이 없습니다.".format(self.current, name))
+        self.fig_n += 1
+        return ('<figure class="diagram-figure wiki-figure"><div class="fig-body">{0}</div>'
+                '<figcaption><b>그림 {1}</b> {2}</figcaption></figure>').format(svg, self.fig_n, self.inline(caption))
 
     def wikilink(self, m):
         target, _, label = m.group(1).partition("|")
@@ -254,6 +270,11 @@ class Renderer:
             if s.startswith("|"):
                 flush_para(); flush_list(); table.append(s); continue
             flush_table()
+            m = re.match(r"^\{\{그림:\s*([^|}]+?)\s*(?:\|\s*(.*?))?\s*\}\}$", s)
+            if m:
+                flush_para(); flush_list()
+                out.append(self.figure(m.group(1), m.group(2) or ""))
+                continue
             m = re.match(r"^(#{2,3})\s+(.*)$", s)
             if m:
                 flush_para(); flush_list()
@@ -344,6 +365,13 @@ def link_list(items):
 
 def render_doc(doc, docs, lookup, backlinks, chapters, papers):
     r = Renderer(lookup, doc["slug"])
+    r.figures = {}
+    for spec in doc["figures"]:
+        try:
+            name, svg = wiki_figures.render(spec)
+        except (ValueError, IndexError) as e:
+            sys.exit("{0}: 그림을 만들 수 없습니다({1}): {2}".format(doc["slug"], spec, e))
+        r.figures[name.lower()] = svg
     body = r.render(doc["body"]) if doc["body"] else ""
     parts = []
     head = ['<header class="chapter-head wiki-head">',

@@ -174,3 +174,4 @@ pak2017 | 10.1021/acs.nanolett.7b02513 | Pak et al. | Nano Letters | 2017 | Stra
 li2016gase | 10.1126/sciadv.1501882 | Li et al. | Science Advances | 2016 | Two-dimensional GaSe/MoSe2 misfit bilayer heterojunctions by van der Waals epitaxy | 격자 불일치가 큰 GaSe/MoSe₂ 이중층의 반데르발스 에피택시
 moody2023 | 10.1021/acsami.3c11931 | Moody et al. | ACS Appl. Mater. Interfaces | 2023 | van der Waals Epitaxy, Superlubricity, and Polarization of the 2D Ferroelectric SnS | h-BN 위 강유전체 SnS의 반데르발스 에피택시와 초윤활
 jung2025 | 10.1016/j.apsusc.2024.161676 | Jung et al. | Applied Surface Science | 2025 | WOx-driven growth of 2H- and 3R-WS2 multilayers by physical vapor deposition | WOₓ를 매개로 PVD에서 2H·3R WS₂ 다층을 골라 성장
+gorbachev2011 | 10.1002/smll.201001628 | Gorbachev et al. | Small | 2011 | Hunting for Monolayer Boron Nitride: Optical and Raman Signatures | 라만 E₂g 피크 이동과 광학 대비로 단층 h-BN 판별

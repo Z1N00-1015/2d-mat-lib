@@ -997,6 +997,8 @@ table.gloss-table .empty { text-align: center; color: var(--muted); padding: 30p
 .wiki-link:hover { border-bottom-style: solid; }
 .wiki-missing { color: var(--rose); border-bottom: 1px dotted var(--rose); cursor: help; }
 .wiki-infobox { float: right; width: min(300px, 42%); margin: 4px 0 18px 22px; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--surface); font-size: 13.5px; }
+.wiki-figure { clear: both; }
+.wiki-figure figcaption { font-size: 13.5px; }
 .wiki-infobox-title { padding: 10px 14px; background: color-mix(in srgb, var(--accent) 12%, var(--surface)); color: var(--text); font-weight: 800; text-align: center; }
 .wiki-infobox table { width: 100%; border-collapse: collapse; }
 .wiki-infobox th, .wiki-infobox td { padding: 8px 12px; border-top: 1px solid var(--border); text-align: left; vertical-align: top; }

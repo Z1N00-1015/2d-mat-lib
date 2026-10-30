@@ -12,7 +12,11 @@ info:
 - 면내 격자상수 a | 2.505 Å (그래핀과 약 1.8% 차이)
 - 밴드갭 | 약 6 eV, 넓은 밴드갭 절연체
 - 역할 | 기판·봉지층·게이트 절연막·성장 템플릿
-papers: dean2010, wang2019hbn, geim2013, moody2023, kim2018moo3
+figures:
+- 구조 | hbn
+- 라만 | 1366:1:E₂g:9 | 532 nm
+- 밴드 | wide | 6
+papers: dean2010, wang2019hbn, gorbachev2011, moody2023, kim2018moo3
 sources:
 - Dean et al., Nature Nanotechnology (2010) | https://doi.org/10.1038/nnano.2010.172
 - graphene·h-BN 격자상수 | https://link.aps.org/accepted/10.1103/PhysRevB.97.205104
@@ -20,10 +24,21 @@ sources:
 - Moody et al., ACS Appl. Mater. Interfaces (2023) — 연구실 DB | https://doi.org/10.1021/acsami.3c11931
 - Kim et al., 2D Materials (2018) — 연구실 DB | https://doi.org/10.1088/2053-1583/aaedc8
 - Moon et al., Nature (2025) — 연구실 DB | https://doi.org/10.1038/s41586-024-08492-9
+- Gorbachev et al., Small (2011) | https://doi.org/10.1002/smll.201001628
 ---
 ## 개요
 
 h-BN은 붕소(B)와 질소(N)가 벌집 모양으로 번갈아 놓인 층상 물질로, 구조는 그래핀과 비슷하지만 약 6 eV의 넓은 밴드갭을 가진 절연체입니다. 표면이 원자 수준으로 평평하고 전하 트랩이 적어, 그래핀을 h-BN 위에 올리면 SiO₂ 위보다 이동도가 크게 높아집니다(Dean 2010).
+
+{{그림: 구조 | h-BN의 원자 구조. 위에서 보면 붕소(노랑)와 질소(청록)가 번갈아 놓인 벌집 격자(a = 2.505 Å)이고, 옆에서 보면 위층의 B 위에 아래층의 N이 오도록 쌓입니다(AA′ 적층).}}
+
+{{그림: 밴드 | 넓은 밴드갭 개념도. 전도대와 가전자대 사이가 약 6 eV로 넓어 가시광을 흡수하지 않는 투명한 절연체입니다.}}
+
+## 라만
+
+h-BN은 B와 N이 서로 반대로 움직이는 E₂g 모드 하나가 약 1366 cm⁻¹에서 나타납니다. 단층에서는 피크가 수 cm⁻¹ 높아지고 세기가 약해져, 층수를 판단하는 단서가 됩니다(Gorbachev 2011).
+
+{{그림: 라만 | h-BN의 라만 스펙트럼. 피크 위치는 Gorbachev 2011의 bulk 값이고, 선폭은 모양을 보이기 위해 정했습니다.}}
 
 ## 연구실 논문에서의 쓰임
 
