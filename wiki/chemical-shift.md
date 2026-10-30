@@ -1,5 +1,5 @@
 ---
-title: 화학적 이동
+title: chemical shift
 en: chemical shift
 category: 분석법
 status: 초안
@@ -12,7 +12,7 @@ info:
 - 크기 | 보통 수 eV 이내
 - 2D 예 | MoS₂의 1T 성분은 2H보다 낮은 결합 에너지
 figures:
-- 화학적이동
+- chemical shift
 sources:
 - Watts & Wolstenholme, An Introduction to Surface Analysis by XPS and AES (Wiley, 2003)
 - Eda et al., Nano Letters (2011) | https://doi.org/10.1021/nl201874w
@@ -21,9 +21,9 @@ sources:
 ---
 ## 정의
 
-**화학적 이동**(chemical shift)은 같은 원소라도 주변의 화학 결합과 전하 상태에 따라 분광 피크의 에너지 위치가 달라지는 현상입니다. [[X선 광전자분광법|XPS]]에서는 내각 전자의 결합 에너지가 바뀌는 것으로 나타납니다.
+**chemical shift**는 같은 원소라도 주변의 화학 결합과 전하 상태에 따라 분광 피크의 에너지 위치가 달라지는 현상입니다. [[X선 광전자분광법|XPS]]에서는 내각 전자의 결합 에너지가 바뀌는 것으로 나타납니다.
 
-{{그림: 화학적이동 | 같은 원소가 산화되어 높은 산화수를 가지면(빨강) 피크가 높은 결합 에너지 쪽으로 이동합니다. 피크 위치는 개념을 보이기 위한 것입니다.}}
+{{그림: chemical shift | 같은 원소가 산화되어 높은 산화수를 가지면 피크가 높은 결합 에너지 쪽으로 이동합니다.}}
 
 ## 왜 생기나
 

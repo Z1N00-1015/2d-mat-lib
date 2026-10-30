@@ -1,5 +1,5 @@
 ---
-title: 드레인 유도 장벽 감소
+title: DIBL
 en: drain-induced barrier lowering, DIBL
 category: 소자
 status: 초안
@@ -23,7 +23,7 @@ sources:
 ---
 ## 정의
 
-**드레인 유도 장벽 감소**(drain-induced barrier lowering, DIBL)는 드레인 전압을 높였을 때 소스와 채널 사이의 퍼텐셜 장벽이 낮아져 문턱전압이 줄어드는 현상입니다. 대표적인 [[단채널 효과]]입니다.
+**DIBL**(drain-induced barrier lowering)는 드레인 전압을 높였을 때 소스와 채널 사이의 퍼텐셜 장벽이 낮아져 문턱전압이 줄어드는 현상입니다. 대표적인 [[단채널 효과]]입니다.
 
 {{그림: 전달곡선 | 같은 소자에서 드레인 전압을 높이면(빨강) 전달 곡선이 왼쪽으로 이동합니다. 이동량을 드레인 전압 차로 나눈 값이 DIBL입니다.}}
 
@@ -41,6 +41,6 @@ DIBL = −(V_th,높은 V_D − V_th,낮은 V_D) / (V_D,높음 − V_D,낮음)
 
 ## 줄이는 방법과 2D 소자
 
-[[스케일 길이]]를 줄이면 DIBL이 줄어듭니다. 채널을 얇게, gate dielectric을 얇게(또는 [[EOT|EOT]]를 작게), 게이트가 채널을 감싸게 하면 됩니다(Yan 1992, Frank 2001). 원자층 채널은 이 점에서 유리해, 매우 짧은 게이트 길이에서도 비교적 작은 DIBL이 보고됩니다(Desai 2016, Liu 2021).
+[[scale length]]를 줄이면 DIBL이 줄어듭니다. 채널을 얇게, gate dielectric을 얇게(또는 [[EOT|EOT]]를 작게), 게이트가 채널을 감싸게 하면 됩니다(Yan 1992, Frank 2001). 원자층 채널은 이 점에서 유리해, 매우 짧은 게이트 길이에서도 비교적 작은 DIBL이 보고됩니다(Desai 2016, Liu 2021).
 
 DIBL이 크면 회로에서 꺼짐 누설이 드레인 전압에 따라 크게 변하고 증폭기의 출력 저항이 낮아집니다.

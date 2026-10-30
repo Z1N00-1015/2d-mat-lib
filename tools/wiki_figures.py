@@ -303,7 +303,7 @@ def raman(args):
     pad = max(25, span * 0.15)
     lo, hi = min(pos) - pad, max(pos) + pad
     step = next(s for s in (5, 10, 20, 50, 100, 200, 250, 500) if (hi - lo) / s <= 9)
-    xlabel = "라만 이동 (cm⁻¹)" + (" · 들뜸 레이저 {0}".format(laser) if laser else "")
+    xlabel = "Raman shift (cm⁻¹)" + (" · 들뜸 레이저 {0}".format(laser) if laser else "")
     desc = "라만 피크: " + ", ".join("{0} {1:g} cm⁻¹".format(n, p) for p, _, n, _ in peaks if n)
     return _spectrum(peaks, lo, hi, step, xlabel, lambda v: "{0:g}".format(v), title="라만 스펙트럼", desc=desc)
 

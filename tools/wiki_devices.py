@@ -59,14 +59,14 @@ def transfer(args):
         out.append(arrow(330, 150, 282, 150, "text", 1.8, head=6) + label(306, 142, "ΔV_th", "label-strong"))
         out.append(label(420, 238, "낮은 V_D", "accent-label", "start") + label(250, 92, "높은 V_D", "rose-label", "end"))
         out.append(_text(360, 340, "DIBL = −ΔV_th / ΔV_D (mV/V) — 드레인 전압이 장벽을 낮춰 곡선이 왼쪽으로 이동", "tiny-label"))
-        title, desc = "드레인 유도 장벽 감소", "드레인 전압을 높이면 문턱전압이 낮아져 전달 곡선이 왼쪽으로 이동한다."
+        title, desc = "DIBL", "드레인 전압을 높이면 문턱전압이 낮아져 전달 곡선이 왼쪽으로 이동한다."
     elif kind == "hyst":
         out.append(_transfer(x0, y0, w, h, 260, 1.1, "accent"))
         out.append(_transfer(x0, y0, w, h, 360, 1.1, "rose"))
-        out.append(arrow(296, 160, 384, 160, "text", 1.6, head=6) + arrow(384, 160, 296, 160, "text", 1.6, head=6) + label(340, 152, "메모리 창", "label-strong"))
+        out.append(arrow(296, 160, 384, 160, "text", 1.6, head=6) + arrow(384, 160, 296, 160, "text", 1.6, head=6) + label(340, 152, "memory window", "label-strong"))
         out.append(label(232, 84, "상태 ‘1’ (낮은 V_th)", "accent-label", "end") + label(452, 250, "상태 ‘0’ (높은 V_th)", "rose-label", "start"))
         out.append(_text(360, 340, "같은 읽기 전압(두 곡선 사이)에서 전류 차이로 저장 상태를 읽는다", "tiny-label"))
-        title, desc = "두 문턱전압 상태와 메모리 창", "강유전 분극이나 전하 저장으로 문턱전압이 두 값을 가지면, 그 차이가 메모리 창이다."
+        title, desc = "두 문턱전압 상태와 memory window", "강유전 분극이나 전하 저장으로 문턱전압이 두 값을 가지면, 그 차이가 memory window이다."
     else:
         out.append(_transfer(x0, y0, w, h, 280, 1.3, "accent"))
         out.append(_transfer(x0, y0, w, h, 280, 0.72, "amber", dash=True))
@@ -77,7 +77,7 @@ def transfer(args):
         out.append(label(200, 262, "꺼짐(누설)", "tiny-label", "start") + label(560, 72, "켜짐", "tiny-label", "end"))
         out.append(label(346, 104, "가파름: SS 작음", "accent-label", "end") + label(470, 196, "완만: SS 큼", "amber-label", "start"))
         out.append(_text(360, 340, "SS = dV_G / d(log₁₀ I_D) — 상온 MOSFET의 이론 하한은 약 60 mV/dec", "tiny-label"))
-        title, desc = "전달 곡선과 문턱전압이하 스윙", "로그 눈금 전류에서 문턱전압 아래 구간의 기울기가 SS이며, 가파를수록 작은 전압으로 끄고 켤 수 있다."
+        title, desc = "전달 곡선과 subthreshold swing", "로그 눈금 전류에서 문턱전압 아래 구간의 기울기가 SS이며, 가파를수록 작은 전압으로 끄고 켤 수 있다."
     return _wrap(title, desc, 352, "".join(out))
 
 
@@ -177,14 +177,14 @@ def barrier(args):
                 elif x > xd:
                     y = 200 + vd
                 else:
-                    # 게이트가 잡는 장벽(110)에 소스·드레인 전위가 스케일 길이 lam만큼 스며든다
+                    # 게이트가 잡는 장벽(110)에 소스·드레인 전위가 scale length lam만큼 스며든다
                     y = 110 + (200 - 110) * math.exp(-(x - xs) / lam) + (200 + vd - 110) * math.exp(-(xd - x) / lam)
                 pts.append((x, y))
             out.append(path(pts, col + "-line", "stroke-width:2.2"))
         out.append(label(xs - 20, 190, "소스", "tiny-label") + label(xd + 40, 186, "드레인", "tiny-label"))
         out.append(label((xs + xd) / 2, 100, "게이트 아래 장벽", "tiny-label"))
     out.append(_text(360, 312, "파랑: 낮은 V_D · 빨강: 높은 V_D — 짧은 채널에서는 드레인 전위가 채널 깊이 들어와 장벽이 낮아진다", "tiny-label"))
-    return _wrap("짧은 채널에서 낮아지는 장벽", "채널이 스케일 길이에 비해 짧으면 드레인 전위가 게이트 아래까지 침투해 소스 쪽 장벽을 낮춘다.", 324, "".join(out))
+    return _wrap("짧은 채널에서 낮아지는 장벽", "채널이 scale length에 비해 짧으면 드레인 전위가 게이트 아래까지 침투해 소스 쪽 장벽을 낮춘다.", 324, "".join(out))
 
 
 def eot(args):
@@ -261,7 +261,7 @@ def chip(args):
             out.append(rect(x0 + 80 + i * 110, ybase + 26, 10, 24, "var(--rose)", None, 0))
         out.append(label(x0 + w + 6, ybase + 66, "후면 전력망", "rose-label", "start"))
         out.append(_text(360, 352, "전력선을 웨이퍼 뒷면으로 옮겨 앞면 배선은 신호에만 쓰고 전력 경로를 짧게 한다", "tiny-label"))
-        title, desc = "후면 전력 공급망", "전력 배선을 기판 뒤쪽에 두고 짧은 관통 연결로 트랜지스터에 전력을 공급해, 앞면 배선을 신호 전용으로 쓴다."
+        title, desc = "BSPDN", "전력 배선을 기판 뒤쪽에 두고 짧은 관통 연결로 트랜지스터에 전력을 공급해, 앞면 배선을 신호 전용으로 쓴다."
     else:
         out.append(_text(360, 320, "아래층 트랜지스터를 만든 뒤 그 위에 여러 층의 금속 배선을 쌓는다(위로 갈수록 굵음)", "tiny-label"))
         out.append(label(x0 + w / 2, ybase + 52, "기판", "label"))
@@ -282,7 +282,7 @@ def m3d(args):
     out.append(label(x0 + 44, 112, "층간 연결(짧은 비아)", "tiny-label", "start"))
     out.append(arrow(104, 150, 104, 300, "rose", 2) + label(100, 330, "위층 공정 열이 아래층에 전달", "rose-label", "start"))
     out.append(_text(360, 350, "위층은 아래 소자·배선이 견디는 온도(대략 400–450 °C 이하)에서 만들어야 한다", "tiny-label"))
-    return _wrap("단일체 3차원 집적", "실리콘 회로와 배선층 위에 새 소자층을 직접 만들어 쌓고, 짧은 비아로 층 사이를 잇는다.", 372, "".join(out))
+    return _wrap("monolithic 3D integration", "실리콘 회로와 배선층 위에 새 소자층을 직접 만들어 쌓고, 짧은 비아로 층 사이를 잇는다.", 372, "".join(out))
 
 
 def parasitic(args):
@@ -386,6 +386,46 @@ def retention(args):
     return _wrap("잔류 시간", "시간이 지나며 두 저장 상태의 문턱전압이 가까워지고, 목표 시간까지 구분 가능한 창이 남아 있어야 한다.", 352, "".join(out))
 
 
+def mobility(args):
+    """이동도 추출에 쓰이는 FET, Hall, 4단자 측정 배치."""
+    out = []
+    out.append(panel(24, 28, 212, 278, "FET 전달 특성"))
+    x0, y0, w, h = 60, 92, 144, 146
+    out.append(axes(x0, y0, w, h, "V_G", "I_D"))
+    pts = []
+    for i in range(101):
+        x = x0 + w * i / 100
+        y = y0 + h - 12 - 120 / (1 + math.exp(-(i - 50) / 10))
+        pts.append((x, y))
+    out.append(path(pts, "accent-line", "stroke-width:2.6"))
+    out.append(line(114, 193, 147, 151, "rose-line", "stroke-width:1.8;stroke-dasharray:4 3"))
+    out.append(label(132, 144, "gₘ", "rose-label"))
+    out.append(_text(130, 282, "μ_FE ∝ gₘ / C_g", "tiny-label"))
+
+    out.append(panel(254, 28, 212, 278, "Hall 측정"))
+    out.append(rect(292, 115, 136, 82, "var(--fig-oxide)", "var(--border)", 8))
+    out.append(rect(278, 137, 16, 38, "var(--fig-metal)", None, 3) + rect(426, 137, 16, 38, "var(--fig-metal)", None, 3))
+    out.append(rect(333, 99, 34, 16, "var(--fig-metal)", None, 3) + rect(333, 197, 34, 16, "var(--fig-metal)", None, 3))
+    out.append(arrow(302, 156, 414, 156, "accent", 2, head=7) + label(358, 147, "I", "accent-label"))
+    out.append(line(350, 104, 350, 208, "rose-line", "stroke-width:1.7;stroke-dasharray:4 3"))
+    out.append(label(372, 108, "V_H", "rose-label", "start"))
+    out.append(_text(360, 244, "자기장 B ⊙", "tiny-label"))
+    out.append(_text(360, 282, "μ_H = |R_H| σ", "tiny-label"))
+
+    out.append(panel(484, 28, 212, 278, "4단자 채널 측정"))
+    out.append(rect(512, 126, 152, 62, "var(--fig-oxide)", "var(--border)", 8))
+    for x, name in ((516, "I+"), (656, "I−"), (560, "V+"), (616, "V−")):
+        out.append(rect(x - 7, 112 if name.startswith("V") else 146, 14, 18 if name.startswith("V") else 22,
+                        "var(--fig-metal)", None, 3))
+        out.append(label(x, 103 if name.startswith("V") else 180, name, "tiny-label"))
+    out.append(arrow(528, 158, 646, 158, "accent", 2, head=7))
+    out.append(line(560, 112, 560, 105, "rose-line", "stroke-width:1.5") + line(616, 112, 616, 105, "rose-line", "stroke-width:1.5"))
+    out.append(_text(590, 244, "접촉 전압 강하를 줄여 채널 저항을 분리", "tiny-label"))
+    out.append(_text(590, 282, "μ = σ / (q n)", "tiny-label"))
+    return _wrap("이동도 측정 개요", "FET 전달 특성, Hall 효과, 4단자 수송 측정은 서로 다른 방식으로 캐리어 이동도를 추정한다.", 326, "".join(out))
+
+
 KINDS = {"fet": fet, "전달곡선": transfer, "출력곡선": output, "쇼트키": schottky, "tlm": tlm, "터널링": tunneling,
          "장벽": barrier, "eot": eot, "pe": pe_loop, "이중우물": double_well, "칩": chip, "3d집적": m3d,
-         "기생용량": parasitic, "mtj": mtj, "2deg": two_deg, "이력방향": trap_hyst, "선택소자": selector, "잔류": retention}
+         "기생용량": parasitic, "mtj": mtj, "2deg": two_deg, "이력방향": trap_hyst, "선택소자": selector,
+         "잔류": retention, "이동도": mobility}

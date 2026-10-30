@@ -14,6 +14,8 @@ wang2013contact | 10.1126/science.1244358 | Wang et al. | Science | 2013 | One-d
 mak2010 | 10.1103/PhysRevLett.105.136805 | Mak et al. | Phys. Rev. Lett. | 2010 | Atomically Thin MoS2: A New Direct-Gap Semiconductor | 단층 MoS₂가 직접 밴드갭 반도체임을 보고
 splendiani2010 | 10.1021/nl903868w | Splendiani et al. | Nano Letters | 2010 | Emerging Photoluminescence in Monolayer MoS2 | 단층 MoS₂에서 강한 발광이 나타남을 관측
 radisavljevic2011 | 10.1038/nnano.2010.279 | Radisavljevic et al. | Nature Nanotechnology | 2011 | Single-layer MoS2 transistors | 단층 MoS₂ 트랜지스터 시연
+fuhrer2013mobility | 10.1038/nnano.2013.30 | Fuhrer & Hone | Nature Nanotechnology | 2013 | Measurement of mobility in dual-gated MoS2 transistors | 이중 게이트 MoS₂ FET의 이동도 추출과 측정 조건 검토
+zhu2014mobility | 10.1038/ncomms4087 | Zhu et al. | Nature Communications | 2014 | Electronic transport and device prospects of monolayer molybdenum disulphide grown by chemical vapour deposition | CVD 단층 MoS₂ 전기 수송과 응용별 이동도 기준 논의
 wang2012review | 10.1038/nnano.2012.193 | Wang et al. | Nature Nanotechnology | 2012 | Electronics and optoelectronics of two-dimensional transition metal dichalcogenides | TMD 전자·광전자 소자 리뷰
 chhowalla2013 | 10.1038/nchem.1589 | Chhowalla et al. | Nature Chemistry | 2013 | The chemistry of two-dimensional layered transition metal dichalcogenide nanosheets | 층상 TMD 나노시트의 화학·상·박리 리뷰
 manzeli2017 | 10.1038/natrevmats.2017.33 | Manzeli et al. | Nature Reviews Materials | 2017 | 2D transition metal dichalcogenides | 2D TMD 물성과 응용 종합 리뷰
@@ -41,7 +43,7 @@ kappera2014 | 10.1038/nmat4080 | Kappera et al. | Nature Materials | 2014 | Phas
 akinwande2019 | 10.1038/s41586-019-1573-9 | Akinwande et al. | Nature | 2019 | Graphene and two-dimensional materials for silicon technology | 실리콘 공정에 2D 물질을 통합하는 방향 리뷰
 illarionov2020 | 10.1038/s41467-020-16640-8 | Illarionov et al. | Nature Communications | 2020 | Insulators for 2D nanoelectronics: the gap to bridge | 2D 소자용 gate dielectric 과제 정리
 das2021 | 10.1038/s41928-021-00670-1 | Das et al. | Nature Electronics | 2021 | Transistors based on two-dimensional materials for future integrated circuits | 미래 집적회로용 2D 트랜지스터 리뷰
-jayachandran2024 | 10.1038/s41586-023-06860-5 | Jayachandran et al. | Nature | 2024 | Three-dimensional integration of two-dimensional field-effect transistors | 2D 트랜지스터 층을 쌓은 단일체 3D 집적
+jayachandran2024 | 10.1038/s41586-023-06860-5 | Jayachandran et al. | Nature | 2024 | Three-dimensional integration of two-dimensional field-effect transistors | 2D 트랜지스터 층을 쌓은 monolithic 3D integration of stacked 2D transistor layers
 moon2025 | 10.1038/s41586-024-08492-9 | Moon et al. | Nature | 2025 | Hypotaxy of wafer-scale single-crystal transition metal dichalcogenides | Graphene nanopore-mediated hypotaxy for wafer-scale single-crystal TMDs
 si2019 | 10.1038/s41928-019-0338-7 | Si et al. | Nature Electronics | 2019 | A ferroelectric semiconductor field-effect transistor | α-In₂Se₃ 채널의 강유전체 반도체 FET
 huang2017 | 10.1038/nature22391 | Huang et al. | Nature | 2017 | Layer-dependent ferromagnetism in a van der Waals crystal down to the monolayer limit | 단층 CrI₃ 강자성과 층수 의존성
@@ -130,7 +132,7 @@ parkin2004 | 10.1038/nmat1256 | Parkin et al. | Nature Materials | 2004 | Giant 
 jungwirth2016 | 10.1038/nnano.2016.18 | Jungwirth et al. | Nature Nanotechnology | 2016 | Antiferromagnetic spintronics | 반강자성 스핀트로닉스 리뷰
 wadley2016 | 10.1126/science.aab1031 | Wadley et al. | Science | 2016 | Electrical switching of an antiferromagnet | 전류로 반강자성체 네엘 벡터 전환
 frank2001 | 10.1109/5.915374 | Frank et al. | Proc. IEEE | 2001 | Device scaling limits of Si MOSFETs and their application dependencies | 실리콘 MOSFET 축소 한계 분석
-yan1992 | 10.1109/16.141237 | Yan et al. | IEEE Trans. Electron Devices | 1992 | Scaling the Si MOSFET: from bulk to SOI to bulk | 스케일 길이로 본 MOSFET 축소 설계
+yan1992 | 10.1109/16.141237 | Yan et al. | IEEE Trans. Electron Devices | 1992 | Scaling the Si MOSFET: from bulk to SOI to bulk | scale length로 본 MOSFET 축소 설계
 wilk2001 | 10.1063/1.1361065 | Wilk et al. | J. Appl. Phys. | 2001 | High-κ gate dielectrics: Current status and materials properties considerations | high-k gate dielectric 리뷰
 hong2020 | 10.1038/s41586-020-2375-9 | Hong et al. | Nature | 2020 | Ultralow-dielectric-constant amorphous boron nitride | 초저유전율 비정질 질화붕소 박막
 maex2003 | 10.1063/1.1567460 | Maex et al. | J. Appl. Phys. | 2003 | Low dielectric constant materials for microelectronics | 마이크로전자용 저유전율 재료 리뷰

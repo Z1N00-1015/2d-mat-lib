@@ -2,6 +2,19 @@
   "entries": [
     {
       "date": "2026-10-30",
+      "page": "이동도 · van der Waals epitaxy 위키",
+      "url": "./chapters/wiki/mobility.html",
+      "summary": "이동도의 정의와 FET·Hall·4단자·TLM 접근, 응용별 mobility benchmark 해석을 추가했습니다. van der Waals epitaxy 페이지에는 장점과 SnS/h-BN, MoS₂/WS₂·WSe₂ 사례를 정리했으며 참여 논문은 별도 배지 없이 논문 목록 앞에 배치했습니다. 접촉 저항 측정 링크를 분석법 장에 추가하고 요청한 7개 위키 페이지를 제거했습니다.",
+      "added_dois": [
+        "10.1038/ncomms4087",
+        "10.1038/nnano.2013.30",
+        "10.1039/C6RA14638D",
+        "10.1088/1361-6633/ae5ea2",
+        "10.1021/acsami.3c11931"
+      ]
+    },
+    {
+      "date": "2026-10-30",
       "page": "사이트 용어·위키 탐색 정리",
       "url": "./chapters/tools/glossary.html",
       "summary": "고체물리·반도체 분야에서 어색한 번역어를 표준 영문 용어와 Sb₂O₃ 표기로 정리했습니다. 불필요한 시각화 주석을 지우고 1T 구조 설명과 그래핀 nanopore 위키 문서를 제거했으며, 위키 사이드바를 전체 문서만 보이도록 간소화했습니다.",
@@ -11,7 +24,7 @@
       "date": "2026-10-30",
       "page": "위키 대표 논문 · 참여 논문",
       "url": "./chapters/wiki/mos2.html",
-      "summary": "참여 논문 6편(하이포택시, 이종이중층 변형 완화·atomic reconstruction, 3R 이중층 도메인·sliding ferroelectricity, 2H/3R WS₂ PVD 성장)을 관련 위키 문서 29곳의 대표 논문 맨 앞에 ‘참여 논문’ 표시와 함께 배치했습니다.",
+      "summary": "우선 논문 6편(하이포택시, 이종이중층 변형 완화·atomic reconstruction, 3R 이중층 도메인·sliding ferroelectricity, 2H/3R WS₂ PVD 성장)을 관련 위키 문서 29곳의 대표 논문 목록 앞에 일반 논문과 같은 서식으로 배치했습니다.",
       "added_dois": [
         "10.1088/1361-6633/ae5ea2",
         "10.1021/acsnano.5c14888",
@@ -40,7 +53,7 @@
       "date": "2026-10-30",
       "page": "위키 소자 문서 확장",
       "url": "./chapters/wiki/index.html",
-      "summary": "접촉 저항, 문턱전압이하 스윙, 단채널 효과, FeFET, 단일체 3D 집적 등 소자 위키 문서 24개를 트랜지스터 단면·특성 곡선·밴드 도식·칩 구조 그림과 함께 자세히 채웠습니다.",
+      "summary": "접촉 저항, subthreshold swing, 단채널 효과, FeFET, monolithic 3D integration 등 소자 위키 문서 24개를 트랜지스터 단면·특성 곡선·밴드 도식·칩 구조 그림과 함께 자세히 채웠습니다.",
       "added_dois": []
     },
     {

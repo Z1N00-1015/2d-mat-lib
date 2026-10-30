@@ -1,6 +1,11 @@
 # 작업 인계 기록
 
 ## 2026-10-30 · codex
+- 변경: 위키에 이동도 페이지(정의, FET/Hall/4단자/TLM 측정, 응용별 benchmark, 측정 도식)와 van der Waals epitaxy 페이지(장점, h-BN/SnS 및 MoS₂/WS₂·WSe₂ 사례)를 추가. 접촉 저항/TLM·4단자 설명을 분석법 장에 연결.
+- 정리: HAADF imaging, HRTEM, FFT, Raman shift, DF-TEM, SAED, STEM, chemical shift, monolithic 3D integration, DIBL, memory window, scale length, thermal budget, subthreshold swing, NCFET, low-k dielectric, BEOL, BSPDN을 표준 영문 표기로 정리. 기계적 박리·상향식/하향식 합성·이온 삽입·액상 박리·camera length·온 전류 밀도 위키 문서와 용어 사전 항목 삭제. 참여 논문은 별도 배지·강조 없이 목록 순서로만 우선 표시.
+- 확인: 위키 116개 문서 재생성, 미해결 문서 연결 0개. mobility 도식 포함 확인. 남은 일 없음.
+
+## 2026-10-30 · codex
 - 변경: 주요 페이지·용어 사전·위키·논문 카드에서 삼각 프리즘 배위, polytype, spin polarization, sliding ferroelectricity, suspended, zero-band-gap semimetal, Sb₂O₃, dielectric, encapsulation, EOT, lateral heterostructure, remote epitaxy, atomic reconstruction 표기를 정리. 반데르발스 간격은 반데르발스 갭으로 변경.
 - 정리: 떠 있는 시료·원자 위치 비율·곡선 모양·세기/선폭 관련 안내를 그림 캡션에서 제거하고, 논문 DB 언급을 간결한 DB/선행 연구 표현으로 바꿈. 불필요한 1T 구조 소개, 그래핀 nanopore 위키 페이지와 전용 정적 그림 생성기, 위키 사이드바의 대표 문서 그룹을 제거.
 - 확인: 위키 재생성 121개 문서, 누락 링크 0개. JSON 구문과 `git diff --check` 통과. 로컬 브라우저에서 표지·용어 사전 렌더링 확인.

@@ -6,7 +6,7 @@ category: 공정
 status: 초안
 reviewed: 2026-10-27
 summary: 기체 상태의 원료를 고온 반응로에 흘려 기판 표면에서 반응시켜 결정과 박막을 성장시키는 상향식 합성법.
-related: 유기금속 화학 기상 증착, 결정립계, 상향식 합성, 에피택시, 하이포택시
+related: 유기금속 화학 기상 증착, 결정립계, 에피택시, 하이포택시
 chapter: materials/synthesis
 sources:
 - Kang et al., “High-mobility three-atom-thick semiconducting films with wafer-scale homogeneity”, Nature (2015) | https://doi.org/10.1038/nature14417
@@ -14,7 +14,7 @@ papers: moon2025, hong2025vls, li2009, lee2012cvd, kang2015, zhou2018library, li
 ---
 ## 개요
 
-화학 기상 증착(CVD)은 [[상향식 합성]]의 대표 방법입니다. 원료 기체가 가열된 기판 표면에 흡착·반응하면 원자층 결정의 핵이 생기고, 핵이 자라고 이어져 연속 박막이 됩니다.
+화학 기상 증착(CVD)은 기체 원료를 반응시켜 박막을 성장시키는 합성법입니다. 원료 기체가 가열된 기판 표면에 흡착·반응하면 원자층 결정의 핵이 생기고, 핵이 자라고 이어져 연속 박막이 됩니다.
 
 ## 성장 단계
 

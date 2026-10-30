@@ -14,7 +14,7 @@ info:
 - 얻는 정보 | 원소 조성, 산화 상태, 상(phase) 비율
 figures:
 - 광전자
-- 화학적이동
+- chemical shift
 sources:
 - Watts & Wolstenholme, An Introduction to Surface Analysis by XPS and AES (Wiley, 2003)
 - X-ray Data Booklet (LBNL) | https://xdb.lbl.gov
@@ -38,9 +38,9 @@ sources:
 
 ## 화학 상태 분석
 
-같은 원소라도 결합 상대와 산화 상태에 따라 결합 에너지가 조금씩 달라집니다([[화학적 이동]]). 산화되어 전자를 잃으면 높은 결합 에너지 쪽으로 이동합니다.
+같은 원소라도 결합 상대와 산화 상태에 따라 결합 에너지가 조금씩 달라집니다([[chemical shift]]). 산화되어 전자를 잃으면 높은 결합 에너지 쪽으로 이동합니다.
 
-{{그림: 화학적이동 | 같은 원소의 두 화학 상태. 산화수가 높을수록 피크가 높은 결합 에너지 쪽(왼쪽)에 나타납니다. 위치는 개념을 보이기 위한 것입니다.}}
+{{그림: chemical shift | 같은 원소의 두 화학 상태. 산화수가 높을수록 피크가 높은 결합 에너지 쪽(왼쪽)에 나타납니다.}}
 
 ## 2D 물질에서
 

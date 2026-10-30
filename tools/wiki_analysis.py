@@ -32,7 +32,7 @@ def raman_shift(args):
         peaks.append((-p, a * boltz, "", w))
     hi = max(p for p, _, _, _ in peaks) + 80
     lo = -hi
-    out = _spectrum(peaks, lo, hi, 100, "라만 이동 (cm⁻¹) · 왼쪽: 반스토크스, 오른쪽: 스토크스", lambda v: "{0:g}".format(v),
+    out = _spectrum(peaks, lo, hi, 100, "Raman shift (cm⁻¹) · 왼쪽: 반스토크스, 오른쪽: 스토크스", lambda v: "{0:g}".format(v),
                     band=(-60, 60), band_label="레일리(필터로 차단)", title="스토크스·반스토크스 라만", desc="레이저 선(0) 양쪽에 같은 이동량의 스토크스·반스토크스 피크가 나타나고, 상온에서는 반스토크스가 약하다.")
     return out
 
@@ -140,9 +140,9 @@ def chem_shift(args):
         out.append(path(pts, col + "-line"))
         out.append(label(x0 + c * (x1 - x0), y1 - amp * 150 - 12, name, col + "-label"))
     out.append(arrow(x0 + 0.6 * (x1 - x0), 226, x0 + 0.4 * (x1 - x0), 226, "text", 1.8))
-    out.append(label(x0 + 0.5 * (x1 - x0), 218, "화학적 이동", "label-strong"))
+    out.append(label(x0 + 0.5 * (x1 - x0), 218, "chemical shift", "label-strong"))
     out.append(_text(x0, y1 + 20, "← 결합 에너지 큼", "label", "start") + _text(x1, y1 + 20, "결합 에너지 작음 →", "label", "end"))
-    return _wrap("XPS 화학적 이동", "같은 원소라도 산화되어 전자를 잃으면 남은 내각 전자가 더 강하게 묶여 피크가 높은 결합 에너지 쪽으로 이동한다.", 276, "".join(out))
+    return _wrap("XPS chemical shift", "같은 원소라도 산화되어 전자를 잃으면 남은 내각 전자가 더 강하게 묶여 피크가 높은 결합 에너지 쪽으로 이동한다.", 276, "".join(out))
 
 
 def eds(args):
@@ -207,7 +207,7 @@ def stem(args):
     out.append(label(cx, 372, "BF (가운데)", "teal-label") + label(cx - 85, 372, "ADF", "amber-label") + label(cx + 85, 372, "ADF", "amber-label"))
     out.append(label(cx - 185, 372, "HAADF (바깥 고리)", "rose-label") + label(cx + 185, 372, "HAADF", "rose-label"))
     out.append(_text(360, 404, "큰 각도로 산란된 전자일수록 원자번호 Z에 민감 → HAADF 밝기 ≈ Z^1.7–2", "tiny-label"))
-    return _wrap("주사 투과전자현미경과 검출기", "가늘게 모은 전자 탐침으로 시료를 한 점씩 주사하며, 투과·산란 각도에 따라 BF, ADF, HAADF 검출기로 신호를 모은다.", 416, "".join(out))
+    return _wrap("STEM과 검출기", "가늘게 모은 전자 탐침으로 시료를 한 점씩 주사하며, 투과·산란 각도에 따라 BF, ADF, HAADF 검출기로 신호를 모은다.", 416, "".join(out))
 
 
 def _hex_spots(cx, cy, g, rot=0.0, n=2, labels=True, r0=5.0):
@@ -256,7 +256,7 @@ def fft(args):
     out.append(panel(380, 40, 320, 270, "FFT(역공간)") + clip("ff2", 380, 40, 320, 270))
     out.append('<g clip-path="url(#ff2)"><rect x="380" y="40" width="320" height="270" style="fill:var(--text);opacity:.9"/>' + _hex_spots(540, 175, 56, math.pi / 6, 1) + "</g>")
     out.append('<text class="tiny-label" x="540" y="298" text-anchor="middle" style="fill:#fff">점까지 거리 = 1/d, 방향 = 면의 법선</text>')
-    return _wrap("고분해능 영상과 FFT", "주기적인 격자 영상을 푸리에 변환하면 격자 주기와 방향을 나타내는 점 무늬가 생긴다.", 322, "".join(out))
+    return _wrap("HRTEM image and FFT", "주기적인 격자 영상을 푸리에 변환하면 격자 주기와 방향을 나타내는 점 무늬가 생긴다.", 322, "".join(out))
 
 
 def moire(args):
@@ -325,9 +325,9 @@ def dftem(args):
     out.append(poly([(560, 60), (680, 60), (680, 230), (600, 260), (520, 170)], "", "fill:var(--amber);opacity:.9"))
     out.append(poly([(400, 210), (520, 170), (600, 260), (680, 230), (680, 300), (400, 300)], "", "fill:var(--surface-2);opacity:.2"))
     out.append(label(620, 160, "선택한 결정립", "label-strong"))
-    return _wrap("암시야 투과전자현미경", "회절 무늬에서 특정 회절점 하나만 대물 조리개로 통과시켜 영상을 만들면, 그 방향으로 회절하는 결정립만 밝게 보인다.", 332, "".join(out))
+    return _wrap("DF-TEM", "회절 무늬에서 특정 회절점 하나만 대물 조리개로 통과시켜 영상을 만들면, 그 방향으로 회절하는 결정립만 밝게 보인다.", 332, "".join(out))
 
 
 KINDS = {"xrd": xrd, "라만대칭": raman_shift, "eels": eels, "라만준위": raman_levels, "포논": phonon, "광전자": photoelectron,
-         "화학적이동": chem_shift, "eds": eds, "tem": tem, "stem": stem, "saed": saed, "fft": fft, "모아레": moire,
+         "chemical shift": chem_shift, "eds": eds, "tem": tem, "stem": stem, "saed": saed, "fft": fft, "모아레": moire,
          "afm": afm, "moke": moke, "암시야": dftem}

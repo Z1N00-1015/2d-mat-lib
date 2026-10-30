@@ -1,5 +1,5 @@
 ---
-title: 음의 정전용량 전계효과 트랜지스터
+title: NCFET
 en: negative-capacitance field-effect transistor, NCFET
 category: 소자
 status: 초안
@@ -22,7 +22,7 @@ sources:
 ---
 ## 아이디어
 
-**음의 정전용량 FET**(NCFET)는 게이트 적층에 강유전체를 직렬로 넣어, 강유전체가 ‘음의 정전용량’처럼 동작하는 영역을 이용해 채널에 걸리는 전압을 게이트 전압보다 크게 만드는 트랜지스터입니다(Salahuddin & Datta 2008). 내부 전압이 증폭되면 [[문턱전압이하 스윙]]이 60 mV/dec 한계보다 작아질 수 있습니다.
+**NCFET**(negative-capacitance field-effect transistor)는 게이트 적층에 강유전체를 직렬로 넣어, 강유전체가 ‘음의 정전용량’처럼 동작하는 영역을 이용해 채널에 걸리는 전압을 게이트 전압보다 크게 만드는 트랜지스터입니다(Salahuddin & Datta 2008). 내부 전압이 증폭되면 [[subthreshold swing]]이 60 mV/dec 한계보다 작아질 수 있습니다.
 
 ## 음의 정전용량이란
 

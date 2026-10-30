@@ -1,9 +1,9 @@
 ---
-title: 고각 환형 암시야 영상
+title: HAADF imaging
 en: high-angle annular dark-field, HAADF
 category: 분석법
 status: 초안
-summary: 주사 투과전자현미경에서 고각 산란 전자를 환형 검출기로 모으는 영상 방식. 원자 번호에 따른 대비를 제공하지만 두께와 정렬의 영향도 받는다.
+summary: STEM에서 고각 산란 전자를 환형 검출기로 모으는 영상 방식. 원자 번호에 따른 대비를 제공하지만 두께와 정렬의 영향도 받는다.
 papers: krivanek2010, zhou2013defects, lin2014phase, weston2020
 reviewed: 2026-10-30
 info:
@@ -21,7 +21,7 @@ sources:
 ---
 ## 정의
 
-**고각 환형 암시야**(high-angle annular dark-field, HAADF) 영상은 [[주사 투과전자현미경|STEM]]에서 큰 각도(대략 50 mrad 이상)로 산란된 전자만 고리 모양 검출기로 모아 만든 영상입니다(Williams & Carter).
+**HAADF imaging**은 [[STEM|STEM]]에서 큰 각도(대략 50 mrad 이상)로 산란된 전자만 고리 모양 검출기로 모아 만든 영상입니다(Williams & Carter).
 
 {{그림: stem | HAADF 검출기는 가장 바깥 고리로, 원자핵 가까이에서 크게 꺾인 전자를 모읍니다.}}
 
@@ -36,4 +36,4 @@ sources:
 
 ## 주의할 점
 
-가벼운 원자(B, C, N)는 신호가 약해 HAADF보다 중간 각도의 [[환형 암시야 주사 투과전자현미경|ADF]]가 유리할 때가 많습니다(Krivanek 2010). 밝기로 원소를 판단할 때는 두께와 오염층의 영향을 함께 따져야 합니다.
+가벼운 원자(B, C, N)는 신호가 약해 HAADF보다 중간 각도의 [[ADF-STEM|ADF]]가 유리할 때가 많습니다(Krivanek 2010). 밝기로 원소를 판단할 때는 두께와 오염층의 영향을 함께 따져야 합니다.

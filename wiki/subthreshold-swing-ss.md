@@ -1,5 +1,5 @@
 ---
-title: 문턱전압이하 스윙
+title: subthreshold swing
 en: subthreshold swing, SS
 category: 소자
 status: 초안
@@ -10,7 +10,7 @@ info:
 - 정의 | I_D를 10배 바꾸는 데 필요한 게이트 전압
 - 이론 하한(300 K, MOSFET) | 약 60 mV/dec = (kT/q)·ln10
 - 작을수록 | 낮은 전압·낮은 누설로 스위칭
-- 넘는 방법 | 터널 FET, 음의 정전용량 FET
+- 넘는 방법 | tunnel FET, NCFET
 figures:
 - 전달곡선
 sources:
@@ -23,7 +23,7 @@ sources:
 ---
 ## 정의
 
-**문턱전압이하 스윙**(subthreshold swing, SS)은 트랜지스터가 꺼진 상태에서 켜지는 사이(문턱전압 아래)에서 드레인 전류를 10배 늘리는 데 필요한 게이트 전압입니다.
+**subthreshold swing**(subthreshold swing, SS)은 트랜지스터가 꺼진 상태에서 켜지는 사이(문턱전압 아래)에서 드레인 전류를 10배 늘리는 데 필요한 게이트 전압입니다.
 
 **SS = dV_G / d(log₁₀ I_D)** (단위 mV/dec)
 
@@ -45,6 +45,6 @@ SS = (kT/q) · ln10 · (1 + C_d/C_ox) ≥ 약 60 mV/dec (300 K)
 
 - 원자층 채널은 게이트 제어가 좋아 짧은 채널에서도 SS가 이론값에 가깝게 유지됩니다. 게이트 길이 1 nm MoS₂ 트랜지스터에서도 약 65 mV/dec가 보고되었습니다(Desai 2016).
 - **터널 FET**: 장벽을 넘는 대신 밴드 사이를 터널링해 볼츠만 꼬리를 잘라 냅니다. MoS₂/Ge 터널 FET에서 60 mV/dec보다 작은 SS가 여러 자릿수에 걸쳐 관측되었습니다(Sarkar 2015, Ionescu 2011).
-- **[[음의 정전용량 전계효과 트랜지스터|음의 정전용량 FET]]**: 강유전체로 채널 전압을 증폭해 SS를 낮춥니다(Salahuddin & Datta 2008, Si 2018).
+- **[[NCFET]]**: 강유전체로 채널 전압을 증폭해 SS를 낮춥니다(Salahuddin & Datta 2008, Si 2018).
 
 측정할 때는 전류 몇 자릿수 구간에서 구했는지, 이력(정방향/역방향)이 있는지 함께 밝혀야 공정하게 비교할 수 있습니다.

@@ -53,7 +53,7 @@ SRC = ROOT / "wiki"
 OUT = ROOT / "chapters" / "wiki"
 INDEX_JSON = ROOT / "data" / "wiki-index.json"
 PAPERS = SRC / "_papers.txt"
-MY_PAPERS = SRC / "_my_papers.txt"   # 참여 논문 키 목록(대표 논문 맨 앞에 표시)
+MY_PAPERS = SRC / "_my_papers.txt"   # 우선 표시 논문 키 목록(표시 형식은 동일)
 EDIT_URL = "https://github.com/z1n00-1015/2d-mat-lib/edit/main/wiki/{0}.md"
 NEW_URL = "https://github.com/z1n00-1015/2d-mat-lib/new/main/wiki"
 CATEGORY_ORDER = ["물질", "결정학", "전자 구조", "물성", "공정", "분석법", "소자", "연구 분야", "기타"]
@@ -408,15 +408,14 @@ def render_doc(doc, docs, lookup, backlinks, chapters, papers):
                      '원리, 2D 물질에서의 의미, 관련 연구를 출처와 함께 채워 주세요.</p></div>')
     keys = [k for k in doc["papers"] if k in papers]
     own = [k for k in keys if k in MY]
-    rest = [k for k in keys if k not in MY][:max(2, 6 - len(own))]   # 참여 논문은 모두, 나머지는 최소 2편·합계 6편까지
+    rest = [k for k in keys if k not in MY][:max(2, 6 - len(own))]   # 우선 논문 뒤에 일반 논문을 같은 형식으로 표시
     picked = [papers[k] for k in own + rest]
     if picked:
         rows = []
         for p in picked:
-            mine = p["key"] in MY
-            rows.append('<li{5}><span class="wp-desc">{6}{0}</span> <a href="https://doi.org/{1}" target="_blank" rel="noopener">{2}, <i>{3}</i> ({4}) ↗</a></li>'.format(
+            rows.append('<li><span class="wp-desc">{0}</span> <a href="https://doi.org/{1}" target="_blank" rel="noopener">{2}, <i>{3}</i> ({4}) ↗</a></li>'.format(
                 html.escape(p["desc"]), html.escape(p["doi"]), html.escape(p["authors"]), html.escape(p["journal"]), html.escape(p["year"]),
-                ' class="is-own"' if mine else "", '<span class="wp-own">참여 논문</span>' if mine else ""))
+                ))
         parts.append('<h2>대표 논문</h2>\n<ul class="wiki-papers">{0}</ul>'.format("".join(rows)))
     rel = []
     for name in doc["related"]:

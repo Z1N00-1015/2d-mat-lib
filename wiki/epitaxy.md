@@ -5,7 +5,7 @@ category: 결정학
 status: 초안
 summary: 기판의 결정 방위를 따라 단결정 박막을 성장시키는 것.
 chapter: materials/single-crystal-growth
-papers: moon2025, kim2026strain, koma1992, kim2017remote, li2021sapphire, wang2019hbn
+papers: kim2026strain, moon2025, koma1992, kim2017remote, li2021sapphire, wang2019hbn
 reviewed: 2026-10-30
 info:
 - 정의 | 기판 결정 방위를 따라 결정 막을 키움
@@ -30,7 +30,7 @@ sources:
 ## 종류
 
 - **공유결합(전통) 에피택시**: 막과 기판이 강하게 결합합니다. [[격자 불일치]]가 크면 변형과 전위가 생깁니다.
-- **반데르발스 에피택시**: 층상 물질은 표면에 댕글링 본드가 없어 기판과 약하게 붙으므로, 격자 차이가 커도 자기 격자상수를 유지하며 방향만 정렬해 자랍니다(Koma 1992).
+- **[[van der Waals epitaxy]]**: 층상 물질은 표면에 dangling bond가 적어 기판과 약하게 결합하므로, 격자 불일치의 영향을 줄이면서 성장막의 방위를 정렬할 수 있습니다(Koma 1992).
 - **remote epitaxy**: 기판 위에 그래핀 한 층을 덮어도 기판의 퍼텐셜이 그래핀을 통과해 막의 방위를 정하고, 다 키운 막을 그래핀에서 쉽게 떼어 낼 수 있습니다(Kim 2017).
 - **[[하이포택시]]**: 그래핀 템플릿 아래에서 막을 키워 방위를 맞춥니다(Moon 2025).
 
